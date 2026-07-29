@@ -1,0 +1,357 @@
+.form {
+  --form-ink: var(--ink, #101722);
+  --form-paper: var(--canvas, #f7f9fc);
+  --form-white: var(--paper, #ffffff);
+  --form-blue: var(--blue, #7cb0ff);
+  --form-blue-deep: var(--blue-deep, #123968);
+  --form-yellow: var(--yellow, #fec302);
+  --form-muted: var(--muted, #5d6672);
+  --form-line: var(--line, #d9dde2);
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  color: var(--form-ink);
+  font-family: var(--body, "Inter", sans-serif);
+}
+
+.header {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--form-blue-deep);
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 19ch;
+  margin: 0;
+  font-family: var(--display, "Instrument Sans", sans-serif);
+  font-size: clamp(1.75rem, 4vw, 2.65rem);
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.intro {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--form-muted);
+  line-height: 1.65;
+}
+
+.group {
+  display: grid;
+  gap: 1.1rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.group + .group {
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--form-line);
+}
+
+.legend {
+  margin-bottom: 0.25rem;
+  padding: 0;
+  font-family: var(--display, "Instrument Sans", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.grid {
+  display: grid;
+  gap: 1.1rem;
+  min-width: 0;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+}
+
+.label {
+  width: fit-content;
+  font-size: 0.9rem;
+  font-weight: 680;
+  line-height: 1.35;
+}
+
+.optional {
+  color: var(--form-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.helper,
+.error {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.helper {
+  color: var(--form-muted);
+}
+
+.error {
+  color: #a61b1b;
+  font-weight: 620;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid color-mix(in srgb, var(--form-ink) 24%, var(--form-line));
+  border-radius: 0.7rem;
+  outline: none;
+  color: var(--form-ink);
+  background: var(--form-white);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.input,
+.select {
+  padding: 0.72rem 0.85rem;
+}
+
+.textarea {
+  min-height: 8.5rem;
+  padding: 0.8rem 0.85rem;
+  resize: vertical;
+}
+
+.textareaLarge {
+  min-height: 11rem;
+}
+
+.input:hover,
+.select:hover,
+.textarea:hover {
+  border-color: color-mix(in srgb, var(--form-ink) 48%, var(--form-line));
+}
+
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible {
+  border-color: var(--form-blue-deep);
+  box-shadow: 0 0 0 3px var(--form-blue-deep);
+}
+
+.invalid {
+  border-color: #a61b1b;
+}
+
+.invalid:focus-visible {
+  border-color: #a61b1b;
+  box-shadow: 0 0 0 3px rgb(166 27 27 / 18%);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: color-mix(in srgb, var(--form-muted) 78%, var(--form-white));
+}
+
+.summary {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--form-blue-deep) 24%, var(--form-line));
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--form-blue) 12%, var(--form-white));
+}
+
+.summaryLabel {
+  margin: 0;
+  color: var(--form-blue-deep);
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+
+.summaryText {
+  margin: 0;
+  color: color-mix(in srgb, var(--form-ink) 80%, var(--form-paper));
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.checkboxField {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.checkboxLabel {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  width: fit-content;
+  cursor: pointer;
+  color: color-mix(in srgb, var(--form-ink) 84%, var(--form-paper));
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0.12rem 0 0;
+  border-radius: 0.25rem;
+  accent-color: var(--form-blue-deep);
+}
+
+.checkbox:focus-visible {
+  outline: 3px solid var(--form-blue-deep);
+  outline-offset: 3px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.submit {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.3rem;
+  border: 1px solid var(--form-blue-deep);
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--form-white);
+  background: var(--form-blue-deep);
+  font: inherit;
+  font-size: 0.94rem;
+  font-weight: 750;
+  line-height: 1.2;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.submit:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--form-blue-deep) 82%, black);
+  background: color-mix(in srgb, var(--form-blue-deep) 88%, black);
+}
+
+.submit:focus-visible {
+  outline: 3px solid var(--form-blue-deep);
+  outline-offset: 3px;
+}
+
+.submit:disabled {
+  cursor: wait;
+  opacity: 0.52;
+}
+
+.spinner {
+  animation: spin 800ms linear infinite;
+}
+
+.notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: start;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 0.7rem;
+  outline: none;
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+
+.notice:focus-visible {
+  box-shadow: 0 0 0 3px var(--form-blue-deep);
+}
+
+.noticeSuccess {
+  border: 1px solid #87aa94;
+  color: #123e22;
+  background: #edf7f0;
+}
+
+.noticeError {
+  border: 1px solid #d79898;
+  color: #701212;
+  background: #fff3f3;
+}
+
+.notice p {
+  margin: 0;
+}
+
+.finePrint {
+  margin: 0;
+  color: var(--form-muted);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.finePrint a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.finePrint a:hover {
+  color: var(--form-blue-deep);
+}
+
+.finePrint a:focus-visible {
+  border-radius: 0.15rem;
+  outline: 3px solid var(--form-blue-deep);
+  outline-offset: 3px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 42rem) {
+  .gridTwo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .select,
+  .textarea,
+  .submit {
+    transition-duration: 0.01ms;
+  }
+
+  .spinner {
+    animation-duration: 1.6s;
+  }
+}

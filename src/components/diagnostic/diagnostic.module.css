@@ -1,0 +1,363 @@
+.diagnostic {
+  --diag-ink: var(--ink, #101722);
+  --diag-paper: var(--canvas, #f7f9fc);
+  --diag-white: var(--paper, #ffffff);
+  --diag-blue: var(--blue, #7cb0ff);
+  --diag-blue-deep: var(--blue-deep, #123968);
+  --diag-yellow: var(--yellow, #fec302);
+  --diag-muted: var(--muted, #5d6672);
+  --diag-line: var(--line, #d9dde2);
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  width: 100%;
+  color: var(--diag-ink);
+  font-family: var(--body, "Inter", sans-serif);
+}
+
+.header {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--diag-blue-deep);
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 18ch;
+  margin: 0;
+  font-family: var(--display, "Instrument Sans", sans-serif);
+  font-size: clamp(2rem, 5vw, 3.85rem);
+  font-weight: 560;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.intro {
+  max-width: 43rem;
+  margin: 0;
+  color: var(--diag-muted);
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  line-height: 1.7;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.progressLabel,
+.progressValue {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.progressLabel {
+  color: var(--diag-blue-deep);
+}
+
+.progressValue {
+  color: var(--diag-muted);
+}
+
+.progress {
+  width: 100%;
+  height: 0.42rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: var(--diag-line);
+}
+
+.progress::-webkit-progress-bar {
+  border-radius: 999px;
+  background: var(--diag-line);
+}
+
+.progress::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--diag-blue-deep);
+}
+
+.progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--diag-blue-deep);
+}
+
+.question {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  border: 1px solid var(--diag-line);
+  border-radius: 1.1rem;
+  background: var(--diag-white);
+}
+
+.legend {
+  max-width: 32ch;
+  margin: 0;
+  padding: 0;
+  font-family: var(--display, "Instrument Sans", sans-serif);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 580;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.context {
+  max-width: 43rem;
+  margin: -0.65rem 0 0;
+  color: var(--diag-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.options {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.option {
+  position: relative;
+  display: flex;
+  min-height: 3.15rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--diag-ink) 22%, var(--diag-line));
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background: var(--diag-white);
+  font-size: 0.95rem;
+  font-weight: 650;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.option:hover {
+  border-color: var(--diag-blue-deep);
+  background: color-mix(in srgb, var(--diag-blue) 9%, var(--diag-white));
+}
+
+.radio {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  margin: 0;
+  accent-color: var(--diag-blue-deep);
+}
+
+.radio:focus-visible {
+  outline: 3px solid var(--diag-blue-deep);
+  outline-offset: 3px;
+}
+
+.option:has(.radio:checked) {
+  border-color: var(--diag-blue-deep);
+  background: color-mix(in srgb, var(--diag-blue) 16%, var(--diag-white));
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.controlGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.primaryButton,
+.secondaryButton,
+.textButton {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 720;
+  line-height: 1.2;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.primaryButton {
+  padding: 0.8rem 1.25rem;
+  border: 1px solid var(--diag-blue-deep);
+  color: var(--diag-white);
+  background: var(--diag-blue-deep);
+}
+
+.secondaryButton {
+  padding: 0.8rem 1.15rem;
+  border: 1px solid color-mix(in srgb, var(--diag-ink) 30%, var(--diag-line));
+  color: var(--diag-ink);
+  background: transparent;
+}
+
+.textButton {
+  padding: 0.8rem 0.5rem;
+  border: 1px solid transparent;
+  color: var(--diag-muted);
+  background: transparent;
+}
+
+.primaryButton:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--diag-blue-deep) 82%, black);
+  background: color-mix(in srgb, var(--diag-blue-deep) 88%, black);
+}
+
+.secondaryButton:hover:not(:disabled),
+.textButton:hover:not(:disabled) {
+  border-color: var(--diag-ink);
+  color: var(--diag-ink);
+  background: var(--diag-white);
+}
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.textButton:focus-visible {
+  outline: 3px solid var(--diag-blue-deep);
+  outline-offset: 3px;
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.result {
+  display: grid;
+  gap: 1.75rem;
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+  border: 1px solid color-mix(in srgb, var(--diag-blue-deep) 32%, var(--diag-line));
+  border-radius: 1.1rem;
+  outline: none;
+  background: var(--diag-white);
+}
+
+.result:focus-visible {
+  box-shadow: 0 0 0 3px var(--diag-blue-deep);
+}
+
+.resultLabel {
+  margin: 0;
+  color: var(--diag-blue-deep);
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.resultTitle {
+  max-width: 24ch;
+  margin: 0.6rem 0 0;
+  font-family: var(--display, "Instrument Sans", sans-serif);
+  font-size: clamp(1.65rem, 4vw, 2.8rem);
+  font-weight: 570;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.resultIntro {
+  max-width: 45rem;
+  margin: 0.85rem 0 0;
+  color: var(--diag-muted);
+  line-height: 1.65;
+}
+
+.dimensionList {
+  display: grid;
+  gap: 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dimensionHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.dimensionLabel {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.dimensionSignal {
+  color: var(--diag-muted);
+  font-size: 0.76rem;
+  font-weight: 620;
+  text-align: right;
+}
+
+.track {
+  height: 0.52rem;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--diag-line);
+}
+
+.bar {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--diag-blue-deep);
+}
+
+.disclaimer {
+  margin: 0;
+  color: var(--diag-muted);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.flow {
+  display: grid;
+  gap: clamp(4rem, 9vw, 7rem);
+}
+
+.formPanel {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--diag-line);
+  border-radius: 1.15rem;
+  background: var(--diag-white);
+}
+
+@media (min-width: 38rem) {
+  .options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option,
+  .primaryButton,
+  .secondaryButton,
+  .textButton {
+    transition-duration: 0.01ms;
+  }
+
+}

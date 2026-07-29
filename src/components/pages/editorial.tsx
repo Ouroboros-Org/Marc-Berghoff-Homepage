@@ -1,0 +1,173 @@
+import type { ReactNode } from "react";
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
+
+import styles from "./secondary-pages.module.css";
+
+type PageHeroProps = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  asideLabel?: string;
+  asideValue?: string;
+  asideNote?: string;
+  primary?: { label: string; href: string };
+  secondary?: { label: string; href: string };
+};
+
+export function PageHero({
+  eyebrow,
+  title,
+  lead,
+  asideLabel,
+  asideValue,
+  asideNote,
+  primary,
+  secondary,
+}: PageHeroProps) {
+  return (
+    <header className={styles.hero}>
+      <div className={`${styles.container} ${styles.heroGrid}`}>
+        <div className={styles.heroCopy}>
+          <p className={styles.eyebrow}>{eyebrow}</p>
+          <h1 className={styles.heroTitle}>{title}</h1>
+          <p className={styles.heroLead}>{lead}</p>
+          {(primary || secondary) && (
+            <div className={styles.buttonRow}>
+              {primary && (
+                <Link className={styles.primaryButton} href={primary.href}>
+                  {primary.label}
+                  <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
+                </Link>
+              )}
+              {secondary && (
+                <Link className={styles.secondaryButton} href={secondary.href}>
+                  {secondary.label}
+                </Link>
+              )}
+            </div>
+          )}
+        </div>
+        {asideLabel && asideValue && (
+          <aside className={styles.heroAside} aria-label={`${asideLabel}: ${asideValue}`}>
+            <p className={styles.heroAsideLabel}>{asideLabel}</p>
+            <p className={styles.heroAsideValue}>{asideValue}</p>
+            {asideNote ? <p className={styles.heroAsideNote}>{asideNote}</p> : null}
+          </aside>
+        )}
+      </div>
+    </header>
+  );
+}
+
+type SectionHeadingProps = {
+  id?: string;
+  kicker?: string;
+  title: string;
+  intro?: string;
+};
+
+export function SectionHeading({ id, kicker, title, intro }: SectionHeadingProps) {
+  return (
+    <div className={styles.sectionHeader}>
+      {kicker && <p className={styles.sectionKicker}>{kicker}</p>}
+      <h2 className={styles.sectionTitle} id={id}>{title}</h2>
+      {intro && <p className={styles.sectionIntro}>{intro}</p>}
+    </div>
+  );
+}
+
+export function PlainList({ items }: { items: readonly string[] }) {
+  return (
+    <ul className={styles.plainList}>
+      {items.map((item) => (
+        <li className={styles.plainListItem} key={item}>
+          <span className={styles.plainListMarker} aria-hidden="true">
+            <Check size={13} strokeWidth={2.5} />
+          </span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function CheckList({ items }: { items: readonly string[] }) {
+  return (
+    <ul className={styles.checkList}>
+      {items.map((item) => (
+        <li className={styles.checkListItem} key={item}>
+          <Check className={styles.checkIcon} aria-hidden="true" size={19} strokeWidth={2} />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function ProcessList({
+  steps,
+}: {
+  steps: readonly { title: string; description: string }[];
+}) {
+  return (
+    <ol className={styles.processList}>
+      {steps.map((step) => (
+        <li className={styles.processItem} key={step.title}>
+          <span className={styles.stepNumber} aria-hidden="true" />
+          <div className={styles.processContent}>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function Evidence({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <aside className={styles.evidence}>
+      <p className={styles.evidenceLabel}>{label}</p>
+      <p className={styles.evidenceText}>{children}</p>
+    </aside>
+  );
+}
+
+export function ContactBand({
+  title,
+  text,
+  href = "/contact",
+  label = "Request a conversation",
+}: {
+  title: string;
+  text: string;
+  href?: string;
+  label?: string;
+}) {
+  return (
+    <aside className={styles.contactBand} aria-label="Next step">
+      <div className={`${styles.container} ${styles.contactBandGrid}`}>
+        <div>
+          <h2 className={styles.contactBandTitle}>{title}</h2>
+          <p className={styles.contactBandText}>{text}</p>
+        </div>
+        <Link className={styles.primaryButton} href={href}>
+          {label}
+          <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
+        </Link>
+      </div>
+    </aside>
+  );
+}
+
+export function TextLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link className={styles.textLink} href={href}>
+      {children}
+      <ArrowRight aria-hidden="true" size={17} strokeWidth={1.8} />
+    </Link>
+  );
+}
+
+export { styles as secondaryPageStyles };
