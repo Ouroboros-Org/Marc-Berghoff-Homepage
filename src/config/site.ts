@@ -39,8 +39,8 @@ function parseVercelUrl(configured: string | null | undefined) {
 
 export function getSiteUrl(
   configured: string | null | undefined = process.env.NEXT_PUBLIC_SITE_URL,
-  vercelProductionUrl: string | null | undefined =
-    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+  vercelProductionUrl: string | null | undefined = process.env
+    .VERCEL_PROJECT_PRODUCTION_URL,
   vercelDeploymentUrl: string | null | undefined = process.env.VERCEL_URL,
 ) {
   return (
@@ -70,8 +70,8 @@ export const siteConfig = {
     "Marc Berghoff helps founders and leadership teams find the organisational bottleneck slowing execution and decide what to fix first.",
   contact: {
     email: "m.berghoff@hx-solutions.de",
-    phoneDisplay: "+356 7952 4891",
-    phoneHref: "+35679524891",
+    phoneDisplay: "+00 000 0000 0000",
+    phoneHref: "+00 000 0000 0000",
     bookingUrl: getBookingUrl(),
   },
   social: {
@@ -89,27 +89,32 @@ export const serviceNavigation = [
   {
     href: "/services",
     label: "All services",
-    description: "Compare the four ways Marc can support a live business question.",
+    description:
+      "Compare the four ways Marc can support a live business question.",
   },
   {
     href: "/bottleneck-assessment",
     label: "Bottleneck assessment",
-    description: "Find the main organisational constraint before choosing an intervention.",
+    description:
+      "Find the main organisational constraint before choosing an intervention.",
   },
   {
     href: "/advisory",
     label: "Strategic people advisory",
-    description: "Work through a defined people or organisation decision with an outside view.",
+    description:
+      "Work through a defined people or organisation decision with an outside view.",
   },
   {
     href: "/fractional-people-leadership",
     label: "Fractional people leadership",
-    description: "Add temporary senior ownership while the permanent capability takes shape.",
+    description:
+      "Add temporary senior ownership while the permanent capability takes shape.",
   },
   {
     href: "/executive-coaching",
     label: "Executive coaching",
-    description: "Confidential one-to-one work on a decision or leadership pattern.",
+    description:
+      "Confidential one-to-one work on a decision or leadership pattern.",
   },
 ] as const satisfies readonly NavigationLink[];
 
@@ -117,7 +122,8 @@ export const assessmentNavigation = [
   {
     href: "/bottleneck-assessment",
     label: "The assessment",
-    description: "See the scope, process, fee and six-question directional check.",
+    description:
+      "See the scope, process, fee and six-question directional check.",
   },
   {
     href: "/results",
@@ -135,27 +141,32 @@ export const insightNavigation = [
   {
     href: "/blog",
     label: "All insights",
-    description: "Articles on organisational bottlenecks, decision rights and leadership work.",
+    description:
+      "Articles on organisational bottlenecks, decision rights and leadership work.",
   },
   {
     href: "/blog/founder-bottleneck-or-operating-model",
     label: "Founder bottleneck or operating model?",
-    description: "Distinguish personal delegation problems from structural ambiguity.",
+    description:
+      "Distinguish personal delegation problems from structural ambiguity.",
   },
   {
     href: "/blog/role-clarity-is-not-a-job-description",
     label: "Role clarity beyond job descriptions",
-    description: "Look at decisions, hand-offs and working agreements rather than documents alone.",
+    description:
+      "Look at decisions, hand-offs and working agreements rather than documents alone.",
   },
   {
     href: "/blog/when-fractional-people-leadership-makes-sense",
     label: "When fractional leadership fits",
-    description: "Recognise when the agenda needs an owner before it needs a permanent hire.",
+    description:
+      "Recognise when the agenda needs an owner before it needs a permanent hire.",
   },
   {
     href: "/blog/executive-coaching-advisory-or-assessment",
     label: "Coaching, advisory or assessment?",
-    description: "Choose a proportionate format based on where the uncertainty sits.",
+    description:
+      "Choose a proportionate format based on where the uncertainty sits.",
   },
 ] as const satisfies readonly NavigationLink[];
 
@@ -163,7 +174,8 @@ export const aboutNavigation = [
   {
     href: "/about",
     label: "About Marc",
-    description: "Read about Marc's psychology, operator and coaching background.",
+    description:
+      "Read about Marc's psychology, operator and coaching background.",
   },
   {
     href: "/contact/message",
@@ -189,7 +201,8 @@ export const headerNavigation = [
     id: "assessment",
     label: "Assessment & proof",
     href: "/bottleneck-assessment",
-    description: "Understand the diagnostic, its output and the experience behind it.",
+    description:
+      "Understand the diagnostic, its output and the experience behind it.",
     items: assessmentNavigation,
   },
   {

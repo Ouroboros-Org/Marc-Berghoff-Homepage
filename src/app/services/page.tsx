@@ -104,7 +104,9 @@ export default function ServicesPage() {
         title="Match the format to the question."
         lead="Use the assessment when the cause is uncertain. Advisory, fractional leadership and coaching each begin with a more defined question. The first conversation is free, and there is no required sequence."
         primary={{ label: "Request a free conversation", href: "/contact" }}
+        ctaPrimary={true}
         secondary={{ label: "Try the six-question check", href: "/#diagnostic" }}
+        ctaSecondary={true}
       />
 
       <section className={pageStyles.section} aria-labelledby="service-options">

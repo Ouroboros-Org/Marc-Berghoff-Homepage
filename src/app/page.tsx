@@ -113,7 +113,7 @@ export default function HomePage() {
               <ButtonLink cta href="/contact/message">
                 Send a quick message
               </ButtonLink>
-              <ButtonLink href="#diagnostic" variant="secondary">
+              <ButtonLink cta href="#diagnostic" variant="secondary">
                 Run the six-question check
               </ButtonLink>
             </div>

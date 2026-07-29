@@ -94,6 +94,7 @@ export default function BottleneckAssessmentPage() {
         asideValue="€3,500"
         asideNote="Participant scope, travel and applicable tax are agreed in advance."
         primary={{ label: "Request a free conversation", href: "/contact" }}
+        ctaPrimary={true}
         secondary={{ label: "See the report structure", href: "/sample-report" }}
       />
 

@@ -35,6 +35,7 @@ export default function ResultsPage() {
         asideLabel="Coaching practice"
         asideValue="350+ hours"
         primary={{ label: "Request a free conversation", href: "/contact" }}
+        ctaPrimary={true}
         secondary={{ label: "Compare services", href: "/services" }}
       />
 

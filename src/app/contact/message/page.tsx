@@ -26,7 +26,9 @@ export default function MessagePage() {
         title="A few lines are enough to start."
         lead="Use this route for a straightforward question or first introduction. If the issue needs company context, timing and a desired outcome, use the detailed enquiry instead."
         primary={{ label: "Write your message", href: "#message-form" }}
+        ctaPrimary={true}
         secondary={{ label: "Share more context", href: "/contact" }}
+        ctaSecondary={true}
       />
 
       <section className={styles.section} aria-label="Send Marc Berghoff a message">

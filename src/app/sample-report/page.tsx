@@ -59,6 +59,7 @@ export default function SampleReportPage() {
         asideLabel="Format"
         asideValue="Written report + report workshop"
         primary={{ label: "Request a free conversation", href: "/contact" }}
+        ctaPrimary={true}
         secondary={{ label: "Assessment details", href: "/bottleneck-assessment" }}
       />
 

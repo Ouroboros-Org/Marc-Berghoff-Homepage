@@ -58,6 +58,7 @@ export default function BlogPage() {
         title="Notes on problems that keep returning."
         lead="Marc writes about founder dependency, blurred decision rights and the point where a leadership problem becomes an organisational one."
         primary={{ label: "Run the six-question check", href: "/#diagnostic" }}
+        ctaPrimary={true}
         secondary={{ label: "Compare services", href: "/services" }}
       />
 

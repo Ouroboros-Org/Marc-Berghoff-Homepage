@@ -59,8 +59,10 @@ export default function AboutPage() {
         lead="Marc has an MSc in Psychology and has worked in people leadership, founder roles and executive coaching. He helps leadership teams examine the operating problems that sit behind recurring people issues."
         asideLabel="Based in"
         asideValue="Malta · international"
-        primary={{ label: "Request a free conversation", href: "/contact" }}
-        secondary={{ label: "See selected results", href: "/results" }}
+        primary={{ label: "Request a free conversation", href: "/contact", variant: "secondary" }}
+        ctaPrimary={true}
+        secondary={{ label: "See selected results", href: "/results", variant: "primary" }}
+        ctaSecondary={true}
       />
 
       <section className={styles.section} aria-label="Marc Berghoff biography">

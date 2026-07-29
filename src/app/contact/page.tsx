@@ -43,6 +43,7 @@ export default function ContactPage() {
         lead="Describe what is happening and what the team has tried. You can leave the explanation and choice of service open; Marc will read the note himself."
         asideLabel="First conversation"
         primary={{ label: "Send a quick message", href: "/contact/message" }}
+        ctaPrimary={true}
         asideValue="No charge · direct with Marc"
       />
 

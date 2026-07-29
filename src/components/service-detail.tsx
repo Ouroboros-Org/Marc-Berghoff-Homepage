@@ -51,6 +51,7 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
         title={service.title}
         lead={service.summary}
         primary={{ label: "Request a free conversation", href: "/contact" }}
+        ctaPrimary={true}
         secondary={{ label: "Compare all services", href: "/services" }}
       />
 

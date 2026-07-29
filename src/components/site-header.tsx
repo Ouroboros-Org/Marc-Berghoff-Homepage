@@ -12,6 +12,34 @@ import { SiteLogo } from "./site-logo";
 
 type PathBoundState = { value: string; pathname: string } | null;
 
+export function isCurrentNavigationPage(pathname: string, href: string) {
+  return pathname === href;
+}
+
+export function getActiveHeaderGroupId(pathname: string) {
+  const containsPath = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
+
+  return (
+    headerNavigation.find((group) => containsPath(group.href))?.id ??
+    headerNavigation.find((group) =>
+      group.items.some((item) => containsPath(item.href)),
+    )?.id ??
+    null
+  );
+}
+
+export function isCurrentHeaderItem(
+  pathname: string,
+  groupId: string,
+  href: string,
+) {
+  return (
+    getActiveHeaderGroupId(pathname) === groupId &&
+    isCurrentNavigationPage(pathname, href)
+  );
+}
+
 function LinkedInIcon({ size = 20 }: { size?: number }) {
   return (
     <svg
@@ -39,14 +67,7 @@ export function SiteHeader() {
   const headerRef = useRef<HTMLElement>(null);
   const firstMobileControlRef = useRef<HTMLButtonElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-
-  const isActive = (href: string) =>
-    pathname === href ||
-    pathname.startsWith(`${href}/`) ||
-    (href === "/services" &&
-      ["/advisory", "/fractional-people-leadership", "/executive-coaching"].includes(
-        pathname,
-      ));
+  const activeGroupId = getActiveHeaderGroupId(pathname);
 
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 54.001rem)");
@@ -164,7 +185,7 @@ export function SiteHeader() {
         <nav className="desktop-nav" aria-label="Primary navigation">
           {headerNavigation.map((group) => {
             const open = openDesktopMenu === group.id;
-            const active = group.items.some((item) => isActive(item.href));
+            const active = activeGroupId === group.id;
             return (
               <div className="desktop-nav__group" key={group.id}>
                 <Button
@@ -264,7 +285,11 @@ export function SiteHeader() {
               >
                 {group.items.map((item) => (
                   <Link
-                    aria-current={isActive(item.href) ? "page" : undefined}
+                    aria-current={
+                      isCurrentHeaderItem(pathname, group.id, item.href)
+                        ? "page"
+                        : undefined
+                    }
                     className="desktop-submenu__link"
                     href={item.href}
                     key={item.href}
@@ -289,7 +314,7 @@ export function SiteHeader() {
           <p className="mobile-nav__eyebrow">Explore</p>
           {headerNavigation.map((group, index) => {
             const sectionOpen = openMobileSection === group.id;
-            const active = group.items.some((item) => isActive(item.href));
+            const active = activeGroupId === group.id;
             return (
               <div className="mobile-nav__section" key={group.id}>
                 <Button
@@ -317,6 +342,7 @@ export function SiteHeader() {
                   />
                 </Button>
                 <div
+                  aria-hidden={!sectionOpen}
                   className="mobile-nav__submenu"
                   data-open={sectionOpen || undefined}
                   id={`mobile-submenu-${group.id}`}
@@ -324,7 +350,11 @@ export function SiteHeader() {
                   <div className="mobile-nav__submenu-inner">
                     {group.items.map((item) => (
                       <Link
-                        aria-current={isActive(item.href) ? "page" : undefined}
+                        aria-current={
+                          isCurrentHeaderItem(pathname, group.id, item.href)
+                            ? "page"
+                            : undefined
+                        }
                         className="mobile-nav__link"
                         href={item.href}
                         key={item.href}

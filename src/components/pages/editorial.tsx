@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Check } from "lucide-react";
 
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
-import { ButtonLink } from "@/components/button";
+import { ButtonLink, type ButtonVariant } from "@/components/button";
 
 import styles from "./secondary-pages.module.css";
 
@@ -13,8 +13,10 @@ type PageHeroProps = {
   asideLabel?: string;
   asideValue?: string;
   asideNote?: string;
-  primary?: { label: string; href: string };
-  secondary?: { label: string; href: string };
+  primary?: { label: string; href: string; variant?: ButtonVariant };
+  ctaPrimary?: boolean;
+  secondary?: { label: string; href: string; variant?: ButtonVariant };
+  ctaSecondary?: boolean;
   breadcrumbs?: readonly BreadcrumbItem[];
 };
 
@@ -26,7 +28,9 @@ export function PageHero({
   asideValue,
   asideNote,
   primary,
+  ctaPrimary,
   secondary,
+  ctaSecondary,
   breadcrumbs,
 }: PageHeroProps) {
   return (
@@ -44,12 +48,12 @@ export function PageHero({
           {(primary || secondary) && (
             <div className={styles.buttonRow}>
               {primary && (
-                <ButtonLink cta href={primary.href}>
+                <ButtonLink cta={ctaPrimary ?? false} href={primary.href} variant={primary.variant ?? "primary"}>
                   {primary.label}
                 </ButtonLink>
               )}
               {secondary && (
-                <ButtonLink href={secondary.href} variant="secondary">
+                <ButtonLink cta={ctaSecondary ?? false} href={secondary.href} variant={secondary.variant ?? "secondary"}>
                   {secondary.label}
                 </ButtonLink>
               )}
