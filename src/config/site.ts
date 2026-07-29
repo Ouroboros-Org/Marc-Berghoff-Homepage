@@ -79,21 +79,136 @@ export const siteConfig = {
   },
 } as const;
 
-export const primaryNavigation = [
-  { href: "/services", label: "Services" },
-  { href: "/bottleneck-assessment", label: "The assessment" },
-  { href: "/results", label: "Results" },
-  { href: "/blog", label: "Insights" },
-  { href: "/about", label: "About" },
-] as const;
+export type NavigationLink = {
+  href: string;
+  label: string;
+  description: string;
+};
 
 export const serviceNavigation = [
-  { href: "/services", label: "All services" },
-  { href: "/bottleneck-assessment", label: "Bottleneck assessment" },
-  { href: "/advisory", label: "Strategic people advisory" },
+  {
+    href: "/services",
+    label: "All services",
+    description: "Compare the four ways Marc can support a live business question.",
+  },
+  {
+    href: "/bottleneck-assessment",
+    label: "Bottleneck assessment",
+    description: "Find the main organisational constraint before choosing an intervention.",
+  },
+  {
+    href: "/advisory",
+    label: "Strategic people advisory",
+    description: "Work through a defined people or organisation decision with an outside view.",
+  },
   {
     href: "/fractional-people-leadership",
     label: "Fractional people leadership",
+    description: "Add temporary senior ownership while the permanent capability takes shape.",
   },
-  { href: "/executive-coaching", label: "Executive coaching" },
+  {
+    href: "/executive-coaching",
+    label: "Executive coaching",
+    description: "Confidential one-to-one work on a decision or leadership pattern.",
+  },
+] as const satisfies readonly NavigationLink[];
+
+export const assessmentNavigation = [
+  {
+    href: "/bottleneck-assessment",
+    label: "The assessment",
+    description: "See the scope, process, fee and six-question directional check.",
+  },
+  {
+    href: "/results",
+    label: "Results & experience",
+    description: "Review selected operating, advisory and coaching experience.",
+  },
+  {
+    href: "/sample-report",
+    label: "Sample report structure",
+    description: "See how the written finding and evidence are organised.",
+  },
+] as const satisfies readonly NavigationLink[];
+
+export const insightNavigation = [
+  {
+    href: "/blog",
+    label: "All insights",
+    description: "Articles on organisational bottlenecks, decision rights and leadership work.",
+  },
+  {
+    href: "/blog/founder-bottleneck-or-operating-model",
+    label: "Founder bottleneck or operating model?",
+    description: "Distinguish personal delegation problems from structural ambiguity.",
+  },
+  {
+    href: "/blog/role-clarity-is-not-a-job-description",
+    label: "Role clarity beyond job descriptions",
+    description: "Look at decisions, hand-offs and working agreements rather than documents alone.",
+  },
+  {
+    href: "/blog/when-fractional-people-leadership-makes-sense",
+    label: "When fractional leadership fits",
+    description: "Recognise when the agenda needs an owner before it needs a permanent hire.",
+  },
+  {
+    href: "/blog/executive-coaching-advisory-or-assessment",
+    label: "Coaching, advisory or assessment?",
+    description: "Choose a proportionate format based on where the uncertainty sits.",
+  },
+] as const satisfies readonly NavigationLink[];
+
+export const aboutNavigation = [
+  {
+    href: "/about",
+    label: "About Marc",
+    description: "Read about Marc's psychology, operator and coaching background.",
+  },
+  {
+    href: "/contact/message",
+    label: "Send a quick message",
+    description: "Use the short form when a few lines are enough.",
+  },
+  {
+    href: "/contact",
+    label: "Detailed enquiry",
+    description: "Share company context, timing and the outcome you need.",
+  },
+] as const satisfies readonly NavigationLink[];
+
+export const headerNavigation = [
+  {
+    id: "services",
+    label: "Services",
+    href: "/services",
+    description: "Choose the format that matches the question.",
+    items: serviceNavigation,
+  },
+  {
+    id: "assessment",
+    label: "Assessment & proof",
+    href: "/bottleneck-assessment",
+    description: "Understand the diagnostic, its output and the experience behind it.",
+    items: assessmentNavigation,
+  },
+  {
+    id: "insights",
+    label: "Insights",
+    href: "/blog",
+    description: "Read practical notes on recurring organisational problems.",
+    items: insightNavigation,
+  },
+  {
+    id: "about",
+    label: "About & contact",
+    href: "/about",
+    description: "Meet Marc or choose the right way to get in touch.",
+    items: aboutNavigation,
+  },
 ] as const;
+
+export const primaryNavigation = headerNavigation.map(({ href, label }) => ({
+  href,
+  label,
+}));

@@ -1,7 +1,15 @@
 "use client";
 
 import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  type CSSProperties,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+
+import { Button } from "@/components/button";
 
 import {
   DIAGNOSTIC_QUESTIONS,
@@ -40,7 +48,10 @@ export function BottleneckDiagnostic({
   const [answers, setAnswers] = useState<Partial<DiagnosticAnswers>>({});
   const [questionIndex, setQuestionIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [direction, setDirection] = useState<"forward" | "back">("forward");
   const resultRef = useRef<HTMLDivElement>(null);
+  const questionRef = useRef<HTMLFieldSetElement>(null);
+  const hasNavigatedRef = useRef(false);
   const question = DIAGNOSTIC_QUESTIONS[questionIndex];
   const selectedAnswer = question ? answers[question.id] : undefined;
   const result = useMemo(
@@ -55,6 +66,11 @@ export function BottleneckDiagnostic({
     }
   }, [onComplete, result]);
 
+  useEffect(() => {
+    if (!hasNavigatedRef.current || showResult) return;
+    questionRef.current?.focus();
+  }, [questionIndex, showResult]);
+
   function selectAnswer(answer: DiagnosticAnswer) {
     if (!question) return;
     setAnswers((current) => ({ ...current, [question.id]: answer }));
@@ -62,6 +78,8 @@ export function BottleneckDiagnostic({
 
   function goForward() {
     if (!selectedAnswer) return;
+    hasNavigatedRef.current = true;
+    setDirection("forward");
     if (questionIndex === DIAGNOSTIC_QUESTIONS.length - 1) {
       setShowResult(true);
       return;
@@ -70,6 +88,8 @@ export function BottleneckDiagnostic({
   }
 
   function goBack() {
+    hasNavigatedRef.current = true;
+    setDirection("back");
     if (showResult) {
       setShowResult(false);
       setQuestionIndex(DIAGNOSTIC_QUESTIONS.length - 1);
@@ -79,6 +99,8 @@ export function BottleneckDiagnostic({
   }
 
   function reset() {
+    hasNavigatedRef.current = true;
+    setDirection("back");
     setAnswers({});
     setQuestionIndex(0);
     setShowResult(false);
@@ -91,10 +113,16 @@ export function BottleneckDiagnostic({
     if (!contactAnchorId) return;
     const target = document.getElementById(contactAnchorId);
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-    window.setTimeout(() => {
-      target?.querySelector<HTMLElement>("input:not([type='hidden']), textarea, select")?.focus();
-    }, reduceMotion ? 0 : 350);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        const summary = target?.querySelector<HTMLElement>("[data-diagnostic-summary]");
+        (summary ?? target)?.scrollIntoView({
+          behavior: reduceMotion ? "auto" : "smooth",
+          block: "center",
+        });
+        summary?.focus({ preventScroll: true });
+      });
+    });
   }
 
   const answeredCount = Object.keys(answers).length;
@@ -115,16 +143,35 @@ export function BottleneckDiagnostic({
           </p>
           <p className={styles.progressValue}>{answeredCount} answered</p>
         </div>
-        <progress
+        <div
           aria-label="Bottleneck check progress"
+          aria-valuemax={DIAGNOSTIC_QUESTIONS.length}
+          aria-valuemin={0}
+          aria-valuenow={progressValue}
           className={styles.progress}
-          max={DIAGNOSTIC_QUESTIONS.length}
-          value={progressValue}
-        />
+          role="progressbar"
+        >
+          <span
+            className={styles.progressFill}
+            style={
+              {
+                "--diagnostic-progress": `${
+                  (progressValue / DIAGNOSTIC_QUESTIONS.length) * 100
+                }%`,
+              } as CSSProperties
+            }
+          />
+        </div>
       </div>
 
       {result ? (
-        <div className={styles.result} ref={resultRef} tabIndex={-1}>
+        <div
+          className={`${styles.result} ${styles.stage}`}
+          data-direction="forward"
+          key="diagnostic-result"
+          ref={resultRef}
+          tabIndex={-1}
+        >
           <div>
             <p className={styles.resultLabel}>Your directional result</p>
             <h3 className={styles.resultTitle}>{result.headline}</h3>
@@ -159,25 +206,32 @@ export function BottleneckDiagnostic({
           <div className={styles.controls}>
             <div className={styles.controlGroup}>
               {onUseSummary ? (
-                <button className={styles.primaryButton} onClick={useSummary} type="button">
+                <Button cta onClick={useSummary}>
                   Include this in my message
                   <ArrowRight aria-hidden="true" size={17} />
-                </button>
+                </Button>
               ) : null}
-              <button className={styles.secondaryButton} onClick={goBack} type="button">
+              <Button onClick={goBack} variant="secondary">
                 <ArrowLeft aria-hidden="true" size={17} />
                 Review answers
-              </button>
+              </Button>
             </div>
-            <button className={styles.textButton} onClick={reset} type="button">
+            <Button onClick={reset} size="compact" variant="text">
               <RotateCcw aria-hidden="true" size={16} />
               Start over
-            </button>
+            </Button>
           </div>
         </div>
       ) : (
         <>
-          <fieldset aria-describedby={`${id}-context`} className={styles.question}>
+          <fieldset
+            aria-describedby={`${id}-context`}
+            className={`${styles.question} ${styles.stage}`}
+            data-direction={direction}
+            key={question.id}
+            ref={questionRef}
+            tabIndex={-1}
+          >
             <legend className={styles.legend}>{question.prompt}</legend>
             <p className={styles.context} id={`${id}-context`}>
               {question.context}
@@ -201,29 +255,26 @@ export function BottleneckDiagnostic({
 
           <div className={styles.controls}>
             <div className={styles.controlGroup}>
-              <button
-                className={styles.secondaryButton}
+              <Button
                 disabled={questionIndex === 0}
                 onClick={goBack}
-                type="button"
+                variant="secondary"
               >
                 <ArrowLeft aria-hidden="true" size={17} />
                 Back
-              </button>
-              <button
-                className={styles.primaryButton}
+              </Button>
+              <Button
                 disabled={!selectedAnswer}
                 onClick={goForward}
-                type="button"
               >
                 {questionIndex === DIAGNOSTIC_QUESTIONS.length - 1 ? "See result" : "Continue"}
                 <ArrowRight aria-hidden="true" size={17} />
-              </button>
+              </Button>
             </div>
-            <button className={styles.textButton} onClick={reset} type="button">
+            <Button onClick={reset} size="compact" variant="text">
               <RotateCcw aria-hidden="true" size={16} />
               Reset
-            </button>
+            </Button>
           </div>
         </>
       )}

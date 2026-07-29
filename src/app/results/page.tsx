@@ -25,6 +25,10 @@ export default function ResultsPage() {
   return (
     <div className={styles.page}>
       <PageHero
+        breadcrumbs={[
+          { label: "Assessment & proof", href: "/bottleneck-assessment" },
+          { label: "Results & experience" },
+        ]}
         eyebrow="Selected experience"
         title="Work carried out during demanding periods of growth."
         lead="The figures below belong to the companies and periods shown. Marc contributed in the stated role; the results had many causes and many people behind them."
@@ -90,6 +94,7 @@ export default function ResultsPage() {
       </section>
 
       <ContactBand
+        href="/contact/message"
         title="What is your leadership team dealing with now?"
         text="Share the recurring issue and what has already been tried. Marc will reply with a direct view on whether he can help."
       />

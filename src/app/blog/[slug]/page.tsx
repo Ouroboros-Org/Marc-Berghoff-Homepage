@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { ChevronRight } from "lucide-react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import {
   ContactBand,
   secondaryPageStyles as pageStyles,
@@ -137,11 +136,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <header className={styles.articleHeader}>
         <div className={styles.articleHeaderInner}>
-          <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <ChevronRight aria-hidden="true" size={14} />
-            <Link href="/blog">Insights</Link>
-          </nav>
+          <Breadcrumbs
+            className={styles.articleBreadcrumbs}
+            items={[
+              { label: "Insights", href: "/blog" },
+              { label: post.title },
+            ]}
+          />
           <p className={styles.articleCategory}>{post.category}</p>
           <h1 className={styles.articleTitle}>{post.title}</h1>
           <p className={styles.articleStandfirst}>{post.description}</p>

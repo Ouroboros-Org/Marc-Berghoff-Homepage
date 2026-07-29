@@ -7,7 +7,7 @@ import {
 } from "./contact-schema";
 
 describe("contactPayloadSchema", () => {
-  it("accepts a valid quick enquiry", () => {
+  it("accepts a valid quick message without organisational fields", () => {
     const payload = {
       ...quickContactDefaults(),
       fullName: "Alex Morgan",

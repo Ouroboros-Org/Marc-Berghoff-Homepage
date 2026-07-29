@@ -34,8 +34,6 @@ const quickPayload = {
   ),
   fullName: "Alex Morgan",
   email: "alex@example.com",
-  company: "Example Company",
-  service: "bottleneck-assessment" as const,
   message: "We need to clarify role ownership across two growing teams.",
   consent: true,
 };
@@ -78,9 +76,11 @@ describe("Google Forms payload mapping", () => {
     const config = readGoogleFormsConfig(validEnv);
     const body = buildGoogleFormsBody(quickPayload, config);
 
-    expect(body.get("entry.101")).toBe("Quick contact");
+    expect(body.get("entry.101")).toBe("Quick message");
     expect(body.get("entry.102")).toBe("Alex Morgan");
-    expect(body.get("entry.108")).toBe("Bottleneck assessment");
+    expect(body.get("entry.104")).toBe("");
+    expect(body.get("entry.105")).toBe("");
+    expect(body.get("entry.108")).toBe("");
     expect(body.get("entry.110")).toBe(quickPayload.message);
     expect(body.get("entry.114")).toBe(quickPayload.diagnosticSummary);
     expect(body.get("entry.115")).toBe("Yes");

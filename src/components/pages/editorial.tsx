@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
+
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
+import { ButtonLink } from "@/components/button";
 
 import styles from "./secondary-pages.module.css";
 
@@ -13,6 +15,7 @@ type PageHeroProps = {
   asideNote?: string;
   primary?: { label: string; href: string };
   secondary?: { label: string; href: string };
+  breadcrumbs?: readonly BreadcrumbItem[];
 };
 
 export function PageHero({
@@ -24,9 +27,15 @@ export function PageHero({
   asideNote,
   primary,
   secondary,
+  breadcrumbs,
 }: PageHeroProps) {
   return (
     <header className={styles.hero}>
+      {breadcrumbs?.length ? (
+        <div className={styles.container}>
+          <Breadcrumbs className={styles.heroBreadcrumbs} items={breadcrumbs} />
+        </div>
+      ) : null}
       <div className={`${styles.container} ${styles.heroGrid}`}>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>{eyebrow}</p>
@@ -35,15 +44,14 @@ export function PageHero({
           {(primary || secondary) && (
             <div className={styles.buttonRow}>
               {primary && (
-                <Link className={styles.primaryButton} href={primary.href}>
+                <ButtonLink cta href={primary.href}>
                   {primary.label}
-                  <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
-                </Link>
+                </ButtonLink>
               )}
               {secondary && (
-                <Link className={styles.secondaryButton} href={secondary.href}>
+                <ButtonLink href={secondary.href} variant="secondary">
                   {secondary.label}
-                </Link>
+                </ButtonLink>
               )}
             </div>
           )}
@@ -152,10 +160,9 @@ export function ContactBand({
           <h2 className={styles.contactBandTitle}>{title}</h2>
           <p className={styles.contactBandText}>{text}</p>
         </div>
-        <Link className={styles.primaryButton} href={href}>
+        <ButtonLink cta href={href} variant="inverse">
           {label}
-          <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
-        </Link>
+        </ButtonLink>
       </div>
     </aside>
   );
@@ -163,10 +170,9 @@ export function ContactBand({
 
 export function TextLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <Link className={styles.textLink} href={href}>
+    <ButtonLink href={href} variant="text">
       {children}
-      <ArrowRight aria-hidden="true" size={17} strokeWidth={1.8} />
-    </Link>
+    </ButtonLink>
   );
 }
 

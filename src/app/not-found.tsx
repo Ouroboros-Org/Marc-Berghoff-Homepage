@@ -1,4 +1,4 @@
-import { ButtonLink } from "@/components/button-link";
+import { ButtonLink } from "@/components/button";
 
 export default function NotFound() {
   return (

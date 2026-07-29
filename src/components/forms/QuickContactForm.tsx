@@ -13,7 +13,6 @@ import {
   DiagnosticSummaryField,
   INITIAL_SUBMIT_STATE,
   postContact,
-  SERVICE_OPTIONS,
   SubmitButton,
   SubmitNotice,
   type SubmitState,
@@ -23,7 +22,6 @@ import {
   BotTrapFields,
   ConsentField,
   FormInput,
-  FormSelect,
   FormTextarea,
 } from "./form-controls";
 
@@ -32,14 +30,16 @@ export type QuickContactFormProps = {
   title?: string;
   intro?: string;
   diagnosticSummary?: string;
+  onRemoveDiagnosticSummary?: () => void;
   className?: string;
 };
 
 export function QuickContactForm({
   id = "quick-contact",
-  title = "What keeps getting stuck?",
-  intro = "A short note is enough. Marc reads each enquiry and replies himself.",
+  title = "Send Marc a message.",
+  intro = "Your name, email and a short note are enough. Marc reads each message and replies himself.",
   diagnosticSummary = "",
+  onRemoveDiagnosticSummary,
   className,
 }: QuickContactFormProps) {
   const reactId = useId().replaceAll(":", "");
@@ -101,6 +101,7 @@ export function QuickContactForm({
     }
 
     reset(quickContactDefaults());
+    onRemoveDiagnosticSummary?.();
     setSubmitState({ phase: "success", message: response.message, focusNotice: true });
   }
 
@@ -112,13 +113,18 @@ export function QuickContactForm({
       onSubmit={handleSubmit(onSubmit)}
     >
       <header className={styles.header}>
-        <p className={styles.eyebrow}>Quick contact</p>
+        <p className={styles.eyebrow}>Quick message</p>
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.intro}>{intro}</p>
       </header>
 
+      <DiagnosticSummaryField
+        onRemove={onRemoveDiagnosticSummary}
+        summary={diagnosticSummary}
+      />
+
       <fieldset className={styles.group}>
-        <legend className={styles.legend}>Your details</legend>
+        <legend className={styles.legend}>Your message</legend>
         <div className={`${styles.grid} ${styles.gridTwo}`}>
           <FormInput
             autoComplete="name"
@@ -137,47 +143,16 @@ export function QuickContactForm({
             registration={register("email")}
             type="email"
           />
-          <FormInput
-            autoComplete="organization"
-            error={errors.company}
-            id={`${prefix}-company`}
-            label="Company"
-            optional
-            registration={register("company")}
-            type="text"
-          />
-          <FormInput
-            autoComplete="tel"
-            error={errors.phone}
-            id={`${prefix}-phone`}
-            inputMode="tel"
-            label="Phone"
-            optional
-            registration={register("phone")}
-            type="tel"
-          />
         </div>
-      </fieldset>
-
-      <fieldset className={styles.group}>
-        <legend className={styles.legend}>The situation</legend>
-        <FormSelect
-          error={errors.service}
-          id={`${prefix}-service`}
-          label="Area of interest"
-          options={SERVICE_OPTIONS}
-          registration={register("service")}
-        />
         <FormTextarea
           error={errors.message}
           helper="Please do not include sensitive personal or employee information."
           id={`${prefix}-message`}
-          label="What is happening?"
-          placeholder="For example: a decision keeps returning to the founder, or two roles disagree about ownership."
+          label="Message"
+          placeholder="What would you like Marc to know?"
           registration={register("message")}
-          rows={5}
+          rows={6}
         />
-        <DiagnosticSummaryField summary={diagnosticSummary} />
         <input type="hidden" {...register("diagnosticSummary")} />
       </fieldset>
 

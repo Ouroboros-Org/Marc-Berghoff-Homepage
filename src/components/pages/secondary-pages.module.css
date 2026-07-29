@@ -55,6 +55,12 @@
   align-items: end;
 }
 
+.heroBreadcrumbs {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
 .heroCopy {
   max-width: 57rem;
 }
@@ -97,59 +103,9 @@
   margin-top: 2.25rem;
 }
 
-.primaryButton,
-.secondaryButton,
-.textLink {
-  display: inline-flex;
-  min-height: 3rem;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-decoration: none;
-  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
-}
-
-.primaryButton {
-  padding: 0.85rem 1.35rem;
-  border: 1px solid var(--page-blue-deep);
-  color: var(--page-white);
-  background: var(--page-blue-deep);
-}
-
-.primaryButton:hover {
-  border-color: color-mix(in srgb, var(--page-blue-deep) 82%, var(--page-ink));
-  background: color-mix(in srgb, var(--page-blue-deep) 88%, var(--page-ink));
-}
-
-.secondaryButton {
-  padding: 0.85rem 1.35rem;
-  border: 1px solid var(--page-blue-deep);
-  color: var(--page-blue-deep);
-  background: transparent;
-}
-
-.secondaryButton:hover {
-  border-color: var(--page-blue-deep);
-  color: var(--page-white);
-  background: var(--page-blue-deep);
-}
-
-.primaryButton:focus-visible,
-.secondaryButton:focus-visible,
-.textLink:focus-visible,
 .contactLink:focus-visible {
   outline: 3px solid var(--page-blue-deep);
   outline-offset: 3px;
-}
-
-.sectionDark .textLink:focus-visible,
-.contactBand .textLink:focus-visible,
-.contactBand .primaryButton:focus-visible {
-  outline-color: var(--page-yellow);
 }
 
 .heroAside {
@@ -515,22 +471,6 @@
   line-height: 1.7;
 }
 
-.textLink {
-  width: fit-content;
-  justify-content: flex-start;
-  padding: 0.4rem 0;
-  color: inherit;
-}
-
-.textLink:hover {
-  color: var(--page-blue-deep);
-}
-
-.sectionDark .textLink:hover,
-.contactBand .textLink:hover {
-  color: var(--page-yellow);
-}
-
 .metricCard {
   min-height: 13rem;
 }
@@ -735,6 +675,7 @@
   border: 1px solid var(--page-line);
   border-radius: 1.2rem;
   background: var(--page-white);
+  box-shadow: 0 1.5rem 4rem color-mix(in srgb, var(--page-blue-deep) 8%, transparent);
 }
 
 .reportMockup {
@@ -885,12 +826,32 @@
     grid-template-columns: minmax(16rem, 0.7fr) minmax(0, 1.3fr);
   }
 
+  .contactLayout > aside {
+    position: sticky;
+    top: 7rem;
+  }
+
   .caseGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .reportGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 41.999rem) {
+  .formShell {
+    padding: 1rem;
+    border-radius: 0.9rem;
+  }
+
+  .buttonRow {
+    display: grid;
+  }
+
+  .buttonRow > * {
+    width: 100%;
   }
 }
 
@@ -909,9 +870,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .primaryButton,
-  .secondaryButton,
-  .textLink,
   .contactLink {
     transition-duration: 0.01ms;
   }

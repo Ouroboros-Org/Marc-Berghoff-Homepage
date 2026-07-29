@@ -43,6 +43,10 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
         }}
       />
       <PageHero
+        breadcrumbs={[
+          { label: "Services", href: "/services" },
+          { label: service.eyebrow },
+        ]}
         eyebrow={service.eyebrow}
         title={service.title}
         lead={service.summary}

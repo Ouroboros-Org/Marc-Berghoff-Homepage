@@ -83,6 +83,10 @@ export default function BottleneckAssessmentPage() {
         }}
       />
       <PageHero
+        breadcrumbs={[
+          { label: "Services", href: "/services" },
+          { label: "Bottleneck assessment" },
+        ]}
         eyebrow="The bottleneck assessment"
         title="Identify the main constraint before you choose an intervention."
         lead="Fieldwork typically takes one to two weeks. Marc traces where work slows down, which decisions keep returning and what sustains the pattern. Around a week later, he uses the written report to lead a report workshop with the decision-makers."

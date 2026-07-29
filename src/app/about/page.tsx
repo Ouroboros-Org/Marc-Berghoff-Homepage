@@ -53,6 +53,7 @@ export default function AboutPage() {
   return (
     <div className={styles.page}>
       <PageHero
+        breadcrumbs={[{ label: "About Marc" }]}
         eyebrow="About Marc"
         title="An independent adviser with operator experience."
         lead="Marc has an MSc in Psychology and has worked in people leadership, founder roles and executive coaching. He helps leadership teams examine the operating problems that sit behind recurring people issues."
@@ -124,6 +125,7 @@ export default function AboutPage() {
       </section>
 
       <ContactBand
+        href="/contact/message"
         title="Bring the situation as it is."
         text="Marc will use the free first conversation to understand the question and tell you whether he is the right person for it."
         label="Talk with Marc"

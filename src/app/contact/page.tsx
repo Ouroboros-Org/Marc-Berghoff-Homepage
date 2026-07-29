@@ -1,4 +1,5 @@
-import { ExtendedContactForm } from "@/components/forms";
+import { ButtonLink } from "@/components/button";
+import { SessionExtendedContactForm } from "@/components/forms";
 import {
   PageHero,
   ProcessList,
@@ -36,10 +37,12 @@ export default function ContactPage() {
   return (
     <div className={styles.page}>
       <PageHero
+        breadcrumbs={[{ label: "Detailed enquiry" }]}
         eyebrow="Contact"
         title="Where does the business keep getting stuck?"
         lead="Describe what is happening and what the team has tried. You can leave the explanation and choice of service open; Marc will read the note himself."
         asideLabel="First conversation"
+        primary={{ label: "Send a quick message", href: "/contact/message" }}
         asideValue="No charge · direct with Marc"
       />
 
@@ -51,6 +54,11 @@ export default function ContactPage() {
             <p className={styles.sectionIntro}>
               The form gives Marc enough background to reply properly. For a simple question, email or call him.
             </p>
+            <div className={styles.spacedTop}>
+              <ButtonLink href="/contact/message" variant="secondary">
+                Use the short form
+              </ButtonLink>
+            </div>
             <dl className={styles.contactDetails}>
               <div className={styles.contactDetail}>
                 <dt>Email</dt>
@@ -98,7 +106,7 @@ export default function ContactPage() {
           </aside>
 
           <div className={styles.formShell}>
-            <ExtendedContactForm
+            <SessionExtendedContactForm
               id="contact-form"
               title="Give Marc enough context to respond."
               intro="A few specifics help him see whether the question belongs in coaching or sits across the organisation."

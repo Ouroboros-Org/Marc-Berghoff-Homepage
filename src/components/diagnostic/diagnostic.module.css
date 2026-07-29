@@ -73,36 +73,45 @@
 .progress {
   width: 100%;
   height: 0.42rem;
+  margin-top: 0.55rem;
   overflow: hidden;
   border: 0;
   border-radius: 999px;
   background: var(--diag-line);
 }
 
-.progress::-webkit-progress-bar {
-  border-radius: 999px;
-  background: var(--diag-line);
-}
-
-.progress::-webkit-progress-value {
-  border-radius: 999px;
+.progressFill {
+  display: block;
+  width: var(--diagnostic-progress);
+  height: 100%;
+  border-radius: inherit;
   background: var(--diag-blue-deep);
-}
-
-.progress::-moz-progress-bar {
-  border-radius: 999px;
-  background: var(--diag-blue-deep);
+  transition: width 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .question {
   display: grid;
   gap: 1.5rem;
   min-width: 0;
+  min-height: 16rem;
   margin: 0;
   padding: clamp(1.25rem, 4vw, 2.25rem);
   border: 1px solid var(--diag-line);
   border-radius: 1.1rem;
+  outline: none;
   background: var(--diag-white);
+}
+
+.question:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--diag-blue-deep) 20%, transparent);
+}
+
+.stage {
+  animation: stage-forward 230ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.stage[data-direction="back"] {
+  animation-name: stage-back;
 }
 
 .legend {
@@ -151,6 +160,10 @@
   background: color-mix(in srgb, var(--diag-blue) 9%, var(--diag-white));
 }
 
+.option:active {
+  transform: scale(0.985);
+}
+
 .radio {
   width: 1.15rem;
   height: 1.15rem;
@@ -167,6 +180,7 @@
 .option:has(.radio:checked) {
   border-color: var(--diag-blue-deep);
   background: color-mix(in srgb, var(--diag-blue) 16%, var(--diag-white));
+  box-shadow: inset 4px 0 0 var(--diag-blue-deep);
 }
 
 .controls {
@@ -180,69 +194,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-}
-
-.primaryButton,
-.secondaryButton,
-.textButton {
-  display: inline-flex;
-  min-height: 3rem;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  border-radius: 999px;
-  cursor: pointer;
-  font: inherit;
-  font-size: 0.9rem;
-  font-weight: 720;
-  line-height: 1.2;
-  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
-}
-
-.primaryButton {
-  padding: 0.8rem 1.25rem;
-  border: 1px solid var(--diag-blue-deep);
-  color: var(--diag-white);
-  background: var(--diag-blue-deep);
-}
-
-.secondaryButton {
-  padding: 0.8rem 1.15rem;
-  border: 1px solid color-mix(in srgb, var(--diag-ink) 30%, var(--diag-line));
-  color: var(--diag-ink);
-  background: transparent;
-}
-
-.textButton {
-  padding: 0.8rem 0.5rem;
-  border: 1px solid transparent;
-  color: var(--diag-muted);
-  background: transparent;
-}
-
-.primaryButton:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--diag-blue-deep) 82%, black);
-  background: color-mix(in srgb, var(--diag-blue-deep) 88%, black);
-}
-
-.secondaryButton:hover:not(:disabled),
-.textButton:hover:not(:disabled) {
-  border-color: var(--diag-ink);
-  color: var(--diag-ink);
-  background: var(--diag-white);
-}
-
-.primaryButton:focus-visible,
-.secondaryButton:focus-visible,
-.textButton:focus-visible {
-  outline: 3px solid var(--diag-blue-deep);
-  outline-offset: 3px;
-}
-
-.primaryButton:disabled,
-.secondaryButton:disabled {
-  cursor: not-allowed;
-  opacity: 0.45;
 }
 
 .result {
@@ -323,8 +274,10 @@
 
 .bar {
   height: 100%;
+  transform-origin: left;
   border-radius: inherit;
   background: var(--diag-blue-deep);
+  animation: bar-grow 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .disclaimer {
@@ -352,12 +305,64 @@
   }
 }
 
+@media (max-width: 37.999rem) {
+  .controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .controlGroup {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .controlGroup > * {
+    width: 100%;
+  }
+}
+
+@keyframes stage-forward {
+  from {
+    transform: translateX(0.7rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes stage-back {
+  from {
+    transform: translateX(-0.7rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .option,
-  .primaryButton,
-  .secondaryButton,
-  .textButton {
+  .progressFill {
     transition-duration: 0.01ms;
   }
 
+  .stage,
+  .bar {
+    animation-duration: 0.01ms;
+  }
 }

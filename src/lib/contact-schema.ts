@@ -74,7 +74,7 @@ export const URGENCY_OPTIONS = URGENCY_VALUES.map((value) => ({
 const optionalShortText = (max: number) =>
   z.string().trim().max(max, `Keep this to ${max} characters or fewer.`);
 
-const sharedFields = {
+const baseFields = {
   fullName: z
     .string()
     .trim()
@@ -86,12 +86,6 @@ const sharedFields = {
     .min(1, "Enter your email address.")
     .email("Enter a valid email address.")
     .max(254, "Keep your email to 254 characters or fewer."),
-  phone: optionalShortText(50).refine(
-    (value) => !value || /^[+()\d\s./-]+$/.test(value),
-    "Use numbers and common phone symbols only.",
-  ),
-  company: optionalShortText(160),
-  service: z.enum(SERVICE_VALUES),
   diagnosticSummary: optionalShortText(2_000),
   consent: z.boolean().refine((value) => value, {
     message: "Confirm that Marc may use these details to respond.",
@@ -102,7 +96,7 @@ const sharedFields = {
 
 export const quickContactSchema = z.object({
   formType: z.literal("quick"),
-  ...sharedFields,
+  ...baseFields,
   message: z
     .string()
     .trim()
@@ -112,7 +106,11 @@ export const quickContactSchema = z.object({
 
 export const extendedContactSchema = z.object({
   formType: z.literal("extended"),
-  ...sharedFields,
+  ...baseFields,
+  phone: optionalShortText(50).refine(
+    (value) => !value || /^[+()\d\s./-]+$/.test(value),
+    "Use numbers and common phone symbols only.",
+  ),
   company: z
     .string()
     .trim()
@@ -124,6 +122,7 @@ export const extendedContactSchema = z.object({
     .min(2, "Enter your role.")
     .max(120, "Keep your role to 120 characters or fewer."),
   companySize: z.enum(COMPANY_SIZE_VALUES),
+  service: z.enum(SERVICE_VALUES),
   urgency: z.enum(URGENCY_VALUES),
   currentSituation: z
     .string()
@@ -154,9 +153,6 @@ export const quickContactDefaults = (
   formType: "quick",
   fullName: "",
   email: "",
-  phone: "",
-  company: "",
-  service: "not-sure",
   message: "",
   diagnosticSummary,
   consent: false,

@@ -1,0 +1,306 @@
+.button {
+  --button-fg: var(--paper);
+  --button-bg: var(--blue-deep);
+  --button-border: var(--blue-deep);
+  --button-hover-fg: var(--paper);
+  --button-hover-bg: var(--ink);
+  --button-hover-border: var(--ink);
+  --button-focus: var(--blue-deep);
+  --button-shine: rgb(255 255 255 / 72%);
+  --button-glow: rgb(124 176 255 / 28%);
+  isolation: isolate;
+  position: relative;
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--button-border);
+  border-radius: 999px;
+  padding: 0.78rem 1.25rem;
+  cursor: pointer;
+  color: var(--button-fg);
+  background: var(--button-bg);
+  font: inherit;
+  font-size: 0.93rem;
+  font-weight: 730;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 120ms ease;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.58rem;
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--button-hover-border);
+  color: var(--button-hover-fg);
+  background: var(--button-hover-bg);
+  box-shadow: 0 8px 24px rgb(17 21 26 / 14%);
+  transform: translateY(-1px);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--button-focus);
+  outline-offset: 3px;
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.primary {
+  --button-fg: var(--paper);
+  --button-bg: var(--blue-deep);
+  --button-border: var(--blue-deep);
+  --button-hover-bg: var(--blue-hover);
+  --button-hover-border: var(--ink);
+}
+
+.secondary {
+  --button-fg: var(--blue-deep);
+  --button-bg: transparent;
+  --button-border: var(--blue-deep);
+  --button-hover-fg: var(--paper);
+  --button-hover-bg: var(--blue-deep);
+  --button-hover-border: var(--blue-deep);
+  --button-shine: rgb(124 176 255 / 65%);
+  --button-glow: rgb(124 176 255 / 18%);
+}
+
+.inverse {
+  --button-fg: var(--blue-deep);
+  --button-bg: var(--paper);
+  --button-border: var(--paper);
+  --button-hover-fg: var(--ink);
+  --button-hover-bg: var(--blue-soft);
+  --button-hover-border: var(--blue-soft);
+  --button-focus: var(--yellow);
+  --button-shine: rgb(23 61 112 / 42%);
+  --button-glow: rgb(254 195 2 / 22%);
+}
+
+.ghost {
+  --button-fg: var(--blue-deep);
+  --button-bg: transparent;
+  --button-border: color-mix(in srgb, var(--blue-deep) 28%, transparent);
+  --button-hover-fg: var(--ink);
+  --button-hover-bg: color-mix(in srgb, var(--blue) 12%, transparent);
+  --button-hover-border: var(--blue-deep);
+  box-shadow: none;
+}
+
+.text {
+  --button-fg: var(--blue-ink);
+  --button-bg: transparent;
+  --button-border: transparent;
+  --button-hover-fg: var(--ink);
+  --button-hover-bg: transparent;
+  --button-hover-border: transparent;
+  justify-content: flex-start;
+  min-height: 2.75rem;
+  border-radius: 999px;
+  padding-inline: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3rem;
+}
+
+.text:hover:not(:disabled) {
+  box-shadow: none;
+}
+
+.compact {
+  min-height: 2.75rem;
+  padding: 0.64rem 1rem;
+  font-size: 0.86rem;
+}
+
+.default {
+  min-height: 3.2rem;
+}
+
+.wide {
+  min-height: 3.25rem;
+  padding-inline: 1.55rem;
+}
+
+.icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  min-height: 2.8rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.cta {
+  --cta-duration: 4.8s;
+  box-shadow:
+    0 7px 18px rgb(23 61 112 / 18%),
+    inset 0 1px 0 rgb(255 255 255 / 18%);
+}
+
+.cta::before,
+.cta::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+}
+
+.cta::before {
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.38;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 16%), transparent 48%),
+    radial-gradient(circle at 78% 118%, var(--button-glow), transparent 48%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 22%),
+    inset 0 -1px 0 rgb(17 21 26 / 16%);
+  animation: cta-surface-loop var(--cta-duration) ease-in-out infinite;
+  transition: opacity 220ms ease;
+}
+
+.cta::after {
+  z-index: 1;
+  top: -80%;
+  bottom: -80%;
+  left: -38%;
+  width: 34%;
+  transform: translateX(-250%) rotate(14deg);
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--button-shine) 43%,
+    rgb(254 195 2 / 72%) 52%,
+    transparent
+  );
+  animation: cta-shimmer-loop var(--cta-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    infinite;
+}
+
+.cta:is(:hover, :focus-visible):not(:disabled) {
+  box-shadow:
+    0 10px 25px rgb(23 61 112 / 26%),
+    inset 0 1px 0 rgb(255 255 255 / 24%);
+}
+
+.cta:is(:hover, :focus-visible):not(:disabled)::before {
+  opacity: 0.82;
+  animation-play-state: paused;
+}
+
+.cta:is(:hover, :focus-visible):not(:disabled)::after {
+  animation: cta-shimmer-hover 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cta:disabled::before,
+.cta:disabled::after,
+.cta[aria-disabled="true"]::before,
+.cta[aria-disabled="true"]::after {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes cta-surface-loop {
+  0%,
+  56%,
+  100% {
+    opacity: 0.32;
+  }
+
+  78% {
+    opacity: 0.58;
+  }
+}
+
+@keyframes cta-shimmer-loop {
+  0%,
+  58% {
+    transform: translateX(-250%) rotate(14deg);
+    opacity: 0;
+  }
+
+  68% {
+    opacity: 0.28;
+  }
+
+  88% {
+    opacity: 0.58;
+  }
+
+  100% {
+    transform: translateX(620%) rotate(14deg);
+    opacity: 0;
+  }
+}
+
+@keyframes cta-shimmer-hover {
+  from {
+    transform: translateX(-250%) rotate(14deg);
+    opacity: 0;
+  }
+
+  28% {
+    opacity: 0.72;
+  }
+
+  to {
+    transform: translateX(620%) rotate(14deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 42rem) {
+  .wide {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .cta::before,
+  .cta::after {
+    transition-duration: 0.01ms;
+  }
+
+  .cta::before,
+  .cta::after,
+  .cta:is(:hover, :focus-visible):not(:disabled)::before,
+  .cta:is(:hover, :focus-visible):not(:disabled)::after {
+    animation: none;
+  }
+
+  .cta::before,
+  .cta:is(:hover, :focus-visible):not(:disabled)::before {
+    opacity: 0.42;
+  }
+
+  .cta::after,
+  .cta:is(:hover, :focus-visible):not(:disabled)::after {
+    opacity: 0;
+  }
+}

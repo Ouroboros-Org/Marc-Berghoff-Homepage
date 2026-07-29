@@ -44,11 +44,12 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 
 ### Buttons
 
-- Pill shape is reserved for calls to action.
+- All button variants use a coherent pill shape; text links remain visually lightweight.
 - Primary: deep-blue fill, white text, 1px deep-blue border.
 - Secondary: transparent fill, deep-blue text and border.
 - Minimum target height: 44px; default 51px.
-- Hover changes colour and shadow only. Never move the layout.
+- Hover changes colour, light and shadow only. Never move the layout.
+- CTA buttons use a restrained looping surface light and shimmer through `::before` and `::after`, with a stronger hover/focus pass and no motion under `prefers-reduced-motion`.
 
 ### Cards
 
@@ -78,7 +79,7 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 
 - CSS transitions only unless movement communicates state.
 - Use 160–220ms interaction transitions and a maximum 12px reveal distance.
-- No parallax, looping decoration, autoplay media or scroll-jacking.
+- No parallax, autoplay media or scroll-jacking. The only looping decoration is the restrained CTA affordance.
 - Honour `prefers-reduced-motion` globally.
 
 ## Accessibility and responsive rules

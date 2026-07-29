@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { LEGAL_DETAILS } from "@/app/privacy/legal-details";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { createPageMetadata } from "@/config/metadata";
 
 export const metadata = {
@@ -38,6 +39,7 @@ export default function ImprintPage() {
     <div className="page-shell">
       <article className="container mx-auto max-w-4xl">
         <header className="mb-14 space-y-5 sm:mb-20">
+          <Breadcrumbs items={[{ label: "Imprint" }]} />
           <p className="eyebrow">Legal</p>
           <h1 className="text-5xl font-semibold tracking-[-0.055em] text-balance sm:text-7xl">
             Imprint

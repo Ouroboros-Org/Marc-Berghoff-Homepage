@@ -53,6 +53,7 @@ export default function BlogPage() {
       />
 
       <PageHero
+        breadcrumbs={[{ label: "Insights" }]}
         eyebrow="Insights"
         title="Notes on problems that keep returning."
         lead="Marc writes about founder dependency, blurred decision rights and the point where a leadership problem becomes an organisational one."
@@ -119,6 +120,7 @@ export default function BlogPage() {
       </section>
 
       <ContactBand
+        href="/contact/message"
         title="Does one of these situations sound familiar?"
         text="Send Marc the version happening in your company. The free first conversation may point to an assessment, a smaller piece of work or no engagement."
         label="Describe the situation"

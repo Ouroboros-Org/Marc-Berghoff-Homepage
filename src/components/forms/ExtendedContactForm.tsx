@@ -34,6 +34,7 @@ export type ExtendedContactFormProps = {
   title?: string;
   intro?: string;
   diagnosticSummary?: string;
+  onRemoveDiagnosticSummary?: () => void;
   className?: string;
 };
 
@@ -42,6 +43,7 @@ export function ExtendedContactForm({
   title = "Share the relevant background.",
   intro = "Use this form when a sentence or two will not explain the issue. Marc reads the context before replying.",
   diagnosticSummary = "",
+  onRemoveDiagnosticSummary,
   className,
 }: ExtendedContactFormProps) {
   const reactId = useId().replaceAll(":", "");
@@ -103,6 +105,7 @@ export function ExtendedContactForm({
     }
 
     reset(extendedContactDefaults());
+    onRemoveDiagnosticSummary?.();
     setSubmitState({ phase: "success", message: response.message, focusNotice: true });
   }
 
@@ -118,6 +121,11 @@ export function ExtendedContactForm({
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.intro}>{intro}</p>
       </header>
+
+      <DiagnosticSummaryField
+        onRemove={onRemoveDiagnosticSummary}
+        summary={diagnosticSummary}
+      />
 
       <fieldset className={styles.group}>
         <legend className={styles.legend}>About you</legend>
@@ -226,7 +234,6 @@ export function ExtendedContactForm({
           registration={register("referralSource")}
           rows={3}
         />
-        <DiagnosticSummaryField summary={diagnosticSummary} />
         <input type="hidden" {...register("diagnosticSummary")} />
       </fieldset>
 

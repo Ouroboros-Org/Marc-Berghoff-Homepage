@@ -112,15 +112,15 @@ export function buildGoogleFormsBody(
   config: GoogleFormsConfig,
 ): URLSearchParams {
   const values: Record<GoogleFormsField, string> = {
-    formType: payload.formType === "quick" ? "Quick contact" : "Extended enquiry",
+    formType: payload.formType === "quick" ? "Quick message" : "Extended enquiry",
     fullName: payload.fullName,
     email: payload.email,
-    phone: payload.phone,
-    company: payload.company,
+    phone: payload.formType === "extended" ? payload.phone : "",
+    company: payload.formType === "extended" ? payload.company : "",
     role: payload.formType === "extended" ? payload.role : "",
     companySize:
       payload.formType === "extended" ? COMPANY_SIZE_LABELS[payload.companySize] : "",
-    service: SERVICE_LABELS[payload.service],
+    service: payload.formType === "extended" ? SERVICE_LABELS[payload.service] : "",
     urgency: payload.formType === "extended" ? URGENCY_LABELS[payload.urgency] : "",
     message: payload.formType === "quick" ? payload.message : "",
     currentSituation: payload.formType === "extended" ? payload.currentSituation : "",

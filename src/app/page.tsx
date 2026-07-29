@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 import { BottleneckFlow } from "@/components/bottleneck-flow";
-import { ButtonLink } from "@/components/button-link";
+import { ButtonLink } from "@/components/button";
 import { Faq } from "@/components/faq";
 import {
   HomeBottleneckDiagnostic,
@@ -110,7 +110,9 @@ export default function HomePage() {
               report and a prioritised sequence of decisions.
             </p>
             <div className="button-row">
-              <ButtonLink href="/contact">Request a free conversation</ButtonLink>
+              <ButtonLink cta href="/contact/message">
+                Send a quick message
+              </ButtonLink>
               <ButtonLink href="#diagnostic" variant="secondary">
                 Run the six-question check
               </ButtonLink>
@@ -442,6 +444,9 @@ export default function HomePage() {
               <span>Start with what is happening now</span>
               <MoveRight />
             </div>
+            <ButtonLink href="/contact" size="compact" variant="inverse">
+              Share a detailed enquiry instead
+            </ButtonLink>
           </div>
           <div className="form-shell">
             <HomeQuickContactForm />

@@ -1,5 +1,7 @@
-import { AlertCircle, CheckCircle2, LoaderCircle, Send } from "lucide-react";
+import { AlertCircle, CheckCircle2, LoaderCircle, Send, X } from "lucide-react";
 import { forwardRef } from "react";
+
+import { Button } from "@/components/button";
 
 import type { ContactApiResponse } from "../../lib/contact-api";
 import styles from "./contact-forms.module.css";
@@ -84,23 +86,48 @@ export function SubmitButton({
 }) {
   const submitting = state.phase === "submitting";
   return (
-    <button className={styles.submit} disabled={submitting} type="submit">
+    <Button cta disabled={submitting} type="submit">
       {submitting ? (
         <LoaderCircle aria-hidden="true" className={styles.spinner} size={18} />
       ) : (
         <Send aria-hidden="true" size={17} />
       )}
       {submitting ? "Sending…" : idleLabel}
-    </button>
+    </Button>
   );
 }
 
-export function DiagnosticSummaryField({ summary }: { summary: string }) {
+export function DiagnosticSummaryField({
+  summary,
+  onRemove,
+}: {
+  summary: string;
+  onRemove?: () => void;
+}) {
   if (!summary) return null;
 
   return (
-    <div className={styles.summary} role="note">
-      <p className={styles.summaryLabel}>Included with your message</p>
+    <div
+      aria-live="polite"
+      className={styles.summary}
+      data-diagnostic-summary
+      role="status"
+      tabIndex={-1}
+    >
+      <div className={styles.summaryHeader}>
+        <p className={styles.summaryLabel}>Assessment result attached</p>
+        {onRemove ? (
+          <Button
+            aria-label="Remove assessment result from this message"
+            onClick={onRemove}
+            size="compact"
+            variant="ghost"
+          >
+            <X aria-hidden="true" size={15} />
+            Remove
+          </Button>
+        ) : null}
+      </div>
       <p className={styles.summaryText}>{summary}</p>
     </div>
   );

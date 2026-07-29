@@ -1,0 +1,63 @@
+.breadcrumbs {
+  min-width: 0;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 620;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.breadcrumbs a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--blue-ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--blue) 72%, transparent);
+  text-underline-offset: 0.2rem;
+  transition: color 160ms ease;
+}
+
+.breadcrumbs a:hover {
+  color: var(--ink);
+}
+
+.breadcrumbs a:focus-visible {
+  border-radius: 0.2rem;
+  outline: 3px solid var(--blue-deep);
+  outline-offset: 2px;
+}
+
+.breadcrumbs span[aria-current="page"] {
+  max-width: min(36rem, 70vw);
+  overflow: hidden;
+  color: var(--muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breadcrumbs a {
+    transition-duration: 0.01ms;
+  }
+}
+

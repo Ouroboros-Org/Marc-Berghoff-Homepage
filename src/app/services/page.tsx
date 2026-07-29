@@ -99,6 +99,7 @@ export default function ServicesPage() {
       />
 
       <PageHero
+        breadcrumbs={[{ label: "Services" }]}
         eyebrow="Ways to work together"
         title="Match the format to the question."
         lead="Use the assessment when the cause is uncertain. Advisory, fractional leadership and coaching each begin with a more defined question. The first conversation is free, and there is no required sequence."
@@ -163,6 +164,7 @@ export default function ServicesPage() {
       </section>
 
       <ContactBand
+        href="/contact/message"
         title="Unsure which format fits?"
         text="Describe the decision or recurring issue. Marc will tell you which kind of work, if any, makes sense from here."
         label="Ask Marc"

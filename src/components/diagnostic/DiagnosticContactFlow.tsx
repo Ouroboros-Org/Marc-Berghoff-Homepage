@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-
 import { QuickContactForm, type QuickContactFormProps } from "../forms";
+import { useDiagnosticSummary } from "@/lib/use-diagnostic-summary";
 import { BottleneckDiagnostic, type BottleneckDiagnosticProps } from "./BottleneckDiagnostic";
 import styles from "./diagnostic.module.css";
 
@@ -20,7 +19,7 @@ export function DiagnosticContactFlow({
   contactProps,
   className,
 }: DiagnosticContactFlowProps) {
-  const [summary, setSummary] = useState("");
+  const { summary, setSummary } = useDiagnosticSummary();
   const contactId = contactProps?.id ?? "diagnostic-quick-contact";
 
   return (
@@ -39,6 +38,7 @@ export function DiagnosticContactFlow({
             contactProps?.intro ??
             "Add a short note. If you include the result above, Marc will receive the four scores with your message."
           }
+          onRemoveDiagnosticSummary={() => setSummary("")}
         />
       </div>
     </div>

@@ -1,9 +1,10 @@
 "use client";
 
-import { createContext, type ReactNode, useContext, useMemo, useState } from "react";
+import { createContext, type ReactNode, useContext, useMemo } from "react";
 
 import { BottleneckDiagnostic } from "@/components/diagnostic";
 import { QuickContactForm } from "@/components/forms";
+import { useDiagnosticSummary } from "@/lib/use-diagnostic-summary";
 
 const HomeDiagnosticContext = createContext<{
   summary: string;
@@ -11,8 +12,8 @@ const HomeDiagnosticContext = createContext<{
 } | null>(null);
 
 export function HomeContactJourney({ children }: { children: ReactNode }) {
-  const [summary, setSummary] = useState("");
-  const value = useMemo(() => ({ summary, setSummary }), [summary]);
+  const { summary, setSummary } = useDiagnosticSummary();
+  const value = useMemo(() => ({ summary, setSummary }), [summary, setSummary]);
 
   return (
     <HomeDiagnosticContext.Provider value={value}>
@@ -41,12 +42,13 @@ export function HomeBottleneckDiagnostic() {
 }
 
 export function HomeQuickContactForm() {
-  const { summary } = useHomeDiagnostic();
+  const { summary, setSummary } = useHomeDiagnostic();
 
   return (
     <QuickContactForm
       diagnosticSummary={summary}
       id="home-quick-contact"
+      onRemoveDiagnosticSummary={() => setSummary("")}
     />
   );
 }

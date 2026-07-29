@@ -125,22 +125,8 @@
   margin-inline: auto;
 }
 
-.breadcrumbs {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem;
+.articleBreadcrumbs {
   margin-bottom: clamp(2rem, 5vw, 4rem);
-  color: var(--page-muted);
-  font-size: 0.8rem;
-}
-
-.breadcrumbs a {
-  min-height: 2.75rem;
-  display: inline-flex;
-  align-items: center;
-  color: var(--page-blue-deep);
-  font-weight: 700;
 }
 
 .articleTitle {
@@ -316,4 +302,3 @@
     transition: none;
   }
 }
-

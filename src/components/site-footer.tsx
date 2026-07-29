@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import {
-  primaryNavigation,
   serviceNavigation,
   siteConfig,
 } from "@/config/site";
@@ -24,10 +23,10 @@ export function SiteFooter() {
           <div>
             <p className="footer-label">Explore</p>
             {[
-              ...primaryNavigation.filter(
-                (item) => !["/services", "/bottleneck-assessment"].includes(item.href),
-              ),
-              { href: "/contact", label: "Contact" },
+              { href: "/results", label: "Results & experience" },
+              { href: "/sample-report", label: "Sample report" },
+              { href: "/blog", label: "Insights" },
+              { href: "/about", label: "About Marc" },
             ].map((item) => (
                 <Link key={item.href} href={item.href}>
                   {item.label}
@@ -46,6 +45,8 @@ export function SiteFooter() {
 
         <div className="site-footer__contact">
           <p className="footer-label">Start here</p>
+          <Link href="/contact/message">Send a quick message</Link>
+          <Link href="/contact">Share a detailed enquiry</Link>
           <a href={`mailto:${siteConfig.contact.email}`}>
             {siteConfig.contact.email}
           </a>

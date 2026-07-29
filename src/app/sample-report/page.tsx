@@ -49,6 +49,10 @@ export default function SampleReportPage() {
   return (
     <div className={styles.page}>
       <PageHero
+        breadcrumbs={[
+          { label: "Assessment & proof", href: "/bottleneck-assessment" },
+          { label: "Sample report" },
+        ]}
         eyebrow="Report structure"
         title="See how the assessment report is organised."
         lead="The report combines qualitative and quantitative input with relevant operating evidence. It explains the main bottleneck and gives the report workshop a concrete set of questions to discuss."
