@@ -14,8 +14,8 @@ export function SiteFooter() {
         <div className="site-footer__intro">
           <SiteLogo inverse />
           <p>
-            Organisational Bottleneck Assessment, strategic people advisory,
-            fractional people leadership and executive coaching.
+            Start with the question. We can choose the format after the first
+            conversation.
           </p>
         </div>
 
@@ -26,7 +26,7 @@ export function SiteFooter() {
               { href: "/results", label: "Results & experience" },
               { href: "/sample-report", label: "Sample report" },
               { href: "/blog", label: "Insights" },
-              { href: "/about", label: "About Marc" },
+              { href: "/about", label: "About me" },
             ].map((item) => (
                 <Link key={item.href} href={item.href}>
                   {item.label}
@@ -45,14 +45,16 @@ export function SiteFooter() {
 
         <div className="site-footer__contact">
           <p className="footer-label">Start here</p>
-          <Link href="/contact/message">Send a quick message</Link>
-          <Link href="/contact">Share a detailed enquiry</Link>
+          <Link href="/contact#booking">Book a free 30-minute conversation</Link>
+          <Link href="/contact#contact-form">Send me a note</Link>
           <a href={`mailto:${siteConfig.contact.email}`}>
             {siteConfig.contact.email}
           </a>
-          <a href={`tel:${siteConfig.contact.phoneHref}`}>
-            {siteConfig.contact.phoneDisplay}
-          </a>
+          {siteConfig.contact.phoneHref && siteConfig.contact.phoneDisplay ? (
+            <a href={`tel:${siteConfig.contact.phoneHref}`}>
+              {siteConfig.contact.phoneDisplay}
+            </a>
+          ) : null}
           <a
             href={siteConfig.social.linkedin}
             target="_blank"

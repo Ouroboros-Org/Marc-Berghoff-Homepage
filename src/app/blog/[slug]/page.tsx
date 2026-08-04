@@ -190,16 +190,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </section>
           ))}
           <div className={styles.authorNote}>
-            <strong>About the author</strong>
+            <strong>About me</strong>
             <p>
-              Marc Berghoff has an MSc in Psychology and is an ICF-credentialed Associate Certified Coach (ACC). He works with founders and leadership teams on organisational bottlenecks and people decisions.
+              I have an MSc in Psychology and hold the ICF Associate Certified Coach
+              credential. I work with founders and leadership teams on people and
+              organisation decisions.
             </p>
           </div>
         </div>
       </div>
 
       <ContactBand
-        title="See how Marc approaches this kind of work."
+        title="See how I approach this kind of work."
         text="The linked service page explains what is included and how to begin."
         href={post.nextStep.href}
         label={post.nextStep.label}

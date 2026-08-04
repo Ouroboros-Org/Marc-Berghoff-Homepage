@@ -1,8 +1,3 @@
-export type ServiceStep = {
-  title: string;
-  description: string;
-};
-
 export type ServiceDefinition = {
   slug: "advisory" | "fractional-people-leadership" | "executive-coaching";
   eyebrow: string;
@@ -11,7 +6,7 @@ export type ServiceDefinition = {
   intro: string;
   forWhen: string[];
   workIncludes: string[];
-  approach: ServiceStep[];
+  boundary?: string;
   evidence?: {
     label: string;
     statement: string;
@@ -26,15 +21,15 @@ export const SERVICES: Record<ServiceDefinition["slug"], ServiceDefinition> = {
   advisory: {
     slug: "advisory",
     eyebrow: "Strategic people advisory",
-    title: "A second view on the people decision in front of you.",
+    title: "A difficult people decision still belongs to you.",
     summary:
-      "Ongoing advice for founders and leadership teams facing a consequential hire, role change or organisational choice.",
+      "You bring a visible question. I test the reasoning, assumptions and trade-offs without taking the decision away from you.",
     intro:
-      "Advisory gives you an independent place to test decisions before you act. We stay close to what is due now. When the same issue keeps appearing, we examine the condition behind it as well.",
+      "A senior hire, a role that no longer fits or a difficult change may need an outside view. If the issue has appeared before, I also look at what keeps returning it to your agenda.",
     forWhen: [
       "People decisions keep returning to the founder.",
       "A senior hire, restructure or leadership change needs an outside view.",
-      "The HR team wants commercial context for a difficult people issue.",
+      "The HR team wants operating context for a difficult people issue.",
       "Growth has exposed unclear ownership or tension in the leadership team.",
     ],
     workIncludes: [
@@ -43,128 +38,82 @@ export const SERVICES: Record<ServiceDefinition["slug"], ServiceDefinition> = {
       "Difficult conversations and periods of change",
       "A second opinion on a decision already in motion",
     ],
-    approach: [
-      {
-        title: "Put the decision in context",
-        description:
-          "We establish what is due, who is affected, what the business needs and what you have tried already.",
-      },
-      {
-        title: "Test the options",
-        description:
-          "We examine the assumptions and trade-offs around the choice. Some questions need preparation or follow-up outside the session.",
-      },
-      {
-        title: "Close with ownership",
-        description:
-          "The session ends with a decision, a named owner or a specific piece of work still needed. Your team remains accountable for the outcome.",
-      },
-    ],
+    boundary:
+      "You keep the decision. If you need me to own part of the agenda, that calls for a different remit.",
     evidence: {
       label: "Peer advisory",
       statement:
-        "Marc also works with business leaders through Vistage, testing current decisions in a confidential peer setting.",
+        "I also work with business leaders through Vistage on decisions they are making now.",
     },
     closing: {
-      title: "Which decision keeps coming back?",
-      text: "Bring that decision to the free first conversation. Marc will tell you whether an advisory relationship would help.",
+      title: "Bring the decision that keeps returning to the agenda.",
+      text: "The first conversation is free. I will tell you if advisory is enough or if the question needs a different kind of work.",
     },
   },
   "fractional-people-leadership": {
     slug: "fractional-people-leadership",
-    eyebrow: "Fractional people leadership",
-    title: "Senior people leadership while you build the permanent function.",
+    eyebrow: "Fractional leadership",
+    title: "When the work cannot wait for another full-time hire.",
     summary:
-      "Part-time, hands-on ownership for companies that need senior people leadership before a permanent hire makes sense.",
+      "I join your operating rhythm for an agreed share of the week or month and carry a defined people and organisation remit.",
     intro:
-      "In a fractional remit, I work inside the company's operating rhythm and own an agreed set of priorities. I work with the founder, managers and any existing HR team. As internal capability grows, the remit changes with it.",
+      "This fits a period when the work cannot wait and the permanent structure is still taking shape. I work with the founder, managers and any existing HR team, then hand responsibility to named people as internal capability grows.",
     forWhen: [
-      "The people agenda needs an owner, while a full-time executive hire would be premature.",
-      "The business is growing faster than its management practices or people systems.",
-      "An internal HR team needs senior support on difficult decisions.",
-      "A period of change needs senior, hands-on leadership for a defined time.",
+      "The founder is still the default owner of hiring, performance and organisation decisions.",
+      "An existing HR team needs senior authority and operating support.",
+      "Growth or change has created work that cannot wait for a permanent hire.",
+      "The business needs someone to build capability without creating long-term dependence.",
     ],
     workIncludes: [
-      "Ownership of agreed people priorities",
-      "Building or repairing the people function",
+      "Ownership of agreed people and organisation priorities",
+      "Role, leadership and operating questions connected to the business plan",
       "Support for managers and the internal HR team",
-      "Coordination with internal and external contributors",
-      "A planned handover to people inside the company",
+      "Coordination of internal and external contributors",
+      "A deliberate handover to named people inside the company",
     ],
-    approach: [
-      {
-        title: "Set the remit",
-        description:
-          "Before I join the day-to-day rhythm, we define the priorities, decision rights and working cadence.",
-      },
-      {
-        title: "Own the priority",
-        description:
-          "The first work goes to the issue causing the most drag. Routine process work follows only where the business needs it now.",
-      },
-      {
-        title: "Hand over deliberately",
-        description:
-          "Responsibilities and routines move to named people inside the company as the engagement changes or ends.",
-      },
-    ],
+    boundary:
+      "You and I agree the decisions I own, the support I need and how responsibility will return to your team.",
     evidence: {
       label: "Fractional HR",
       statement:
-        "Marc has provided fractional HR leadership to Alberta Fire & Security.",
+        "I have provided fractional HR leadership to Alberta Fire & Security.",
     },
     closing: {
-      title: "Is the founder still carrying the people agenda?",
-      text: "Share the current priorities and the team already in place. Marc will give you a direct view on whether a fractional remit fits.",
+      title: "Which part of the agenda currently has no credible owner?",
+      text: "Use the free conversation to describe the work, the team already in place and the decisions that cannot wait.",
     },
   },
   "executive-coaching": {
     slug: "executive-coaching",
-    eyebrow: "Executive coaching",
-    title: "Executive coaching for the decision only you can make.",
+    eyebrow: "Individual coaching",
+    title: "Make the change you want to see specific.",
     summary:
-      "Confidential one-to-one coaching for founders and senior leaders who want to change how they handle a live situation.",
+      "We begin by defining where you are now, what you want to be different and how you will recognise progress.",
     intro:
-      "Coaching creates room to examine what is happening and the assumptions behind your response. I ask questions, challenge the reasoning and draw on my MSc training in psychology. You decide what to do.",
+      "Sessions use current decisions, conversations and reactions from your role. I ask questions, challenge your reasoning and draw on my training in psychology. You decide what to do.",
     forWhen: [
-      "Your role has changed, and your way of leading has not caught up yet.",
-      "A high-stakes decision is consuming too much attention.",
-      "The same team or communication problem keeps returning.",
-      "You want independent challenge from someone who understands operating pressure.",
+      "Your role has changed and your way of leading has not caught up.",
+      "A decision is taking more attention than it should.",
+      "The same conversation or team problem keeps returning.",
+      "You want challenge from someone who understands operating pressure and will leave the decision with you.",
     ],
     workIncludes: [
-      "A specific coaching objective and working agreement",
+      "A specific coaching objective and a clear starting point",
       "Confidential one-to-one sessions",
-      "Close examination of live leadership situations",
+      "Current situations rather than hypothetical exercises",
       "Agreed experiments between sessions",
-      "Regular review of progress and relevance",
-      "A direct, psychologically informed coaching style",
+      "Agreed signs of progress and regular review",
     ],
-    approach: [
-      {
-        title: "Define the question",
-        description:
-          "We agree what you want to change and what you expect to be doing differently.",
-      },
-      {
-        title: "Use current situations",
-        description:
-          "The material comes from decisions, conversations and reactions in your role now.",
-      },
-      {
-        title: "Review the evidence",
-        description:
-          "We look at what changed in your choices and behaviour. If the question moves, we revise the agreement.",
-      },
-    ],
+    boundary:
+      "You keep responsibility for the decision. If the issue needs organisation-wide ownership, coaching is not the right format.",
     evidence: {
       label: "Coaching practice",
       statement:
-        "Marc is an ICF-credentialed Associate Certified Coach (ACC). He has completed more than 350 coaching hours and also works in Vistage peer advisory.",
+        "I hold the ICF Associate Certified Coach credential and have completed more than 350 coaching hours.",
     },
     closing: {
-      title: "Bring the situation you cannot discuss inside the business.",
-      text: "The free first conversation covers fit, confidentiality and the question you want to work on.",
+      title: "Bring a situation that needs space to think.",
+      text: "In the free first conversation, we can set the question, discuss confidentiality and decide if coaching is the right boundary.",
     },
   },
 };

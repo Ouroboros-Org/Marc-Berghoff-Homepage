@@ -1,11 +1,12 @@
 import Image from "next/image";
 
+import { DiagnosticDisclosure } from "@/components/diagnostic-disclosure";
 import { DiagnosticContactFlow } from "@/components/diagnostic/DiagnosticContactFlow";
+import { EngagementProcess } from "@/components/engagement-process";
 import {
   CheckList,
   ContactBand,
   PageHero,
-  ProcessList,
   SectionHeading,
   secondaryPageStyles as styles,
 } from "@/components/pages/editorial";
@@ -26,24 +27,6 @@ const symptoms = [
   "Important work moves slowly between functions or senior people.",
   "Leaders spend more time resolving friction than moving priorities forward.",
   "Headcount has grown, but the way decisions are made has not caught up.",
-] as const;
-
-const process = [
-  {
-    title: "Discovery",
-    description:
-      "Marc learns what the business is trying to achieve, where progress breaks down and whose input is needed.",
-  },
-  {
-    title: "Assessment · typically 1–2 weeks",
-    description:
-      "On site, online or both, Marc gathers qualitative and quantitative input from the people closest to the issue and reads it alongside relevant operating evidence.",
-  },
-  {
-    title: "Report workshop",
-    description:
-      "About a week after fieldwork, Marc takes the decision-makers through the report. The group agrees what should happen first.",
-  },
 ] as const;
 
 const deliverables = [
@@ -87,13 +70,12 @@ export default function BottleneckAssessmentPage() {
           { label: "Services", href: "/services" },
           { label: "Bottleneck assessment" },
         ]}
-        eyebrow="The bottleneck assessment"
-        title="Identify the main constraint before you choose an intervention."
-        lead="Fieldwork typically takes one to two weeks. Marc traces where work slows down, which decisions keep returning and what sustains the pattern. Around a week later, he uses the written report to lead a report workshop with the decision-makers."
+        title="When several explanations are competing, start with evidence."
+        lead="I compare how work and decisions move with what people report. You receive a written finding and use the report workshop to decide what happens next."
         asideLabel="One-time engagement"
         asideValue="€3,500"
         asideNote="Participant scope, travel and applicable tax are agreed in advance."
-        primary={{ label: "Request a free conversation", href: "/contact" }}
+        primary={{ label: "Book a free 30-minute conversation", href: "/contact#booking" }}
         ctaPrimary={true}
         secondary={{ label: "See the report structure", href: "/sample-report" }}
       />
@@ -109,7 +91,10 @@ export default function BottleneckAssessmentPage() {
           <div>
             <div className={styles.bodyCopy}>
               <p>
-                Teams often reach for a process change or a new hire because both are visible moves. When the cause is uncertain, either can create more work. Marc compares accounts from the people close to the issue with relevant operating evidence, so the finding does not rest on the loudest explanation.
+                You may reach for a process change or a new hire because both are
+                visible moves. When the cause is uncertain, either can create more
+                work. I compare the accounts of people close to the issue with relevant
+                operating evidence.
               </p>
             </div>
             <div className={styles.spacedTop}>
@@ -140,40 +125,31 @@ export default function BottleneckAssessmentPage() {
         </div>
       </section>
 
-      <section className={styles.sectionTint} aria-labelledby="assessment-check">
+      <section className={styles.sectionTint} aria-label="Six-question bottleneck check">
         <div className={styles.narrowContainer}>
-          <SectionHeading
+          <DiagnosticDisclosure
             id="assessment-check"
-            kicker="Six-question check"
-            title="Where does the friction show up first?"
-            intro="Use the short check to organise what you have noticed. It offers a direction to investigate; the paid assessment uses broader evidence."
-          />
-          <DiagnosticContactFlow
-            contactProps={{
-              id: "assessment-quick-contact",
-              title: "Send Marc the result and a short note.",
-            }}
-            diagnosticProps={{
-              id: "bottleneck-check",
-              title: "Answer six questions.",
-              intro:
-                "Use the last few weeks as your reference point, including the awkward days.",
-            }}
-          />
+            label="Six-question check"
+            title="Run the six-question check"
+            intro="Use the last few weeks as your reference point."
+          >
+            <DiagnosticContactFlow
+              contactProps={{
+                id: "assessment-quick-contact",
+                title: "Send me the result and a short note.",
+              }}
+              diagnosticProps={{
+                id: "bottleneck-check",
+                intro:
+                  "Include the awkward days.",
+                introOnly: true,
+              }}
+            />
+          </DiagnosticDisclosure>
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="assessment-process">
-        <div className={`${styles.container} ${styles.split}`}>
-          <div className={styles.stickyTitle}>
-            <p className={styles.sectionKicker}>The process</p>
-            <h2 className={styles.sectionTitle} id="assessment-process">
-              From the first question to a decision sequence.
-            </h2>
-          </div>
-          <ProcessList steps={process} />
-        </div>
-      </section>
+      <EngagementProcess />
 
       <section className={styles.sectionDark} aria-labelledby="assessment-output">
         <div className={styles.container}>
@@ -217,9 +193,10 @@ export default function BottleneckAssessmentPage() {
       </section>
 
       <ContactBand
-        title="Bring the problem that keeps returning."
+        href="/contact#booking"
+        title="Use the assessment when the cause is still in question."
         text="The first conversation is free. The assessment fee is €3,500; participant scope, travel and applicable tax are confirmed before work begins."
-        label="Ask about the assessment"
+        label="Book the free conversation"
       />
     </div>
   );

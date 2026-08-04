@@ -11,7 +11,7 @@ import { createPageMetadata } from "@/config/metadata";
 export const metadata = createPageMetadata({
   title: "Bottleneck Assessment Report Structure",
   description:
-    "See how Marc Berghoff structures the written Bottleneck Assessment report used in the report workshop with decision-makers.",
+    "See how I structure the written Bottleneck Assessment report used in the report workshop with decision-makers.",
   path: "/sample-report",
 });
 
@@ -50,7 +50,7 @@ export default function SampleReportPage() {
     <div className={styles.page}>
       <PageHero
         breadcrumbs={[
-          { label: "Assessment & proof", href: "/bottleneck-assessment" },
+          { label: "Bottleneck Assessment", href: "/bottleneck-assessment" },
           { label: "Sample report" },
         ]}
         eyebrow="Report structure"
@@ -58,7 +58,7 @@ export default function SampleReportPage() {
         lead="The report combines qualitative and quantitative input with relevant operating evidence. It explains the main bottleneck and gives the report workshop a concrete set of questions to discuss."
         asideLabel="Format"
         asideValue="Written report + report workshop"
-        primary={{ label: "Request a free conversation", href: "/contact" }}
+        primary={{ label: "Book a free conversation", href: "/contact#booking" }}
         ctaPrimary={true}
         secondary={{ label: "Assessment details", href: "/bottleneck-assessment" }}
       />

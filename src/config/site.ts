@@ -1,5 +1,5 @@
 const LOCAL_SITE_URL = "http://localhost:3000";
-const PUBLIC_URL_PLACEHOLDER = /YOUR_DOMAIN|REPLACE/i;
+const PUBLIC_URL_PLACEHOLDER = /YOUR_|REPLACE/i;
 
 function parsePublicUrl(configured: string | null | undefined) {
   const candidate = configured?.trim();
@@ -63,16 +63,53 @@ export function getBookingUrl(
   return url.href;
 }
 
+export function getCalLink(configured = process.env.NEXT_PUBLIC_CAL_LINK) {
+  const candidate = configured?.trim().replace(/^\/+|\/+$/g, "");
+
+  if (
+    !candidate ||
+    PUBLIC_URL_PLACEHOLDER.test(candidate) ||
+    candidate.includes("..") ||
+    !/^[a-zA-Z0-9._~-]+(?:\/[a-zA-Z0-9._~-]+)*$/.test(candidate)
+  ) {
+    return null;
+  }
+
+  return candidate;
+}
+
+export function getContactPhone(
+  configured = process.env.NEXT_PUBLIC_CONTACT_PHONE,
+) {
+  const display = configured?.trim();
+
+  if (!display || PUBLIC_URL_PLACEHOLDER.test(display)) {
+    return null;
+  }
+
+  const href = display.replace(/[^\d+]/g, "");
+
+  if (!/^\+[1-9]\d{6,14}$/.test(href)) {
+    return null;
+  }
+
+  return { display, href } as const;
+}
+
+const calLink = getCalLink();
+const contactPhone = getContactPhone();
+
 export const siteConfig = {
   name: "Marc Berghoff",
-  descriptor: "MSc Psychology · people adviser · coach",
+  descriptor: "Fractional leadership · advisory · coaching",
   description:
-    "Marc Berghoff helps founders and leadership teams find the organisational bottleneck slowing execution and decide what to fix first.",
+    "I work with founders and leadership teams on people and organisation questions through fractional leadership, advisory, assessment and coaching.",
   contact: {
     email: "m.berghoff@hx-solutions.de",
-    phoneDisplay: "+00 000 0000 0000",
-    phoneHref: "+00 000 0000 0000",
-    bookingUrl: getBookingUrl(),
+    phoneDisplay: contactPhone?.display ?? null,
+    phoneHref: contactPhone?.href ?? null,
+    calLink,
+    bookingUrl: calLink ? `https://cal.com/${calLink}` : getBookingUrl(),
   },
   social: {
     linkedin: "https://mt.linkedin.com/in/marcberghoff/en",
@@ -90,50 +127,36 @@ export const serviceNavigation = [
     href: "/services",
     label: "All services",
     description:
-      "Compare the four ways Marc can support a live business question.",
+      "Compare how I can own a remit, challenge a decision, assess or coach.",
   },
   {
-    href: "/bottleneck-assessment",
-    label: "Bottleneck assessment",
+    href: "/fractional-people-leadership",
+    label: "Fractional leadership",
     description:
-      "Find the main organisational constraint before choosing an intervention.",
+      "Give an agreed part of the people agenda a senior owner.",
   },
   {
     href: "/advisory",
     label: "Strategic people advisory",
     description:
-      "Work through a defined people or organisation decision with an outside view.",
+      "Test a difficult people or organisation decision with an outside view.",
   },
   {
-    href: "/fractional-people-leadership",
-    label: "Fractional people leadership",
+    href: "/bottleneck-assessment",
+    label: "Bottleneck Assessment",
     description:
-      "Add temporary senior ownership while the permanent capability takes shape.",
+      "Investigate a recurring problem when the cause is still disputed.",
   },
   {
     href: "/executive-coaching",
-    label: "Executive coaching",
+    label: "Individual coaching",
     description:
-      "Confidential one-to-one work on a decision or leadership pattern.",
-  },
-] as const satisfies readonly NavigationLink[];
-
-export const assessmentNavigation = [
-  {
-    href: "/bottleneck-assessment",
-    label: "The assessment",
-    description:
-      "See the scope, process, fee and six-question directional check.",
+      "Private work on a live situation and the part that belongs with one leader.",
   },
   {
-    href: "/results",
-    label: "Results & experience",
-    description: "Review selected operating, advisory and coaching experience.",
-  },
-  {
-    href: "/sample-report",
-    label: "Sample report structure",
-    description: "See how the written finding and evidence are organised.",
+    href: "/group-coaching",
+    label: "Group coaching",
+    description: "Read what has been decided about the group format so far.",
   },
 ] as const satisfies readonly NavigationLink[];
 
@@ -173,37 +196,29 @@ export const insightNavigation = [
 export const aboutNavigation = [
   {
     href: "/about",
-    label: "About Marc",
+    label: "About me",
     description:
-      "Read about Marc's psychology, operator and coaching background.",
+      "Read about my psychology, operator and coaching background.",
   },
   {
-    href: "/contact/message",
-    label: "Send a quick message",
-    description: "Use the short form when a few lines are enough.",
+    href: "/results",
+    label: "Results & experience",
+    description: "Review selected operating, advisory and coaching experience.",
   },
   {
     href: "/contact",
-    label: "Detailed enquiry",
-    description: "Share company context, timing and the outcome you need.",
+    label: "Contact & booking",
+    description: "Book the free conversation or send me a note.",
   },
 ] as const satisfies readonly NavigationLink[];
 
 export const headerNavigation = [
   {
-    id: "services",
-    label: "Services",
+    id: "work",
+    label: "Work with me",
     href: "/services",
-    description: "Choose the format that matches the question.",
+    description: "Start with the responsibility the business needs someone to carry.",
     items: serviceNavigation,
-  },
-  {
-    id: "assessment",
-    label: "Assessment & proof",
-    href: "/bottleneck-assessment",
-    description:
-      "Understand the diagnostic, its output and the experience behind it.",
-    items: assessmentNavigation,
   },
   {
     id: "insights",
@@ -214,9 +229,9 @@ export const headerNavigation = [
   },
   {
     id: "about",
-    label: "About & contact",
+    label: "About",
     href: "/about",
-    description: "Meet Marc or choose the right way to get in touch.",
+    description: "Read about my work, see selected experience or get in touch.",
     items: aboutNavigation,
   },
 ] as const;

@@ -9,7 +9,7 @@ export const metadata = {
   ...createPageMetadata({
     title: "Privacy notice",
     description:
-      "How personal information is handled when you use this website, its bottleneck check and its contact forms.",
+      "How personal information is handled when you use this website, its booking calendar, bottleneck check and contact form.",
     path: "/privacy",
   }),
   robots: LEGAL_DETAILS.isComplete
@@ -47,8 +47,8 @@ export default function PrivacyPage() {
             Privacy notice
           </h1>
           <p className="max-w-2xl text-lg leading-8 text-slate-700">
-            This notice covers the website, the six-question bottleneck check and
-            both contact forms.
+            This notice covers the website, the Cal.com booking calendar, the
+            six-question bottleneck check and the contact form.
           </p>
           <p className="text-sm text-slate-600">
             Last updated: {LEGAL_DETAILS.lastUpdated}
@@ -62,15 +62,19 @@ export default function PrivacyPage() {
               responsible for personal information handled through this website.
               Privacy questions and rights requests can be sent to {" "}
               <a href={`mailto:${LEGAL_DETAILS.email}`}>{LEGAL_DETAILS.email}</a>.
-              You can also call {" "}
-              <a href={`tel:${LEGAL_DETAILS.phone.replaceAll(" ", "")}`}>
-                {LEGAL_DETAILS.phone}
-              </a>.
+              {LEGAL_DETAILS.phone ? (
+                <>
+                  {" "}You can also call {" "}
+                  <a href={`tel:${LEGAL_DETAILS.phone.replace(/[^\d+]/g, "")}`}>
+                    {LEGAL_DETAILS.phone}
+                  </a>.
+                </>
+              ) : null}
             </p>
           </LegalSection>
 
           <LegalSection title="2. Information you submit">
-            <p>The forms can collect:</p>
+            <p>The form can collect:</p>
             <ul className="list-disc space-y-2 pl-6 marker:text-blue-700">
               <li>your name, contact details, company and role;</li>
               <li>the service, timing and company-size options you select;</li>
@@ -84,7 +88,7 @@ export default function PrivacyPage() {
             </p>
           </LegalSection>
 
-          <LegalSection title="3. How the contact forms work">
+          <LegalSection title="3. How the contact form works">
             <p>
               A completed form is sent to a server route hosted on Vercel. The route
               checks the fields and forwards the relevant answers to the configured
@@ -117,9 +121,10 @@ export default function PrivacyPage() {
           <LegalSection title="5. Providers and international processing">
             <p>
               Vercel provides hosting and the server route. Google provides the form and
-              any linked response sheet. These providers may process information outside
-              the country where a visitor lives, subject to their current contracts,
-              locations and transfer safeguards.
+              any linked response sheet. Cal.com provides the inline booking calendar.
+              These providers may process information outside the country where a
+              visitor lives, subject to their current contracts, locations and transfer
+              safeguards.
             </p>
             <p>
               Information may also be disclosed where required by law or where reasonably
@@ -127,7 +132,22 @@ export default function PrivacyPage() {
             </p>
           </LegalSection>
 
-          <LegalSection title="6. Retention">
+          <LegalSection title="6. Booking through Cal.com">
+            <p>
+              When the booking calendar is configured, opening the contact page connects
+              your browser to Cal.com so it can display availability. Cal.com can receive
+              technical request data such as your IP address, browser details and the
+              referring page. If you book a conversation, the details you enter and the
+              appointment information are sent to Cal.com and used to arrange the meeting.
+            </p>
+            <p>
+              Cal.com handles that information under its own terms and privacy notice.
+              You can use the contact form instead if you do not want to book through the
+              embedded calendar.
+            </p>
+          </LegalSection>
+
+          <LegalSection title="7. Retention">
             <p>
               Enquiries are kept {LEGAL_DETAILS.contactRetentionPeriod}. Information can
               be removed earlier when there is no continuing business or legal reason to
@@ -136,17 +156,17 @@ export default function PrivacyPage() {
             </p>
           </LegalSection>
 
-          <LegalSection title="7. The bottleneck check">
+          <LegalSection title="8. The bottleneck check">
             <p>
               The six-question check runs in the browser. Its answers stay there unless
               you choose to include the summary in a contact message. The check offers a
               directional business reflection; it does not make an employment decision
-              or a decision with legal or similarly significant effects. Marc reviews
-              every submitted enquiry himself.
+              or a decision with legal or similarly significant effects. I review every
+              submitted enquiry myself.
             </p>
           </LegalSection>
 
-          <LegalSection title="8. Analytics and performance measurement">
+          <LegalSection title="9. Analytics and performance measurement">
             <p>
               The site uses Vercel Web Analytics to record anonymised, aggregated
               page-view data without cookies. Vercel creates a daily hash from request
@@ -176,7 +196,7 @@ export default function PrivacyPage() {
             </p>
           </LegalSection>
 
-          <LegalSection title="9. Your rights">
+          <LegalSection title="10. Your rights">
             <p>
               Depending on the law that applies, you may ask for access, correction,
               deletion, restriction or portability of your personal information. You
@@ -190,7 +210,7 @@ export default function PrivacyPage() {
             </p>
           </LegalSection>
 
-          <LegalSection title="10. Security and updates">
+          <LegalSection title="11. Security and updates">
             <p>
               Reasonable technical and organisational safeguards protect the submission
               workflow. Internet transmission still carries risk. This notice will be

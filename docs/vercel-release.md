@@ -22,9 +22,12 @@ delivery:
 
 - `NEXT_PUBLIC_SITE_URL` — the canonical origin with `https://` and no path, for
   example `https://marc.example`. Do not use a Vercel preview URL in Production.
-- `NEXT_PUBLIC_BOOKING_URL` — optional. Use a complete `https://` scheduling URL;
-  leave it unset to use the enquiry-form fallback on the contact page. Invalid,
-  placeholder and non-HTTPS values are ignored safely.
+- `NEXT_PUBLIC_CAL_LINK` — the Cal.com username and event slug without the domain,
+  for example `marc/first-conversation`. The contact page embeds this event inline.
+  Leave it unset while the event is being prepared; the page shows the contact-form
+  fallback. Full URLs and malformed paths are ignored safely.
+- `NEXT_PUBLIC_CONTACT_PHONE` — optional public phone number in international
+  format, for example `+49 123 456789`. Leave it unset to omit telephone links.
 - `GOOGLE_FORM_ACTION_URL`
 - `GOOGLE_FORM_ENTRY_FORM_TYPE`
 - `GOOGLE_FORM_ENTRY_FULL_NAME`
@@ -79,7 +82,8 @@ On the Vercel preview:
 1. Check all navigation and footer links at 360, 768, 1024 and 1440 pixels.
 2. Complete the diagnostic using keyboard only and verify the result is announced
    and readable.
-3. Submit both contact variants and confirm their rows in Google Forms/Sheets.
+3. Submit the contact form once with optional details closed and once with them open;
+   confirm both rows in Google Forms/Sheets.
 4. Verify error handling with the network offline and with a deliberately invalid
    preview-only form mapping.
 5. Open `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`, `/icon` and
@@ -89,7 +93,8 @@ On the Vercel preview:
 7. Open the deployed site, then confirm page views appear in Web Analytics and a
    field-performance sample reaches Speed Insights after Vercel has had time to
    process it.
-8. Inspect the Privacy and Imprint pages after all legal replacements.
+8. Book a preview appointment through the inline Cal.com calendar and inspect the
+   Privacy and Imprint pages after all legal replacements.
 9. Confirm there is no horizontal scrolling, no content hidden behind the header,
    and a visible focus indicator on every interactive element.
 10. Check a reduced-motion system setting and a narrow mobile viewport.
@@ -111,7 +116,7 @@ untested policy into Production.
 
 ## After launch
 
-- Submit both forms once and confirm delivery.
+- Submit the contact form once and confirm delivery. Complete one Cal.com test booking.
 - Register the sitemap with the relevant search consoles.
 - Monitor 4xx/5xx errors and form-delivery failures without logging message bodies.
 - Recheck public claims, testimonial permissions and credential dates quarterly.

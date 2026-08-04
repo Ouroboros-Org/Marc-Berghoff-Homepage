@@ -15,7 +15,7 @@ export function SiteLogo({ inverse = false }: SiteLogoProps) {
       <span className="site-logo__mark" aria-hidden="true" />
       <span className="site-logo__copy">
         <span className="site-logo__name">Marc Berghoff</span>
-        <span className="site-logo__descriptor">People adviser &amp; coach</span>
+        <span className="site-logo__descriptor">Fractional leadership</span>
       </span>
     </Link>
   );

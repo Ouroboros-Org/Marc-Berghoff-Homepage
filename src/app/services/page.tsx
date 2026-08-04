@@ -1,10 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+import { EngagementProcess } from "@/components/engagement-process";
 import {
   ContactBand,
   PageHero,
-  SectionHeading,
   secondaryPageStyles as pageStyles,
 } from "@/components/pages/editorial";
 import { StructuredData } from "@/components/structured-data";
@@ -14,63 +14,47 @@ import { getSiteUrl } from "@/config/site";
 import styles from "./services.module.css";
 
 export const metadata = createPageMetadata({
-  title: "Services",
+  title: "Work With Me",
   description:
-    "Compare Marc Berghoff's organisational Bottleneck Assessment, strategic people advisory, fractional people leadership and executive coaching.",
+    "Choose between fractional leadership, strategic people advisory, a Bottleneck Assessment, individual coaching and a developing group format.",
   path: "/services",
 });
 
 const offers = [
   {
-    title: "Bottleneck Assessment",
-    problem: "Several explanations are competing",
-    copy: "A typical one-to-two-week organisational assessment, followed by a written report and a report workshop with the decision-makers.",
-    meta: "€3,500 · scope confirmed",
-    href: "/bottleneck-assessment",
-  },
-  {
-    title: "Strategic people advisory",
-    problem: "The decision is already visible",
-    copy: "An independent second view on role questions, periods of change and other people decisions tied to the business plan.",
-    meta: "Regular advisory",
-    href: "/advisory",
-  },
-  {
-    title: "Fractional people leadership",
-    problem: "The agenda needs a senior owner",
-    copy: "Part-time senior leadership for a defined period of growth or change, working inside the company while internal capability is built.",
-    meta: "Defined fractional remit",
+    title: "Fractional leadership",
+    signal: "The work needs a senior owner.",
+    copy: "I join your operating rhythm for an agreed period and own a defined set of people and organisation priorities. We agree the decision rights and handover in advance.",
+    meta: "Defined part-time remit",
     href: "/fractional-people-leadership",
   },
   {
-    title: "Executive coaching",
-    problem: "The work belongs with one leader",
-    copy: "Confidential one-to-one coaching on the part of a business problem that belongs with the founder or senior leader.",
-    meta: "Private coaching",
+    title: "Strategic people advisory",
+    signal: "The decision is visible, but difficult.",
+    copy: "You keep the decision. I bring an outside view to senior hires, role design, change and other people questions tied to the business plan.",
+    meta: "Ongoing or time-bound",
+    href: "/advisory",
+  },
+  {
+    title: "Bottleneck Assessment",
+    signal: "The cause is still disputed.",
+    copy: "I compare interviews, operating evidence and the way decisions move. You receive a written report and work through the priority decisions with me.",
+    meta: "Fixed assessment · €3,500",
+    href: "/bottleneck-assessment",
+  },
+  {
+    title: "Individual coaching",
+    signal: "The work belongs with one leader.",
+    copy: "We define the change you want, how you will recognise progress and which current situations give us useful material.",
+    meta: "Private one-to-one work",
     href: "/executive-coaching",
   },
-] as const;
-
-const choices = [
   {
-    signal: "People disagree about the cause",
-    title: "Use the assessment.",
-    text: "It gives the leadership team a shared reading of the evidence before anyone commits to a fix.",
-  },
-  {
-    signal: "The decision is defined",
-    title: "Use advisory.",
-    text: "Bring the live choice and the trade-offs around it. The work stays with the decision due now.",
-  },
-  {
-    signal: "The agenda lacks a senior owner",
-    title: "Use a fractional remit.",
-    text: "This fits when the people work cannot wait and the permanent structure is still taking shape.",
-  },
-  {
-    signal: "One leader wants to work differently",
-    title: "Use coaching.",
-    text: "The agreement stays with that leader: what they notice, decide and do differently in the role.",
+    title: "Group coaching",
+    signal: "Several leaders are working on related questions.",
+    copy: "A coaching format for leaders working on related questions. The audience, group size, rhythm and fee are still being developed.",
+    meta: "Offer in development",
+    href: "/group-coaching",
   },
 ] as const;
 
@@ -83,7 +67,7 @@ export default function ServicesPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Marc Berghoff services",
+          name: "Ways to work with Marc Berghoff",
           itemListElement: offers.map((offer, index) => ({
             "@type": "ListItem",
             position: index + 1,
@@ -99,77 +83,47 @@ export default function ServicesPage() {
       />
 
       <PageHero
-        breadcrumbs={[{ label: "Services" }]}
-        eyebrow="Ways to work together"
-        title="Match the format to the question."
-        lead="Use the assessment when the cause is uncertain. Advisory, fractional leadership and coaching each begin with a more defined question. The first conversation is free, and there is no required sequence."
-        primary={{ label: "Request a free conversation", href: "/contact" }}
-        ctaPrimary={true}
-        secondary={{ label: "Try the six-question check", href: "/#diagnostic" }}
-        ctaSecondary={true}
+        breadcrumbs={[{ label: "Work with me" }]}
+        compact
+        lead="You may need someone to own a remit, challenge a decision, establish why a problem keeps returning or coach one leader. I use the free first conversation to recommend the lightest format that fits."
+        primary={{ label: "Book a free 30-minute conversation", href: "/contact#booking" }}
+        secondary={{ label: "Run the six-question check", href: "/?check=open#diagnostic" }}
+        title="Choose by who needs to carry the work."
       />
 
-      <section className={pageStyles.section} aria-labelledby="service-options">
+      <section className={`${pageStyles.section} ${styles.optionsSection}`} aria-labelledby="service-options">
         <div className={pageStyles.container}>
-          <SectionHeading
-            id="service-options"
-            kicker="The offer"
-            title="Four ways to work on a live problem."
-            intro="In the first conversation, Marc checks the question, the boundary of the work and who needs to be involved."
-          />
-          <div className={styles.offerGrid}>
-            {offers.map((offer, index) => (
-              <Link className={styles.offerCard} href={offer.href} key={offer.href}>
-                <div className={styles.offerTopline}>
-                  <span className={styles.offerIndex}>0{index + 1}</span>
-                  <span className={styles.offerMeta}>{offer.meta}</span>
+          <div className={styles.header}>
+            <h2 id="service-options">What does the work need from me?</h2>
+            <p>I check the question, the boundary and who needs to be involved before I propose a format.</p>
+          </div>
+          <div className={styles.offerList}>
+            {offers.map((offer) => (
+              <Link className={styles.offer} href={offer.href} key={offer.href}>
+                <div className={styles.offerLabel}>
+                  <span>{offer.signal}</span>
+                  <small>{offer.meta}</small>
                 </div>
-                <div>
-                  <p className={styles.offerProblem}>{offer.problem}</p>
-                  <h3 className={styles.offerTitle}>{offer.title}</h3>
-                  <p className={styles.offerCopy}>{offer.copy}</p>
-                </div>
-                <span className={styles.offerLink}>
-                  See how it works
-                  <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
-                </span>
+                <h3>{offer.title}</h3>
+                <p>{offer.copy}</p>
+                <ArrowRight aria-hidden="true" size={22} />
               </Link>
             ))}
           </div>
           <p className={styles.offerNote}>
-            The assessment fee is €3,500. Participant scope, travel and applicable tax
+            For the Bottleneck Assessment, participant scope, travel and applicable tax
             are confirmed before work begins.
           </p>
         </div>
       </section>
 
-      <section className={pageStyles.sectionDark} aria-labelledby="choose-service">
-        <div className={pageStyles.container}>
-          <SectionHeading
-            id="choose-service"
-            kicker="Choosing a format"
-            title="Where is the uncertainty?"
-            intro="The answer usually tells you which format is proportionate."
-          />
-          <ol className={styles.choiceList}>
-            {choices.map((choice) => (
-              <li className={styles.choiceItem} key={choice.signal}>
-                <span className={styles.choiceSignal}>{choice.signal}</span>
-                <div>
-                  <h3>{choice.title}</h3>
-                  <p>{choice.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <EngagementProcess />
 
       <ContactBand
-        href="/contact/message"
+        href="/contact#booking"
+        label="Book the free conversation"
+        text="Tell me about the decision or recurring issue. I will tell you which kind of work, if any, makes sense from here."
         title="Unsure which format fits?"
-        text="Describe the decision or recurring issue. Marc will tell you which kind of work, if any, makes sense from here."
-        label="Ask Marc"
       />
     </div>
   );

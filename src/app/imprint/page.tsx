@@ -71,9 +71,14 @@ export default function ImprintPage() {
             <p>
               Email: <a href={`mailto:${LEGAL_DETAILS.email}`}>{LEGAL_DETAILS.email}</a>
             </p>
-            <p>
-              Telephone: <a href={`tel:${LEGAL_DETAILS.phone.replaceAll(" ", "")}`}>{LEGAL_DETAILS.phone}</a>
-            </p>
+            {LEGAL_DETAILS.phone ? (
+              <p>
+                Telephone:{" "}
+                <a href={`tel:${LEGAL_DETAILS.phone.replace(/[^\d+]/g, "")}`}>
+                  {LEGAL_DETAILS.phone}
+                </a>
+              </p>
+            ) : null}
           </ImprintSection>
 
           <ImprintSection title="Editorial responsibility">

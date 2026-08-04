@@ -34,9 +34,9 @@ export function HomeBottleneckDiagnostic() {
   return (
     <BottleneckDiagnostic
       contactAnchorId="home-quick-contact"
-      intro="Answer from the last few weeks, including the days when work became awkward."
+      intro="Answer from the last few weeks, including the awkward days."
+      introOnly
       onUseSummary={setSummary}
-      title="Six questions about how work moves."
     />
   );
 }

@@ -12,11 +12,12 @@ import { getSiteUrl, siteConfig } from "@/config/site";
 
 const siteUrl = getSiteUrl();
 const isVercelPreview = process.env.VERCEL_ENV === "preview";
+const isVercelDeployment = Boolean(process.env.VERCEL);
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Marc Berghoff | Organisational Bottleneck Assessment",
+    default: "Marc Berghoff | Fractional Leadership",
     template: "%s | Marc Berghoff",
   },
   description: siteConfig.description,
@@ -30,13 +31,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "/",
     siteName: siteConfig.name,
-    title: "Marc Berghoff | Organisational Bottleneck Assessment",
+    title: "Marc Berghoff | Fractional Leadership",
     description: siteConfig.description,
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marc Berghoff | Organisational Bottleneck Assessment",
+    title: "Marc Berghoff | Fractional Leadership",
     description: siteConfig.description,
     images: ["/opengraph-image"],
   },
@@ -75,17 +76,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               name: siteConfig.name,
               url: siteUrl,
               image: `${siteUrl}/images/portraits/marc-seated-original.jpg`,
-              jobTitle: "People adviser and executive coach",
+              jobTitle: "Fractional Leadership Manager",
               description: siteConfig.description,
               email: `mailto:${siteConfig.contact.email}`,
-              telephone: siteConfig.contact.phoneHref,
+              ...(siteConfig.contact.phoneHref
+                ? { telephone: siteConfig.contact.phoneHref }
+                : {}),
               sameAs: [siteConfig.social.linkedin],
               knowsAbout: [
                 "Organisational bottlenecks",
                 "People strategy",
                 "Organisation design",
-                "Fractional people leadership",
-                "Executive coaching",
+                "Fractional leadership",
+                "Individual coaching",
               ],
             },
           ]}
@@ -96,8 +99,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
-        <Analytics />
-        <SpeedInsights />
+        {isVercelDeployment ? <Analytics /> : null}
+        {isVercelDeployment ? <SpeedInsights /> : null}
       </body>
     </html>
   );

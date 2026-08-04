@@ -3,9 +3,9 @@ import { createPageMetadata } from "@/config/metadata";
 import { SERVICES } from "@/content/services";
 
 export const metadata = createPageMetadata({
-  title: "Fractional People Leadership",
+  title: "Fractional Leadership",
   description:
-    "Part-time senior people leadership for companies that need clear ownership of the people agenda without a full-time executive hire.",
+    "Part-time senior ownership of a defined people and organisation remit while the permanent structure of the business is still taking shape.",
   path: "/fractional-people-leadership",
 });
 

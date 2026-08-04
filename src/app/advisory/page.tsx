@@ -5,7 +5,7 @@ import { SERVICES } from "@/content/services";
 export const metadata = createPageMetadata({
   title: "Strategic People Advisory",
   description:
-    "Independent strategic people advice for founders and leadership teams facing role questions, organisational change or a consequential decision.",
+    "An outside view for founders and leadership teams facing a difficult hire, role question, organisational change or people decision.",
   path: "/advisory",
 });
 

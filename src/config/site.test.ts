@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { getBookingUrl, getSiteUrl } from "./site";
+import { getBookingUrl, getCalLink, getContactPhone, getSiteUrl } from "./site";
 
 describe("getSiteUrl", () => {
   it.each([
@@ -63,5 +63,44 @@ describe("getBookingUrl", () => {
     expect(getBookingUrl(" https://calendar.example/marc?month=2026-08 ")).toBe(
       "https://calendar.example/marc?month=2026-08",
     );
+  });
+});
+
+describe("getCalLink", () => {
+  it.each([
+    undefined,
+    "",
+    "https://cal.com/marc/intro",
+    "../marc/intro",
+    "marc/intro?date=2026-08-04",
+    "YOUR_CAL_LINK",
+  ])("rejects an absent or malformed Cal link: %s", (value) => {
+    expect(getCalLink(value)).toBeNull();
+  });
+
+  it("normalises a Cal username and event path", () => {
+    expect(getCalLink(" /marc/first-conversation/ ")).toBe(
+      "marc/first-conversation",
+    );
+  });
+});
+
+describe("getContactPhone", () => {
+  it.each([
+    undefined,
+    "",
+    "YOUR_PHONE",
+    "0049 123 456",
+    "+00 000 0000 0000",
+    "+49 call-marc",
+  ])("rejects an absent, placeholder or malformed number: %s", (value) => {
+    expect(getContactPhone(value)).toBeNull();
+  });
+
+  it("keeps the display format and creates a safe telephone href", () => {
+    expect(getContactPhone(" +49 (0) 123 456 789 ")).toEqual({
+      display: "+49 (0) 123 456 789",
+      href: "+490123456789",
+    });
   });
 });

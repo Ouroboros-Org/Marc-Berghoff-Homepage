@@ -7,7 +7,8 @@ import { ButtonLink, type ButtonVariant } from "@/components/button";
 import styles from "./secondary-pages.module.css";
 
 type PageHeroProps = {
-  eyebrow: string;
+  compact?: boolean;
+  eyebrow?: string;
   title: string;
   lead: string;
   asideLabel?: string;
@@ -21,6 +22,7 @@ type PageHeroProps = {
 };
 
 export function PageHero({
+  compact = false,
   eyebrow,
   title,
   lead,
@@ -34,7 +36,7 @@ export function PageHero({
   breadcrumbs,
 }: PageHeroProps) {
   return (
-    <header className={styles.hero}>
+    <header className={`${styles.hero} ${compact ? styles.heroCompact : ""}`}>
       {breadcrumbs?.length ? (
         <div className={styles.container}>
           <Breadcrumbs className={styles.heroBreadcrumbs} items={breadcrumbs} />
@@ -42,7 +44,7 @@ export function PageHero({
       ) : null}
       <div className={`${styles.container} ${styles.heroGrid}`}>
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>{eyebrow}</p>
+          {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
           <h1 className={styles.heroTitle}>{title}</h1>
           <p className={styles.heroLead}>{lead}</p>
           {(primary || secondary) && (

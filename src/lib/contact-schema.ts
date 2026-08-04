@@ -5,6 +5,7 @@ export const SERVICE_VALUES = [
   "advisory",
   "fractional-people-leadership",
   "executive-coaching",
+  "group-coaching",
   "not-sure",
 ] as const;
 
@@ -14,7 +15,8 @@ export const SERVICE_LABELS = {
   "bottleneck-assessment": "Bottleneck assessment",
   advisory: "Strategic people advisory",
   "fractional-people-leadership": "Fractional people leadership",
-  "executive-coaching": "Executive coaching",
+  "executive-coaching": "Individual coaching",
+  "group-coaching": "Group coaching",
   "not-sure": "I’m not sure yet",
 } as const satisfies Record<ServiceValue, string>;
 
@@ -100,7 +102,7 @@ export const quickContactSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(10, "Share at least a sentence so Marc has some context.")
+    .min(10, "Share at least a sentence so I have some context.")
     .max(4_000, "Keep your message to 4,000 characters or fewer."),
 });
 

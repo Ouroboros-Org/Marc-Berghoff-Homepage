@@ -15,11 +15,11 @@ const routes = [
     priority: 0.8,
   },
   { path: "/executive-coaching", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/group-coaching", changeFrequency: "monthly", priority: 0.65 },
   { path: "/results", changeFrequency: "monthly", priority: 0.7 },
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.6 },
-  { path: "/contact/message", changeFrequency: "yearly", priority: 0.65 },
   { path: "/sample-report", changeFrequency: "yearly", priority: 0.5 },
 ] as const;
 

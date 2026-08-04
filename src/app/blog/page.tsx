@@ -17,7 +17,7 @@ import styles from "./blog.module.css";
 export const metadata = createPageMetadata({
   title: "Organisational Bottlenecks & Leadership Articles",
   description:
-    "Articles for founders and leadership teams on organisational bottlenecks, role clarity, fractional people leadership and executive coaching.",
+    "Articles for founders and leadership teams on decision rights, fractional leadership, organisation questions and individual coaching.",
   path: "/blog",
 });
 
@@ -55,11 +55,11 @@ export default function BlogPage() {
       <PageHero
         breadcrumbs={[{ label: "Insights" }]}
         eyebrow="Insights"
-        title="Notes on problems that keep returning."
-        lead="Marc writes about founder dependency, blurred decision rights and the point where a leadership problem becomes an organisational one."
-        primary={{ label: "Run the six-question check", href: "/#diagnostic" }}
+        title="Work out why the problem keeps returning."
+        lead="Use these articles to work out if you are dealing with a decision, role or operating-model problem before you choose outside help."
+        primary={{ label: "Start with the latest article", href: "#featured-article" }}
         ctaPrimary={true}
-        secondary={{ label: "Compare services", href: "/services" }}
+        secondary={{ label: "Run the six-question check", href: "/?check=open#diagnostic" }}
       />
 
       <section className={pageStyles.section} aria-labelledby="featured-article">
@@ -92,7 +92,7 @@ export default function BlogPage() {
           <SectionHeading
             id="all-articles"
             kicker="All articles"
-            title="More from the notebook."
+            title="Choose the question closest to yours."
           />
           <div className={styles.articleGrid}>
             {posts.map((post) => (
@@ -121,10 +121,10 @@ export default function BlogPage() {
       </section>
 
       <ContactBand
-        href="/contact/message"
+        href="/contact#booking"
         title="Does one of these situations sound familiar?"
-        text="Send Marc the version happening in your company. The free first conversation may point to an assessment, a smaller piece of work or no engagement."
-        label="Describe the situation"
+        text="Send me the version happening in your company. I will tell you if a conversation could be useful."
+        label="Book the free conversation"
       />
     </div>
   );

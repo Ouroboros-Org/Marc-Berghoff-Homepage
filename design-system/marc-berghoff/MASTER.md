@@ -1,8 +1,8 @@
 # Marc Berghoff — Design System Master
 
-**Updated:** 2026-07-29  
+**Updated:** 2026-08-04
 **Product:** English-language personal advisory website  
-**Direction:** Editorial diagnostic, calm authority, spacious, direct  
+**Direction:** Editorial fractional leadership, calm authority, spacious, direct
 **Design dials:** variance 4/10 · motion 3/10 · density 3/10
 
 This file is the visual source of truth. The supplied presentation and website brief override the generic database recommendation that was used to establish the Trust & Authority page pattern.
@@ -30,6 +30,16 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 - Body and controls: **Inter Variable**, 400–750 weight.
 - Use sentence case. Keep paragraphs narrow and concrete.
 - Avoid ornamental type, centred body copy and all-caps text beyond short eyebrow labels.
+
+## Voice
+
+- Address the reader as “you”. In public prose, Marc speaks as “I”, “me” or “my”.
+- Keep Marc Berghoff in attribution, legal names, metadata titles, structured data and image labels where first person would be unclear.
+- Begin with the reader’s live decision or operating problem. Explain Marc’s role only where it helps the reader choose or act.
+- Keep one idea per sentence. Remove promotional claims, repeated conclusions and generic consulting language.
+- Prefer concrete subjects and active verbs. Avoid stacked abstractions, inflated scene-setting, “not just … but” contrasts, forced groups of three and summary paragraphs that restate the section.
+- Keep uncertainty and boundaries plain. An unfinished offer, unclear diagnosis or poor fit must not be resolved with generic reassurance.
+- Keep credentials and biography out of decision sections unless that evidence changes the reader’s choice.
 
 ## Layout
 
@@ -65,15 +75,41 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 - Focus uses a deep-blue ring on light surfaces and a yellow ring on dark surfaces; errors use both colour and text.
 - Submission state must be announced with `aria-live` and preserve entered data on error.
 
+### Editorial choice rows
+
+- Use ruled, full-width rows for comparing services, articles and other peer choices; do not turn these directories into floating card grids.
+- On wide screens, align the situation, format name, explanation and arrow in separate columns. Stack the supporting text below the name on narrow screens while keeping the whole row as one target.
+- Keep rows flat at rest. A very light blue tint and deep-blue text shift may signal hover without moving content.
+
+### Universal engagement process
+
+- Show the four engagement steps as one connected sequence: a horizontal line with deep-blue numbered circles on wide screens, two columns at intermediate widths and a vertical line on small screens.
+- Keep the step titles and sequence identical across services and contact routes. Supporting copy may explain the selected format, but it must not imply a different process.
+
+### Progressive disclosures
+
+- Diagnostics and optional enquiry fields are collapsed by default. An incoming link may open the promised disclosure through its hash or query parameter.
+- Use native disclosure semantics, a rotating chevron and a bordered white surface. The complete summary remains a generous click and keyboard target.
+- Opening content must expand in place without hiding the summary or creating a separate modal flow.
+
+### Embedded scheduling
+
+- Place the inline calendar in a quiet white layer on the blue-mist section surface. The shell uses the same border, modest radius and low ambient shadow as the contact form.
+- Allow the calendar to approach the viewport gutters on small screens so its controls stay usable. Internal overflow belongs to the embed, not the page.
+- When the event link is not configured, keep the same shell and replace the calendar with a short, centred fallback that points to the contact form.
+
 ## Page pattern
 
-1. Name the recognisable operating problem.
-2. Offer the six-question diagnostic without an email gate.
-3. Show how the constraint compounds.
-4. Explain the paid assessment, process and fee.
-5. Give routes into advisory, fractional work and coaching.
-6. Support claims with named work, measured outcomes and attributed testimonials.
-7. Close with a short contact form; keep the extended form on the contact page.
+1. Name the responsibility or operating problem in plain language.
+2. Explain the amount of ownership available without turning the page into a biography or credentials pitch.
+3. Let the reader choose fractional leadership, advisory, assessment or coaching by
+   asking who needs to carry the work.
+4. Use the same four-step engagement process across every format.
+5. Keep the six-question diagnostic optional and collapsed unless a CTA promises it.
+6. Use only confirmed named work, approved credentials and attributed testimonials;
+   never invent performance proof or expose unconfirmed company metrics.
+7. Close with the free 30-minute conversation; keep optional contact details collapsed
+   unless the incoming CTA promises a detailed enquiry.
 
 ## Motion
 
@@ -104,7 +140,7 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 
 - [x] Palette and typography match the supplied brief.
 - [x] Diagnostic works by keyboard and explains its non-clinical scope.
-- [x] Quick and extended contact forms validate and handle configured/unconfigured Google Forms states.
+- [x] The progressive contact form and Cal.com embed handle configured and unconfigured states.
 - [x] Every route has useful metadata, canonical URL and responsive layout.
 - [x] Focus, error, hover, loading, success and empty states are clear.
 - [x] Reduced motion and 200% reflow remain usable.

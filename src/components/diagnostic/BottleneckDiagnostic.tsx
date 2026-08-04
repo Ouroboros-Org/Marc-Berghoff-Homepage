@@ -32,6 +32,7 @@ export type BottleneckDiagnosticProps = {
   intro?: string;
   className?: string;
   contactAnchorId?: string;
+  introOnly?: boolean;
   onComplete?: (result: DiagnosticResult) => void;
   onUseSummary?: (summary: string) => void;
 };
@@ -42,6 +43,7 @@ export function BottleneckDiagnostic({
   intro = "Answer from the last few weeks. The result compares the friction reported across four areas.",
   className,
   contactAnchorId,
+  introOnly = false,
   onComplete,
   onUseSummary,
 }: BottleneckDiagnosticProps) {
@@ -131,9 +133,15 @@ export function BottleneckDiagnostic({
   return (
     <div className={`${styles.diagnostic} ${className ?? ""}`} id={id}>
       <header className={styles.header}>
-        <p className={styles.eyebrow}>Six-question bottleneck check</p>
-        <h2 className={styles.title}>{title}</h2>
-        <p className={styles.intro}>{intro}</p>
+        {introOnly ? (
+          <p className={styles.intro}>{intro}</p>
+        ) : (
+          <>
+            <p className={styles.eyebrow}>Six-question bottleneck check</p>
+            <h2 className={styles.title}>{title}</h2>
+            <p className={styles.intro}>{intro}</p>
+          </>
+        )}
       </header>
 
       <div>

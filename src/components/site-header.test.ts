@@ -7,15 +7,15 @@ import {
 } from "./site-header";
 
 describe("header navigation state", () => {
-  it("chooses the canonical group when a route appears in multiple menus", () => {
-    expect(getActiveHeaderGroupId("/bottleneck-assessment")).toBe("assessment");
+  it("places the assessment inside the work group", () => {
+    expect(getActiveHeaderGroupId("/bottleneck-assessment")).toBe("work");
   });
 
   it.each([
-    ["/advisory", "services"],
-    ["/results", "assessment"],
+    ["/advisory", "work"],
+    ["/results", "about"],
     ["/blog/founder-bottleneck-or-operating-model", "insights"],
-    ["/contact/message", "about"],
+    ["/contact", "about"],
   ])("maps %s to the %s group", (pathname, groupId) => {
     expect(getActiveHeaderGroupId(pathname)).toBe(groupId);
   });
@@ -27,10 +27,10 @@ describe("header navigation state", () => {
     expect(isCurrentNavigationPage(pathname, pathname)).toBe(true);
   });
 
-  it("marks a duplicated destination current only in its canonical group", () => {
+  it("marks the assessment destination in the work group", () => {
     const pathname = "/bottleneck-assessment";
 
-    expect(isCurrentHeaderItem(pathname, "assessment", pathname)).toBe(true);
-    expect(isCurrentHeaderItem(pathname, "services", pathname)).toBe(false);
+    expect(isCurrentHeaderItem(pathname, "work", pathname)).toBe(true);
+    expect(isCurrentHeaderItem(pathname, "about", pathname)).toBe(false);
   });
 });

@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { EngagementProcess } from "@/components/engagement-process";
 import {
   ContactBand,
   PageHero,
@@ -11,7 +12,7 @@ import { createPageMetadata } from "@/config/metadata";
 export const metadata = createPageMetadata({
   title: "About",
   description:
-    "Meet Marc Berghoff, a Malta-based people adviser with an MSc in Psychology, founder experience and an ICF Associate Certified Coach credential.",
+    "How I work with people and organisation questions, and the experience I bring to a fractional, advisory or coaching remit.",
   path: "/about",
 });
 
@@ -36,16 +37,16 @@ const credentials = [
 
 const principles = [
   {
-    title: "Investigate before prescribing",
-    text: "A people problem can begin in the way the business sets priorities or assigns decisions. Marc looks for the cause before recommending a response.",
+    title: "Work from detail to strategy",
+    text: "I can enter through the live operating issue, then help you move attention and ownership towards the decisions that matter.",
   },
   {
-    title: "Use current material",
-    text: "A delayed decision, difficult hire or postponed conversation is more useful than a hypothetical case study.",
+    title: "Use evidence and agreed measures",
+    text: "We decide what progress should look like before judging the work. KPIs are useful when they answer a decision. Reporting without a decision adds noise.",
   },
   {
-    title: "Leave the decision with the client",
-    text: "Marc challenges the reasoning and supports the work. Accountability stays with the people running the business.",
+    title: "Build methods and people",
+    text: "I use approaches such as OKRs or Scaling Up when they fit. Coaching and mentoring help new and emerging leaders grow into the work.",
   },
 ] as const;
 
@@ -53,15 +54,14 @@ export default function AboutPage() {
   return (
     <div className={styles.page}>
       <PageHero
-        breadcrumbs={[{ label: "About Marc" }]}
-        eyebrow="About Marc"
-        title="An independent adviser with operator experience."
-        lead="Marc has an MSc in Psychology and has worked in people leadership, founder roles and executive coaching. He helps leadership teams examine the operating problems that sit behind recurring people issues."
+        breadcrumbs={[{ label: "About me" }]}
+        title="When people decisions need attention."
+        lead="I can own a defined remit, advise on a decision, investigate a recurring problem or coach one leader. My background matters where it helps me work with the situation in front of you."
         asideLabel="Based in"
         asideValue="Malta · international"
-        primary={{ label: "Request a free conversation", href: "/contact", variant: "secondary" }}
+        primary={{ label: "Book a free conversation", href: "/contact#booking", variant: "secondary" }}
         ctaPrimary={true}
-        secondary={{ label: "See selected results", href: "/results", variant: "primary" }}
+        secondary={{ label: "Run the six-question check", href: "/?check=open#diagnostic", variant: "primary" }}
         ctaSecondary={true}
       />
 
@@ -79,18 +79,23 @@ export default function AboutPage() {
             </div>
             <figcaption className={styles.portraitCaption}>
               <span>Marc Berghoff</span>
-              <span>People adviser &amp; executive coach</span>
+              <span>Fractional leadership · advisory · coaching</span>
             </figcaption>
           </figure>
           <div>
             <p className={styles.sectionKicker}>Background</p>
-            <h2 className={styles.sectionTitle}>From in-house people leadership to advisory.</h2>
+            <h2 className={styles.sectionTitle}>Organisation questions arrive while the business is moving.</h2>
             <div className={`${styles.bodyCopy} ${styles.spacedTop}`}>
               <p>
-                Marc&apos;s work moved from in-house people leadership into advisory and executive coaching. He also co-founded CyberKongz, which gave him direct responsibility for decisions involving a team, a business and its reputation.
+                I started in people leadership and later moved into advisory, coaching
+                and the practical responsibility of co-founding CyberKongz. The
+                organisation questions arrived while people were trying to run the
+                business.
               </p>
               <p>
-                He supported Klarsolar during a six-month increase from 35 to 150 people and later provided fractional HR leadership to Alberta Fire &amp; Security. Today, he combines advisory and fractional work with an ICF-credentialed ACC coaching practice and Vistage peer advisory.
+                I have also worked with people questions at Klarsolar, provided
+                fractional HR leadership to Alberta Fire &amp; Security and worked with
+                leaders through Vistage peer advisory.
               </p>
             </div>
           </div>
@@ -99,7 +104,7 @@ export default function AboutPage() {
 
       <section className={styles.sectionTint} aria-labelledby="about-credentials">
         <div className={styles.container}>
-          <SectionHeading id="about-credentials" kicker="Credentials" title="The facts behind the biography." />
+          <SectionHeading id="about-credentials" kicker="Credentials" title="Background" />
           <div className={styles.credentialGrid}>
             {credentials.map((credential) => (
               <article className={styles.credentialCard} key={credential.title}>
@@ -113,7 +118,7 @@ export default function AboutPage() {
 
       <section className={styles.sectionDark} aria-labelledby="working-principles">
         <div className={styles.container}>
-          <SectionHeading id="working-principles" kicker="Working principles" title="What shapes Marc's advice." />
+          <SectionHeading id="working-principles" kicker="Leadership principles" title="How I work with your business." />
           <div className={styles.cardGrid}>
             {principles.map((principle, index) => (
               <article className={styles.darkCard} key={principle.title}>
@@ -126,11 +131,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <EngagementProcess />
+
       <ContactBand
-        href="/contact/message"
-        title="Bring the situation as it is."
-        text="Marc will use the free first conversation to understand the question and tell you whether he is the right person for it."
-        label="Talk with Marc"
+        href="/contact#booking"
+        title="Start with the situation as it is."
+        text="I use the free first conversation to understand the question and tell you if I am the right person for it."
+        label="Book the free conversation"
       />
     </div>
   );

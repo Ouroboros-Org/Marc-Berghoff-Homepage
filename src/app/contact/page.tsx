@@ -1,132 +1,99 @@
-import { ButtonLink } from "@/components/button";
-import { SessionExtendedContactForm } from "@/components/forms";
+import { CalInlineEmbed } from "@/components/cal-inline-embed";
+import { EngagementProcess } from "@/components/engagement-process";
+import { ProgressiveContactForm } from "@/components/forms";
 import {
   PageHero,
-  ProcessList,
-  secondaryPageStyles as styles,
+  secondaryPageStyles as pageStyles,
 } from "@/components/pages/editorial";
 import { createPageMetadata } from "@/config/metadata";
 import { siteConfig } from "@/config/site";
 
+import styles from "./contact.module.css";
+
 export const metadata = createPageMetadata({
-  title: "Contact",
+  title: "Book a Free Conversation",
   description:
-    "Contact Marc Berghoff about a bottleneck assessment, strategic people advisory, fractional people leadership or executive coaching.",
+    "Book a free 30-minute conversation or send me a short note about the people, organisation or leadership question in front of you.",
   path: "/contact",
 });
 
-const nextSteps = [
-  {
-    title: "Marc reads it himself",
-    description:
-      "He uses the detail to understand the business issue and whether it falls within his work.",
-  },
-  {
-    title: "He replies directly",
-    description:
-      "If the question belongs with another kind of specialist, he will say so.",
-  },
-  {
-    title: "You agree what happens next",
-    description:
-      "The first conversation is free and carries no commitment to a paid engagement.",
-  },
-] as const;
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ details?: string }>;
+}) {
+  const { details } = await searchParams;
+  const initialDetailsOpen = details === "open";
 
-export default function ContactPage() {
   return (
-    <div className={styles.page}>
+    <div className={pageStyles.page}>
       <PageHero
-        breadcrumbs={[{ label: "Detailed enquiry" }]}
-        eyebrow="Contact"
-        title="Where does the business keep getting stuck?"
-        lead="Describe what is happening and what the team has tried. You can leave the explanation and choice of service open; Marc will read the note himself."
         asideLabel="First conversation"
-        primary={{ label: "Send a quick message", href: "/contact/message" }}
-        ctaPrimary={true}
-        asideValue="No charge · direct with Marc"
+        asideValue="30 minutes · free"
+        breadcrumbs={[{ label: "Contact" }]}
+        lead="The first 30 minutes are free. Use the calendar or send a short note below."
+        primary={{ label: "Choose a time", href: "#booking" }}
+        secondary={{ label: "Send me a note", href: "#contact-form" }}
+        title="Choose a time or send me a note."
       />
 
-      <section className={styles.section} aria-label="Contact Marc Berghoff">
-        <div className={`${styles.container} ${styles.contactLayout}`}>
-          <aside>
-            <p className={styles.sectionKicker}>Direct contact</p>
-            <h2 className={styles.sectionTitle}>Prefer email or phone?</h2>
-            <p className={styles.sectionIntro}>
-              The form gives Marc enough background to reply properly. For a simple question, email or call him.
+      <section className={styles.bookingSection} id="booking" aria-labelledby="booking-title">
+        <div className={styles.container}>
+          <div className={styles.bookingHeader}>
+            <h2 id="booking-title">Choose a time that works.</h2>
+            <p>
+              You do not need to choose a service before we talk.
             </p>
-            <div className={styles.spacedTop}>
-              <ButtonLink href="/contact/message" variant="secondary">
-                Use the short form
-              </ButtonLink>
-            </div>
-            <dl className={styles.contactDetails}>
-              <div className={styles.contactDetail}>
-                <dt>Email</dt>
-                <dd>
-                  <a className={styles.contactLink} href={`mailto:${siteConfig.contact.email}`}>
-                    {siteConfig.contact.email}
-                  </a>
-                </dd>
-              </div>
-              <div className={styles.contactDetail}>
-                <dt>Phone</dt>
-                <dd>
-                  <a className={styles.contactLink} href={`tel:${siteConfig.contact.phoneHref}`}>
-                    {siteConfig.contact.phoneDisplay}
-                  </a>
-                </dd>
-              </div>
-              <div className={styles.contactDetail}>
-                <dt>Location</dt>
-                <dd>Malta · working internationally</dd>
-              </div>
-              <div className={styles.contactDetail}>
-                <dt>Booking link</dt>
-                <dd>
-                  {siteConfig.contact.bookingUrl ? (
-                    <a
-                      className={styles.contactLink}
-                      href={siteConfig.contact.bookingUrl}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      Choose a time
-                    </a>
-                  ) : (
-                    <a className={styles.contactLink} href="#contact-form">
-                      Use the enquiry form
-                    </a>
-                  )}
-                </dd>
-              </div>
-            </dl>
-            <p className={styles.disclaimer}>
-              Keep confidential employee records, health information and other sensitive personal data out of an initial enquiry.
+          </div>
+          <CalInlineEmbed calLink={siteConfig.contact.calLink} />
+        </div>
+      </section>
+
+      <section className={styles.messageSection} aria-label="Send me a note">
+        <div className={styles.messageLayout}>
+          <aside className={styles.contactAside}>
+            <h2>A note is enough to begin.</h2>
+            <p>
+              I read every message myself. Leave the service open if you are unsure
+              where the question belongs.
             </p>
+            <details className={styles.directDetails}>
+              <summary>
+                {siteConfig.contact.phoneHref ? "Email or call instead" : "Email instead"}
+              </summary>
+              <dl>
+                <div>
+                  <dt>Email</dt>
+                  <dd>
+                    <a href={`mailto:${siteConfig.contact.email}`}>
+                      {siteConfig.contact.email}
+                    </a>
+                  </dd>
+                </div>
+                {siteConfig.contact.phoneHref && siteConfig.contact.phoneDisplay ? (
+                  <div>
+                    <dt>Phone</dt>
+                    <dd>
+                      <a href={`tel:${siteConfig.contact.phoneHref}`}>
+                        {siteConfig.contact.phoneDisplay}
+                      </a>
+                    </dd>
+                  </div>
+                ) : null}
+                <div>
+                  <dt>Location</dt>
+                  <dd>Malta · working internationally</dd>
+                </div>
+              </dl>
+            </details>
           </aside>
-
           <div className={styles.formShell}>
-            <SessionExtendedContactForm
-              id="contact-form"
-              title="Give Marc enough context to respond."
-              intro="A few specifics help him see whether the question belongs in coaching or sits across the organisation."
-            />
+            <ProgressiveContactForm initialDetailsOpen={initialDetailsOpen} />
           </div>
         </div>
       </section>
 
-      <section className={styles.sectionTint} aria-labelledby="contact-next-steps">
-        <div className={`${styles.container} ${styles.split}`}>
-          <div className={styles.stickyTitle}>
-            <p className={styles.sectionKicker}>What happens next</p>
-            <h2 className={styles.sectionTitle} id="contact-next-steps">
-              After you press send.
-            </h2>
-          </div>
-          <ProcessList steps={nextSteps} />
-        </div>
-      </section>
+      <EngagementProcess />
     </div>
   );
 }

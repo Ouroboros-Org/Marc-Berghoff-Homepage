@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Marc Berghoff, organisational bottleneck adviser and executive coach";
+  "Marc Berghoff, fractional leadership, advisory and coaching";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -67,7 +67,7 @@ export default function OpenGraphImage() {
               maxWidth: 930,
             }}
           >
-            Find the bottleneck slowing your company down.
+            When people decisions keep coming back to you.
           </div>
           <div
             style={{
@@ -78,8 +78,7 @@ export default function OpenGraphImage() {
               maxWidth: 790,
             }}
           >
-            A focused assessment for founders and leadership teams, followed by
-            a written report and a report workshop.
+            I can own a fractional remit, challenge a decision, assess or coach.
           </div>
         </div>
 
@@ -96,7 +95,7 @@ export default function OpenGraphImage() {
         >
           <span>Malta · working internationally</span>
           <span style={{ color: "#173d70", fontWeight: 700 }}>
-            Assessment · advisory · coaching
+            Fractional leadership · advisory · coaching
           </span>
         </div>
       </div>

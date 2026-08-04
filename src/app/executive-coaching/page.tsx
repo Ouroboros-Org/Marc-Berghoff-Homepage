@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/config/metadata";
 import { SERVICES } from "@/content/services";
 
 export const metadata = createPageMetadata({
-  title: "Executive Coaching",
+  title: "Individual Coaching",
   description:
     "Confidential one-to-one coaching for founders and senior leaders working through difficult decisions, demanding roles and recurring patterns.",
   path: "/executive-coaching",

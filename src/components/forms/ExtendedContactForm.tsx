@@ -41,7 +41,7 @@ export type ExtendedContactFormProps = {
 export function ExtendedContactForm({
   id = "extended-contact",
   title = "Share the relevant background.",
-  intro = "Use this form when a sentence or two will not explain the issue. Marc reads the context before replying.",
+  intro = "Use this form when a sentence or two will not explain the issue. I read the context before replying.",
   diagnosticSummary = "",
   onRemoveDiagnosticSummary,
   className,
@@ -229,7 +229,7 @@ export function ExtendedContactForm({
         <FormTextarea
           error={errors.referralSource}
           id={`${prefix}-referral`}
-          label="How did you hear about Marc?"
+          label="How did you hear about me?"
           optional
           registration={register("referralSource")}
           rows={3}

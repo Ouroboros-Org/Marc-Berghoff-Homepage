@@ -1,0 +1,52 @@
+.futureDetails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line-dark);
+}
+
+.futureDetails div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.futureDetails div:nth-child(odd) {
+  padding-right: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.futureDetails div:nth-child(even) {
+  padding-left: clamp(1.5rem, 4vw, 3.5rem);
+  border-left: 1px solid var(--line-dark);
+}
+
+.futureDetails dt {
+  font-family: var(--display);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.futureDetails dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 42rem) {
+  .futureDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .futureDetails div,
+  .futureDetails div:nth-child(odd),
+  .futureDetails div:nth-child(even) {
+    grid-template-columns: 1fr;
+    padding: 1.3rem 0;
+    border-left: 0;
+  }
+}
+

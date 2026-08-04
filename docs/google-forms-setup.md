@@ -49,7 +49,7 @@ Copy these values, including punctuation and capitalisation:
 | Field | Accepted choices |
 | --- | --- |
 | Company size | `1–10 people`; `11–25 people`; `26–50 people`; `51–100 people`; `101–250 people`; `251+ people`; `Prefer not to say` |
-| Service | `Bottleneck assessment`; `Strategic people advisory`; `Fractional people leadership`; `Executive coaching`; `I’m not sure yet` |
+| Service | `Bottleneck assessment`; `Strategic people advisory`; `Fractional people leadership`; `Individual coaching`; `Group coaching`; `I’m not sure yet` |
 | Urgency | `I’m exploring options`; `Within this quarter`; `Within the next month`; `There is an immediate issue` |
 
 The application keeps these labels in one shared mapping and sends the visible

@@ -36,7 +36,7 @@ export function DiagnosticContactFlow({
           id={contactId}
           intro={
             contactProps?.intro ??
-            "Add a short note. If you include the result above, Marc will receive the four scores with your message."
+            "Add a short note. If you include the result above, I will receive the four scores with your message."
           }
           onRemoveDiagnosticSummary={() => setSummary("")}
         />

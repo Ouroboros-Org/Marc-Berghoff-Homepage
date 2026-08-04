@@ -35,6 +35,10 @@
     var(--page-paper);
 }
 
+.heroCompact {
+  padding: clamp(3.75rem, 8vw, 6.25rem) 0 clamp(3.5rem, 7vw, 5.5rem);
+}
+
 .hero::after {
   position: absolute;
   right: clamp(-5rem, 4vw, 3rem);

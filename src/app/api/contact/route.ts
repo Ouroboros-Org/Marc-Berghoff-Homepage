@@ -125,7 +125,7 @@ export async function POST(request: Request) {
     return json(
       {
         ok: true,
-        message: "Thanks. Your message has been sent to Marc.",
+        message: "Thanks. I have your message.",
       },
       200,
     );
@@ -162,4 +162,3 @@ export async function POST(request: Request) {
     );
   }
 }
-

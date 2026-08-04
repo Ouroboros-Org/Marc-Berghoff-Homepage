@@ -2,13 +2,13 @@ import type { ServiceDefinition } from "@/content/services";
 import Image from "next/image";
 import { SERVICE_LIST } from "@/content/services";
 import { getSiteUrl } from "@/config/site";
+import { EngagementProcess } from "@/components/engagement-process";
 
 import {
   ContactBand,
   Evidence,
   PageHero,
   PlainList,
-  ProcessList,
   SectionHeading,
   TextLink,
   secondaryPageStyles as styles,
@@ -47,18 +47,16 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
           { label: "Services", href: "/services" },
           { label: service.eyebrow },
         ]}
-        eyebrow={service.eyebrow}
         title={service.title}
         lead={service.summary}
-        primary={{ label: "Request a free conversation", href: "/contact" }}
+        primary={{ label: "Book a free 30-minute conversation", href: "/contact#booking" }}
         ctaPrimary={true}
-        secondary={{ label: "Compare all services", href: "/services" }}
+        secondary={{ label: "Compare all options", href: "/services" }}
       />
 
       <section className={styles.section} aria-labelledby="service-introduction">
         <div className={`${styles.container} ${styles.split}`}>
           <div className={styles.stickyTitle}>
-            <p className={styles.sectionKicker}>Where it fits</p>
             <h2 className={styles.sectionTitle} id="service-introduction">
               {introductionHeading}
             </h2>
@@ -66,9 +64,10 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
           <div>
             <div className={styles.bodyCopy}>
               <p>{service.intro}</p>
+              {service.boundary ? <p>{service.boundary}</p> : null}
             </div>
             <div className={styles.spacedTop}>
-              <p className={styles.cardKicker}>This may fit when</p>
+              <p className={styles.cardKicker}>This may fit if</p>
               <PlainList items={service.forWhen} />
             </div>
           </div>
@@ -101,9 +100,8 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
         <div className={styles.container}>
           <SectionHeading
             id="service-scope"
-            kicker="Scope"
-            title="The remit follows the business question."
-            intro="These are common areas of work. The proposal records what is in scope for your engagement."
+            title="Your question sets the remit."
+            intro="These are common areas of work. Your proposal records what is in scope."
           />
           <ul className={styles.cardGrid}>
             {service.workIncludes.map((item) => (
@@ -115,17 +113,7 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="service-approach">
-        <div className={`${styles.container} ${styles.split}`}>
-          <div className={styles.stickyTitle}>
-            <p className={styles.sectionKicker}>Working rhythm</p>
-            <h2 className={styles.sectionTitle} id="service-approach">
-              What to expect once the remit is agreed.
-            </h2>
-          </div>
-          <ProcessList steps={service.approach} />
-        </div>
-      </section>
+      <EngagementProcess />
 
       {service.evidence && (
         <section className={styles.sectionDark} aria-label="Relevant experience">
@@ -137,7 +125,7 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
 
       <section className={styles.section} aria-labelledby="related-services">
         <div className={styles.container}>
-          <SectionHeading id="related-services" kicker="Related services" title="If the question sits elsewhere." />
+          <SectionHeading id="related-services" title="If another option fits better." />
           <div className={`${styles.cardGrid} ${styles.cardGridTwo}`}>
             {otherServices.map((item) => (
               <article className={styles.featureCard} key={item.slug}>
@@ -153,7 +141,12 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
         </div>
       </section>
 
-      <ContactBand title={service.closing.title} text={service.closing.text} />
+      <ContactBand
+        href="/contact#booking"
+        label="Book the free conversation"
+        title={service.closing.title}
+        text={service.closing.text}
+      />
     </div>
   );
 }

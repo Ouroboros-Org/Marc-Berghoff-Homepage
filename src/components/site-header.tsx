@@ -243,10 +243,10 @@ export function SiteHeader() {
         <ButtonLink
           className="header-cta"
           cta
-          href="/contact/message"
+          href="/contact#booking"
           size="compact"
         >
-          Send a message
+          Book a conversation
         </ButtonLink>
 
         <Button
@@ -373,19 +373,19 @@ export function SiteHeader() {
           <div className="mobile-nav__actions">
             <ButtonLink
               cta
-              href="/contact/message"
+              href="/contact#booking"
               size="wide"
               tabIndex={mobileOpen ? 0 : -1}
             >
-              Send a quick message
+              Book a free conversation
             </ButtonLink>
             <ButtonLink
-              href="/contact"
+              href="/contact#contact-form"
               size="wide"
               tabIndex={mobileOpen ? 0 : -1}
               variant="secondary"
             >
-              Share more context
+              Send me a note
             </ButtonLink>
             <ButtonLink
               aria-label="Open Marc Berghoff's LinkedIn profile"

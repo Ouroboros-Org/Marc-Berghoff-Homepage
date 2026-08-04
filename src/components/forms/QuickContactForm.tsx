@@ -36,8 +36,8 @@ export type QuickContactFormProps = {
 
 export function QuickContactForm({
   id = "quick-contact",
-  title = "Send Marc a message.",
-  intro = "Your name, email and a short note are enough. Marc reads each message and replies himself.",
+  title = "Send me a message.",
+  intro = "Your name, email and a short note are enough. I read each message myself.",
   diagnosticSummary = "",
   onRemoveDiagnosticSummary,
   className,
@@ -149,7 +149,7 @@ export function QuickContactForm({
           helper="Please do not include sensitive personal or employee information."
           id={`${prefix}-message`}
           label="Message"
-          placeholder="What would you like Marc to know?"
+          placeholder="What would you like me to know?"
           registration={register("message")}
           rows={6}
         />
