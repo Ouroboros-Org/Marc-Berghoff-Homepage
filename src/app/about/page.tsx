@@ -138,20 +138,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="outside-work">
-        <div className={`${styles.container} ${styles.split}`}>
-          <h2 className={styles.sectionTitle} id="outside-work">
-            Outside the work
-          </h2>
-          <div className={styles.bodyCopy}>
-            <p>
-              I read, climb and make a point of exploring cultures beyond my own. I
-              also make homemade chilaquiles, sometimes more successfully than others.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <EngagementProcess />
 
       <ContactBand
