@@ -97,9 +97,9 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
             title={service.scopeHeading}
             intro={service.scopeIntro}
           />
-          <ul className={styles.cardGrid}>
+          <ul className={styles.scopeGrid}>
             {service.workIncludes.map((item) => (
-              <li className={styles.featureCard} key={item}>
+              <li className={styles.scopeItem} key={item}>
                 <p className={styles.featureCardTitle}>{item}</p>
               </li>
             ))}

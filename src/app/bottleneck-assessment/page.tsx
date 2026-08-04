@@ -156,14 +156,13 @@ export default function BottleneckAssessmentPage() {
             title="A report your leadership team can use."
             intro="It records the finding and the evidence. The report workshop is where the decision-makers test the implications and discuss what should happen first."
           />
-          <div className={styles.cardGrid}>
-            {deliverables.map((item, index) => (
-              <article className={styles.darkCard} key={item}>
-                <p className={styles.darkCardNumber}>0{index + 1}</p>
+          <ul className={styles.scopeGrid}>
+            {deliverables.map((item) => (
+              <li className={styles.scopeItem} key={item}>
                 <h3 className={styles.featureCardTitle}>{item}</h3>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

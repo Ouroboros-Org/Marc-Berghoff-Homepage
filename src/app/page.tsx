@@ -167,7 +167,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <EngagementProcess />
+      <EngagementProcess wide />
 
       <section className={styles.diagnosticSection}>
         <div className={styles.container}>

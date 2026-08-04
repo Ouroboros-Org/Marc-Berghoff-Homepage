@@ -126,7 +126,7 @@ export default function AboutPage() {
       <section className={styles.sectionDark} aria-labelledby="working-principles">
         <div className={styles.container}>
           <SectionHeading id="working-principles" title="Four principles I bring to the work." />
-          <div className={styles.cardGrid}>
+          <div className={`${styles.cardGrid} ${styles.cardGridTwo}`}>
             {principles.map((principle, index) => (
               <article className={styles.darkCard} key={principle.title}>
                 <p className={styles.darkCardNumber}>0{index + 1}</p>

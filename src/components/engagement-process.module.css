@@ -5,8 +5,12 @@
 }
 
 .container {
-  width: min(calc(100% - (2 * var(--gutter))), var(--container));
+  width: min(100% - 2rem, 74rem);
   margin-inline: auto;
+}
+
+.containerWide {
+  width: min(calc(100% - (2 * var(--gutter))), var(--container));
 }
 
 .header {
@@ -95,6 +99,16 @@
   line-height: 1.65;
 }
 
+@media (min-width: 42rem) {
+  .container {
+    width: min(100% - 3rem, 74rem);
+  }
+
+  .containerWide {
+    width: min(calc(100% - (2 * var(--gutter))), var(--container));
+  }
+}
+
 @media (max-width: 58rem) {
   .header {
     grid-template-columns: 1fr;
@@ -142,4 +156,3 @@
     left: -3.8rem;
   }
 }
-

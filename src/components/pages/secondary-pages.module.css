@@ -310,6 +310,31 @@
   list-style: none;
 }
 
+.scopeGrid {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--page-line);
+  list-style: none;
+}
+
+.scopeItem {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding: clamp(1.35rem, 3vw, 2rem) 0;
+  border-bottom: 1px solid var(--page-line);
+}
+
+.scopeItem .featureCardTitle {
+  max-width: 30ch;
+}
+
+.sectionDark .scopeGrid,
+.sectionDark .scopeItem {
+  border-color: color-mix(in srgb, var(--page-white) 22%, transparent);
+}
+
 .featureCard,
 .metricCard,
 .caseCard,
@@ -496,7 +521,7 @@
 
 .caseCard {
   display: flex;
-  min-height: 25rem;
+  min-width: 0;
   flex-direction: column;
 }
 
@@ -510,9 +535,10 @@
 }
 
 .caseTitle {
-  margin-top: auto;
-  padding-top: 3rem;
+  max-width: 18ch;
+  margin-top: clamp(3rem, 6vw, 5rem);
   font-size: clamp(1.75rem, 3.2vw, 2.65rem);
+  overflow-wrap: break-word;
 }
 
 .caseEngagement {
@@ -802,6 +828,33 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .scopeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scopeItem {
+    padding-inline: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .scopeItem:nth-child(odd) {
+    padding-left: 0;
+    border-right: 1px solid var(--page-line);
+  }
+
+  .scopeItem:nth-child(even) {
+    padding-right: 0;
+  }
+
+  .scopeItem:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .sectionDark .scopeItem:nth-child(odd) {
+    border-right-color: color-mix(in srgb, var(--page-white) 22%, transparent);
+  }
+
   .processItem {
     grid-template-columns: 4rem minmax(0, 1fr);
     gap: 1.5rem;
@@ -866,10 +919,6 @@
 
   .cardGridTwo {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .caseGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
