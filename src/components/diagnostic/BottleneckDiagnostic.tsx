@@ -163,9 +163,8 @@ export function BottleneckDiagnostic({
             className={styles.progressFill}
             style={
               {
-                "--diagnostic-progress": `${
-                  (progressValue / DIAGNOSTIC_QUESTIONS.length) * 100
-                }%`,
+                "--diagnostic-progress":
+                  progressValue / DIAGNOSTIC_QUESTIONS.length,
               } as CSSProperties
             }
           />

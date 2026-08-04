@@ -182,8 +182,8 @@ export function ProgressiveContactForm({
       onSubmit={handleSubmit(onSubmit)}
     >
       <header className={styles.header}>
-        <h2 className={styles.title}>Send a short note.</h2>
-        <p className={styles.intro}>Your name, email and a few lines are enough.</p>
+        <h2 className={styles.title}>Tell me what is happening.</h2>
+        <p className={styles.intro}>Your name, email and a few lines are enough to begin.</p>
       </header>
 
       <DiagnosticSummaryField onRemove={() => setSummary("")} summary={summary} />
@@ -228,7 +228,7 @@ export function ProgressiveContactForm({
       >
         <summary className={styles.detailsSummary}>
           <span>
-            <strong>Add context about the business and the decision</strong>
+            <strong>Add context about the business</strong>
             <small>Optional</small>
           </span>
           <ChevronDown aria-hidden="true" className={styles.detailsChevron} size={20} />
@@ -236,7 +236,7 @@ export function ProgressiveContactForm({
         <div className={styles.detailsBody}>
           <p className={styles.detailsIntro}>
             Add these details if they help me understand who is involved, what has
-            happened and what kind of response would help.
+            happened and what you would like to be different.
           </p>
           <div className={`${styles.grid} ${styles.gridTwo}`}>
             <FormInput

@@ -1,3 +1,5 @@
+import { WORKING_FORMATS } from "@/content/working-formats";
+
 const LOCAL_SITE_URL = "http://localhost:3000";
 const PUBLIC_URL_PLACEHOLDER = /YOUR_|REPLACE/i;
 
@@ -101,9 +103,9 @@ const contactPhone = getContactPhone();
 
 export const siteConfig = {
   name: "Marc Berghoff",
-  descriptor: "Fractional leadership · advisory · coaching",
+  descriptor: "Leadership · organisation · coaching",
   description:
-    "I work with founders and leadership teams on people and organisation questions through fractional leadership, advisory, assessment and coaching.",
+    "I help founders and leadership teams see what is really happening and get difficult leadership and organisation work moving.",
   contact: {
     email: "m.berghoff@hx-solutions.de",
     phoneDisplay: contactPhone?.display ?? null,
@@ -125,39 +127,15 @@ export type NavigationLink = {
 export const serviceNavigation = [
   {
     href: "/services",
-    label: "All services",
+    label: "How I can help",
     description:
-      "Compare how I can own a remit, challenge a decision, assess or coach.",
+      "See the range from coaching distance to defined fractional responsibility.",
   },
-  {
-    href: "/fractional-people-leadership",
-    label: "Fractional leadership",
-    description:
-      "Give an agreed part of the people agenda a senior owner.",
-  },
-  {
-    href: "/advisory",
-    label: "Strategic people advisory",
-    description:
-      "Test a difficult people or organisation decision with an outside view.",
-  },
-  {
-    href: "/bottleneck-assessment",
-    label: "Bottleneck Assessment",
-    description:
-      "Investigate a recurring problem when the cause is still disputed.",
-  },
-  {
-    href: "/executive-coaching",
-    label: "Individual coaching",
-    description:
-      "Private work on a live situation and the part that belongs with one leader.",
-  },
-  {
-    href: "/group-coaching",
-    label: "Group coaching",
-    description: "Read what has been decided about the group format so far.",
-  },
+  ...WORKING_FORMATS.map((format) => ({
+    href: format.href,
+    label: format.title,
+    description: `${format.responsibility} ${format.signal}`,
+  })),
 ] as const satisfies readonly NavigationLink[];
 
 export const insightNavigation = [
@@ -165,19 +143,19 @@ export const insightNavigation = [
     href: "/blog",
     label: "All insights",
     description:
-      "Articles on organisational bottlenecks, decision rights and leadership work.",
+      "Start with the leadership pattern closest to what is happening now.",
   },
   {
     href: "/blog/founder-bottleneck-or-operating-model",
-    label: "Founder bottleneck or operating model?",
+    label: "When work returns to the founder",
     description:
-      "Distinguish personal delegation problems from structural ambiguity.",
+      "Trace whether the issue sits in behaviour, decision rights or the operating model.",
   },
   {
     href: "/blog/role-clarity-is-not-a-job-description",
     label: "Role clarity beyond job descriptions",
     description:
-      "Look at decisions, hand-offs and working agreements rather than documents alone.",
+      "Look at decisions, hand-offs and working agreements that the documents miss.",
   },
   {
     href: "/blog/when-fractional-people-leadership-makes-sense",
@@ -187,9 +165,9 @@ export const insightNavigation = [
   },
   {
     href: "/blog/executive-coaching-advisory-or-assessment",
-    label: "Coaching, advisory or assessment?",
+    label: "Choose the right level of help",
     description:
-      "Choose a proportionate format based on where the uncertainty sits.",
+      "Use ownership and uncertainty to choose a proportionate response.",
   },
 ] as const satisfies readonly NavigationLink[];
 
@@ -198,12 +176,12 @@ export const aboutNavigation = [
     href: "/about",
     label: "About me",
     description:
-      "Read about my psychology, operator and coaching background.",
+      "See how I work between coaching, advice and defined responsibility.",
   },
   {
     href: "/results",
     label: "Results & experience",
-    description: "Review selected operating, advisory and coaching experience.",
+    description: "Review the kinds of responsibility I have carried.",
   },
   {
     href: "/contact",
@@ -215,23 +193,23 @@ export const aboutNavigation = [
 export const headerNavigation = [
   {
     id: "work",
-    label: "Work with me",
+    label: "How I help",
     href: "/services",
-    description: "Start with the responsibility the business needs someone to carry.",
+    description: "Choose how involved I should be after we understand the issue.",
     items: serviceNavigation,
   },
   {
     id: "insights",
     label: "Insights",
     href: "/blog",
-    description: "Read practical notes on recurring organisational problems.",
+    description: "Read practical notes on leadership issues that are hard to see or move.",
     items: insightNavigation,
   },
   {
     id: "about",
     label: "About",
     href: "/about",
-    description: "Read about my work, see selected experience or get in touch.",
+    description: "Read how I work, see relevant experience or get in touch.",
     items: aboutNavigation,
   },
 ] as const;

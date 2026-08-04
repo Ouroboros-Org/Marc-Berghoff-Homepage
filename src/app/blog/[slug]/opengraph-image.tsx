@@ -13,7 +13,7 @@ export default async function BlogOpenGraphImage({
   const { slug } = await params;
   const post = getBlogPost(slug);
   const title = post?.title ?? "Marc Berghoff insights";
-  const category = post?.category ?? "Organisational bottlenecks";
+  const category = post?.category ?? "Leadership and organisation";
   const titleSize = title.length > 62 ? 55 : 64;
 
   return new ImageResponse(
@@ -71,7 +71,7 @@ export default async function BlogOpenGraphImage({
               display: "flex",
               fontSize: titleSize,
               fontWeight: 700,
-              letterSpacing: "-0.052em",
+              letterSpacing: "-0.04em",
               lineHeight: 1.02,
               maxWidth: 980,
             }}

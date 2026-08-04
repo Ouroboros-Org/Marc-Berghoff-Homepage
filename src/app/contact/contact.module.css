@@ -1,108 +1,47 @@
 .container,
-.messageLayout {
+.startGrid {
   width: min(calc(100% - (2 * var(--gutter))), var(--container));
   margin-inline: auto;
 }
 
-.bookingSection {
+.startSection {
   padding: var(--section) 0;
   background: var(--blue-mist);
-  scroll-margin-top: 5.5rem;
 }
 
-.bookingHeader {
+.startGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.62fr);
-  gap: clamp(2rem, 8vw, 8rem);
-  align-items: end;
-  margin-bottom: clamp(2rem, 5vw, 3.5rem);
-}
-
-.bookingHeader h2,
-.contactAside h2 {
-  margin: 0;
-}
-
-.bookingHeader h2 {
-  max-width: 12ch;
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
-}
-
-.bookingHeader p {
-  max-width: 50ch;
-  margin: 0;
-}
-
-.messageSection {
-  padding: var(--section) 0;
-  background: var(--canvas);
-}
-
-.messageLayout {
-  display: grid;
-  grid-template-columns: minmax(17rem, 0.68fr) minmax(0, 1.32fr);
-  gap: clamp(2.5rem, 7vw, 7rem);
+  grid-template-columns: minmax(20rem, 0.9fr) minmax(24rem, 1.1fr);
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
 }
 
-.contactAside {
-  position: sticky;
-  top: 7rem;
+.formColumn,
+.bookingColumn {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
-.contactAside h2 {
-  max-width: 11ch;
-  font-size: clamp(2rem, 4vw, 3.6rem);
+.bookingColumn {
+  scroll-margin-top: 5.5rem;
 }
 
-.contactAside > p {
+.startHeader {
+  display: grid;
+  gap: 0.85rem;
+  min-height: 10.5rem;
+  align-content: end;
+}
+
+.startHeader h2 {
+  max-width: 13ch;
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3.6rem);
+}
+
+.startHeader > p {
   max-width: 42ch;
   margin: 0;
-}
-
-.directDetails {
-  margin-top: 1rem;
-  border-block: 1px solid var(--line-dark);
-}
-
-.directDetails summary {
-  padding: 1rem 0;
-  color: var(--blue-deep);
-  font-weight: 700;
-}
-
-.directDetails dl {
-  display: grid;
-  gap: 1rem;
-  margin: 0;
-  padding: 0 0 1.25rem;
-}
-
-.directDetails dl div {
-  display: grid;
-  gap: 0.2rem;
-}
-
-.directDetails dt {
-  color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.directDetails dd {
-  margin: 0;
-  color: var(--ink-soft);
-}
-
-.directDetails a {
-  color: var(--blue-deep);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
 }
 
 .formShell {
@@ -113,18 +52,84 @@
   box-shadow: 0 18px 55px rgba(19, 45, 82, 0.08);
 }
 
+.directSection {
+  padding: var(--section) 0;
+  background: var(--paper);
+  border-block: 1px solid var(--line);
+}
+
+.directHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.62fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: end;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.directHeader h2 {
+  max-width: 16ch;
+  margin: 0;
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+}
+
+.directHeader p {
+  max-width: 42ch;
+  margin: 0;
+}
+
+.directList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin: 0;
+  padding: 0;
+}
+
+.directList div {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-dark);
+}
+
+.directList dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.directList dd {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+}
+
+.directList a {
+  color: var(--blue-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
 @media (max-width: 56rem) {
-  .bookingHeader,
-  .messageLayout {
+  .directHeader,
+  .startGrid,
+  .directList {
     grid-template-columns: 1fr;
   }
 
-  .bookingHeader {
+  .directHeader {
     gap: 1.25rem;
   }
 
-  .contactAside {
-    position: static;
+  .startHeader {
+    min-height: 0;
+  }
+
+  .bookingColumn {
+    margin-top: 2rem;
   }
 }
 
@@ -134,4 +139,3 @@
     border-radius: 0.9rem;
   }
 }
-

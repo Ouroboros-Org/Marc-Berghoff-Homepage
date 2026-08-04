@@ -15,9 +15,9 @@ import { BLOG_POSTS, getReadingTime } from "@/content/blog";
 import styles from "./blog.module.css";
 
 export const metadata = createPageMetadata({
-  title: "Organisational Bottlenecks & Leadership Articles",
+  title: "Leadership and Organisation Insights",
   description:
-    "Articles for founders and leadership teams on decision rights, fractional leadership, organisation questions and individual coaching.",
+    "Notes for founders and leadership teams on decision rights, role clarity, coaching, fractional responsibility and recurring organisation issues.",
   path: "/blog",
 });
 
@@ -54,18 +54,16 @@ export default function BlogPage() {
 
       <PageHero
         breadcrumbs={[{ label: "Insights" }]}
-        eyebrow="Insights"
-        title="Work out why the problem keeps returning."
-        lead="Use these articles to work out if you are dealing with a decision, role or operating-model problem before you choose outside help."
+        title="See the issue more clearly before you choose outside help."
+        lead="These notes start with situations that show up in the working week: a decision returning upstairs, an unclear boundary, a role that has outgrown its shape. Use the closest one as a place to begin."
         primary={{ label: "Start with the latest article", href: "#featured-article" }}
         ctaPrimary={true}
-        secondary={{ label: "Run the six-question check", href: "/?check=open#diagnostic" }}
+        secondary={{ label: "See how I can help", href: "/services" }}
       />
 
       <section className={pageStyles.section} aria-labelledby="featured-article">
         <div className={pageStyles.container}>
           <article className={styles.featured}>
-            <p className={styles.featuredIndex}>01</p>
             <div>
               <p className={styles.articleCategory}>{featured.category}</p>
               <h2 className={styles.featuredTitle} id="featured-article">
@@ -91,8 +89,7 @@ export default function BlogPage() {
         <div className={pageStyles.container}>
           <SectionHeading
             id="all-articles"
-            kicker="All articles"
-            title="Choose the question closest to yours."
+            title="Start with the pattern closest to yours."
           />
           <div className={styles.articleGrid}>
             {posts.map((post) => (
@@ -122,8 +119,8 @@ export default function BlogPage() {
 
       <ContactBand
         href="/contact#booking"
-        title="Does one of these situations sound familiar?"
-        text="Send me the version happening in your company. I will tell you if a conversation could be useful."
+        title="Bring the article back to your situation."
+        text="Tell me which part felt familiar and what is happening in your company. The first 30 minutes are free."
         label="Book the free conversation"
       />
     </div>

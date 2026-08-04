@@ -35,7 +35,7 @@ export function GET() {
         <title>${escapeXml(siteConfig.name)} insights</title>
         <link>${siteUrl}/blog</link>
         <description>${escapeXml(
-          "Articles on organisational bottlenecks, people decisions and leadership in growing companies.",
+          "Notes on leadership, decision rights, role clarity, coaching and organisation issues in growing companies.",
         )}</description>
         <language>en-gb</language>
         <lastBuildDate>${new Date(`${latestUpdate}T12:00:00Z`).toUTCString()}</lastBuildDate>

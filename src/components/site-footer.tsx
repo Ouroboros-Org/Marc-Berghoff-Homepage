@@ -14,8 +14,8 @@ export function SiteFooter() {
         <div className="site-footer__intro">
           <SiteLogo inverse />
           <p>
-            Start with the question. We can choose the format after the first
-            conversation.
+            Start with what is happening. We can choose my level of involvement
+            after the first conversation.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export function SiteFooter() {
               ))}
           </div>
           <div>
-            <p className="footer-label">Services</p>
+            <p className="footer-label">How I can help</p>
             {serviceNavigation.map((item) => (
               <Link key={item.href} href={item.href}>
                 {item.label}

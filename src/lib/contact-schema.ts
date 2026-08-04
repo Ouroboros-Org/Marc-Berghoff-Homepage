@@ -14,7 +14,7 @@ export type ServiceValue = (typeof SERVICE_VALUES)[number];
 export const SERVICE_LABELS = {
   "bottleneck-assessment": "Bottleneck assessment",
   advisory: "Strategic people advisory",
-  "fractional-people-leadership": "Fractional people leadership",
+  "fractional-people-leadership": "Fractional leadership",
   "executive-coaching": "Individual coaching",
   "group-coaching": "Group coaching",
   "not-sure": "I’m not sure yet",

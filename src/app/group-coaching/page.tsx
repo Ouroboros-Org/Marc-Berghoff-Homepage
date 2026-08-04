@@ -19,7 +19,7 @@ export const metadata = createPageMetadata({
 
 const decided = [
   "The work will be coaching, with responsibility staying with each participant.",
-  "Groups will need a defined shared context rather than a loose collection of attendees.",
+  "Each group will need a shared working context. A loose collection of attendees is not enough.",
   "Confidentiality, participation and the boundary between shared and individual work will be agreed before a group begins.",
   "Details will be published only when the format is ready.",
 ] as const;
@@ -32,7 +32,7 @@ export default function GroupCoachingPage() {
           { label: "Services", href: "/services" },
           { label: "Group coaching" },
         ]}
-        lead="If several leaders are working on related questions, a group may help them learn together. I have not yet fixed the audience, size, rhythm or fee."
+        lead="If several leaders share a leadership question, a group may help them learn together while each person keeps responsibility for their own change. The audience, size, rhythm and fee are not fixed yet."
         primary={{ label: "Register your interest", href: "/contact?details=open#contact-form" }}
         secondary={{ label: "See individual coaching", href: "/executive-coaching" }}
         title="A shared coaching format is in development."
@@ -42,7 +42,7 @@ export default function GroupCoachingPage() {
         <div className={`${styles.container} ${styles.split}`}>
           <div className={styles.stickyTitle}>
             <h2 className={styles.sectionTitle} id="group-coaching-status">
-              What you can rely on so far.
+              What will remain true.
             </h2>
           </div>
           <div>

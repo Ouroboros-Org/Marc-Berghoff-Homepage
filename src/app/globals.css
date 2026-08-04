@@ -706,8 +706,8 @@ img {
 
 .diagnostic-intro__note {
   margin-bottom: 2.5rem;
-  border-left: 3px solid var(--yellow);
-  padding-left: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
   color: var(--muted);
   font-size: 0.83rem;
 }
@@ -1165,7 +1165,7 @@ img {
   color: var(--blue-ink);
   font-family: var(--display);
   font-size: clamp(1.7rem, 3vw, 2.6rem);
-  letter-spacing: -0.045em;
+  letter-spacing: -0.04em;
   line-height: 1.05;
 }
 

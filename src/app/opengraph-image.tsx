@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Marc Berghoff, fractional leadership, advisory and coaching";
+  "Marc Berghoff, leadership, organisation and coaching";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -67,7 +67,7 @@ export default function OpenGraphImage() {
               maxWidth: 930,
             }}
           >
-            When people decisions keep coming back to you.
+            When a leadership issue is not moving.
           </div>
           <div
             style={{
@@ -78,7 +78,7 @@ export default function OpenGraphImage() {
               maxWidth: 790,
             }}
           >
-            I can own a fractional remit, challenge a decision, assess or coach.
+            I help you see what is really happening and get the right work moving.
           </div>
         </div>
 
@@ -95,7 +95,7 @@ export default function OpenGraphImage() {
         >
           <span>Malta · working internationally</span>
           <span style={{ color: "#173d70", fontWeight: 700 }}>
-            Fractional leadership · advisory · coaching
+            Leadership · organisation · coaching
           </span>
         </div>
       </div>

@@ -17,16 +17,16 @@ import { getSiteUrl } from "@/config/site";
 export const metadata = createPageMetadata({
   title: "Bottleneck Assessment",
   description:
-    "A typical one-to-two-week organisational bottleneck assessment, followed by a written report and a report workshop with the decision-makers. €3,500.",
+    "A focused organisational assessment for leadership teams that can feel a recurring issue but cannot yet agree on its cause.",
   path: "/bottleneck-assessment",
 });
 
 const symptoms = [
-  "Decisions that should stay with the team keep returning to the founder.",
-  "Roles look clear on paper, but ownership is disputed in practice.",
-  "Important work moves slowly between functions or senior people.",
-  "Leaders spend more time resolving friction than moving priorities forward.",
-  "Headcount has grown, but the way decisions are made has not caught up.",
+  "Responsibilities and tasks end up on your table when they reasonably should not.",
+  "People ask permission for decisions they are already paid to make.",
+  "You have a capable team but still feel like the only person seeing the full picture.",
+  "You know the work could move faster, but cannot name what is stopping it.",
+  "An issue you have raised more than once is still exactly where you left it.",
 ] as const;
 
 const deliverables = [
@@ -70,8 +70,8 @@ export default function BottleneckAssessmentPage() {
           { label: "Services", href: "/services" },
           { label: "Bottleneck assessment" },
         ]}
-        title="When several explanations are competing, start with evidence."
-        lead="I compare how work and decisions move with what people report. You receive a written finding and use the report workshop to decide what happens next."
+        title="When you can feel the issue but cannot yet point to it."
+        lead="The Bottleneck Assessment is one way to stop guessing. I compare what people experience with how decisions and work actually move, then give the leadership team a focused finding to test."
         asideLabel="One-time engagement"
         asideValue="€3,500"
         asideNote="Participant scope, travel and applicable tax are agreed in advance."
@@ -83,22 +83,21 @@ export default function BottleneckAssessmentPage() {
       <section className={styles.section} aria-labelledby="assessment-problem">
         <div className={`${styles.container} ${styles.split}`}>
           <div className={styles.stickyTitle}>
-            <p className={styles.sectionKicker}>What it is for</p>
             <h2 className={styles.sectionTitle} id="assessment-problem">
-              The visible problem may have several causes.
+              Use the assessment when the cause is still open.
             </h2>
           </div>
           <div>
             <div className={styles.bodyCopy}>
               <p>
-                You may reach for a process change or a new hire because both are
-                visible moves. When the cause is uncertain, either can create more
-                work. I compare the accounts of people close to the issue with relevant
-                operating evidence.
+                If you can already name the decision, advice may be enough. If one
+                leader owns the change, coaching may fit better. I use the assessment
+                when several explanations are competing and the answer needs evidence
+                from beyond one person&apos;s view.
               </p>
             </div>
             <div className={styles.spacedTop}>
-              <p className={styles.cardKicker}>Common signals</p>
+              <h3 className={styles.featureCardTitle}>Common signals</h3>
               <CheckList items={symptoms} />
             </div>
           </div>
@@ -130,8 +129,8 @@ export default function BottleneckAssessmentPage() {
           <DiagnosticDisclosure
             id="assessment-check"
             label="Six-question check"
-            title="Run the six-question check"
-            intro="Use the last few weeks as your reference point."
+            title="Check whether the pattern is broader than one decision"
+            intro="Six short questions. Use the last few weeks as your reference point."
           >
             <DiagnosticContactFlow
               contactProps={{
@@ -140,8 +139,7 @@ export default function BottleneckAssessmentPage() {
               }}
               diagnosticProps={{
                 id: "bottleneck-check",
-                intro:
-                  "Include the awkward days.",
+                intro: "Include the awkward days.",
                 introOnly: true,
               }}
             />
@@ -155,7 +153,6 @@ export default function BottleneckAssessmentPage() {
         <div className={styles.container}>
           <SectionHeading
             id="assessment-output"
-            kicker="What you receive"
             title="A report your leadership team can use."
             intro="It records the finding and the evidence. The report workshop is where the decision-makers test the implications and discuss what should happen first."
           />
@@ -172,7 +169,7 @@ export default function BottleneckAssessmentPage() {
 
       <section className={styles.section} aria-labelledby="assessment-fit">
         <div className={styles.container}>
-          <SectionHeading id="assessment-fit" kicker="Fit" title="The team needs room for an answer it may not expect." />
+          <SectionHeading id="assessment-fit" title="The team needs room for an answer it may not expect." />
           <div className={`${styles.cardGrid} ${styles.cardGridTwo}`}>
             <article className={styles.featureCard}>
               <p className={styles.cardKicker}>Good fit</p>

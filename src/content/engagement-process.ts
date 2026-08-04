@@ -3,24 +3,24 @@ export const ENGAGEMENT_PROCESS = [
     title: "First conversation",
     meta: "30 minutes · free",
     description:
-      "You explain what is happening and why it matters now. I ask enough to see whether I can help. I do not begin paid work before this conversation. If I am not the right person, I say so.",
+      "You explain what is happening and why it matters now. I ask enough to understand the question and whether I can help. I do not begin paid work before this conversation.",
   },
   {
-    title: "Understand the work",
-    meta: "Question before format",
+    title: "Make the issue clearer",
+    meta: "Context before format",
     description:
-      "I look at the decision, what has already been tried and who needs to be involved. I may ask for operating evidence before I recommend a format.",
+      "I look at what has happened, what has already been tried and who is involved. If the accounts differ or the cause is uncertain, I may recommend gathering evidence first.",
   },
   {
-    title: "Agree the remit",
+    title: "Agree my involvement",
     meta: "Scope before commitment",
     description:
-      "I send you a written scope before paid work starts. It covers the remit, decision rights, working rhythm, fees, review measures and what I need from your business.",
+      "I send a written scope before paid work begins. It records the question, my responsibility, decision rights, working rhythm, fees and how we will review the work.",
   },
   {
-    title: "Begin and review",
-    meta: "Work on what matters now",
+    title: "Move and review",
+    meta: "Start with the live issue",
     description:
-      "We start with the live issue. We review what is changing, what is not and whether the remit still fits.",
+      "We start with the live issue. We review what is changing, what remains stuck and whether my involvement still fits. Any handover conditions are reviewed from the beginning.",
   },
 ] as const;

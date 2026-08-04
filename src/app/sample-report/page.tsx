@@ -11,7 +11,7 @@ import { createPageMetadata } from "@/config/metadata";
 export const metadata = createPageMetadata({
   title: "Bottleneck Assessment Report Structure",
   description:
-    "See how I structure the written Bottleneck Assessment report used in the report workshop with decision-makers.",
+    "See how I turn an unclear organisational issue into a focused finding, supporting evidence and decisions for the leadership team.",
   path: "/sample-report",
 });
 
@@ -40,7 +40,7 @@ const reportSections = [
 
 const boundaries = [
   "The report is written for leadership decisions and stays separate from employee performance files.",
-  "Individual comments are aggregated or paraphrased rather than attributed.",
+  "Individual comments are aggregated or paraphrased. They are not attributed.",
   "Clinical and medical diagnosis sits outside the scope of the assessment.",
   "Each recommendation is limited to the evidence gathered for that engagement.",
 ] as const;
@@ -53,9 +53,8 @@ export default function SampleReportPage() {
           { label: "Bottleneck Assessment", href: "/bottleneck-assessment" },
           { label: "Sample report" },
         ]}
-        eyebrow="Report structure"
-        title="See how the assessment report is organised."
-        lead="The report combines qualitative and quantitative input with relevant operating evidence. It explains the main bottleneck and gives the report workshop a concrete set of questions to discuss."
+        title="See how an unclear issue becomes a usable finding."
+        lead="The report brings different accounts and operating evidence into one clear argument. It gives the leadership team something specific to test, discuss and act on."
         asideLabel="Format"
         asideValue="Written report + report workshop"
         primary={{ label: "Book a free conversation", href: "/contact#booking" }}
@@ -67,7 +66,6 @@ export default function SampleReportPage() {
         <div className={styles.container}>
           <SectionHeading
             id="sample-cover"
-            kicker="Illustrative cover"
             title="The preview uses a fictional company."
             intro="The name, figures and findings were made for this page. No client material is shown."
           />
@@ -92,8 +90,7 @@ export default function SampleReportPage() {
         <div className={styles.container}>
           <SectionHeading
             id="report-structure"
-            kicker="Report structure"
-            title="The questions each report needs to answer."
+            title="Four questions the report needs to answer."
             intro="Its length and emphasis change with the evidence gathered in each assessment."
           />
           <div className={styles.reportGrid}>
@@ -111,7 +108,6 @@ export default function SampleReportPage() {
       <section className={styles.sectionDark} aria-labelledby="report-boundaries">
         <div className={`${styles.container} ${styles.split}`}>
           <div className={styles.stickyTitle}>
-            <p className={styles.sectionKicker}>Boundaries</p>
             <h2 className={styles.sectionTitle} id="report-boundaries">
               Individual comments are not attributed in the report.
             </h2>
@@ -131,9 +127,9 @@ export default function SampleReportPage() {
       </section>
 
       <ContactBand
-        title="Could this structure help your leadership team decide?"
-        text="The €3,500 assessment includes discovery, fieldwork, the written report and the report workshop. Participant scope, travel and applicable tax are confirmed in advance."
-        label="Discuss the assessment"
+        title="Use this route when the cause is still open."
+        text="The €3,500 assessment includes discovery, fieldwork, a written report and a report workshop. Participant scope, travel and applicable tax are confirmed in advance."
+        label="Book a free conversation"
       />
     </div>
   );

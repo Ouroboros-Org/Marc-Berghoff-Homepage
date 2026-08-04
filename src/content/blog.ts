@@ -22,14 +22,14 @@ export type BlogPost = {
 export const BLOG_POSTS: readonly BlogPost[] = [
   {
     slug: "founder-bottleneck-or-operating-model",
-    title: "Is the founder the bottleneck, or is the operating model unclear?",
+    title: "When work keeps returning to the founder",
     description:
-      "How to tell founder dependency from missing decision rights, weak management routines and an operating model that sends work back upstairs.",
-    category: "Organisational bottlenecks",
+      "Trace the decisions that come back upstairs before deciding whether the issue is founder behaviour, role clarity or the operating model.",
+    category: "Leadership systems",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-08-04",
     intro:
-      "A product launch is waiting for approval. A manager asks the founder to settle a disagreement between two teams. Last week's hiring decision is open again. From the outside, this looks like a founder who will not let go. Inside the company, the reason is often less obvious.",
+      "A product launch is waiting for approval. A manager asks the founder to settle a disagreement between two teams. Last week's hiring decision is open again. It is easy to call the founder the bottleneck. That label says little about why the work came back.",
     sections: [
       {
         heading: "Track the decisions that come back",
@@ -66,18 +66,18 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       },
     ],
     nextStep: {
-      label: "See the Bottleneck Assessment",
-      href: "/bottleneck-assessment",
+      label: "See how I can help",
+      href: "/services",
     },
   },
   {
     slug: "role-clarity-is-not-a-job-description",
-    title: "Role clarity: why the job description is only the start",
+    title: "Role clarity starts where job descriptions end",
     description:
       "A job description lists responsibilities. Growing companies also need explicit outcomes, decision rights and working agreements between roles.",
-    category: "Organisation design",
+    category: "Decision rights",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-08-04",
     intro:
       "The sales director owns revenue. The operations director owns delivery quality. A large prospect wants terms that put delivery at risk. Both job descriptions can be accurate while the decision between them remains completely unowned.",
     sections: [
@@ -122,12 +122,12 @@ export const BLOG_POSTS: readonly BlogPost[] = [
   },
   {
     slug: "when-fractional-people-leadership-makes-sense",
-    title: "When fractional people leadership makes sense",
+    title: "When the work needs a fractional owner",
     description:
-      "A guide for founders choosing between a fractional people leader, a permanent executive hire and occasional advisory support.",
+      "How to tell whether the people and organisation work needs advice, a permanent hire or someone to carry a defined remit now.",
     category: "Fractional leadership",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-08-04",
     intro:
       "The people agenda may already fill half the founder's week, while the long-term leadership role is still hard to define. Hiring quickly can lock in the wrong brief. Waiting leaves important work without an owner. A fractional remit can cover that awkward middle period.",
     sections: [
@@ -160,26 +160,26 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       {
         heading: "Put the handover into the first agreement",
         paragraphs: [
-          "Name the routines to establish, the decisions that will move inside and the person or future role expected to receive them. Review those handover conditions alongside the business priorities, rather than leaving them for the final month.",
+          "Name the routines to establish, the decisions that will move inside and the person or future role expected to receive them. Review those handover conditions alongside the business priorities. The final month is too late to start.",
           "There is no single ideal length for a fractional engagement. The right question is more concrete: what should the company be able to own by the time the remit changes? If nobody can answer that at the outset, defining it is part of the first week's work.",
         ],
       },
     ],
     nextStep: {
-      label: "See fractional people leadership",
+      label: "See fractional leadership",
       href: "/fractional-people-leadership",
     },
   },
   {
     slug: "executive-coaching-advisory-or-assessment",
-    title: "Executive coaching, advisory or an organisational assessment?",
+    title: "Coaching, advice, assessment or fractional responsibility?",
     description:
-      "Choose a starting point by asking who owns the question and whether the cause is individual, organisational or still disputed.",
+      "Choose a starting point by asking who should carry the work and whether the cause is clear enough to act on.",
     category: "Choosing support",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-08-04",
     intro:
-      "A founder says the leadership team avoids difficult decisions. Is that a coaching question for the founder, an advisory question about one decision, or evidence of a wider operating problem? The symptom alone cannot choose the format.",
+      "A founder says the leadership team avoids difficult decisions. One person may need coaching. The team may need evidence. A visible decision may need a second view, or the work may need an owner. The symptom cannot choose the format on its own.",
     sections: [
       {
         heading: "First decide who owns the question",
@@ -203,6 +203,13 @@ export const BLOG_POSTS: readonly BlogPost[] = [
         ],
       },
       {
+        heading: "Fractional work fits when somebody needs to carry the remit",
+        paragraphs: [
+          "A founder may understand the problem and still lack a credible owner for the work. In that case, another opinion changes very little. A fractional leader takes an agreed remit, joins the operating rhythm and follows the decisions through.",
+          "The boundary matters. Write down the decisions the fractional leader can make, the support available inside the company and the person who should receive the work later. If that cannot be made clear, the remit is not ready.",
+        ],
+      },
+      {
         heading: "Assessment fits a cause that is still disputed",
         paragraphs: [
           "Use an organisational assessment when the symptoms cross roles or functions and the leadership team cannot agree on what sustains them. The work draws on qualitative and quantitative input from the people involved, alongside relevant operating evidence.",
@@ -218,7 +225,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       },
     ],
     nextStep: {
-      label: "Compare all ways to work together",
+      label: "Choose the level of involvement",
       href: "/services",
     },
   },

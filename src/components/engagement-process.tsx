@@ -2,16 +2,19 @@ import { ENGAGEMENT_PROCESS } from "@/content/engagement-process";
 
 import styles from "./engagement-process.module.css";
 
-export function EngagementProcess() {
+export function EngagementProcess({
+  title = "What happens after you get in touch.",
+  intro = "The question comes before the format. I use the same four steps whether the work becomes coaching, advisory, assessment or a fractional remit.",
+}: {
+  title?: string;
+  intro?: string;
+} = {}) {
   return (
     <section className={styles.section} aria-labelledby="engagement-process-title">
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 id="engagement-process-title">What happens after you get in touch.</h2>
-          <p>
-            I use the same four steps for a fractional remit, advisory, an assessment
-            or coaching.
-          </p>
+          <h2 id="engagement-process-title">{title}</h2>
+          <p>{intro}</p>
         </div>
         <ol className={styles.steps}>
           {ENGAGEMENT_PROCESS.map((step, index) => (

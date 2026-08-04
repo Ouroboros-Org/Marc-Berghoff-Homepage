@@ -246,7 +246,7 @@ export function SiteHeader() {
           href="/contact#booking"
           size="compact"
         >
-          Book a conversation
+          Book a free conversation
         </ButtonLink>
 
         <Button
@@ -311,7 +311,7 @@ export function SiteHeader() {
         id="mobile-navigation"
       >
         <nav className="mobile-nav__inner" aria-label="Mobile navigation">
-          <p className="mobile-nav__eyebrow">Explore</p>
+          <p className="mobile-nav__eyebrow">Choose where to start</p>
           {headerNavigation.map((group, index) => {
             const sectionOpen = openMobileSection === group.id;
             const active = activeGroupId === group.id;

@@ -8,24 +8,24 @@ web
 
 ## Users
 
-Founders, senior leaders and leadership teams in growing businesses. They arrive with a live operating, leadership or people question: work is returning to senior leaders, responsibilities are unclear, execution has slowed, or an important change lacks experienced ownership.
+Founders, senior leaders and leadership teams in growing businesses. They arrive with a leadership, organisation or people issue that is difficult to see clearly or repeatedly fails to move. Work may be returning to senior leaders, responsibilities may be unclear, or an important change may lack credible ownership.
 
 ## Product Purpose
 
-The website helps a prospective client understand how Marc Berghoff can work alongside a leadership team, choose a proportionate starting point and begin with a free 30-minute conversation. Success is a visitor who can recognise their situation, understand the available working formats and take a clear next step without first diagnosing the problem themselves.
+The website helps a prospective client recognise a stuck leadership-level issue, understand how Marc Berghoff can help make it clear and move it, and begin with a free 30-minute conversation. Success is a visitor who understands the range from coaching to fractional responsibility without having to diagnose the issue or choose a service first.
 
 ## Positioning
 
-Marc combines fractional leadership management, organisational assessment, strategic people advisory and coaching. Fractional Leadership Manager is the current working title for the umbrella position; it should orient the offer without dominating every page or being treated as a final brand name. The Bottleneck Assessment is one tool within the offer, not the identity of the practice.
+Marc works between coaching, candid strategic advice and embedded fractional responsibility. He helps founders and leadership teams see what is really happening and get the right work moving. Fractional Leadership Manager remains a provisional descriptor for the deepest level of involvement; it is not the whole proposition or a final brand name. The Bottleneck Assessment is used when the cause is not yet clear. It is one tool within the offer, not the identity of the practice.
 
 ## Operating Context
 
-Every engagement begins with a detailed, free 30-minute fit conversation. A universal four-step process then clarifies the situation, defines the right format and scope, records the proposal, and begins the work with an agreed review rhythm. Visitors may contact Marc through a form, email or an embedded Cal.com booking flow. A telephone number appears only when a confirmed public number is configured.
+Every engagement begins with a detailed, free 30-minute fit conversation. A universal four-step process then makes the issue clearer, agrees the right level of involvement, records the remit and begins the work with an agreed review rhythm. Marc may coach, advise, assess, take a defined fractional remit or say that another specialist is a better fit. Visitors may contact Marc through a form, email or an embedded Cal.com booking flow. A telephone number appears only when a confirmed public number is configured.
 
 ## Capabilities and Constraints
 
 - English only at this stage.
-- Current top-level formats: Bottleneck Assessment, strategic people advisory, fractional people leadership and individual executive coaching.
+- Current working formats: strategic people advisory, fractional people leadership, individual executive coaching and the Bottleneck Assessment when the cause is unclear.
 - Group coaching receives a separate placeholder page whose content model can be completed later. The site must not invent details that have not been confirmed.
 - The six-question check is optional and collapsed by default. Links may intentionally open it when their label promises the check.
 - Contact details are collapsed by default. Links may intentionally open the detailed fields when their label promises a detailed enquiry.
@@ -36,7 +36,7 @@ Every engagement begins with a detailed, free 30-minute fit conversation. A univ
 ## Brand Commitments
 
 - Name: Marc Berghoff.
-- Voice: direct, concrete, thoughtful and calm. Public prose speaks to the reader as “you” and refers to Marc as “I”, “me” or “my”. Biographical labels, legal names, metadata titles and structured data may use “Marc Berghoff” where grammar or attribution requires it.
+- Voice: candid, attentive, concrete and calm. Marc says what he sees without turning people into the problem. Public prose speaks to the reader as “you” and refers to Marc as “I”, “me” or “my”. Biographical labels, legal names, metadata titles and structured data may use “Marc Berghoff” where grammar or attribution requires it.
 - Use the existing blue, yellow, ink and paper visual identity, Instrument Sans/Inter typography, editorial rules and real portrait assets.
 - Avoid generic consulting language, inflated claims and impersonal corporate phrasing.
 
@@ -50,10 +50,13 @@ Every engagement begins with a detailed, free 30-minute fit conversation. A univ
 ## Product Principles
 
 1. Start with the reader's situation, not a service label.
-2. Treat assessment, advisory, fractional leadership and coaching as different responses to different kinds of work.
-3. Make the first conversation the clear, low-friction route into every engagement.
-4. Explain how the work proceeds before asking for commitment.
-5. Use evidence carefully and leave unknowns visibly open.
+2. Present coaching, advisory and fractional responsibility as different levels of involvement.
+3. Use assessment when the issue is not clear enough to choose a response; never make it a mandatory gateway.
+4. Make the first conversation the clear, low-friction route into every engagement.
+5. Show what the client keeps: a clearer issue, an owned decision, stronger leadership practice or a handed-over remit.
+6. Say when Marc is not the right person and offer a useful introduction where possible.
+7. Explain how the work proceeds before asking for commitment.
+8. Use evidence carefully and leave unknowns visibly open.
 
 ## Accessibility & Inclusion
 

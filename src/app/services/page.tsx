@@ -10,53 +10,20 @@ import {
 import { StructuredData } from "@/components/structured-data";
 import { createPageMetadata } from "@/config/metadata";
 import { getSiteUrl } from "@/config/site";
+import {
+  CORE_WORKING_FORMATS,
+  SUPPORTING_WORKING_FORMATS,
+  WORKING_FORMATS,
+} from "@/content/working-formats";
 
 import styles from "./services.module.css";
 
 export const metadata = createPageMetadata({
-  title: "Work With Me",
+  title: "How I Can Help",
   description:
-    "Choose between fractional leadership, strategic people advisory, a Bottleneck Assessment, individual coaching and a developing group format.",
+    "Choose the level of involvement a leadership or organisation issue needs, from coaching and advice to defined fractional responsibility.",
   path: "/services",
 });
-
-const offers = [
-  {
-    title: "Fractional leadership",
-    signal: "The work needs a senior owner.",
-    copy: "I join your operating rhythm for an agreed period and own a defined set of people and organisation priorities. We agree the decision rights and handover in advance.",
-    meta: "Defined part-time remit",
-    href: "/fractional-people-leadership",
-  },
-  {
-    title: "Strategic people advisory",
-    signal: "The decision is visible, but difficult.",
-    copy: "You keep the decision. I bring an outside view to senior hires, role design, change and other people questions tied to the business plan.",
-    meta: "Ongoing or time-bound",
-    href: "/advisory",
-  },
-  {
-    title: "Bottleneck Assessment",
-    signal: "The cause is still disputed.",
-    copy: "I compare interviews, operating evidence and the way decisions move. You receive a written report and work through the priority decisions with me.",
-    meta: "Fixed assessment · €3,500",
-    href: "/bottleneck-assessment",
-  },
-  {
-    title: "Individual coaching",
-    signal: "The work belongs with one leader.",
-    copy: "We define the change you want, how you will recognise progress and which current situations give us useful material.",
-    meta: "Private one-to-one work",
-    href: "/executive-coaching",
-  },
-  {
-    title: "Group coaching",
-    signal: "Several leaders are working on related questions.",
-    copy: "A coaching format for leaders working on related questions. The audience, group size, rhythm and fee are still being developed.",
-    meta: "Offer in development",
-    href: "/group-coaching",
-  },
-] as const;
 
 export default function ServicesPage() {
   const siteUrl = getSiteUrl();
@@ -67,14 +34,14 @@ export default function ServicesPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Ways to work with Marc Berghoff",
-          itemListElement: offers.map((offer, index) => ({
+          name: "Ways Marc Berghoff can help",
+          itemListElement: WORKING_FORMATS.map((offer, index) => ({
             "@type": "ListItem",
             position: index + 1,
             item: {
               "@type": "Service",
               name: offer.title,
-              description: offer.copy,
+              description: offer.summary,
               url: `${siteUrl}${offer.href}`,
               provider: { "@id": `${siteUrl}/#marc-berghoff` },
             },
@@ -83,47 +50,75 @@ export default function ServicesPage() {
       />
 
       <PageHero
-        breadcrumbs={[{ label: "Work with me" }]}
+        breadcrumbs={[{ label: "How I can help" }]}
         compact
-        lead="You may need someone to own a remit, challenge a decision, establish why a problem keeps returning or coach one leader. I use the free first conversation to recommend the lightest format that fits."
+        lead="Sometimes you need room to think. Sometimes you need a candid second view. Sometimes the work needs an owner. I use the first conversation to understand the issue before I recommend a format."
         primary={{ label: "Book a free 30-minute conversation", href: "/contact#booking" }}
-        secondary={{ label: "Run the six-question check", href: "/?check=open#diagnostic" }}
-        title="Choose by who needs to carry the work."
+        secondary={{ label: "See the four-step process", href: "#process" }}
+        title="The issue decides how involved I should be."
       />
 
       <section className={`${pageStyles.section} ${styles.optionsSection}`} aria-labelledby="service-options">
         <div className={pageStyles.container}>
           <div className={styles.header}>
-            <h2 id="service-options">What does the work need from me?</h2>
-            <p>I check the question, the boundary and who needs to be involved before I propose a format.</p>
+            <h2 id="service-options">From coaching distance to defined ownership.</h2>
+            <p>
+              These three formats differ in one practical way: who carries the work
+              after our conversation.
+            </p>
           </div>
           <div className={styles.offerList}>
-            {offers.map((offer) => (
+            {CORE_WORKING_FORMATS.map((offer) => (
               <Link className={styles.offer} href={offer.href} key={offer.href}>
                 <div className={styles.offerLabel}>
-                  <span>{offer.signal}</span>
+                  <span>{offer.responsibility}</span>
                   <small>{offer.meta}</small>
                 </div>
                 <h3>{offer.title}</h3>
-                <p>{offer.copy}</p>
+                <p>{offer.summary}</p>
                 <ArrowRight aria-hidden="true" size={22} />
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className={`${pageStyles.sectionTint} ${styles.supportingSection}`} aria-labelledby="supporting-options">
+        <div className={pageStyles.container}>
+          <div className={styles.header}>
+            <h2 id="supporting-options">When the issue needs another step.</h2>
+            <p>
+              Assessment helps when the cause is still unclear. Group coaching is for
+              leaders who need to work on a shared question without handing it over.
+            </p>
+          </div>
+          <div className={styles.supportingGrid}>
+            {SUPPORTING_WORKING_FORMATS.map((offer) => (
+              <Link className={styles.supportingOffer} href={offer.href} key={offer.href}>
+                <span>{offer.responsibility}</span>
+                <h3>{offer.title}</h3>
+                <p>{offer.summary}</p>
+                <small>{offer.meta}</small>
+                <ArrowRight aria-hidden="true" size={21} />
+              </Link>
+            ))}
+          </div>
           <p className={styles.offerNote}>
-            For the Bottleneck Assessment, participant scope, travel and applicable tax
-            are confirmed before work begins.
+            We can choose the label after we talk. The first 30 minutes are free and
+            come before any paid relationship.
           </p>
         </div>
       </section>
 
-      <EngagementProcess />
+      <div id="process">
+        <EngagementProcess />
+      </div>
 
       <ContactBand
         href="/contact#booking"
         label="Book the free conversation"
-        text="Tell me about the decision or recurring issue. I will tell you which kind of work, if any, makes sense from here."
-        title="Unsure which format fits?"
+        text="Tell me what is happening and what you have tried. I will tell you what kind of involvement, if any, makes sense from here."
+        title="Start with the issue, not a service name."
       />
     </div>
   );

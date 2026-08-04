@@ -192,17 +192,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className={styles.authorNote}>
             <strong>About me</strong>
             <p>
-              I have an MSc in Psychology and hold the ICF Associate Certified Coach
-              credential. I work with founders and leadership teams on people and
-              organisation decisions.
+              I work with founders and leadership teams on leadership, organisation
+              and people issues. Depending on the question, I coach, advise, assess or
+              carry a defined fractional remit.
             </p>
           </div>
         </div>
       </div>
 
       <ContactBand
-        title="See how I approach this kind of work."
-        text="The linked service page explains what is included and how to begin."
+        title="Bring this back to your situation."
+        text="The next page shows the level of involvement that most often fits this question. You can also start with a free 30-minute conversation."
         href={post.nextStep.href}
         label={post.nextStep.label}
       />

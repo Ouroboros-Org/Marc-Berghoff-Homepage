@@ -8,61 +8,32 @@ import { HomeContactJourney } from "@/components/home-contact-journey";
 import { HomeDiagnosticDisclosure } from "@/components/home-diagnostic-disclosure";
 import { createPageMetadata } from "@/config/metadata";
 import { BLOG_POSTS } from "@/content/blog";
+import {
+  CORE_WORKING_FORMATS,
+  SUPPORTING_WORKING_FORMATS,
+} from "@/content/working-formats";
 
 import styles from "./home.module.css";
 
 export const metadata = createPageMetadata({
-  title: "Fractional Leadership for Growing Businesses | Marc Berghoff",
+  title: "Leadership, Organisation and Coaching | Marc Berghoff",
   description:
-    "When people and organisation decisions keep returning to senior leaders, I can take a fractional remit, advise, assess or coach.",
+    "I help founders and leadership teams see what is really happening and get difficult leadership and organisation work moving.",
   path: "/",
 });
 
 const situations = [
   {
-    title: "Decisions come back upstairs.",
-    text: "Roles exist on paper, yet hiring, performance and organisation questions still travel to the founder or one senior leader.",
+    title: "Work lands back on your desk.",
+    text: "Responsibilities exist, but important tasks still return to the founder or one senior leader.",
   },
   {
-    title: "The people agenda has no senior owner.",
-    text: "There may be good HR support, but difficult organisation and leadership choices do not have enough authority behind them.",
+    title: "People ask permission they already have.",
+    text: "The role carries responsibility on paper, while the person still waits for cover before acting.",
   },
   {
-    title: "The explanation keeps changing.",
-    text: "One week the problem is performance; the next it is structure, communication or culture. Action starts before the cause is understood.",
-  },
-] as const;
-
-const offers = [
-  {
-    title: "Fractional leadership",
-    signal: "The work needs a senior owner.",
-    text: "Part-time ownership of agreed people and organisation priorities while the permanent shape of the business is still developing.",
-    href: "/fractional-people-leadership",
-  },
-  {
-    title: "Strategic people advisory",
-    signal: "The decision is visible, but difficult.",
-    text: "Direct support on a people, role or organisation decision that remains with the leadership team.",
-    href: "/advisory",
-  },
-  {
-    title: "Bottleneck Assessment",
-    signal: "The cause is still disputed.",
-    text: "A structured investigation when the leadership team needs a shared reading of the evidence before it acts.",
-    href: "/bottleneck-assessment",
-  },
-  {
-    title: "Individual coaching",
-    signal: "The work belongs with one leader.",
-    text: "Confidential one-to-one work on a live situation and the part of it that belongs with the individual.",
-    href: "/executive-coaching",
-  },
-  {
-    title: "Group coaching",
-    signal: "Several leaders are working on related questions.",
-    text: "A shared coaching format in development for leaders working on related questions.",
-    href: "/group-coaching",
+    title: "The same issue survives another meeting.",
+    text: "It has been raised before, yet ownership changes or the next action never holds.",
   },
 ] as const;
 
@@ -75,19 +46,18 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
-              <h1>When people decisions keep coming back to you.</h1>
+              <h1>When a leadership issue is not moving.</h1>
               <p>
-                Your business may have outgrown the way people and organisation
-                decisions are made. I can take a defined part-time remit, help you
-                test a difficult decision, or use assessment and coaching where they
-                fit better.
+                I help founders and leadership teams see what is really happening
+                and get the right work moving. I can stay at coaching distance,
+                advise on the decision or take responsibility for a defined part of it.
               </p>
               <div className={styles.buttonRow}>
                 <ButtonLink cta href="/contact#booking">
                   Book a free 30-minute conversation
                 </ButtonLink>
                 <ButtonLink href="#ways-to-work" variant="secondary">
-                  See the options
+                  See how I can help
                 </ButtonLink>
               </div>
             </div>
@@ -116,8 +86,8 @@ export default function HomePage() {
           <div className={styles.sectionLead}>
             <h2>One blurred decision can keep pulling work back upstairs.</h2>
             <p>
-              You see it when managers wait for cover, ownership changes with the
-              meeting or a familiar people issue returns under a new name.
+              The issue may be described as performance, communication or capacity.
+              The pattern is often easier to see in what people do.
             </p>
           </div>
           <div className={styles.situationList}>
@@ -129,8 +99,8 @@ export default function HomePage() {
             ))}
           </div>
           <p className={styles.situationClose}>
-            You may need to clarify the decision, give the work an owner or gather
-            evidence first. I help you work out which.
+            You may need a clearer decision, a stronger owner or space for one leader
+            to change how they handle the situation. I help you work out which.
           </p>
         </div>
       </section>
@@ -139,16 +109,17 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.roleGrid}>
             <div>
-              <h2>Choose the amount of help the work needs.</h2>
+              <h2>You need candour without losing the operating context.</h2>
             </div>
             <div className={styles.roleCopy}>
               <p>
-                I can carry an agreed remit inside your business. For a narrower
-                question, I can advise, investigate a recurring problem or coach one
-                leader. The first conversation is where we set that boundary.
+                I am outside your reporting line, which makes it easier for me to say
+                what I see. I still need the context before I form a view. We agree how
+                involved I should be after the first conversation.
               </p>
               <blockquote>
-                You do not need to choose a label before we talk.
+                If I am not the right person, I will say so. Where I can make a useful
+                introduction, I will.
               </blockquote>
             </div>
           </div>
@@ -158,19 +129,35 @@ export default function HomePage() {
       <section className={styles.offers} id="ways-to-work">
         <div className={styles.container}>
           <div className={styles.offersHeader}>
-            <h2>Choose by who needs to carry the work.</h2>
+            <h2>Choose the level of involvement the issue needs.</h2>
             <p>
-              Some work needs an owner. Some needs challenge. Some needs evidence or
-              private thinking space.
+              Start with the issue. We can choose the format after we understand it.
             </p>
           </div>
           <div className={styles.offerList}>
-            {offers.map((offer) => (
+            {CORE_WORKING_FORMATS.map((offer) => (
               <Link className={styles.offer} href={offer.href} key={offer.href}>
-                <span className={styles.offerSignal}>{offer.signal}</span>
+                <span className={styles.offerSignal}>{offer.responsibility}</span>
                 <h3>{offer.title}</h3>
-                <p>{offer.text}</p>
+                <p>{offer.summary}</p>
                 <ArrowRight aria-hidden="true" size={22} />
+              </Link>
+            ))}
+          </div>
+          <div className={styles.supportingHeader}>
+            <h3>When the route needs another step.</h3>
+            <p>
+              Assessment helps when the cause is unclear. Group coaching is a
+              developing route for leaders who share the work.
+            </p>
+          </div>
+          <div className={styles.supportingList}>
+            {SUPPORTING_WORKING_FORMATS.map((offer) => (
+              <Link className={styles.supportingOffer} href={offer.href} key={offer.href}>
+                <span>{offer.responsibility}</span>
+                <h3>{offer.title}</h3>
+                <p>{offer.summary}</p>
+                <ArrowRight aria-hidden="true" size={20} />
               </Link>
             ))}
           </div>
@@ -192,11 +179,11 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.backgroundGrid}>
             <div>
-              <h2>You may want someone who has carried the work.</h2>
+              <h2>Experience on both sides of the conversation.</h2>
               <p>
-                I have worked in people leadership, founder roles, coaching and peer
-                advisory. That experience shapes my questions, but your business still
-                needs its own answer.
+                I have led people work inside a scale-up, co-founded a business,
+                coached leaders and worked as a fractional Head of HR. That mix helps
+                me notice the human tension and the operating consequence.
               </p>
               <ButtonLink href="/about" variant="secondary">
                 About me
@@ -220,10 +207,10 @@ export default function HomePage() {
       <section className={styles.insights}>
         <div className={styles.container}>
           <div className={styles.insightsHeader}>
-            <h2>Read before you choose outside help.</h2>
+            <h2>Read the issue before you choose the help.</h2>
             <p>
-              These notes help you separate a decision problem, a role problem and an
-              operating-model problem.
+              These notes look at what makes leadership work difficult to see, own or
+              move.
             </p>
           </div>
           <div className={styles.articleList}>
@@ -242,11 +229,11 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.finalCtaGrid}>
             <div>
-              <h2>Start with the situation, not a service.</h2>
+              <h2>Start with what is happening now.</h2>
               <p>
-                The first 30 minutes are free. Tell me what keeps returning and what
-                you have tried. We can decide whether another conversation makes
-                sense.
+                The first 30 minutes are free. Bring the issue, what you have tried
+                and where it keeps returning. My aim is that you leave with a clearer
+                question, even if the work stops there.
               </p>
             </div>
             <div className={styles.finalActions}>

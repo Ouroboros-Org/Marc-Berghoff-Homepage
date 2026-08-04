@@ -36,7 +36,7 @@ This checklist reconciles the original feedback with the later implementation de
 
 - [x] Booking and the short enquiry are both immediately available.
 - [x] Optional detailed fields are collapsed by default and open from CTAs that promise more context.
-- [x] Email and the configured phone route sit in a compact disclosure.
+- [x] Email and the configured phone route sit directly below the form and calendar.
 - [x] The four-step process explains what happens next.
 
 The original note asked for the detailed enquiry to be open immediately. The later explicit decision that optional content should be collapsed by default takes precedence. The current progressive form keeps name, email and message visible, and reveals the additional fields only on request or through `?details=open`.
@@ -49,3 +49,10 @@ The original note asked for the detailed enquiry to be open immediately. The lat
 - [x] Footer copy focuses on the reader's question rather than promoting Marc.
 - [x] Leadership principles cover hands-on to strategic work, evidence and KPIs, repeatable methods, OKRs/Scaling Up, coaching and mentoring.
 - [x] No unconfirmed client growth, company-size or ARR claims are published.
+- [x] Every core offer points towards one outcome: make the issue visible, decide where responsibility should sit and move the work.
+- [x] Coaching, advisory and fractional leadership are distinguished by who carries the work after the conversation.
+- [x] The assessment is a supporting tool for unclear causes; it is not the public positioning.
+- [x] Insights use the same decision model and lead back to the appropriate level of involvement.
+- [x] Marc is positioned between coaching distance, candid advice and defined fractional responsibility without forcing one title across the site.
+- [x] The About page includes the supplied mix of empathy, directness, operator experience and personal detail.
+- [x] The final editorial pass removed promotional filler, repeated negative parallelisms, decorative triads and over-explained conclusions.

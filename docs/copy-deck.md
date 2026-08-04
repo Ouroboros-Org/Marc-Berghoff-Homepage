@@ -1,223 +1,285 @@
 # Website copy deck
 
-Status: implementation copy after second editorial pass
+Status: approved direction for implementation; first complete copy pass
+
+## Message architecture
+
+### Reader outcome
+
+A leadership, organisation or people issue becomes clear enough to act on and receives the right level of ownership.
+
+### Marc's role
+
+I help founders and leadership teams see what is really happening and get the right work moving. I can stay at coaching distance, advise on the decision, investigate an unclear cause or carry a defined remit for a period.
+
+### Working principle
+
+I stay independent enough to be candid and close enough to help. If I am not the right person, I say so. Where I can make a useful introduction, I will.
+
+### Responsibility model
+
+- **Coaching — you carry the work.** I help you define the change, challenge your thinking and review what happens next.
+- **Advisory — you keep the decision.** I bring an outside view to the reasoning, trade-offs and next action.
+- **Fractional leadership — I carry a defined remit.** I work inside the operating rhythm, build what is needed and hand responsibility to named people.
+- **Assessment — the cause is not clear enough yet.** I compare what people report with relevant operating evidence before the leadership team chooses a response.
+- **Group coaching — several leaders share the work.** The format remains in development; unknown details are not invented.
 
 ## Voice rules
 
 - Speak to the reader as **you**.
-- When the site refers to Marc, speak as **I**, **me** or **my**.
-- Name the reader's situation before naming a service.
-- Keep one idea per sentence. Cut claims that do not change a decision.
-- Use the provisional title “Fractional Leadership Manager” once, as orientation rather than a pitch.
-- Do not use unconfirmed company growth, ARR or client-outcome figures.
+- Refer to Marc as **I**, **me** or **my**.
+- Sound candid and attentive, not blunt or theatrical.
+- Name observable behaviour before interpreting it.
+- Use one idea per sentence and concrete verbs.
+- Do not turn founders, managers or employees into the problem.
+- Keep the provisional title “Fractional Leadership Manager” to one biographical use.
+- State boundaries and poor fit as plainly as good fit.
+- Do not publish unconfirmed company growth, ARR, comparative or client-outcome claims.
+- Do not score recognition questions or imply a financial cost that has not been measured.
 
-## Anti-bloat editorial pass
+## Editorial second-pass rules
 
-- Start with the reader's decision, constraint or recurring problem. Use **I** only to explain what I do, what I need or where I stop.
-- Prefer a concrete subject and active verb to stacked abstract nouns. If a sentence needs more than two clauses, split it.
-- Remove scene-setting about how important, complex or fast-changing a topic is. State the situation instead.
-- Avoid “not just … but”, “more than”, forced groups of three, rhetorical questions and a closing paragraph that repeats the section.
-- Keep real limits visible. Do not smooth an unfinished offer, uncertain diagnosis or poor fit into a reassuring conclusion.
-- Credentials and biography belong on About or Results unless they help the reader make the decision on the current page.
+- Remove generic scene-setting about complexity, transformation or rapid change.
+- Remove promotional adjectives that facts do not support.
+- Avoid “not just … but”, repeated negative parallelisms and decorative groups of three.
+- Do not explain the meaning of a paragraph after the paragraph has already shown it.
+- Vary sentence length naturally. Keep most sentences under 25 words.
+- Keep uncertainty intact. Do not manufacture a neat diagnosis or reassuring ending.
+- Use real roles, decisions and meetings instead of abstract business language.
 
 ## Repeated actions
 
 - **Book a free 30-minute conversation**
-- **See the options**
+- **See how I can help**
 - **Run the six-question check**
 - **Send me a note**
-- **Give me more context** (opens the optional contact fields)
+- **Add context about the business**
 
 ## Universal four-step process
 
 ### 1. First conversation
 
-You explain what is happening and why it matters now. I ask enough to see whether I can help. I do not begin paid work before this conversation. If I am not the right person, I say so.
+You explain what is happening and why it matters now. I ask enough to understand the question and whether I can help. The conversation is free and lasts 30 minutes. I do not begin paid work before it.
 
-### 2. Understand the work
+### 2. Make the issue clearer
 
-I look at the decision, what has already been tried and who needs to be involved. I may ask for operating evidence before I recommend a format.
+I look at what has happened, what has already been tried and who is involved. If the accounts differ or the cause is uncertain, I may recommend gathering evidence before choosing a response.
 
-### 3. Agree the remit
+### 3. Agree my involvement
 
-I send you a written scope before paid work starts. It covers the remit, decision rights, working rhythm, fees, review measures and what I need from your business.
+I send a written scope before paid work begins. It records the question, my responsibility, decision rights, working rhythm, fees, review measures and what I need from the business.
 
-### 4. Begin and review
+### 4. Move and review
 
-We start with the live issue. We review what is changing, what is not and whether the remit still fits.
+We start with the live issue. We review what is changing, what remains stuck and whether my involvement still fits. Any handover conditions are reviewed from the beginning.
 
 ## Home
 
 ### Hero
 
-H1: **When people decisions keep coming back to you.**
+H1: **When a leadership issue is not moving.**
 
-Lead: Your business may have outgrown the way people and organisation decisions are made. I can take a defined part-time remit, help you test a difficult decision, or use assessment and coaching where they fit better.
+Lead: I help founders and leadership teams see what is really happening and get the right work moving. I can stay at coaching distance, advise on the decision or take responsibility for a defined part of it.
 
 Primary: **Book a free 30-minute conversation**
 
-Secondary: **See the options**
+Secondary: **See how I can help**
 
-### Situation
+Portrait descriptor: **Fractional Leadership Manager**
+
+### Recognition
 
 H2: **One blurred decision can keep pulling work back upstairs.**
 
-Intro: You see it when managers wait for cover, ownership changes with the meeting or a familiar people issue returns under a new name.
+Intro: The issue may be described as performance, communication or capacity. The pattern is often easier to see in what people do.
 
 Signals:
 
-1. **Decisions return to you.** Roles exist, but hiring, performance and organisation questions still travel upwards.
-2. **The people agenda has no senior owner.** Day-to-day support exists, but difficult choices lack authority.
-3. **The explanation keeps changing.** The problem is called performance, structure, communication or culture before anyone agrees on the cause.
+1. **Work lands back on your desk.** Responsibilities exist, but important tasks still return to the founder or one senior leader.
+2. **People ask permission they already have.** The role carries responsibility on paper, while the person still waits for cover before acting.
+3. **The same issue survives another meeting.** It has been raised before, yet ownership changes or the next action never holds.
 
-Close: You may need to clarify the decision, give the work an owner or gather evidence first. I help you work out which.
+Close: You may need a clearer decision, a stronger owner or space for one leader to change how they handle the situation. I help you work out which.
 
-### Role
+### Working stance
 
-H2: **Choose the amount of help the work needs.**
+H2: **You need candour without losing the operating context.**
 
-Body: I can carry an agreed remit inside your business. For a narrower question, I can advise, investigate a recurring problem or coach one leader. The first conversation is where we set that boundary.
+Body: I am outside your reporting line, which makes it easier for me to say what I see. I still need the context before I form a view. We agree how involved I should be after the first conversation.
 
-Note: **You do not need to choose a label before we talk.**
+Trust note: **If I am not the right person, I will say so. Where I can make a useful introduction, I will.**
 
 ### Ways to work
 
-H2: **Choose by who needs to carry the work.**
+H2: **Choose the level of involvement the issue needs.**
 
-Intro: Some work needs an owner. Some needs challenge. Some needs evidence or private thinking space.
+Intro: Start with the issue. We can choose the format after we understand it.
 
-- Fractional leadership: I own an agreed part of the people and organisation agenda for a set period.
-- Strategic people advisory: You keep the decision; I test the reasoning and trade-offs with you.
-- Bottleneck Assessment: I investigate when several explanations are competing.
-- Individual coaching: You and I work on a live leadership question and agree how progress will be recognised.
-- Group coaching: A shared format is in development for leaders working on related questions.
+Main formats: coaching, advisory and fractional leadership.
 
-Link after the complete list: **See scope and fees**
+Supporting formats: assessment when the cause is unclear; group coaching as a developing shared format.
+
+Link: **See scope and fees**
 
 ### Diagnostic
 
 Closed label: **Run the six-question check**
 
-Closed helper: **Use it when the cause is unclear**
+Closed helper: **Use it when the issue is hard to name**
 
-Inside the tool: **Answer from the last few weeks, including the awkward days.**
+Inside: **Answer from the last few weeks, including the awkward days.**
 
-### Relevant background
+### Experience
 
-H2: **You may want someone who has carried the work.**
+H2: **Experience on both sides of the conversation.**
 
-Body: I have worked in people leadership, founder roles, coaching and peer advisory. That experience shapes my questions, but your business still needs its own answer.
+Body: I have led people work inside a scale-up, co-founded a business, coached leaders and worked as a fractional Head of HR. That mix helps me notice the human tension and the operating consequence.
 
 ### Insights
 
-H2: **Read before you choose outside help.**
+H2: **Read the issue before you choose the help.**
 
-Body: These notes help you separate a decision problem, a role problem and an operating-model problem.
+Body: These notes look at what makes leadership work difficult to see, own or move.
 
 ### Final action
 
-H2: **Start with the situation, not a service.**
+H2: **Start with what is happening now.**
 
-Body: The first 30 minutes are free. Tell me what keeps returning and what you have tried. We can decide whether another conversation makes sense.
+Body: The first 30 minutes are free. Bring the issue, what you have tried and where it keeps returning. My aim is that you leave with a clearer question, even if the work stops there.
 
 ## Services overview
 
-H1: **Choose by who needs to carry the work.**
+H1: **The issue decides how involved I should be.**
 
-Lead: You may need someone to own a remit, challenge a decision, establish why a problem keeps returning or coach one leader. I use the free first conversation to recommend the lightest format that fits.
+Lead: Sometimes you need room to think. Sometimes you need a candid second view. Sometimes the work needs an owner. I use the first conversation to understand the issue before I recommend a format.
 
-Section heading: **What does the work need from me?**
+Section heading: **From coaching distance to defined ownership.**
 
-The offer rows carry the decision guide. Do not repeat the same five mappings in a second section.
+Section intro: These three formats differ in one practical way: who carries the work after our conversation.
 
 ## Fractional leadership
 
-H1: **When the work cannot wait for another full-time hire.**
+H1: **When the work needs an owner before the permanent answer is clear.**
 
-Lead: I join your operating rhythm for an agreed share of the week or month and carry a defined people and organisation remit.
+Lead: I join the operating rhythm for an agreed share of the week or month and carry a defined people, organisation or leadership remit.
 
-Boundary: You and I agree the decisions I own, the support I need and how responsibility will return to your team.
+Introduction: **I step in when advice would leave the work unowned.**
+
+Boundary: We agree the decisions I own, the support I need and how responsibility will return to named people inside the business.
 
 ## Strategic people advisory
 
-H1: **A difficult people decision still belongs to you.**
+H1: **The decision is yours. It does not have to be made alone.**
 
-Lead: You bring a visible question. I test the reasoning, assumptions and trade-offs without taking the decision away from you.
+Lead: You bring a visible people, role or organisation question. I test the reasoning, assumptions and trade-offs while the decision stays with you.
+
+Introduction: **I advise when the question is clear enough to examine.**
+
+Boundary: If the work needs someone to coordinate execution or hold decision rights, advisory is too light.
 
 ## Individual coaching
 
 H1: **Make the change you want to see specific.**
 
-Lead: We begin by defining where you are now, what you want to be different and how you will recognise progress. Sessions use current decisions, conversations and reactions from your role.
+Lead: We define where you are now, what you want to handle differently and how you will recognise progress. Sessions use situations from your current role.
 
-Boundary: You decide what to do. If the issue needs organisation-wide ownership, coaching is not the right format.
+Introduction: **Coaching fits when the work belongs with you.**
 
-Close: **Bring a situation that needs space to think.**
+Boundary: You keep responsibility for the decision. If the issue needs wider evidence or organisation-level ownership, we stop and set a different brief.
+
+Close: **Bring a situation that needs room to think.**
 
 ## Group coaching
 
 H1: **A shared coaching format is in development.**
 
-Lead: If several leaders are working on related questions, a group may help them learn together. I have not yet fixed the audience, size, rhythm or fee.
+Lead: The format is intended for leaders working on related questions inside a shared context. I have not yet fixed the audience, group size, rhythm or fee.
 
-Section heading: **What you can rely on so far.**
+Section heading: **What will remain true.**
 
 Action: **Tell me about the group**
 
 ## Bottleneck Assessment
 
-H1: **When several explanations are competing, start with evidence.**
+H1: **When you can feel the issue but cannot yet point to it.**
 
-Lead: I compare how work and decisions move with what people report. You receive a written finding and use the report workshop to decide what happens next.
+Lead: The Bottleneck Assessment is one way to stop guessing. I compare what people experience with how decisions and work actually move, then give the leadership team a focused finding to test.
+
+Problem heading: **Use the assessment when the cause is still open.**
 
 Diagnostic disclosure: **Run the six-question check** / **Use the last few weeks as your reference point.**
 
+## Sample report
+
+H1: **See how an unclear issue becomes a usable finding.**
+
+Lead: The report shows the main finding, the evidence behind it and the decisions that need attention. The preview uses a fictional company; no client material is shown.
+
 ## About
 
-H1: **When people decisions need attention.**
+H1: **When the issue sits between the people and the way the business works.**
 
-Lead: I can own a defined remit, advise on a decision, investigate a recurring problem or coach one leader. My background matters only where it helps me work with the situation in front of you.
+Lead: I help founders and leadership teams understand what is happening, decide what needs to change and choose how involved I should be. My range runs from coaching to a defined fractional remit.
 
 Primary: **Book a free conversation**
 
 Secondary: **Run the six-question check**
 
-Biography: I started in people leadership and later moved into advisory, coaching and the practical responsibility of co-founding CyberKongz. I have also worked with people questions at Klarsolar, provided fractional HR leadership to Alberta Fire & Security and worked with leaders through Vistage peer advisory.
+Biography: I have worked in HR and coaching for more than seven years. I have led people work inside a fast-growing company, co-founded CyberKongz, coached leaders and served as fractional Head of HR. I hold an MSc in Psychology and the ICF Associate Certified Coach credential.
+
+Working stance heading: **I work at the boundary between reflection and responsibility.**
+
+Personal note: Away from work, I am usually reading, climbing, exploring a new culture or trying to improve my homemade chilaquiles.
 
 Leadership principles:
 
-1. **Work from detail to strategy.** I can enter through the live operating issue, then help you move ownership and attention towards the decisions that matter.
-2. **Use evidence and agreed measures.** We decide what progress should look like before judging the work. KPIs should answer a decision, not create reporting for its own sake.
-3. **Build methods and people.** I use approaches such as OKRs or Scaling Up when they fit. Coaching and mentoring help new and emerging leaders grow into the work.
+1. **From hands-on to strategic.** Start with the live detail, then move attention towards the decision or system behind it.
+2. **Use evidence that answers a decision.** KPIs help when they change what someone can see or decide. Reporting without a decision adds noise.
+3. **Make progress observable.** Coaching begins with a current state, a desired change and signs that the change is happening.
+4. **Use methods when they help the work.** OKRs and Scaling Up can provide structure. The method serves the issue; it is not the product.
+
+## Results and experience
+
+H1: **See the kinds of responsibility I have carried.**
+
+Lead: These examples show where I have worked as a people leader, founder, advisor and fractional operator. They provide context for my judgement; they do not promise your outcome.
 
 ## Insights
 
-H1: **Work out why the problem keeps returning.**
+H1: **See the issue more clearly before you choose outside help.**
 
-Lead: Use these articles to work out if you are dealing with a decision, role or operating-model problem before you choose outside help.
+Lead: These notes examine why work returns to senior leaders, why role boundaries fail and how to choose the right level of support.
 
-Article list heading: **Choose the question closest to yours.**
+Article list heading: **Start with the pattern closest to yours.**
+
+Article footer: **Bring the article back to your situation.** / The first conversation is free. We can discuss what fits, what does not and whether another person would be more useful.
 
 ## Contact
 
-H1: **Choose a time or send me a note.**
+H1: **Bring the issue as it is.**
 
-Lead: The first 30 minutes are free. Use the calendar or send a short note below.
+Lead: Bring the issue before you have chosen a service or worked out a diagnosis. Book a time below, or send a short note if writing is easier.
 
-Calendar body: You do not need to choose a service first.
+Calendar heading: **Choose a time to talk it through.**
 
-Form heading: **Send a short note.**
+Form heading: **Tell me what is happening.**
 
 Form intro: Your name, email and a few lines are enough.
 
-Optional details helper: Add these details if they help me understand who is involved, what has happened and what kind of response would help.
+Optional details: **Add context about the business**
 
-Submit: **Send message**
+Direct details: **Would you rather call or send an email?**
 
-Direct details: **Email or call instead**
+## Footer and global copy
 
-## Footer
+Logo descriptor: **Leadership · organisation · coaching**
 
-Body: **Start with the question. We can choose the format after the first conversation.**
+Footer body: **Start with what is happening. We can choose my level of involvement after the first conversation.**
 
-Actions: **Book a free 30-minute conversation** / **Send me a note**
+Default metadata title: **Marc Berghoff | Leadership, organisation and coaching**
+
+404: **This page is not here.** / The link may be out of date. Return home or book the free conversation.
+
+## Legal pages
+
+Privacy and imprint copy remain legally scoped. They inherit the revised navigation, footer and metadata shell but are not rewritten for marketing tone.

@@ -18,12 +18,6 @@ import { StructuredData } from "./structured-data";
 export function ServiceDetail({ service }: { service: ServiceDefinition }) {
   const otherServices = SERVICE_LIST.filter((item) => item.slug !== service.slug);
   const siteUrl = getSiteUrl();
-  const introductionHeading = {
-    advisory: "Use advisory when the decision is already defined.",
-    "fractional-people-leadership":
-      "Use a fractional remit when the work needs an owner.",
-    "executive-coaching": "Use coaching when the question belongs with one leader.",
-  }[service.slug];
 
   return (
     <div className={styles.page}>
@@ -51,14 +45,14 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
         lead={service.summary}
         primary={{ label: "Book a free 30-minute conversation", href: "/contact#booking" }}
         ctaPrimary={true}
-        secondary={{ label: "Compare all options", href: "/services" }}
+        secondary={{ label: "See the working range", href: "/services" }}
       />
 
       <section className={styles.section} aria-labelledby="service-introduction">
         <div className={`${styles.container} ${styles.split}`}>
           <div className={styles.stickyTitle}>
             <h2 className={styles.sectionTitle} id="service-introduction">
-              {introductionHeading}
+              {service.introductionHeading}
             </h2>
           </div>
           <div>
@@ -67,7 +61,7 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
               {service.boundary ? <p>{service.boundary}</p> : null}
             </div>
             <div className={styles.spacedTop}>
-              <p className={styles.cardKicker}>This may fit if</p>
+              <h3 className={styles.featureCardTitle}>This may fit if</h3>
               <PlainList items={service.forWhen} />
             </div>
           </div>
@@ -100,8 +94,8 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
         <div className={styles.container}>
           <SectionHeading
             id="service-scope"
-            title="Your question sets the remit."
-            intro="These are common areas of work. Your proposal records what is in scope."
+            title={service.scopeHeading}
+            intro={service.scopeIntro}
           />
           <ul className={styles.cardGrid}>
             {service.workIncludes.map((item) => (
@@ -125,7 +119,10 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
 
       <section className={styles.section} aria-labelledby="related-services">
         <div className={styles.container}>
-          <SectionHeading id="related-services" title="If another option fits better." />
+          <SectionHeading
+            id="related-services"
+            title="If another level of involvement fits better."
+          />
           <div className={`${styles.cardGrid} ${styles.cardGridTwo}`}>
             {otherServices.map((item) => (
               <article className={styles.featureCard} key={item.slug}>
