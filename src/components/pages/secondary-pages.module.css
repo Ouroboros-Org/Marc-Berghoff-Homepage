@@ -238,11 +238,11 @@
 }
 
 .spacedTop {
-  margin-top: 2.5rem;
+  margin-top: 2.5rem !important;
 }
 
 .smallSpacedTop {
-  margin-top: 1.25rem;
+  margin-top: 1.25rem !important;
 }
 
 .split {
