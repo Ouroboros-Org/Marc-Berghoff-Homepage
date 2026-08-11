@@ -7,6 +7,7 @@ import {
   secondaryPageStyles as styles,
 } from "@/components/pages/editorial";
 import { createPageMetadata } from "@/config/metadata";
+import { getPrimaryContactAction } from "@/config/site";
 
 export const metadata = createPageMetadata({
   title: "Bottleneck Assessment Report Structure",
@@ -46,6 +47,8 @@ const boundaries = [
 ] as const;
 
 export default function SampleReportPage() {
+  const contactAction = getPrimaryContactAction();
+
   return (
     <div className={styles.page}>
       <PageHero
@@ -57,7 +60,7 @@ export default function SampleReportPage() {
         lead="The report brings different accounts and operating evidence into one clear argument. It gives the leadership team something specific to test, discuss and act on."
         asideLabel="Format"
         asideValue="Written report + report workshop"
-        primary={{ label: "Book a free conversation", href: "/contact#booking" }}
+        primary={contactAction}
         ctaPrimary={true}
         secondary={{ label: "Assessment details", href: "/bottleneck-assessment" }}
       />
@@ -127,9 +130,10 @@ export default function SampleReportPage() {
       </section>
 
       <ContactBand
+        href={contactAction.href}
         title="Use this route when the cause is still open."
-        text="The €3,500 assessment includes discovery, fieldwork, a written report and a report workshop. Participant scope, travel and applicable tax are confirmed in advance."
-        label="Book a free conversation"
+        text="The assessment includes discovery, fieldwork, a written report and a report workshop."
+        label={contactAction.label}
       />
     </div>
   );

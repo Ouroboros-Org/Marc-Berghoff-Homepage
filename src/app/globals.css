@@ -1785,7 +1785,8 @@ select[aria-invalid="true"] {
 
   .desktop-nav,
   .header-cta,
-  .header-social {
+  .header-social,
+  .header-locale {
     display: none !important;
   }
 
@@ -1962,6 +1963,10 @@ select[aria-invalid="true"] {
   .mobile-nav__social {
     justify-self: center;
     margin-top: 0.15rem;
+  }
+
+  .mobile-nav__locale {
+    justify-self: center;
   }
 
   .home-hero {

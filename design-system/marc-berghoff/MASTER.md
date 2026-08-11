@@ -2,7 +2,7 @@
 
 **Updated:** 2026-08-04
 **Product:** English-language personal advisory website  
-**Direction:** Editorial fractional leadership, calm authority, spacious, direct
+**Direction:** Editorial people leadership, calm authority, spacious, direct
 **Design dials:** variance 4/10 · motion 3/10 · density 3/10
 
 This file is the visual source of truth. The supplied presentation and website brief override the generic database recommendation that was used to establish the Trust & Authority page pattern.
@@ -102,10 +102,10 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 
 1. Name the responsibility or operating problem in plain language.
 2. Explain the amount of ownership available without turning the page into a biography or credentials pitch.
-3. Let the reader choose fractional leadership, advisory, assessment or coaching by
+3. Let the reader choose Fractional People Leadership, advisory, assessment or coaching by
    asking who needs to carry the work.
 4. Use the same four-step engagement process across every format.
-5. Keep the six-question diagnostic optional and collapsed unless a CTA promises it.
+5. Show the ten-statement diagnostic in full near the top of the homepage.
 6. Use only confirmed named work, approved credentials and attributed testimonials;
    never invent performance proof or expose unconfirmed company metrics.
 7. Close with the free 30-minute conversation; keep optional contact details collapsed

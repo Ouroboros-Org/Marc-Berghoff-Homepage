@@ -122,24 +122,24 @@ export const BLOG_POSTS: readonly BlogPost[] = [
   },
   {
     slug: "when-fractional-people-leadership-makes-sense",
-    title: "When the work needs a fractional owner",
+    title: "When Fractional People Leadership fits",
     description:
       "How to tell whether the people and organisation work needs advice, a permanent hire or someone to carry a defined remit now.",
-    category: "Fractional leadership",
+    category: "Fractional People Leadership",
     publishedAt: "2026-07-29",
     updatedAt: "2026-08-04",
     intro:
-      "The people agenda may already fill half the founder's week, while the long-term leadership role is still hard to define. Hiring quickly can lock in the wrong brief. Waiting leaves important work without an owner. A fractional remit can cover that awkward middle period.",
+      "The people agenda may already fill half the founder's week, while the long-term leadership role is still hard to define. Hiring quickly can lock in the wrong brief. Waiting leaves important work without an owner. A defined part-time remit can cover that awkward middle period.",
     sections: [
       {
         heading: "Work out whether you need advice or ownership",
         paragraphs: [
-          "Occasional advice fits a founder who still has the time and authority to carry the work. Fractional leadership goes further. The external leader joins the operating rhythm, owns an agreed remit and follows decisions through with managers, HR colleagues and specialist providers.",
+          "Occasional advice fits a founder who still has the time and authority to carry the work. Fractional People Leadership goes further. The external leader joins the operating rhythm, owns an agreed remit and follows decisions through with managers, HR colleagues and specialist providers.",
           "Write down what must be different over the next few months. If the list depends on somebody attending leadership meetings, coordinating contributors and making day-to-day calls, you are describing ownership. If you mainly want to test a choice before acting, advisory may be enough.",
         ],
       },
       {
-        heading: "A fractional remit fits a particular kind of gap",
+        heading: "A defined remit fits a particular kind of gap",
         paragraphs: [
           "The strongest case combines urgency with uncertainty. The work matters now, but the company does not yet know the durable shape of a permanent role.",
         ],
@@ -154,25 +154,25 @@ export const BLOG_POSTS: readonly BlogPost[] = [
         heading: "A permanent hire may already be the better answer",
         paragraphs: [
           "If the scope is stable, the workload is genuinely full time and the leadership team can describe success in the role, begin the permanent search. Constant presence may also matter in a large workforce or a business spread across several sites.",
-          "A short fractional period can still help define the role or keep the work moving during recruitment. Be explicit about that purpose. Otherwise an interim arrangement can drift because everyone is busy and the immediate pressure has eased.",
+          "A short interim period can still help define the role or keep the work moving during recruitment. Be explicit about that purpose. Otherwise an interim arrangement can drift because everyone is busy and the immediate pressure has eased.",
         ],
       },
       {
         heading: "Put the handover into the first agreement",
         paragraphs: [
           "Name the routines to establish, the decisions that will move inside and the person or future role expected to receive them. Review those handover conditions alongside the business priorities. The final month is too late to start.",
-          "There is no single ideal length for a fractional engagement. The right question is more concrete: what should the company be able to own by the time the remit changes? If nobody can answer that at the outset, defining it is part of the first week's work.",
+          "There is no single ideal length for this kind of engagement. The right question is more concrete: what should the company be able to own by the time the remit changes? If nobody can answer that at the outset, defining it is part of the first week's work.",
         ],
       },
     ],
     nextStep: {
-      label: "See fractional leadership",
+      label: "See Fractional People Leadership",
       href: "/fractional-people-leadership",
     },
   },
   {
     slug: "executive-coaching-advisory-or-assessment",
-    title: "Coaching, advice, assessment or fractional responsibility?",
+    title: "Coaching, advice, assessment or defined responsibility?",
     description:
       "Choose a starting point by asking who should carry the work and whether the cause is clear enough to act on.",
     category: "Choosing support",
@@ -203,10 +203,10 @@ export const BLOG_POSTS: readonly BlogPost[] = [
         ],
       },
       {
-        heading: "Fractional work fits when somebody needs to carry the remit",
+        heading: "Defined responsibility fits when somebody needs to carry the remit",
         paragraphs: [
-          "A founder may understand the problem and still lack a credible owner for the work. In that case, another opinion changes very little. A fractional leader takes an agreed remit, joins the operating rhythm and follows the decisions through.",
-          "The boundary matters. Write down the decisions the fractional leader can make, the support available inside the company and the person who should receive the work later. If that cannot be made clear, the remit is not ready.",
+          "A founder may understand the problem and still lack a credible owner for the work. In that case, another opinion changes very little. In Fractional People Leadership, I take an agreed remit, join the operating rhythm and follow the decisions through.",
+          "The boundary matters. Write down the decisions I can make, the support available inside the company and the person who should receive the work later. If that cannot be made clear, the remit is not ready.",
         ],
       },
       {

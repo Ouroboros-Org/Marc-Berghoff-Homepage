@@ -16,6 +16,10 @@
   align-items: start;
 }
 
+.startGridSingle {
+  grid-template-columns: minmax(20rem, 44rem);
+}
+
 .formColumn,
 .bookingColumn {
   display: grid;

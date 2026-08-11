@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/config/metadata";
 import { SERVICES } from "@/content/services";
 
 export const metadata = createPageMetadata({
-  title: "Fractional Leadership",
+  title: "Fractional People Leadership",
   description:
     "Part-time senior ownership of a defined people and organisation remit while the permanent structure of the business is still taking shape.",
   path: "/fractional-people-leadership",

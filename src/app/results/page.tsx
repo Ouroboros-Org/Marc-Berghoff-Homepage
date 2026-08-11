@@ -6,16 +6,19 @@ import {
   secondaryPageStyles as styles,
 } from "@/components/pages/editorial";
 import { createPageMetadata } from "@/config/metadata";
+import { getPrimaryContactAction } from "@/config/site";
 import { CASE_STUDIES } from "@/content/results";
 
 export const metadata = createPageMetadata({
   title: "Results & Experience",
   description:
-    "The operating, advisory, fractional and coaching experience I bring to work with growing companies.",
+    "The operating, advisory and coaching experience I bring to work with growing companies.",
   path: "/results",
 });
 
 export default function ResultsPage() {
+  const contactAction = getPrimaryContactAction();
+
   return (
     <div className={styles.page}>
       <PageHero
@@ -27,7 +30,7 @@ export default function ResultsPage() {
         lead="These examples show the contexts I have worked in: people leadership, founder support, operating responsibility and coaching. They are here to help you judge relevance, not to promise your outcome."
         asideLabel="Coaching practice"
         asideValue="350+ hours"
-        primary={{ label: "Book a free conversation", href: "/contact#booking" }}
+        primary={contactAction}
         ctaPrimary={true}
         secondary={{ label: "See how I can help", href: "/services" }}
       />
@@ -65,7 +68,8 @@ export default function ResultsPage() {
       </section>
 
       <ContactBand
-        href="/contact#booking"
+        href={contactAction.href}
+        label={contactAction.label}
         title="What is your leadership team dealing with now?"
         text="Share the recurring issue and what you have already tried. I will tell you if I can help."
       />

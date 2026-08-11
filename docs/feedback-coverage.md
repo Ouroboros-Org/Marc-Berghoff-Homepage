@@ -12,7 +12,7 @@ This checklist reconciles the original feedback with the later implementation de
 - [x] The home page shows every working format. Its follow-up link now promises added scope and fee information rather than repeating the same list.
 - [x] One universal four-step process appears across services, About and Contact.
 - [x] The first conversation is clearly described as free, detailed and required before paid work.
-- [x] Cal.com is embedded on the contact page with a mobile layout and unconfigured fallback.
+- [x] Cal.com is embedded on the contact page with a mobile layout. Without a configured link, booking actions become “Send me a note” and the empty calendar is omitted.
 
 ## Diagnostic
 
@@ -23,11 +23,11 @@ This checklist reconciles the original feedback with the later implementation de
 
 ## Coaching
 
-- [x] Individual and group coaching have separate pages and clear choice signals.
-- [x] The former unequal six-box comparison is gone; coaching choices now use the same ruled-row pattern as the other working formats and lead to separate pages.
-- [x] Group coaching remains an extensible placeholder; unknown details are not invented.
-- [x] Individual coaching defines the current state, desired change and signs of progress before sessions begin.
-- [x] Coaching is shown as one route among fractional leadership, advisory and assessment.
+- [x] Individual and shared coaching now sit together under Executive Coaching.
+- [x] The former coaching split is gone; all five services use the same ruled-row pattern.
+- [x] Peer Advisory is present as the fifth service, with an intentionally brief page until final content is supplied.
+- [x] Executive Coaching defines the current state, desired change and signs of progress before sessions begin.
+- [x] Coaching is shown as one route among Fractional People Leadership, advisory, Peer Advisory and assessment.
 - [x] The harsh “cannot discuss inside the business” line is replaced with a calmer invitation.
 - [x] ICF ACC and 350+ coaching hours remain the only public coaching proof used here.
 - [x] The unapproved “€200m ARR” coaching-range claim is excluded under the later claims decision.
@@ -50,9 +50,9 @@ The original note asked for the detailed enquiry to be open immediately. The lat
 - [x] Leadership principles cover hands-on to strategic work, evidence and KPIs, repeatable methods, OKRs/Scaling Up, coaching and mentoring.
 - [x] No unconfirmed client growth, company-size or ARR claims are published.
 - [x] Every core offer points towards one outcome: make the issue visible, decide where responsibility should sit and move the work.
-- [x] Coaching, advisory and fractional leadership are distinguished by who carries the work after the conversation.
+- [x] Coaching, advisory and Fractional People Leadership are distinguished by who carries the work after the conversation.
 - [x] The assessment is a supporting tool for unclear causes; it is not the public positioning.
 - [x] Insights use the same decision model and lead back to the appropriate level of involvement.
-- [x] Marc is positioned between coaching distance, candid advice and defined fractional responsibility without forcing one title across the site.
+- [x] Marc is positioned between coaching distance, candid advice and defined responsibility without forcing one title across the site.
 - [x] The About page includes the supplied mix of empathy, directness, operator experience and personal detail.
 - [x] The final editorial pass removed promotional filler, repeated negative parallelisms, decorative triads and over-explained conclusions.

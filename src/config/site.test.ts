@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { getBookingUrl, getCalLink, getContactPhone, getSiteUrl } from "./site";
+import {
+  getBookingUrl,
+  getCalLink,
+  getContactEmail,
+  getContactPhone,
+  getPrimaryContactAction,
+  getSiteUrl,
+} from "./site";
 
 describe("getSiteUrl", () => {
   it.each([
@@ -12,8 +19,8 @@ describe("getSiteUrl", () => {
     "not a URL",
     "javascript:alert(1)",
     "https://user:password@example.com",
-  ])("uses localhost for an absent, placeholder or unsafe value: %s", (value) => {
-    expect(getSiteUrl(value ?? null, null, null)).toBe("http://localhost:3000");
+  ])("uses the public domain for an absent, placeholder or unsafe value: %s", (value) => {
+    expect(getSiteUrl(value ?? null, null, null)).toBe("https://marcberghoff.com");
   });
 
   it("returns only the canonical origin", () => {
@@ -34,16 +41,55 @@ describe("getSiteUrl", () => {
     );
   });
 
-  it("uses the Vercel production domain when the public origin is absent", () => {
+  it("uses a stable custom Vercel production domain when the public origin is absent", () => {
     expect(
       getSiteUrl(null, "marc.example", "preview-123.vercel.app"),
     ).toBe("https://marc.example");
   });
 
-  it("uses the current Vercel deployment domain as a final hosted fallback", () => {
-    expect(getSiteUrl(null, null, "preview-123.vercel.app")).toBe(
-      "https://preview-123.vercel.app",
+  it("does not use the Vercel project domain as the canonical origin", () => {
+    expect(getSiteUrl(null, "marc-homepage.vercel.app", null)).toBe(
+      "https://marcberghoff.com",
     );
+  });
+
+  it("does not use a temporary Vercel deployment as the canonical domain", () => {
+    expect(getSiteUrl(null, null, "preview-123.vercel.app")).toBe(
+      "https://marcberghoff.com",
+    );
+  });
+});
+
+describe("getContactEmail", () => {
+  it.each([undefined, "", "not-an-email", "YOUR_EMAIL"])(
+    "uses the public mailbox fallback for an absent or invalid value: %s",
+    (value) => {
+      expect(getContactEmail(value)).toBe("marc@marcberghoff.com");
+    },
+  );
+
+  it("accepts a configured public mailbox", () => {
+    expect(getContactEmail(" hello@marcberghoff.com ")).toBe(
+      "hello@marcberghoff.com",
+    );
+  });
+});
+
+describe("getPrimaryContactAction", () => {
+  it("routes to the embedded 30-minute booking when Cal is configured", () => {
+    expect(getPrimaryContactAction("marc/first-conversation")).toEqual({
+      href: "/contact#booking",
+      label: "Book a free 30-minute conversation",
+      isBooking: true,
+    });
+  });
+
+  it("falls back to the contact form when Cal is not configured", () => {
+    expect(getPrimaryContactAction(" ")).toEqual({
+      href: "/contact#contact-form",
+      label: "Send me a note",
+      isBooking: false,
+    });
   });
 });
 

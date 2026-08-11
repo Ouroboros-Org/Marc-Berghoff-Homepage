@@ -53,12 +53,12 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 
 | Claim | Evidence | Status | Publishing rule |
 | --- | --- | --- | --- |
-| Bottleneck Assessment fee is €3,500 one-time | D1 slide 8; U1 confirms the deck is current | **Deck-authorised** | State whether VAT is included/excluded before taking payment or issuing a binding offer. Website copy may say “€3,500” and note that final scope/terms are agreed in writing. |
+| Bottleneck Assessment fee is fixed by project size | Current homepage brief supersedes D1 pricing copy | **Approved wording** | Publish only: “The fee is fixed based on the size of the project and agreed before we start.” Do not publish a number. |
 | Process: discovery; 1–2 weeks on-site/online assessment; report workshop about one week later | D1 slide 8; U1 | **Deck-authorised** | Present as a typical plan, not a guaranteed calendar. Scope depends on access, team size and scheduling. |
 | First conversation is free/no charge | D1 slide 15; U1 | **Deck-authorised** | Safe while Marc continues to offer it. Avoid promising a fixed duration unless confirmed. |
-| Advisory, fractional people leadership and executive coaching are follow-on paths | D1 slide 7 | **Deck-authorised** | Do not imply that buyers must complete the assessment first; the deck explicitly says it is not mandatory. |
+| Strategic People Advisory, Fractional People Leadership and Executive Coaching are follow-on paths | D1 slide 7 | **Deck-authorised** | Do not imply that buyers must complete the assessment first; the deck explicitly says it is not mandatory. |
 | The diagnostic identifies decision, ownership and execution friction | D1 slides 5, 7–9 | **Deck-authorised** | Describe it as an organisational diagnostic. It is not a clinical or psychometric diagnosis. |
-| “A single stalled quarter costs much more” than €3,500 | D1 slide 8 | **Do not use as written** | It is an unquantified financial comparison. Replace with a direct statement of scope and price. |
+| “A single stalled quarter costs much more” than the assessment | D1 slide 8 | **Do not use as written** | It is an unquantified financial comparison. Use the approved fixed-fee sentence without a comparative claim. |
 | “Tried and tested tools eliminate bias” | D1 slide 8 | **Do not use as written** | No method eliminates bias. Use “combines quantitative and qualitative evidence to reduce blind spots” if accurate. |
 
 ## Portfolio and outcome claims
@@ -69,7 +69,7 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | Klarsolar achieved more than 100% revenue growth over two years during that period | D1 slide 12 | **Deck-authorised** | Keep the time period explicit and avoid causal wording. Retain company approval and financial substantiation. |
 | Giftagoods grew from €30k ARR to €350k ARR in one year during Marc’s strategic support | D1 slide 12 | **Deck-authorised** | Use “during the engagement,” not “Marc grew.” Retain company approval and underlying ARR evidence. |
 | Marc co-founded CyberKongz, a global nine-figure Web3 project in 2021 | D1 slide 12 | **Deck-authorised, high scrutiny** | This is the exact deck-authorised wording. Verify the entity, what “nine-figure” measures and permission to publish before launch; treat it as a time-bounded 2021 description, not a current valuation. |
-| Marc served as fractional Head of HR for Alberta Fire & Security during transformation | D1 slide 12 | **Deck-authorised** | Keep the wording operational and time-bounded; retain client approval. |
+| Marc served as interim Head of HR for Alberta Fire & Security during transformation | D1 slide 12 | **Deck-authorised** | Keep the wording operational and time-bounded; retain client approval. |
 | Coaching/advisory experience spans organisations from €100k ARR to €250m | D1 slide 12 | **Deck-authorised, clarify** | Specify what the numbers measure and whether endpoints refer to clients or engagements. Do not publish the range while it remains ambiguous. |
 | Advisory for an MLP board member or a €200m+ beverage scale-up | D1 slide 16 feedback notes only | **Approval needed** | These are internal content suggestions, not finished case-study claims. Do not publish names or figures without a release and a final factual statement. |
 

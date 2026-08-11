@@ -13,6 +13,7 @@ describe("header navigation state", () => {
 
   it.each([
     ["/advisory", "work"],
+    ["/peer-advisory", "work"],
     ["/results", "about"],
     ["/blog/founder-bottleneck-or-operating-model", "insights"],
     ["/contact", "about"],

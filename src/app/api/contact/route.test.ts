@@ -1,6 +1,11 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { quickContactDefaults } from "../../../lib/contact-schema";
+import {
+  DIAGNOSTIC_ITEMS,
+  scoreDiagnostic,
+  type DiagnosticAnswers,
+} from "../../../lib/contact-diagnostic";
 import { MAX_CONTACT_PAYLOAD_BYTES } from "../../../lib/contact-security";
 import { POST } from "./route";
 
@@ -13,6 +18,23 @@ function validQuickPayload() {
     email: "alex@example.com",
     message: "We keep revisiting the same ownership decision every week.",
     consent: true,
+    startedAt: Date.now() - 5_000,
+  };
+}
+
+function validDiagnosticPayload() {
+  const answers = Object.fromEntries(
+    DIAGNOSTIC_ITEMS.map((item) => [item.id, item.constrainedWhen]),
+  ) as DiagnosticAnswers;
+  const result = scoreDiagnostic(answers);
+
+  return {
+    formType: "diagnostic-result" as const,
+    email: "founder@example.com",
+    answers,
+    score: result.score,
+    band: result.band,
+    website: "",
     startedAt: Date.now() - 5_000,
   };
 }
@@ -95,5 +117,55 @@ describe("POST /api/contact", () => {
     expect(response.status).toBe(503);
     expect(await response.json()).toMatchObject({ ok: false, code: "FORM_NOT_CONFIGURED" });
   });
-});
 
+  it.each([
+    ["score", (payload: ReturnType<typeof validDiagnosticPayload>) => ({
+      ...payload,
+      score: payload.score - 1,
+    })],
+    ["band", (payload: ReturnType<typeof validDiagnosticPayload>) => ({
+      ...payload,
+      band: "moderate" as const,
+    })],
+  ] as const)("recomputes and rejects a forged diagnostic %s", async (_field, forge) => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+    const payload = validDiagnosticPayload();
+    const response = await POST(
+      new Request(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(forge(payload)),
+      }),
+    );
+
+    expect(response.status).toBe(422);
+    expect(await response.json()).toMatchObject({
+      ok: false,
+      code: "VALIDATION_ERROR",
+      fieldErrors: { score: expect.any(String) },
+    });
+    expect(fetchSpy).not.toHaveBeenCalled();
+    fetchSpy.mockRestore();
+  });
+
+  it("does not accept a diagnostic result with an unanswered statement", async () => {
+    const payload = validDiagnosticPayload();
+    const incompleteAnswers: Partial<DiagnosticAnswers> = {
+      ...payload.answers,
+    };
+    delete incompleteAnswers[DIAGNOSTIC_ITEMS[9].id];
+    const response = await POST(
+      new Request(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...payload, answers: incompleteAnswers }),
+      }),
+    );
+
+    expect(response.status).toBe(422);
+    expect(await response.json()).toMatchObject({
+      ok: false,
+      code: "VALIDATION_ERROR",
+    });
+  });
+});

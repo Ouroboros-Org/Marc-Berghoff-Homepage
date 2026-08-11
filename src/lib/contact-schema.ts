@@ -1,22 +1,28 @@
 import { z } from "zod";
 
+import {
+  DIAGNOSTIC_ITEM_IDS,
+  type DiagnosticAnswers,
+  type DiagnosticBand,
+} from "./contact-diagnostic";
+
 export const SERVICE_VALUES = [
   "bottleneck-assessment",
-  "advisory",
-  "fractional-people-leadership",
   "executive-coaching",
-  "group-coaching",
+  "advisory",
+  "peer-advisory",
+  "fractional-people-leadership",
   "not-sure",
 ] as const;
 
 export type ServiceValue = (typeof SERVICE_VALUES)[number];
 
 export const SERVICE_LABELS = {
-  "bottleneck-assessment": "Bottleneck assessment",
-  advisory: "Strategic people advisory",
-  "fractional-people-leadership": "Fractional leadership",
-  "executive-coaching": "Individual coaching",
-  "group-coaching": "Group coaching",
+  "bottleneck-assessment": "Bottleneck Assessment",
+  advisory: "Strategic People Advisory",
+  "fractional-people-leadership": "Fractional People Leadership",
+  "executive-coaching": "Executive Coaching",
+  "peer-advisory": "Peer Advisory",
   "not-sure": "I’m not sure yet",
 } as const satisfies Record<ServiceValue, string>;
 
@@ -139,15 +145,48 @@ export const extendedContactSchema = z.object({
   referralSource: optionalShortText(500),
 });
 
+const diagnosticAnswersSchema = z
+  .record(z.enum(DIAGNOSTIC_ITEM_IDS), z.boolean())
+  .refine(
+    (answers) =>
+      DIAGNOSTIC_ITEM_IDS.every((itemId) =>
+        Object.prototype.hasOwnProperty.call(answers, itemId),
+      ),
+    "Answer all ten statements before sending the result.",
+  ) as z.ZodType<DiagnosticAnswers>;
+
+export const diagnosticResultSchema = z.object({
+  formType: z.literal("diagnostic-result"),
+  email: z
+    .string()
+    .trim()
+    .min(1, "Enter your email address.")
+    .email("Enter a valid email address.")
+    .max(254, "Keep your email to 254 characters or fewer."),
+  answers: diagnosticAnswersSchema,
+  score: z.number().int().min(0).max(10),
+  band: z.enum(["low", "moderate", "high"] satisfies [
+    DiagnosticBand,
+    ...DiagnosticBand[],
+  ]),
+  website: optionalShortText(200),
+  startedAt: z.number().int().positive(),
+});
+
 export const contactPayloadSchema = z.discriminatedUnion("formType", [
   quickContactSchema,
   extendedContactSchema,
+  diagnosticResultSchema,
 ]);
 
 export type QuickContactPayload = z.infer<typeof quickContactSchema>;
 export type ExtendedContactPayload = z.infer<typeof extendedContactSchema>;
+export type DiagnosticResultPayload = z.infer<typeof diagnosticResultSchema>;
 export type ContactPayload = z.infer<typeof contactPayloadSchema>;
-export type ContactFieldName = keyof QuickContactPayload | keyof ExtendedContactPayload;
+export type ContactFieldName =
+  | keyof QuickContactPayload
+  | keyof ExtendedContactPayload
+  | keyof DiagnosticResultPayload;
 
 export const quickContactDefaults = (
   diagnosticSummary = "",

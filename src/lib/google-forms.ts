@@ -4,6 +4,7 @@ import {
   URGENCY_LABELS,
   type ContactPayload,
 } from "./contact-schema";
+import { formatDiagnosticSubmission } from "./contact-diagnostic";
 
 const GOOGLE_FORM_ENV_KEYS = {
   actionUrl: "GOOGLE_FORM_ACTION_URL",
@@ -111,23 +112,35 @@ export function buildGoogleFormsBody(
   payload: ContactPayload,
   config: GoogleFormsConfig,
 ): URLSearchParams {
+  const isExtended = payload.formType === "extended";
+  const isDiagnosticResult = payload.formType === "diagnostic-result";
   const values: Record<GoogleFormsField, string> = {
-    formType: payload.formType === "quick" ? "Quick message" : "Extended enquiry",
-    fullName: payload.fullName,
+    formType:
+      payload.formType === "quick"
+        ? "Quick message"
+        : isExtended
+          ? "Extended enquiry"
+          : "Diagnostic result",
+    fullName: isDiagnosticResult ? "" : payload.fullName,
     email: payload.email,
-    phone: payload.formType === "extended" ? payload.phone : "",
-    company: payload.formType === "extended" ? payload.company : "",
-    role: payload.formType === "extended" ? payload.role : "",
-    companySize:
-      payload.formType === "extended" ? COMPANY_SIZE_LABELS[payload.companySize] : "",
-    service: payload.formType === "extended" ? SERVICE_LABELS[payload.service] : "",
-    urgency: payload.formType === "extended" ? URGENCY_LABELS[payload.urgency] : "",
+    phone: isExtended ? payload.phone : "",
+    company: isExtended ? payload.company : "",
+    role: isExtended ? payload.role : "",
+    companySize: isExtended ? COMPANY_SIZE_LABELS[payload.companySize] : "",
+    service: isExtended ? SERVICE_LABELS[payload.service] : "",
+    urgency: isExtended ? URGENCY_LABELS[payload.urgency] : "",
     message: payload.formType === "quick" ? payload.message : "",
-    currentSituation: payload.formType === "extended" ? payload.currentSituation : "",
-    desiredOutcome: payload.formType === "extended" ? payload.desiredOutcome : "",
-    referral: payload.formType === "extended" ? payload.referralSource : "",
-    diagnosticSummary: payload.diagnosticSummary,
-    consent: payload.consent ? "Yes" : "No",
+    currentSituation: isExtended ? payload.currentSituation : "",
+    desiredOutcome: isExtended ? payload.desiredOutcome : "",
+    referral: isExtended ? payload.referralSource : "",
+    diagnosticSummary: isDiagnosticResult
+      ? formatDiagnosticSubmission(payload.answers)
+      : payload.diagnosticSummary,
+    consent: isDiagnosticResult
+      ? "Result sharing requested"
+      : payload.consent
+        ? "Yes"
+        : "No",
   };
 
   const body = new URLSearchParams();

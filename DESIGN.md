@@ -85,7 +85,7 @@ The site should feel like a clear working document with a strong point of view: 
 
 The message architecture starts with the reader’s situation, moves to the level of responsibility needed, explains the same four-step process, and ends with a free 30-minute conversation. The outcome is consistent: make a leadership, organisation or people issue clear enough to act on and put the right ownership around it. [PRODUCT.md](./PRODUCT.md), [docs/copy-deck.md](./docs/copy-deck.md) and [docs/feedback-coverage.md](./docs/feedback-coverage.md) are the source documents for product truth, copy and resolved feedback.
 
-**The Responsibility Spectrum Rule.** Coaching means the client carries the work; advisory means the client keeps the decision; fractional leadership means Marc carries a defined remit; assessment provides evidence when the cause is unclear; group coaching is shared, participant-owned work. “Fractional Leadership Manager” is provisional and may appear as a limited biographical descriptor, but must not become the whole public identity.
+**The Responsibility Spectrum Rule.** Executive Coaching means the client carries the work, individually or as a group; Strategic People Advisory means the client keeps the decision; Fractional People Leadership means Marc carries a defined remit; the Bottleneck Assessment provides evidence when the cause is unclear; Peer Advisory gives leaders a room to work on the decisions each of them is facing. Marc’s public professional description is “Organisational Psychologist · Vistage Chair · Executive Coach”.
 
 ## Colors
 
@@ -147,7 +147,7 @@ Keep name, email and message visible. Put business context in a collapsed, optio
 
 ### Diagnostic disclosure
 
-The six-question check is optional and collapsed by default. Its closed state is one paper panel with a short label, one descriptive title, one helper line and a chevron. A CTA that promises the check may open and scroll to it via the hash or `?check=open`. The open state rotates the chevron, adds one ruled body area and avoids repeating the tool title or preamble. The paid assessment remains a supporting offer, not the site identity or a mandatory gateway.
+The ten-statement check appears in full near the top of the homepage. Each statement uses explicit True and Not true controls, with unanswered kept as a separate state. The paid assessment remains one service, not the site identity or a mandatory gateway.
 
 ### Images, accessibility and motion
 
@@ -160,7 +160,7 @@ Target WCAG 2.2 AA: semantic headings, labelled controls, keyboard-complete menu
 ### Do
 
 - **Do** write to the reader as “you” and let Marc write as “I”, “me” and “my”.
-- **Do** use concrete, plain English, observable situations and explicit responsibility boundaries.
+- **Do** use concrete, plain language in each locale, observable situations and explicit responsibility boundaries.
 - **Do** state uncertainty, scope, fees, poor fit and what happens next without softening them into sales language.
 - **Do** reuse the responsibility spectrum, ruled-row offers and universal process before inventing a new pattern.
 
@@ -169,5 +169,5 @@ Target WCAG 2.2 AA: semantic headings, labelled controls, keyboard-complete menu
 - **Don't** use hype, generic consulting language, invented claims or unconfirmed company-size, growth, ARR or outcome figures.
 - **Don't** use AI-writing tells: puffed significance, formulaic negative parallelism, decorative triads, excessive em dashes or conclusions that explain what the preceding copy already showed.
 - **Don't** make founders, managers or employees the villain; describe behavior and operating consequences.
-- **Don't** make assessment mandatory, invent group-coaching details or let the provisional fractional title swallow the broader practice.
+- **Don't** make assessment mandatory, invent Peer Advisory details or let one service name swallow the broader practice.
 - **Don't** replace editorial rules with grids of interchangeable cards, decorative gradients or heavy shadows.

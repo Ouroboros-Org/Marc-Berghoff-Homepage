@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { Button, ButtonLink } from "@/components/button";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { headerNavigation, siteConfig } from "@/config/site";
 
 import { SiteLogo } from "./site-logo";
@@ -68,6 +69,7 @@ export function SiteHeader() {
   const firstMobileControlRef = useRef<HTMLButtonElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const activeGroupId = getActiveHeaderGroupId(pathname);
+  const contactAction = siteConfig.contact.primaryAction;
 
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 54.001rem)");
@@ -228,6 +230,8 @@ export function SiteHeader() {
           })}
         </nav>
 
+        <LocaleSwitcher className="header-locale" />
+
         <ButtonLink
           aria-label="Open Marc Berghoff's LinkedIn profile"
           className="header-social"
@@ -243,10 +247,10 @@ export function SiteHeader() {
         <ButtonLink
           className="header-cta"
           cta
-          href="/contact#booking"
+          href={contactAction.href}
           size="compact"
         >
-          Book a free conversation
+          {contactAction.label}
         </ButtonLink>
 
         <Button
@@ -371,22 +375,25 @@ export function SiteHeader() {
           })}
 
           <div className="mobile-nav__actions">
+            <LocaleSwitcher className="mobile-nav__locale" />
             <ButtonLink
               cta
-              href="/contact#booking"
+              href={contactAction.href}
               size="wide"
               tabIndex={mobileOpen ? 0 : -1}
             >
-              Book a free conversation
+              {contactAction.label}
             </ButtonLink>
-            <ButtonLink
-              href="/contact#contact-form"
-              size="wide"
-              tabIndex={mobileOpen ? 0 : -1}
-              variant="secondary"
-            >
-              Send me a note
-            </ButtonLink>
+            {contactAction.isBooking ? (
+              <ButtonLink
+                href="/contact#contact-form"
+                size="wide"
+                tabIndex={mobileOpen ? 0 : -1}
+                variant="secondary"
+              >
+                Send me a note
+              </ButtonLink>
+            ) : null}
             <ButtonLink
               aria-label="Open Marc Berghoff's LinkedIn profile"
               className="mobile-nav__social"

@@ -42,7 +42,7 @@ files are never used inside client-proof or testimonial panels.
 
 - [ ] **BLOCKER:** Confirm the canonical domain and set `NEXT_PUBLIC_SITE_URL` in
   Vercel Production to its HTTPS origin without a path or trailing slash.
-- [ ] **BLOCKER:** Confirm whether `m.berghoff@hx-solutions.de` is the public inbox.
+- [x] Public inbox defaults to `marc@marcberghoff.com` and may be changed with `NEXT_PUBLIC_CONTACT_EMAIL`.
   It currently appears in `src/config/site.ts` because it came from deck slide 15.
 - [ ] **BLOCKER:** Confirm whether `+356 7952 4891` is the public telephone number.
   It currently appears in `src/config/site.ts` because it came from deck slide 15.

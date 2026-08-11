@@ -9,7 +9,7 @@ export const metadata = {
   ...createPageMetadata({
     title: "Privacy notice",
     description:
-      "How personal information is handled when you use this website, its booking calendar, bottleneck check and contact form.",
+      "How personal information is handled when you use this website, its booking calendar, ten-statement check and contact form.",
     path: "/privacy",
   }),
   robots: LEGAL_DETAILS.isComplete
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
           </h1>
           <p className="max-w-2xl text-lg leading-8 text-slate-700">
             This notice covers the website, the Cal.com booking calendar, the
-            six-question bottleneck check and the contact form.
+            ten-statement bottleneck check and the contact form.
           </p>
           <p className="text-sm text-slate-600">
             Last updated: {LEGAL_DETAILS.lastUpdated}
@@ -79,7 +79,10 @@ export default function PrivacyPage() {
               <li>your name, contact details, company and role;</li>
               <li>the service, timing and company-size options you select;</li>
               <li>the situation and desired outcome you describe;</li>
-              <li>a bottleneck-check summary, when you choose to include it; and</li>
+              <li>
+                your bottleneck-check score and answers, only when you choose to
+                send the result;
+              </li>
               <li>your consent confirmation.</li>
             </ul>
             <p>
@@ -158,11 +161,18 @@ export default function PrivacyPage() {
 
           <LegalSection title="8. The bottleneck check">
             <p>
-              The six-question check runs in the browser. Its answers stay there unless
-              you choose to include the summary in a contact message. The check offers a
-              directional business reflection; it does not make an employment decision
-              or a decision with legal or similarly significant effects. I review every
-              submitted enquiry myself.
+              The ten-statement check runs in the browser. Your answers are held in
+              component state only. They are not stored, sent to analytics or transmitted
+              while you answer. You can see the complete result without giving an email
+              address.
+            </p>
+            <p>
+              If you choose <em>Send this result to Marc</em>, the email address you enter,
+              the score band and all ten answers are sent through the contact route
+              described above. The result remains visible whether or not you send it. The
+              check is a directional business reflection; it does not make an employment,
+              legal or similarly significant decision. I review each submitted result
+              myself.
             </p>
           </LegalSection>
 

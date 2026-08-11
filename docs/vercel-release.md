@@ -21,11 +21,14 @@ Set these for Production and for every Preview environment used to test contact
 delivery:
 
 - `NEXT_PUBLIC_SITE_URL` — the canonical origin with `https://` and no path, for
-  example `https://marc.example`. Do not use a Vercel preview URL in Production.
-- `NEXT_PUBLIC_CAL_LINK` — the Cal.com username and event slug without the domain,
-  for example `marc/first-conversation`. The contact page embeds this event inline.
-  Leave it unset while the event is being prepared; the page shows the contact-form
-  fallback. Full URLs and malformed paths are ignored safely.
+  this site `https://marcberghoff.com`. Do not use a Vercel preview URL in Production.
+- `NEXT_PUBLIC_CONTACT_EMAIL` — the public mailbox. The application falls back to
+  `marc@marcberghoff.com` when this is missing or invalid.
+- `NEXT_PUBLIC_CAL_LINK` — the Cal.com username and 30-minute event slug without the
+  domain, for example `marc/first-conversation`. The contact page embeds this event
+  inline. Leave it unset while the event is being prepared; all booking actions then
+  become “Send me a note” links and the empty calendar is omitted. Full URLs and
+  malformed paths are ignored safely.
 - `NEXT_PUBLIC_CONTACT_PHONE` — optional public phone number in international
   format, for example `+49 123 456789`. Leave it unset to omit telephone links.
 - `GOOGLE_FORM_ACTION_URL`

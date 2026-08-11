@@ -1,7 +1,7 @@
 import type { ServiceDefinition } from "@/content/services";
 import Image from "next/image";
 import { SERVICE_LIST } from "@/content/services";
-import { getSiteUrl } from "@/config/site";
+import { getPrimaryContactAction, getSiteUrl } from "@/config/site";
 import { EngagementProcess } from "@/components/engagement-process";
 
 import {
@@ -18,6 +18,7 @@ import { StructuredData } from "./structured-data";
 export function ServiceDetail({ service }: { service: ServiceDefinition }) {
   const otherServices = SERVICE_LIST.filter((item) => item.slug !== service.slug);
   const siteUrl = getSiteUrl();
+  const contactAction = getPrimaryContactAction();
 
   return (
     <div className={styles.page}>
@@ -43,7 +44,7 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
         ]}
         title={service.title}
         lead={service.summary}
-        primary={{ label: "Book a free 30-minute conversation", href: "/contact#booking" }}
+        primary={contactAction}
         ctaPrimary={true}
         secondary={{ label: "See the working range", href: "/services" }}
       />
@@ -69,7 +70,7 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
       </section>
 
       {service.slug === "fractional-people-leadership" ? (
-        <section className={styles.mediaBreak} aria-label="Fractional leadership setting">
+        <section className={styles.mediaBreak} aria-label="Fractional People Leadership setting">
           <div className={styles.container}>
             <figure className={styles.editorialFigure}>
               <div className={styles.editorialImageWrap}>
@@ -139,8 +140,8 @@ export function ServiceDetail({ service }: { service: ServiceDefinition }) {
       </section>
 
       <ContactBand
-        href="/contact#booking"
-        label="Book the free conversation"
+        href={contactAction.href}
+        label={contactAction.label}
         title={service.closing.title}
         text={service.closing.text}
       />

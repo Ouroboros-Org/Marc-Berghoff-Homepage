@@ -24,16 +24,7 @@ export function CalInlineEmbed({ calLink }: { calLink: string | null }) {
   }, [calLink]);
 
   if (!calLink) {
-    return (
-      <div className={`${styles.shell} ${styles.fallbackShell}`}>
-        <div className={styles.fallback}>
-          <div>
-            <h3>Online booking is being connected.</h3>
-            <p>Send me a note below. I will arrange a time with you directly.</p>
-          </div>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   return (

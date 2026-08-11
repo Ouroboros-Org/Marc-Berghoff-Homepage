@@ -1,48 +1,16 @@
-"use client";
+import { BottleneckDiagnostic } from "@/components/diagnostic";
+import type { DiagnosticLocale } from "@/components/diagnostic/diagnostic-copy";
 
-import { ChevronDown } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import styles from "@/components/diagnostic/diagnostic.module.css";
 
-import { HomeBottleneckDiagnostic } from "@/components/home-contact-journey";
-
-import styles from "@/app/home.module.css";
-
-export function HomeDiagnosticDisclosure() {
-  const detailsRef = useRef<HTMLDetailsElement>(null);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const shouldOpen =
-      window.location.hash === "#diagnostic" ||
-      new URLSearchParams(window.location.search).get("check") === "open";
-
-    if (!shouldOpen) return;
-    window.requestAnimationFrame(() => {
-      setOpen(true);
-      window.requestAnimationFrame(() => {
-        detailsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-  }, []);
-
+export function HomeDiagnosticDisclosure({
+  locale = "en",
+}: {
+  locale?: DiagnosticLocale;
+}) {
   return (
-    <details
-      className={styles.diagnosticDisclosure}
-      id="diagnostic"
-      onToggle={(event) => setOpen(event.currentTarget.open)}
-      open={open}
-      ref={detailsRef}
-    >
-      <summary className={styles.diagnosticSummary}>
-        <span>
-          <strong>Run the six-question check</strong>
-          <small>Use it when the cause is unclear</small>
-        </span>
-        <ChevronDown aria-hidden="true" className={styles.diagnosticChevron} size={24} />
-      </summary>
-      <div className={styles.diagnosticBody}>
-        <HomeBottleneckDiagnostic />
-      </div>
-    </details>
+    <div className={styles.homeWrapper}>
+      <BottleneckDiagnostic locale={locale} />
+    </div>
   );
 }

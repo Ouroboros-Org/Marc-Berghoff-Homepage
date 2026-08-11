@@ -8,6 +8,7 @@ import {
   secondaryPageStyles as styles,
 } from "@/components/pages/editorial";
 import { createPageMetadata } from "@/config/metadata";
+import { getPrimaryContactAction } from "@/config/site";
 
 export const metadata = createPageMetadata({
   title: "About",
@@ -55,6 +56,8 @@ const principles = [
 ] as const;
 
 export default function AboutPage() {
+  const contactAction = getPrimaryContactAction();
+
   return (
     <div className={styles.page}>
       <PageHero
@@ -62,11 +65,11 @@ export default function AboutPage() {
         title="When the issue sits between the people and the way the business works."
         lead="I help you see what is happening, decide what needs to change and work out how involved I should be. That can mean coaching, candid advice, a focused assessment or responsibility for a defined remit."
         asideLabel="Working range"
-        asideValue="Coaching to fractional responsibility"
+        asideValue="Coaching to defined responsibility"
         asideNote="Based in Malta. Working internationally."
-        primary={{ label: "Book a free conversation", href: "/contact#booking" }}
+        primary={contactAction}
         ctaPrimary={true}
-        secondary={{ label: "Run the six-question check", href: "/?check=open#diagnostic" }}
+        secondary={{ label: "Run the ten-statement check", href: "/#diagnostic" }}
       />
 
       <section className={styles.section} aria-label="Marc Berghoff biography">
@@ -83,7 +86,7 @@ export default function AboutPage() {
             </div>
             <figcaption className={styles.portraitCaption}>
               <span>Marc Berghoff</span>
-              <span>Fractional leadership · advisory · coaching</span>
+              <span>Organisational Psychologist · Vistage Chair · Executive Coach</span>
             </figcaption>
           </figure>
           <div>
@@ -92,7 +95,7 @@ export default function AboutPage() {
               <p>
                 I have spent more than seven years working across HR, coaching and
                 organisation development. I have been Head of HR in a fast-growing
-                company, co-founded CyberKongz and worked as a fractional people leader.
+                company, co-founded CyberKongz and worked as an interim people leader.
               </p>
               <p>
                 That gives me two useful views at once: empathy for how a business
@@ -141,10 +144,10 @@ export default function AboutPage() {
       <EngagementProcess />
 
       <ContactBand
-        href="/contact#booking"
+        href={contactAction.href}
         title="Start with the situation as it is."
         text="I use the free first conversation to understand the question and tell you if I am the right person for it."
-        label="Book the free conversation"
+        label={contactAction.label}
       />
     </div>
   );

@@ -26,21 +26,21 @@ makes maintenance easier.
 
 | Question | Suggested Google type | Website source |
 | --- | --- | --- |
-| Submission type | Short answer | Quick contact / Extended enquiry |
-| Full name | Short answer | Both forms |
-| Email | Short answer | Both forms |
-| Phone | Short answer | Both forms |
-| Company | Short answer | Both forms |
+| Submission type | Short answer | Quick contact / Extended enquiry / Diagnostic result |
+| Full name | Short answer | Contact forms |
+| Email | Short answer | All three submission types |
+| Phone | Short answer | Contact forms |
+| Company | Short answer | Contact forms |
 | Role | Short answer | Extended form |
 | Company size | Short answer or multiple choice | Extended form |
-| Service | Short answer or multiple choice | Both forms |
+| Service | Short answer or multiple choice | Contact forms |
 | Urgency | Short answer or multiple choice | Extended form |
 | Message | Paragraph | Quick form |
 | Current situation | Paragraph | Extended form |
 | Desired outcome | Paragraph | Extended form |
 | Referral source | Short answer | Extended form |
-| Diagnostic summary | Paragraph | Optional on either form |
-| Consent recorded | Short answer | Both forms; website sends `Yes` |
+| Diagnostic summary | Paragraph | Optional on contact forms; score and all ten answers for a shared diagnostic result |
+| Consent recorded | Short answer | Contact forms send `Yes`; a diagnostic share sends `Result sharing requested` |
 
 If **Company size**, **Service** or **Urgency** uses Google Forms’ multiple-choice
 or dropdown type, its choices must match the website’s submitted labels exactly.
@@ -49,7 +49,7 @@ Copy these values, including punctuation and capitalisation:
 | Field | Accepted choices |
 | --- | --- |
 | Company size | `1–10 people`; `11–25 people`; `26–50 people`; `51–100 people`; `101–250 people`; `251+ people`; `Prefer not to say` |
-| Service | `Bottleneck assessment`; `Strategic people advisory`; `Fractional people leadership`; `Individual coaching`; `Group coaching`; `I’m not sure yet` |
+| Service | `Bottleneck Assessment`; `Executive Coaching`; `Strategic People Advisory`; `Peer Advisory`; `Fractional People Leadership`; `I’m not sure yet` |
 | Urgency | `I’m exploring options`; `Within this quarter`; `Within the next month`; `There is an immediate issue` |
 
 The application keeps these labels in one shared mapping and sends the visible
@@ -118,9 +118,12 @@ HTTPS `docs.google.com/forms/d/e/.../formResponse` action URL.
 4. Submit the extended form and confirm the inverse mapping.
 5. Submit a diagnostic summary with contact details and confirm line breaks are
    readable.
-6. Test on the Vercel preview deployment. Environment variables added after a
+6. Complete the ten-statement check, view the result without entering an email,
+   then choose to send it. Confirm the response contains the server-checked
+   score and all ten True / Not true answers.
+7. Test on the Vercel preview deployment. Environment variables added after a
    deployment require a redeploy.
-7. Temporarily change one entry ID in a preview environment and verify that the
+8. Temporarily change one entry ID in a preview environment and verify that the
    UI reports a delivery error rather than claiming success. Restore it before
    promoting the deployment.
 

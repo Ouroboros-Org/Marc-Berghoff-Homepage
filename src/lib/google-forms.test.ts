@@ -2,6 +2,11 @@ import { describe, expect, it, vi } from "vitest";
 
 import { extendedContactDefaults, quickContactDefaults } from "./contact-schema";
 import {
+  DIAGNOSTIC_ITEMS,
+  scoreDiagnostic,
+  type DiagnosticAnswers,
+} from "./contact-diagnostic";
+import {
   buildGoogleFormsBody,
   GoogleFormsConfigurationError,
   isPlaceholderConfiguration,
@@ -30,7 +35,7 @@ const validEnv = {
 
 const quickPayload = {
   ...quickContactDefaults(
-    "Six-question bottleneck check: Role clarity: Some reported friction (2/4).",
+    "Ten-statement bottleneck check: moderate (4/10).",
   ),
   fullName: "Alex Morgan",
   email: "alex@example.com",
@@ -50,6 +55,20 @@ const extendedPayload = {
   currentSituation: "Decision ownership is unclear across the leadership team.",
   desiredOutcome: "Set clear accountabilities before the next stage of hiring.",
   consent: true,
+};
+
+const diagnosticAnswers = Object.fromEntries(
+  DIAGNOSTIC_ITEMS.map((item) => [item.id, item.constrainedWhen]),
+) as DiagnosticAnswers;
+const diagnosticResult = scoreDiagnostic(diagnosticAnswers);
+const diagnosticPayload = {
+  formType: "diagnostic-result" as const,
+  email: "founder@example.com",
+  answers: diagnosticAnswers,
+  score: diagnosticResult.score,
+  band: diagnosticResult.band,
+  website: "",
+  startedAt: Date.now() - 5_000,
 };
 
 describe("Google Forms configuration", () => {
@@ -95,8 +114,24 @@ describe("Google Forms payload mapping", () => {
 
     expect(body.get("entry.101")).toBe("Extended enquiry");
     expect(body.get("entry.107")).toBe("51–100 people");
-    expect(body.get("entry.108")).toBe("Strategic people advisory");
+    expect(body.get("entry.108")).toBe("Strategic People Advisory");
     expect(body.get("entry.109")).toBe("Within the next month");
+  });
+
+  it("maps a diagnostic result without inventing name or consent fields", () => {
+    const config = readGoogleFormsConfig(validEnv);
+    const body = buildGoogleFormsBody(diagnosticPayload, config);
+
+    expect(body.get("entry.101")).toBe("Diagnostic result");
+    expect(body.get("entry.102")).toBe("");
+    expect(body.get("entry.103")).toBe("founder@example.com");
+    expect(body.get("entry.114")).toContain(
+      "Ten-statement bottleneck check: high (10/10)",
+    );
+    expect(body.get("entry.114")).toContain(
+      "10. You can easily leave the company, knowing that everything will stay up to speed. — Not true",
+    );
+    expect(body.get("entry.115")).toBe("Result sharing requested");
   });
 
   it("posts URL-encoded data to Google from the server", async () => {

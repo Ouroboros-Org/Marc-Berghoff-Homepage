@@ -1,0 +1,27 @@
+.switcher {
+  display: inline-flex;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  color: var(--blue-deep);
+  font-size: 0.72rem;
+  font-weight: 760;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.switcher:hover {
+  color: var(--paper);
+  background: var(--blue-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .switcher {
+    transition-duration: 0.01ms;
+  }
+}

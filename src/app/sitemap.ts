@@ -6,6 +6,7 @@ import { BLOG_POSTS } from "@/content/blog";
 
 const routes = [
   { path: "", changeFrequency: "monthly", priority: 1 },
+  { path: "/de", changeFrequency: "monthly", priority: 0.9 },
   { path: "/bottleneck-assessment", changeFrequency: "monthly", priority: 0.9 },
   { path: "/services", changeFrequency: "monthly", priority: 0.9 },
   { path: "/advisory", changeFrequency: "monthly", priority: 0.8 },
@@ -15,7 +16,7 @@ const routes = [
     priority: 0.8,
   },
   { path: "/executive-coaching", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/group-coaching", changeFrequency: "monthly", priority: 0.65 },
+  { path: "/peer-advisory", changeFrequency: "monthly", priority: 0.8 },
   { path: "/results", changeFrequency: "monthly", priority: 0.7 },
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.8 },

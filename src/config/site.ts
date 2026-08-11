@@ -1,6 +1,7 @@
 import { WORKING_FORMATS } from "@/content/working-formats";
 
-const LOCAL_SITE_URL = "http://localhost:3000";
+const DEFAULT_SITE_URL = "https://marcberghoff.com";
+const DEFAULT_CONTACT_EMAIL = "marc@marcberghoff.com";
 const PUBLIC_URL_PLACEHOLDER = /YOUR_|REPLACE/i;
 
 function parsePublicUrl(configured: string | null | undefined) {
@@ -45,11 +46,14 @@ export function getSiteUrl(
     .VERCEL_PROJECT_PRODUCTION_URL,
   vercelDeploymentUrl: string | null | undefined = process.env.VERCEL_URL,
 ) {
+  const stableVercelUrl = [vercelProductionUrl, vercelDeploymentUrl]
+    .map(parseVercelUrl)
+    .find((url) => url && !url.hostname.endsWith(".vercel.app"));
+
   return (
     parsePublicUrl(configured)?.origin ??
-    parseVercelUrl(vercelProductionUrl)?.origin ??
-    parseVercelUrl(vercelDeploymentUrl)?.origin ??
-    LOCAL_SITE_URL
+    stableVercelUrl?.origin ??
+    DEFAULT_SITE_URL
   );
 }
 
@@ -80,6 +84,48 @@ export function getCalLink(configured = process.env.NEXT_PUBLIC_CAL_LINK) {
   return candidate;
 }
 
+export function getContactEmail(
+  configured = process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+) {
+  const candidate = configured?.trim();
+
+  if (
+    !candidate ||
+    PUBLIC_URL_PLACEHOLDER.test(candidate) ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(candidate)
+  ) {
+    return DEFAULT_CONTACT_EMAIL;
+  }
+
+  return candidate;
+}
+
+export type PrimaryContactAction = {
+  href: string;
+  label: string;
+  isBooking: boolean;
+};
+
+export function getPrimaryContactAction(
+  configuredCalLink = process.env.NEXT_PUBLIC_CAL_LINK,
+): PrimaryContactAction {
+  const configured = getCalLink(configuredCalLink);
+
+  if (configured) {
+    return {
+      href: "/contact#booking",
+      label: "Book a free 30-minute conversation",
+      isBooking: true,
+    };
+  }
+
+  return {
+    href: "/contact#contact-form",
+    label: "Send me a note",
+    isBooking: false,
+  };
+}
+
 export function getContactPhone(
   configured = process.env.NEXT_PUBLIC_CONTACT_PHONE,
 ) {
@@ -100,18 +146,20 @@ export function getContactPhone(
 
 const calLink = getCalLink();
 const contactPhone = getContactPhone();
+const primaryContactAction = getPrimaryContactAction();
 
 export const siteConfig = {
   name: "Marc Berghoff",
   descriptor: "Leadership · organisation · coaching",
   description:
-    "I help founders and leadership teams see what is really happening and get difficult leadership and organisation work moving.",
+    "For founder-led companies anticipating their next stage of growth. I find what is constraining the company, before anyone starts fixing it.",
   contact: {
-    email: "m.berghoff@hx-solutions.de",
+    email: getContactEmail(),
     phoneDisplay: contactPhone?.display ?? null,
     phoneHref: contactPhone?.href ?? null,
     calLink,
     bookingUrl: calLink ? `https://cal.com/${calLink}` : getBookingUrl(),
+    primaryAction: primaryContactAction,
   },
   social: {
     linkedin: "https://mt.linkedin.com/in/marcberghoff/en",
@@ -129,7 +177,7 @@ export const serviceNavigation = [
     href: "/services",
     label: "How I can help",
     description:
-      "See the range from coaching distance to defined fractional responsibility.",
+      "See the range from coaching distance to a defined people-leadership remit.",
   },
   ...WORKING_FORMATS.map((format) => ({
     href: format.href,
@@ -159,7 +207,7 @@ export const insightNavigation = [
   },
   {
     href: "/blog/when-fractional-people-leadership-makes-sense",
-    label: "When fractional leadership fits",
+    label: "When Fractional People Leadership fits",
     description:
       "Recognise when the agenda needs an owner before it needs a permanent hire.",
   },
@@ -186,7 +234,7 @@ export const aboutNavigation = [
   {
     href: "/contact",
     label: "Contact & booking",
-    description: "Book the free conversation or send me a note.",
+    description: "Start with a free conversation or a short note.",
   },
 ] as const satisfies readonly NavigationLink[];
 

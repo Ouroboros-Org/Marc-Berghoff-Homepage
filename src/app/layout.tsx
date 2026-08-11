@@ -66,7 +66,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               url: siteUrl,
               name: siteConfig.name,
               description: siteConfig.description,
-              inLanguage: "en",
+              inLanguage: ["en", "de"],
               publisher: { "@id": `${siteUrl}/#marc-berghoff` },
             },
             {
@@ -76,7 +76,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               name: siteConfig.name,
               url: siteUrl,
               image: `${siteUrl}/images/portraits/marc-seated-original.jpg`,
-              jobTitle: "Fractional Leadership Manager",
+              jobTitle:
+                "Organisational Psychologist · Vistage Chair · Executive Coach",
               description: siteConfig.description,
               email: `mailto:${siteConfig.contact.email}`,
               ...(siteConfig.contact.phoneHref
@@ -87,7 +88,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 "Leadership development",
                 "People and organisation strategy",
                 "Organisation design",
-                "Fractional leadership",
+                "Fractional People Leadership",
                 "Executive coaching",
                 "Strategic people advisory",
               ],

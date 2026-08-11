@@ -1,161 +1,191 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle2,
+  LoaderCircle,
+  RotateCcw,
+  Send,
+} from "lucide-react";
 import {
   type CSSProperties,
+  type FormEvent,
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState,
 } from "react";
 
-import { Button } from "@/components/button";
+import { Button, ButtonLink } from "@/components/button";
+import { getPrimaryContactAction } from "@/config/site";
+import type { ContactApiResponse } from "@/lib/contact-api";
+import {
+  DIAGNOSTIC_ITEMS,
+  scoreDiagnostic,
+  type DiagnosticAnswers,
+  type DiagnosticItemId,
+  type DiagnosticResult,
+} from "@/lib/contact-diagnostic";
 
 import {
-  DIAGNOSTIC_QUESTIONS,
-  scoreDiagnostic,
-  type DiagnosticAnswer,
-  type DiagnosticAnswers,
-  type DiagnosticResult,
-} from "../../lib/contact-diagnostic";
+  DIAGNOSTIC_COPY,
+  type DiagnosticLocale,
+} from "./diagnostic-copy";
 import styles from "./diagnostic.module.css";
 
-const ANSWER_OPTIONS: { value: DiagnosticAnswer; label: string }[] = [
-  { value: "often", label: "Often" },
-  { value: "sometimes", label: "Sometimes" },
-  { value: "rarely", label: "Rarely" },
-];
+type ShareState =
+  | "idle"
+  | "submitting"
+  | "success"
+  | "email-error"
+  | "send-error";
 
 export type BottleneckDiagnosticProps = {
   id?: string;
   title?: string;
   intro?: string;
   className?: string;
-  contactAnchorId?: string;
   introOnly?: boolean;
-  onComplete?: (result: DiagnosticResult) => void;
-  onUseSummary?: (summary: string) => void;
+  locale?: DiagnosticLocale;
 };
 
 export function BottleneckDiagnostic({
   id = "bottleneck-check",
-  title = "Where does the organisation lose momentum?",
-  intro = "Answer from the last few weeks. The result compares the friction reported across four areas.",
+  title,
+  intro,
   className,
-  contactAnchorId,
   introOnly = false,
-  onComplete,
-  onUseSummary,
+  locale = "en",
 }: BottleneckDiagnosticProps) {
+  const copy = DIAGNOSTIC_COPY[locale];
+  const radioGroupId = useId().replaceAll(":", "");
   const [answers, setAnswers] = useState<Partial<DiagnosticAnswers>>({});
-  const [questionIndex, setQuestionIndex] = useState(0);
-  const [showResult, setShowResult] = useState(false);
-  const [direction, setDirection] = useState<"forward" | "back">("forward");
+  const [result, setResult] = useState<DiagnosticResult | null>(null);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [shareState, setShareState] = useState<ShareState>("idle");
+  const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
+  const [startedAt, setStartedAt] = useState(() => Date.now());
   const resultRef = useRef<HTMLDivElement>(null);
-  const questionRef = useRef<HTMLFieldSetElement>(null);
-  const hasNavigatedRef = useRef(false);
-  const question = DIAGNOSTIC_QUESTIONS[questionIndex];
-  const selectedAnswer = question ? answers[question.id] : undefined;
-  const result = useMemo(
-    () => (showResult ? scoreDiagnostic(answers as DiagnosticAnswers) : null),
-    [answers, showResult],
-  );
+  const emailRef = useRef<HTMLInputElement>(null);
+  const firstRadioRef = useRef<HTMLInputElement>(null);
+  const answeredCount = Object.keys(answers).length;
+  const allAnswered = answeredCount === DIAGNOSTIC_ITEMS.length;
+  const primaryContactAction = useMemo(() => getPrimaryContactAction(), []);
+  const primaryContactLabel = primaryContactAction.isBooking
+    ? copy.booking
+    : primaryContactAction.label;
 
   useEffect(() => {
-    if (result) {
-      resultRef.current?.focus();
-      onComplete?.(result);
-    }
-  }, [onComplete, result]);
+    if (!result) return;
+    resultRef.current?.focus();
+  }, [result]);
 
-  useEffect(() => {
-    if (!hasNavigatedRef.current || showResult) return;
-    questionRef.current?.focus();
-  }, [questionIndex, showResult]);
-
-  function selectAnswer(answer: DiagnosticAnswer) {
-    if (!question) return;
-    setAnswers((current) => ({ ...current, [question.id]: answer }));
+  function selectAnswer(itemId: DiagnosticItemId, answer: boolean) {
+    setAnswers((current) => ({ ...current, [itemId]: answer }));
+    setResult(null);
+    setShareOpen(false);
+    setShareState("idle");
   }
 
-  function goForward() {
-    if (!selectedAnswer) return;
-    hasNavigatedRef.current = true;
-    setDirection("forward");
-    if (questionIndex === DIAGNOSTIC_QUESTIONS.length - 1) {
-      setShowResult(true);
-      return;
-    }
-    setQuestionIndex((current) => current + 1);
-  }
-
-  function goBack() {
-    hasNavigatedRef.current = true;
-    setDirection("back");
-    if (showResult) {
-      setShowResult(false);
-      setQuestionIndex(DIAGNOSTIC_QUESTIONS.length - 1);
-      return;
-    }
-    setQuestionIndex((current) => Math.max(0, current - 1));
+  function showResult() {
+    if (!allAnswered) return;
+    setResult(scoreDiagnostic(answers as DiagnosticAnswers));
+    setShareOpen(false);
+    setShareState("idle");
   }
 
   function reset() {
-    hasNavigatedRef.current = true;
-    setDirection("back");
     setAnswers({});
-    setQuestionIndex(0);
-    setShowResult(false);
+    setResult(null);
+    setShareOpen(false);
+    setShareState("idle");
+    setEmail("");
+    setWebsite("");
+    setStartedAt(Date.now());
+    window.requestAnimationFrame(() => firstRadioRef.current?.focus());
   }
 
-  function useSummary() {
-    if (!result) return;
-    onUseSummary?.(result.summary);
+  function openShareForm() {
+    setShareOpen(true);
+    setShareState("idle");
+    window.requestAnimationFrame(() => emailRef.current?.focus());
+  }
 
-    if (!contactAnchorId) return;
-    const target = document.getElementById(contactAnchorId);
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        const summary = target?.querySelector<HTMLElement>("[data-diagnostic-summary]");
-        (summary ?? target)?.scrollIntoView({
-          behavior: reduceMotion ? "auto" : "smooth",
-          block: "center",
-        });
-        summary?.focus({ preventScroll: true });
+  async function sendResult(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!result || !allAnswered) return;
+
+    const normalizedEmail = email.trim();
+    if (!emailRef.current?.validity.valid || normalizedEmail.length > 254) {
+      setShareState("email-error");
+      emailRef.current?.focus();
+      return;
+    }
+
+    setShareState("submitting");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "diagnostic-result",
+          email: normalizedEmail,
+          answers,
+          score: result.score,
+          band: result.band,
+          website,
+          startedAt,
+        }),
       });
-    });
+      const body = (await response.json()) as ContactApiResponse;
+
+      if (!response.ok || !body.ok) {
+        setShareState("send-error");
+        return;
+      }
+
+      setEmail("");
+      setWebsite("");
+      setShareState("success");
+    } catch {
+      setShareState("send-error");
+    }
   }
 
-  const answeredCount = Object.keys(answers).length;
-  const progressValue = showResult ? DIAGNOSTIC_QUESTIONS.length : questionIndex + 1;
+  const progress = answeredCount / DIAGNOSTIC_ITEMS.length;
 
   return (
     <div className={`${styles.diagnostic} ${className ?? ""}`} id={id}>
       <header className={styles.header}>
-        {introOnly ? (
-          <p className={styles.intro}>{intro}</p>
-        ) : (
+        {introOnly ? null : (
           <>
-            <p className={styles.eyebrow}>Six-question bottleneck check</p>
-            <h2 className={styles.title}>{title}</h2>
-            <p className={styles.intro}>{intro}</p>
+            <p className={styles.eyebrow}>{copy.eyebrow}</p>
+            <h2 className={styles.title}>{title ?? copy.title}</h2>
           </>
         )}
+        <p className={styles.intro}>{intro ?? copy.intro}</p>
       </header>
 
-      <div>
-        <div className={styles.progressHeader}>
-          <p className={styles.progressLabel}>
-            {showResult ? "Check complete" : `Question ${questionIndex + 1} of ${DIAGNOSTIC_QUESTIONS.length}`}
-          </p>
-          <p className={styles.progressValue}>{answeredCount} answered</p>
-        </div>
+      <div className={styles.progressBlock}>
+        <p
+          aria-live="polite"
+          className={styles.progressValue}
+          role="status"
+        >
+          {copy.answered(answeredCount, DIAGNOSTIC_ITEMS.length)}
+        </p>
         <div
-          aria-label="Bottleneck check progress"
-          aria-valuemax={DIAGNOSTIC_QUESTIONS.length}
+          aria-label={copy.progressLabel}
+          aria-valuemax={DIAGNOSTIC_ITEMS.length}
           aria-valuemin={0}
-          aria-valuenow={progressValue}
+          aria-valuenow={answeredCount}
+          aria-valuetext={copy.answered(
+            answeredCount,
+            DIAGNOSTIC_ITEMS.length,
+          )}
           className={styles.progress}
           role="progressbar"
         >
@@ -163,128 +193,218 @@ export function BottleneckDiagnostic({
             className={styles.progressFill}
             style={
               {
-                "--diagnostic-progress":
-                  progressValue / DIAGNOSTIC_QUESTIONS.length,
+                "--diagnostic-progress": progress,
               } as CSSProperties
             }
           />
         </div>
       </div>
 
+      <ol className={styles.statementList}>
+        {DIAGNOSTIC_ITEMS.map((item, index) => {
+          const selectedAnswer = answers[item.id];
+
+          return (
+            <li className={styles.statementItem} key={item.id}>
+              <fieldset className={styles.statementFieldset}>
+                <legend className={styles.legend}>
+                  {copy.statements[item.id]}
+                </legend>
+                <div aria-hidden="true" className={styles.statementPrompt}>
+                  <span aria-hidden="true" className={styles.statementNumber}>
+                    {index + 1}
+                  </span>
+                  <span>{copy.statements[item.id]}</span>
+                </div>
+                <div className={styles.options}>
+                  <label className={styles.option}>
+                    <input
+                      checked={selectedAnswer === true}
+                      className={styles.radio}
+                      name={`${radioGroupId}-${item.id}`}
+                      onChange={() => selectAnswer(item.id, true)}
+                      ref={index === 0 ? firstRadioRef : undefined}
+                      type="radio"
+                      value="true"
+                    />
+                    <span>{copy.trueLabel}</span>
+                  </label>
+                  <label className={styles.option}>
+                    <input
+                      checked={selectedAnswer === false}
+                      className={styles.radio}
+                      name={`${radioGroupId}-${item.id}`}
+                      onChange={() => selectAnswer(item.id, false)}
+                      type="radio"
+                      value="false"
+                    />
+                    <span>{copy.falseLabel}</span>
+                  </label>
+                </div>
+              </fieldset>
+            </li>
+          );
+        })}
+      </ol>
+
+      <div className={styles.checkControls}>
+        <Button cta disabled={!allAnswered} onClick={showResult}>
+          {copy.seeResult}
+        </Button>
+        <Button onClick={reset} size="compact" variant="text">
+          <RotateCcw aria-hidden="true" size={16} />
+          {copy.reset}
+        </Button>
+      </div>
+
       {result ? (
         <div
-          className={`${styles.result} ${styles.stage}`}
-          data-direction="forward"
-          key="diagnostic-result"
+          aria-describedby={`${id}-result-score ${id}-result-body`}
+          aria-labelledby={`${id}-result-title`}
+          className={styles.result}
           ref={resultRef}
+          role="region"
           tabIndex={-1}
         >
-          <div>
-            <p className={styles.resultLabel}>Your directional result</p>
-            <h3 className={styles.resultTitle}>{result.headline}</h3>
-            <p className={styles.resultIntro}>
-              This comparison reflects only the answers you gave here.
+          <div className={styles.resultHeading}>
+            <p className={styles.resultLabel}>{copy.resultLabel}</p>
+            <p className={styles.resultScore} id={`${id}-result-score`}>
+              {copy.score(result.score, result.maximum)}
             </p>
+            <h3 className={styles.resultTitle} id={`${id}-result-title`}>
+              {copy.resultTitles[result.band]}
+            </h3>
           </div>
-
-          <ul aria-label="Bottleneck dimensions" className={styles.dimensionList}>
-            {result.dimensions.map((dimension) => (
-              <li key={dimension.dimension}>
-                <div className={styles.dimensionHeader}>
-                  <span className={styles.dimensionLabel}>{dimension.label}</span>
-                  <span className={styles.dimensionSignal}>
-                    {dimension.signal} · {dimension.score}/{dimension.maximum}
-                  </span>
-                </div>
-                <div aria-hidden="true" className={styles.track}>
-                  <div
-                    className={styles.bar}
-                    style={{ width: `${(dimension.score / dimension.maximum) * 100}%` }}
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <p className={styles.disclaimer}>
-            This brief check is a business reflection tool. It cannot establish cause or replace a structured organisational assessment.
+          <p className={styles.resultBody} id={`${id}-result-body`}>
+            {copy.resultBodies[result.band]}
           </p>
 
-          <div className={styles.controls}>
-            <div className={styles.controlGroup}>
-              {onUseSummary ? (
-                <Button cta onClick={useSummary}>
-                  Include this in my message
-                  <ArrowRight aria-hidden="true" size={17} />
-                </Button>
-              ) : null}
-              <Button onClick={goBack} variant="secondary">
-                <ArrowLeft aria-hidden="true" size={17} />
-                Review answers
-              </Button>
-            </div>
-            <Button onClick={reset} size="compact" variant="text">
-              <RotateCcw aria-hidden="true" size={16} />
-              Start over
-            </Button>
-          </div>
-        </div>
-      ) : (
-        <>
-          <fieldset
-            aria-describedby={`${id}-context`}
-            className={`${styles.question} ${styles.stage}`}
-            data-direction={direction}
-            key={question.id}
-            ref={questionRef}
-            tabIndex={-1}
-          >
-            <legend className={styles.legend}>{question.prompt}</legend>
-            <p className={styles.context} id={`${id}-context`}>
-              {question.context}
-            </p>
-            <div className={styles.options}>
-              {ANSWER_OPTIONS.map((option) => (
-                <label className={styles.option} key={option.value}>
-                  <input
-                    checked={selectedAnswer === option.value}
-                    className={styles.radio}
-                    name={`${id}-${question.id}`}
-                    onChange={() => selectAnswer(option.value)}
-                    type="radio"
-                    value={option.value}
-                  />
-                  <span>{option.label}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-
-          <div className={styles.controls}>
-            <div className={styles.controlGroup}>
-              <Button
-                disabled={questionIndex === 0}
-                onClick={goBack}
+          <div className={styles.resultActions}>
+            {result.band === "low" ? (
+              <ButtonLink
+                className={styles.resultAction}
+                href="/contact#contact-form"
                 variant="secondary"
               >
-                <ArrowLeft aria-hidden="true" size={17} />
-                Back
-              </Button>
-              <Button
-                disabled={!selectedAnswer}
-                onClick={goForward}
+                {copy.lowReferral}
+              </ButtonLink>
+            ) : (
+              <ButtonLink
+                className={styles.resultAction}
+                href={primaryContactAction.href}
+                variant="secondary"
               >
-                {questionIndex === DIAGNOSTIC_QUESTIONS.length - 1 ? "See result" : "Continue"}
-                <ArrowRight aria-hidden="true" size={17} />
-              </Button>
-            </div>
-            <Button onClick={reset} size="compact" variant="text">
-              <RotateCcw aria-hidden="true" size={16} />
-              Reset
+                {primaryContactLabel}
+              </ButtonLink>
+            )}
+            <Button
+              aria-controls={`${id}-share-form`}
+              aria-expanded={shareOpen}
+              className={styles.resultAction}
+              onClick={openShareForm}
+              variant="secondary"
+            >
+              <Send aria-hidden="true" size={17} />
+              {copy.shareResult}
             </Button>
           </div>
-        </>
-      )}
+
+          {shareOpen ? (
+            <div className={styles.sharePanel} id={`${id}-share-form`}>
+              {shareState === "success" ? (
+                <div
+                  aria-live="polite"
+                  className={`${styles.shareNotice} ${styles.shareSuccess}`}
+                  role="status"
+                >
+                  <CheckCircle2 aria-hidden="true" size={19} />
+                  <p>{copy.sent}</p>
+                </div>
+              ) : (
+                <form className={styles.shareForm} noValidate onSubmit={sendResult}>
+                  <p className={styles.shareTitle}>{copy.shareTitle}</p>
+                  <div className={styles.emailField}>
+                    <label htmlFor={`${id}-result-email`}>{copy.emailLabel}</label>
+                    <input
+                      aria-describedby={`${id}-email-help${
+                        shareState === "email-error" ||
+                        shareState === "send-error"
+                          ? ` ${id}-share-error`
+                          : ""
+                      }`}
+                      aria-invalid={shareState === "email-error"}
+                      autoComplete="email"
+                      id={`${id}-result-email`}
+                      inputMode="email"
+                      maxLength={254}
+                      onChange={(event) => {
+                        setEmail(event.target.value);
+                        if (
+                          shareState === "email-error" ||
+                          shareState === "send-error"
+                        ) {
+                          setShareState("idle");
+                        }
+                      }}
+                      ref={emailRef}
+                      required
+                      type="email"
+                      value={email}
+                    />
+                    <p id={`${id}-email-help`}>{copy.emailHelper}</p>
+                  </div>
+                  <div aria-hidden="true" className={styles.honeypot}>
+                    <label htmlFor={`${id}-result-website`}>
+                      Leave this field empty
+                    </label>
+                    <input
+                      autoComplete="off"
+                      id={`${id}-result-website`}
+                      onChange={(event) => setWebsite(event.target.value)}
+                      tabIndex={-1}
+                      type="text"
+                      value={website}
+                    />
+                  </div>
+                  {shareState === "email-error" ||
+                  shareState === "send-error" ? (
+                    <div
+                      className={`${styles.shareNotice} ${styles.shareError}`}
+                      id={`${id}-share-error`}
+                      role="alert"
+                    >
+                      <AlertCircle aria-hidden="true" size={19} />
+                      <p>
+                        {shareState === "email-error"
+                          ? copy.emailError
+                          : copy.sendError}
+                      </p>
+                    </div>
+                  ) : null}
+                  <div className={styles.shareFooter}>
+                    <Button
+                      disabled={shareState === "submitting"}
+                      type="submit"
+                    >
+                      {shareState === "submitting" ? (
+                        <LoaderCircle
+                          aria-hidden="true"
+                          className={styles.spinner}
+                          size={18}
+                        />
+                      ) : (
+                        <Send aria-hidden="true" size={17} />
+                      )}
+                      {shareState === "submitting" ? copy.sending : copy.send}
+                    </Button>
+                    <p className={styles.sharePrivacy}>{copy.privacy}</p>
+                  </div>
+                </form>
+              )}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }

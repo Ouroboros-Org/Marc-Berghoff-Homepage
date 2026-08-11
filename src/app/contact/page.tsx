@@ -24,6 +24,7 @@ export default async function ContactPage({
 }) {
   const { details } = await searchParams;
   const initialDetailsOpen = details === "open";
+  const contactAction = siteConfig.contact.primaryAction;
 
   return (
     <div className={pageStyles.page}>
@@ -31,14 +32,26 @@ export default async function ContactPage({
         asideLabel="First conversation"
         asideValue="30 minutes · free"
         breadcrumbs={[{ label: "Contact" }]}
-        lead="Bring the issue before you have chosen a service or worked out a diagnosis. Book a time below, or send a short note if writing is easier."
-        primary={{ label: "Choose a time", href: "#booking" }}
-        secondary={{ label: "Send me a note", href: "#contact-form" }}
+        lead={
+          contactAction.isBooking
+            ? "Bring the issue before you have chosen a service or worked out a diagnosis. Book a time below, or send a short note if writing is easier."
+            : "Bring the issue before you have chosen a service or worked out a diagnosis. Send a short note and I will reply to arrange a time."
+        }
+        primary={contactAction}
+        secondary={
+          contactAction.isBooking
+            ? { label: "Send me a note", href: "#contact-form" }
+            : undefined
+        }
         title="Bring the issue as it is."
       />
 
       <section className={styles.startSection} aria-label="Contact and booking">
-        <div className={styles.startGrid}>
+        <div
+          className={`${styles.startGrid} ${
+            contactAction.isBooking ? "" : styles.startGridSingle
+          }`}
+        >
           <div className={styles.formColumn}>
             <div className={styles.startHeader}>
               <h2>Start with a few lines.</h2>
@@ -48,19 +61,21 @@ export default async function ContactPage({
               </p>
             </div>
             <div className={styles.formShell}>
-            <ProgressiveContactForm initialDetailsOpen={initialDetailsOpen} />
+              <ProgressiveContactForm initialDetailsOpen={initialDetailsOpen} />
             </div>
           </div>
-          <div className={styles.bookingColumn} id="booking">
-            <div className={styles.startHeader}>
-              <h2 id="booking-title">Choose a time to talk it through.</h2>
-              <p>
-                The first conversation is free and comes before any paid relationship.
-                We will work out whether another conversation makes sense.
-              </p>
+          {contactAction.isBooking ? (
+            <div className={styles.bookingColumn} id="booking">
+              <div className={styles.startHeader}>
+                <h2 id="booking-title">Choose a time to talk it through.</h2>
+                <p>
+                  The first conversation is free and comes before any paid relationship.
+                  We will work out whether another conversation makes sense.
+                </p>
+              </div>
+              <CalInlineEmbed calLink={siteConfig.contact.calLink} />
             </div>
-            <CalInlineEmbed calLink={siteConfig.contact.calLink} />
-          </div>
+          ) : null}
         </div>
       </section>
 

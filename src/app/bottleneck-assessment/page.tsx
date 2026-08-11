@@ -12,7 +12,7 @@ import {
 } from "@/components/pages/editorial";
 import { StructuredData } from "@/components/structured-data";
 import { createPageMetadata } from "@/config/metadata";
-import { getSiteUrl } from "@/config/site";
+import { getPrimaryContactAction, getSiteUrl } from "@/config/site";
 
 export const metadata = createPageMetadata({
   title: "Bottleneck Assessment",
@@ -38,6 +38,7 @@ const deliverables = [
 
 export default function BottleneckAssessmentPage() {
   const siteUrl = getSiteUrl();
+  const contactAction = getPrimaryContactAction();
 
   return (
     <div className={styles.page}>
@@ -51,14 +52,6 @@ export default function BottleneckAssessmentPage() {
           url: `${siteUrl}/bottleneck-assessment`,
           provider: { "@id": `${siteUrl}/#marc-berghoff` },
           areaServed: "International",
-          offers: {
-            "@type": "Offer",
-            price: "3500",
-            priceCurrency: "EUR",
-            description:
-              "Participant scope, travel and applicable tax are agreed before work begins.",
-            url: `${siteUrl}/bottleneck-assessment`,
-          },
           audience: {
             "@type": "BusinessAudience",
             audienceType: "Founders and leadership teams in startups, scale-ups and SMEs",
@@ -72,10 +65,7 @@ export default function BottleneckAssessmentPage() {
         ]}
         title="When you can feel the issue but cannot yet point to it."
         lead="The Bottleneck Assessment is one way to stop guessing. I compare what people experience with how decisions and work actually move, then give the leadership team a focused finding to test."
-        asideLabel="One-time engagement"
-        asideValue="€3,500"
-        asideNote="Participant scope, travel and applicable tax are agreed in advance."
-        primary={{ label: "Book a free 30-minute conversation", href: "/contact#booking" }}
+        primary={contactAction}
         ctaPrimary={true}
         secondary={{ label: "See the report structure", href: "/sample-report" }}
       />
@@ -94,6 +84,9 @@ export default function BottleneckAssessmentPage() {
                 leader owns the change, coaching may fit better. I use the assessment
                 when several explanations are competing and the answer needs evidence
                 from beyond one person&apos;s view.
+              </p>
+              <p>
+                The fee is fixed based on the size of the project and agreed before we start.
               </p>
             </div>
             <div className={styles.spacedTop}>
@@ -124,23 +117,21 @@ export default function BottleneckAssessmentPage() {
         </div>
       </section>
 
-      <section className={styles.sectionTint} aria-label="Six-question bottleneck check">
+      <section className={styles.sectionTint} aria-label="Ten-statement bottleneck check">
         <div className={styles.narrowContainer}>
           <DiagnosticDisclosure
             id="assessment-check"
-            label="Six-question check"
+            label="Ten-statement check"
             title="Check whether the pattern is broader than one decision"
-            intro="Six short questions. Use the last few weeks as your reference point."
+            intro="Ten statements. Use the last few weeks as your reference point."
           >
             <DiagnosticContactFlow
               contactProps={{
                 id: "assessment-quick-contact",
-                title: "Send me the result and a short note.",
+                title: "Send me a separate note.",
               }}
               diagnosticProps={{
                 id: "bottleneck-check",
-                intro: "Include the awkward days.",
-                introOnly: true,
               }}
             />
           </DiagnosticDisclosure>
@@ -189,10 +180,10 @@ export default function BottleneckAssessmentPage() {
       </section>
 
       <ContactBand
-        href="/contact#booking"
+        href={contactAction.href}
         title="Use the assessment when the cause is still in question."
-        text="The first conversation is free. The assessment fee is €3,500; participant scope, travel and applicable tax are confirmed before work begins."
-        label="Book the free conversation"
+        text="Tell me what is happening and what has already been tried. I will tell you if an assessment fits."
+        label={contactAction.label}
       />
     </div>
   );

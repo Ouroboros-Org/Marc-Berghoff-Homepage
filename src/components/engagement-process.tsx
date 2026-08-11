@@ -4,7 +4,7 @@ import styles from "./engagement-process.module.css";
 
 export function EngagementProcess({
   title = "What happens after you get in touch.",
-  intro = "The question comes before the format. I use the same four steps whether the work becomes coaching, advisory, assessment or a fractional remit.",
+  intro = "The question comes before the format. I use the same four steps whether the work becomes coaching, advisory, assessment or a defined remit.",
   wide = false,
 }: {
   title?: string;

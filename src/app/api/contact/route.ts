@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import type { ContactApiResponse } from "../../../lib/contact-api";
+import { scoreDiagnostic } from "../../../lib/contact-diagnostic";
 import { contactPayloadSchema } from "../../../lib/contact-schema";
 import {
   evaluateSubmissionTrap,
@@ -105,6 +106,27 @@ export async function POST(request: Request) {
       },
       422,
     );
+  }
+
+  if (parsed.data.formType === "diagnostic-result") {
+    const canonicalResult = scoreDiagnostic(parsed.data.answers);
+
+    if (
+      parsed.data.score !== canonicalResult.score ||
+      parsed.data.band !== canonicalResult.band
+    ) {
+      return json(
+        {
+          ok: false,
+          code: "VALIDATION_ERROR",
+          message: "The result did not match the answers. Run the check again and resend it.",
+          fieldErrors: {
+            score: "The submitted score did not match the answers.",
+          },
+        },
+        422,
+      );
+    }
   }
 
   const trap = evaluateSubmissionTrap(parsed.data);

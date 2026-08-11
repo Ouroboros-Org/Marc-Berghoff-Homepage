@@ -60,7 +60,7 @@ export const SERVICES: Record<ServiceDefinition["slug"], ServiceDefinition> = {
   },
   "fractional-people-leadership": {
     slug: "fractional-people-leadership",
-    eyebrow: "Fractional leadership",
+    eyebrow: "Fractional People Leadership",
     title: "When the work needs an owner before the permanent answer is clear.",
     summary:
       "I join the operating rhythm for an agreed share of the week or month and carry a defined people, organisation or leadership remit.",
@@ -87,9 +87,9 @@ export const SERVICES: Record<ServiceDefinition["slug"], ServiceDefinition> = {
     boundary:
       "You and I agree the decisions I own, the support I need and how responsibility will return to your team.",
     evidence: {
-      label: "Fractional HR",
+      label: "People leadership",
       statement:
-        "I have provided fractional HR leadership to Alberta Fire & Security.",
+        "I have provided interim HR leadership to Alberta Fire & Security.",
     },
     closing: {
       title: "Which part of the work currently has no credible owner?",
@@ -98,16 +98,15 @@ export const SERVICES: Record<ServiceDefinition["slug"], ServiceDefinition> = {
   },
   "executive-coaching": {
     slug: "executive-coaching",
-    eyebrow: "Individual coaching",
+    eyebrow: "Executive Coaching",
     title: "Make the change you want to see specific.",
-    summary:
-      "We define where you are now, what you want to handle differently and how you will recognise progress. Sessions use situations from your current role.",
+    summary: "You carry the work. Individually or as a group.",
     introductionHeading: "Coaching fits when the work belongs with you.",
     intro:
-      "We make the gap between the current situation and the intended one concrete. You bring current decisions, conversations and reactions from your role. I ask questions, challenge your reasoning and draw on my training in psychology. You decide what to do next.",
+      "We make the gap between the current situation and the intended one concrete. In individual work, you bring current decisions, conversations and reactions from your role. With a leadership group, we work on a shared question while each person keeps responsibility for their part. I ask questions, challenge the reasoning and draw on my training in psychology. You decide what to do next.",
     scopeHeading: "The gap makes the work measurable.",
     scopeIntro:
-      "We agree the starting point, the change you want and the signs that would show it is happening. The route remains tailored to your role and the situations you bring.",
+      "We agree the starting point, the change you want and the signs that would show it is happening. The route is tailored to the leader or group and the situations they bring.",
     forWhen: [
       "Your role has changed and your way of leading has not caught up.",
       "A decision is taking more attention than it should.",
@@ -116,7 +115,7 @@ export const SERVICES: Record<ServiceDefinition["slug"], ServiceDefinition> = {
     ],
     workIncludes: [
       "A specific coaching objective and a clear starting point",
-      "Confidential one-to-one sessions",
+      "Confidential individual sessions or a shared group format",
       "Current situations from your role",
       "Agreed experiments between sessions",
       "Agreed signs of progress and regular review",

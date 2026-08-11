@@ -8,6 +8,8 @@ import {
 import { SiteLogo } from "./site-logo";
 
 export function SiteFooter() {
+  const contactAction = siteConfig.contact.primaryAction;
+
   return (
     <footer className="site-footer">
       <div className="site-footer__primary">
@@ -45,8 +47,10 @@ export function SiteFooter() {
 
         <div className="site-footer__contact">
           <p className="footer-label">Start here</p>
-          <Link href="/contact#booking">Book a free 30-minute conversation</Link>
-          <Link href="/contact#contact-form">Send me a note</Link>
+          <Link href={contactAction.href}>{contactAction.label}</Link>
+          {contactAction.isBooking ? (
+            <Link href="/contact#contact-form">Send me a note</Link>
+          ) : null}
           <a href={`mailto:${siteConfig.contact.email}`}>
             {siteConfig.contact.email}
           </a>

@@ -29,9 +29,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     company: "Alberta Fire & Security",
-    engagement: "Fractional HR leadership",
+    engagement: "Interim HR leadership",
     responsibility: "A people remit carried during transformation",
     context:
-      "I served as fractional Head of HR and worked inside the business on agreed people priorities.",
+      "I served as interim Head of HR and worked inside the business on agreed people priorities.",
   },
 ];

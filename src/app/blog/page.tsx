@@ -9,7 +9,7 @@ import {
 } from "@/components/pages/editorial";
 import { StructuredData } from "@/components/structured-data";
 import { createPageMetadata } from "@/config/metadata";
-import { getSiteUrl } from "@/config/site";
+import { getPrimaryContactAction, getSiteUrl } from "@/config/site";
 import { BLOG_POSTS, getReadingTime } from "@/content/blog";
 
 import styles from "./blog.module.css";
@@ -17,7 +17,7 @@ import styles from "./blog.module.css";
 export const metadata = createPageMetadata({
   title: "Leadership and Organisation Insights",
   description:
-    "Notes for founders and leadership teams on decision rights, role clarity, coaching, fractional responsibility and recurring organisation issues.",
+    "Notes for founders and leadership teams on decision rights, role clarity, coaching, defined people leadership and recurring organisation issues.",
   path: "/blog",
 });
 
@@ -30,6 +30,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-GB", {
 export default function BlogPage() {
   const [featured, ...posts] = BLOG_POSTS;
   const siteUrl = getSiteUrl();
+  const contactAction = getPrimaryContactAction();
 
   return (
     <div className={pageStyles.page}>
@@ -118,10 +119,10 @@ export default function BlogPage() {
       </section>
 
       <ContactBand
-        href="/contact#booking"
+        href={contactAction.href}
         title="Bring the article back to your situation."
         text="Tell me which part felt familiar and what is happening in your company. The first 30 minutes are free."
-        label="Book the free conversation"
+        label={contactAction.label}
       />
     </div>
   );

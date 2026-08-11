@@ -5,6 +5,11 @@ import {
   extendedContactDefaults,
   quickContactDefaults,
 } from "./contact-schema";
+import {
+  DIAGNOSTIC_ITEMS,
+  scoreDiagnostic,
+  type DiagnosticAnswers,
+} from "./contact-diagnostic";
 
 describe("contactPayloadSchema", () => {
   it("accepts a valid quick message without organisational fields", () => {
@@ -60,5 +65,42 @@ describe("contactPayloadSchema", () => {
     };
 
     expect(contactPayloadSchema.safeParse(payload).success).toBe(false);
+  });
+
+  it("accepts a complete diagnostic result with only one visible contact field", () => {
+    const answers = Object.fromEntries(
+      DIAGNOSTIC_ITEMS.map((item) => [item.id, !item.constrainedWhen]),
+    ) as DiagnosticAnswers;
+    const result = scoreDiagnostic(answers);
+
+    expect(
+      contactPayloadSchema.safeParse({
+        formType: "diagnostic-result",
+        email: "alex@example.com",
+        answers,
+        score: result.score,
+        band: result.band,
+        website: "",
+        startedAt: Date.now(),
+      }).success,
+    ).toBe(true);
+  });
+
+  it("rejects a diagnostic result when any statement is unanswered", () => {
+    const answers = Object.fromEntries(
+      DIAGNOSTIC_ITEMS.slice(0, 9).map((item) => [item.id, true]),
+    );
+
+    expect(
+      contactPayloadSchema.safeParse({
+        formType: "diagnostic-result",
+        email: "alex@example.com",
+        answers,
+        score: 5,
+        band: "moderate",
+        website: "",
+        startedAt: Date.now(),
+      }).success,
+    ).toBe(false);
   });
 });

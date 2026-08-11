@@ -194,7 +194,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <p>
               I work with founders and leadership teams on leadership, organisation
               and people issues. Depending on the question, I coach, advise, assess or
-              carry a defined fractional remit.
+              carry a defined remit.
             </p>
           </div>
         </div>

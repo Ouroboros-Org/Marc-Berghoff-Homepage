@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Marc Berghoff, leadership, organisation and coaching";
+  "Marc Berghoff, organisational psychologist, Vistage Chair and executive coach";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -60,14 +60,14 @@ export default function OpenGraphImage() {
           <div
             style={{
               display: "flex",
-              fontSize: 72,
+              fontSize: 66,
               fontWeight: 700,
               letterSpacing: "-0.055em",
               lineHeight: 1.02,
               maxWidth: 930,
             }}
           >
-            When a leadership issue is not moving.
+            You&apos;ve already tried everything that should have worked.
           </div>
           <div
             style={{
@@ -78,7 +78,7 @@ export default function OpenGraphImage() {
               maxWidth: 790,
             }}
           >
-            I help you see what is really happening and get the right work moving.
+            I find what is constraining the company, before anyone starts fixing it.
           </div>
         </div>
 
@@ -95,7 +95,7 @@ export default function OpenGraphImage() {
         >
           <span>Malta · working internationally</span>
           <span style={{ color: "#173d70", fontWeight: 700 }}>
-            Leadership · organisation · coaching
+            Organisational psychologist · executive coach
           </span>
         </div>
       </div>

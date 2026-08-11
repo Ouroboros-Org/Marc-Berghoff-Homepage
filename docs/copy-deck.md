@@ -20,9 +20,9 @@ I stay independent enough to be candid and close enough to help. If I am not the
 
 - **Coaching — you carry the work.** I help you define the change, challenge your thinking and review what happens next.
 - **Advisory — you keep the decision.** I bring an outside view to the reasoning, trade-offs and next action.
-- **Fractional leadership — I carry a defined remit.** I work inside the operating rhythm, build what is needed and hand responsibility to named people.
+- **Fractional People Leadership — I carry a defined remit.** I work inside the operating rhythm, build what is needed and hand responsibility to named people.
 - **Assessment — the cause is not clear enough yet.** I compare what people report with relevant operating evidence before the leadership team chooses a response.
-- **Group coaching — several leaders share the work.** The format remains in development; unknown details are not invented.
+- **Peer Advisory — leaders work on their own decisions together.** A room of leaders who do not report to each other work on the decisions each of them is facing.
 
 ## Voice rules
 
@@ -32,7 +32,7 @@ I stay independent enough to be candid and close enough to help. If I am not the
 - Name observable behaviour before interpreting it.
 - Use one idea per sentence and concrete verbs.
 - Do not turn founders, managers or employees into the problem.
-- Keep the provisional title “Fractional Leadership Manager” to one biographical use.
+- Describe Marc as “Organisational Psychologist · Vistage Chair · Executive Coach”.
 - State boundaries and poor fit as plainly as good fit.
 - Do not publish unconfirmed company growth, ARR, comparative or client-outcome claims.
 - Do not score recognition questions or imply a financial cost that has not been measured.
@@ -51,7 +51,7 @@ I stay independent enough to be candid and close enough to help. If I am not the
 
 - **Book a free 30-minute conversation**
 - **See how I can help**
-- **Run the six-question check**
+- **Run the ten-statement check**
 - **Send me a note**
 - **Add context about the business**
 
@@ -77,15 +77,21 @@ We start with the live issue. We review what is changing, what remains stuck and
 
 ### Hero
 
-H1: **When a leadership issue is not moving.**
+H1: **You've already tried everything that should have worked.**
 
-Lead: I help founders and leadership teams see what is really happening and get the right work moving. I can stay at coaching distance, advise on the decision or take responsibility for a defined part of it.
+Body: Consultants on your processes. Support from your investors. A new leadership team. The work you've done on yourself.
+
+And it still feels like something is holding the company back — and you can't point at it.
+
+Most outside help starts by solving. I start by understanding. Until you know what is actually constraining the company, every fix is a guess with an invoice attached.
 
 Primary: **Book a free 30-minute conversation**
 
-Secondary: **See how I can help**
+Secondary: **Not sure yet? See if these apply to you — 10 statements, 2 minutes, no email needed**
 
-Portrait descriptor: **Fractional Leadership Manager**
+Sub-line: **For founder-led companies and SMEs anticipating their next stage of growth.**
+
+Portrait descriptor: **Organisational Psychologist · Vistage Chair · Executive Coach**
 
 ### Recognition
 
@@ -115,15 +121,13 @@ H2: **Choose the level of involvement the issue needs.**
 
 Intro: Start with the issue. We can choose the format after we understand it.
 
-Main formats: coaching, advisory and fractional leadership.
+Formats: Bottleneck Assessment, Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership.
 
-Supporting formats: assessment when the cause is unclear; group coaching as a developing shared format.
-
-Link: **See scope and fees**
+Link: **See how I work**
 
 ### Diagnostic
 
-Closed label: **Run the six-question check**
+Closed label: **Run the ten-statement check**
 
 Closed helper: **Use it when the issue is hard to name**
 
@@ -133,7 +137,7 @@ Inside: **Answer from the last few weeks, including the awkward days.**
 
 H2: **Experience on both sides of the conversation.**
 
-Body: I have led people work inside a scale-up, co-founded a business, coached leaders and worked as a fractional Head of HR. That mix helps me notice the human tension and the operating consequence.
+Body: I have led people work inside a scale-up, co-founded a business, coached leaders and worked as an interim Head of HR. That mix helps me notice the human tension and the operating consequence.
 
 ### Insights
 
@@ -153,11 +157,11 @@ H1: **The issue decides how involved I should be.**
 
 Lead: Sometimes you need room to think. Sometimes you need a candid second view. Sometimes the work needs an owner. I use the first conversation to understand the issue before I recommend a format.
 
-Section heading: **From coaching distance to defined ownership.**
+Section heading: **Start with the issue.**
 
-Section intro: These three formats differ in one practical way: who carries the work after our conversation.
+Section intro: We can choose the format after we understand it. The five routes differ in the evidence, responsibility and company context they need.
 
-## Fractional leadership
+## Fractional People Leadership
 
 H1: **When the work needs an owner before the permanent answer is clear.**
 
@@ -177,7 +181,7 @@ Introduction: **I advise when the question is clear enough to examine.**
 
 Boundary: If the work needs someone to coordinate execution or hold decision rights, advisory is too light.
 
-## Individual coaching
+## Executive Coaching
 
 H1: **Make the change you want to see specific.**
 
@@ -189,15 +193,13 @@ Boundary: You keep responsibility for the decision. If the issue needs wider evi
 
 Close: **Bring a situation that needs room to think.**
 
-## Group coaching
+## Peer Advisory
 
-H1: **A shared coaching format is in development.**
+H1: **Peer Advisory**
 
-Lead: The format is intended for leaders working on related questions inside a shared context. I have not yet fixed the audience, group size, rhythm or fee.
+Lead: A room of leaders who don’t report to each other, working on the decisions each of them is facing.
 
-Section heading: **What will remain true.**
-
-Action: **Tell me about the group**
+Action: **Send me a note**
 
 ## Bottleneck Assessment
 
@@ -207,7 +209,7 @@ Lead: The Bottleneck Assessment is one way to stop guessing. I compare what peop
 
 Problem heading: **Use the assessment when the cause is still open.**
 
-Diagnostic disclosure: **Run the six-question check** / **Use the last few weeks as your reference point.**
+Diagnostic disclosure: **Run the ten-statement check** / **Use the last few weeks as your reference point.**
 
 ## Sample report
 
@@ -219,13 +221,13 @@ Lead: The report shows the main finding, the evidence behind it and the decision
 
 H1: **When the issue sits between the people and the way the business works.**
 
-Lead: I help founders and leadership teams understand what is happening, decide what needs to change and choose how involved I should be. My range runs from coaching to a defined fractional remit.
+Lead: I help founders and leadership teams understand what is happening, decide what needs to change and choose how involved I should be. My range runs from coaching to a defined remit.
 
 Primary: **Book a free conversation**
 
-Secondary: **Run the six-question check**
+Secondary: **Run the ten-statement check**
 
-Biography: I have worked in HR and coaching for more than seven years. I have led people work inside a fast-growing company, co-founded CyberKongz, coached leaders and served as fractional Head of HR. I hold an MSc in Psychology and the ICF Associate Certified Coach credential.
+Biography: I have worked in HR and coaching for more than seven years. I have led people work inside a fast-growing company, co-founded CyberKongz, coached leaders and served as interim Head of HR. I hold an MSc in Psychology and the ICF Associate Certified Coach credential.
 
 Working stance heading: **I work at the boundary between reflection and responsibility.**
 
@@ -242,7 +244,7 @@ Leadership principles:
 
 H1: **See the kinds of responsibility I have carried.**
 
-Lead: These examples show where I have worked as a people leader, founder, advisor and fractional operator. They provide context for my judgement; they do not promise your outcome.
+Lead: These examples show where I have worked as a people leader, founder, advisor and interim operator. They provide context for my judgement; they do not promise your outcome.
 
 ## Insights
 
