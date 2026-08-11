@@ -1,42 +1,60 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+
+import type { SiteLocale } from "@/config/routes";
 import {
-  serviceNavigation,
+  getPrimaryContactAction,
+  getServiceNavigation,
   siteConfig,
 } from "@/config/site";
 
 import { SiteLogo } from "./site-logo";
 
-export function SiteFooter() {
-  const contactAction = siteConfig.contact.primaryAction;
+export function SiteFooter({ locale = "en" }: { locale?: SiteLocale }) {
+  const contactAction = getPrimaryContactAction(locale);
+  const serviceNavigation = getServiceNavigation(locale);
+  const isGerman = locale === "de";
+  const explore: Array<{ href: string; label: string; language?: SiteLocale }> = isGerman
+    ? [
+        { href: "/results", label: "Ergebnisse & Erfahrung (English)", language: "en" },
+        { href: "/blog", label: "Einblicke (English)", language: "en" },
+        { href: "/about", label: "Über mich (English)", language: "en" },
+      ]
+    : [
+        { href: "/results", label: "Results & experience" },
+        { href: "/blog", label: "Insights" },
+        { href: "/about", label: "About me" },
+      ];
 
   return (
     <footer className="site-footer">
       <div className="site-footer__primary">
         <div className="site-footer__intro">
-          <SiteLogo inverse />
+          <SiteLogo inverse locale={locale} />
           <p>
-            Start with what is happening. We can choose my level of involvement
-            after the first conversation.
+            {isGerman
+              ? "Beginnen Sie mit dem, was passiert. Meine Rolle legen wir nach dem ersten Gespräch fest."
+              : "Start with what is happening. We can decide my level of involvement after the first conversation."}
           </p>
         </div>
 
         <div className="site-footer__nav">
           <div>
-            <p className="footer-label">Explore</p>
-            {[
-              { href: "/results", label: "Results & experience" },
-              { href: "/sample-report", label: "Sample report" },
-              { href: "/blog", label: "Insights" },
-              { href: "/about", label: "About me" },
-            ].map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
+            <p className="footer-label">{isGerman ? "Mehr" : "Explore"}</p>
+            {explore.map((item) => (
+              <Link
+                href={item.href}
+                hrefLang={item.language}
+                key={item.href}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
           <div>
-            <p className="footer-label">How I can help</p>
+            <p className="footer-label">
+              {isGerman ? "Zusammenarbeit" : "How I can help"}
+            </p>
             {serviceNavigation.map((item) => (
               <Link key={item.href} href={item.href}>
                 {item.label}
@@ -46,11 +64,8 @@ export function SiteFooter() {
         </div>
 
         <div className="site-footer__contact">
-          <p className="footer-label">Start here</p>
+          <p className="footer-label">{isGerman ? "Hier beginnen" : "Start here"}</p>
           <Link href={contactAction.href}>{contactAction.label}</Link>
-          {contactAction.isBooking ? (
-            <Link href="/contact#contact-form">Send me a note</Link>
-          ) : null}
           <a href={`mailto:${siteConfig.contact.email}`}>
             {siteConfig.contact.email}
           </a>
@@ -73,8 +88,12 @@ export function SiteFooter() {
       <div className="site-footer__bottom">
         <span>© {new Date().getFullYear()} Marc Berghoff</span>
         <div>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/imprint">Imprint</Link>
+          <Link href="/privacy" hrefLang="en" lang={isGerman ? "en" : undefined}>
+            {isGerman ? "Privacy (English)" : "Privacy"}
+          </Link>
+          <Link href="/imprint" hrefLang="en" lang={isGerman ? "en" : undefined}>
+            {isGerman ? "Imprint (English)" : "Imprint"}
+          </Link>
         </div>
       </div>
     </footer>

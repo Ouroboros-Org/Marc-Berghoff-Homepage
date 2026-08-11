@@ -10,7 +10,7 @@ type PageHeroProps = {
   compact?: boolean;
   eyebrow?: string;
   title: string;
-  lead: string;
+  lead: ReactNode;
   asideLabel?: string;
   asideValue?: string;
   asideNote?: string;
@@ -46,7 +46,11 @@ export function PageHero({
         <div className={styles.heroCopy}>
           {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
           <h1 className={styles.heroTitle}>{title}</h1>
-          <p className={styles.heroLead}>{lead}</p>
+          {typeof lead === "string" ? (
+            <p className={styles.heroLead}>{lead}</p>
+          ) : (
+            <div className={styles.heroLead}>{lead}</div>
+          )}
           {(primary || secondary) && (
             <div className={styles.buttonRow}>
               {primary && (

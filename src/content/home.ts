@@ -142,8 +142,8 @@ const english: HomeCopy = {
       "If I am not the right person, I will say so. Where I can make a useful introduction, I will.",
   },
   services: {
-    title: "Choose the level of involvement the issue needs.",
-    intro: "Start with the issue. We can choose the format after we understand it.",
+    title: "The situation decides who carries the work.",
+    intro: "Start with what is happening. I will recommend the format after I understand it.",
     linkLabel: "See how I work",
     responsibility: {},
     summary: {},
@@ -155,10 +155,6 @@ const english: HomeCopy = {
     resultsLabel: "See the full results",
     imageAlt: "Marc Berghoff seated in an office setting",
     proof: [
-      [
-        { text: "In my second year of executive coaching with the leadership of a consumer goods scale-up past " },
-        { text: "€200m ARR", strong: true },
-      ],
       [
         { text: "Executive coaching with department leaders at a " },
         { text: "national financial regulator", strong: true },
@@ -187,24 +183,24 @@ const english: HomeCopy = {
       ],
       [
         { text: "Keynote speaker at " },
-        { text: "Malta's largest HR conference", strong: true },
+        { text: "a major HR conference in Malta", strong: true },
       ],
     ],
   },
   process: {
     title: "What happens after you get in touch.",
     summary:
-      "A free 30-minute conversation first. I then look at what has already been tried and who is involved. You receive a written scope before any paid work begins.",
+      "A free first conversation, typically 30 minutes. I then look at what has already been tried and who is involved. You receive a written scope before any paid work begins.",
     linkLabel: "See the four steps in full",
   },
   insights: {
-    title: "Read the issue before you choose the help.",
+    title: "Read the pattern before you name the help.",
     intro:
       "These notes look at what makes leadership work difficult to see, own or move.",
   },
   closing: {
     title: "Start with what is happening now.",
-    body: "The first 30 minutes are free. Bring the issue, what you have tried and where it keeps returning. My aim is that you leave with a clearer question, even if the work stops there.",
+    body: "The first conversation is free and typically takes 30 minutes. Bring the issue, what you have tried and where it keeps returning. My aim is that you leave with a clearer question, even if the work stops there.",
     bookingLabel: "Choose a time",
     noteLabel: "Send me a note",
   },
@@ -227,7 +223,7 @@ const german: HomeCopy = {
     paragraphs: [
       "Berater für Ihre Prozesse. Unterstützung durch Ihre Investoren. Ein neues Führungsteam. Die Arbeit an sich selbst.",
       "Und trotzdem fühlt es sich an, als würde etwas das Unternehmen zurückhalten — ohne dass Sie genau sagen können, was es ist.",
-      "Die meiste Hilfe von außen beginnt mit einer Lösung. Ich beginne damit, zu verstehen. Solange Sie nicht wissen, was das Unternehmen tatsächlich bremst, ist jede Lösung eine Vermutung mit Rechnung.",
+      "Die meiste Hilfe von außen beginnt mit einer Lösung. Ich beginne damit, zu verstehen. Solange Sie nicht wissen, was das Unternehmen tatsächlich bremst, ist jede Lösung eine Vermutung, für die Sie bezahlen.",
     ],
     primaryBookingLabel: "Kostenloses 30-Minuten-Gespräch buchen",
     primaryFallbackLabel: "Nachricht senden",
@@ -269,8 +265,8 @@ const german: HomeCopy = {
       "Wenn ich nicht der Richtige bin, sage ich das. Und wenn ich jemanden sinnvoll empfehlen kann, tue ich das.",
   },
   services: {
-    title: "Wählen Sie, wie stark ich mich einbringen soll.",
-    intro: "Wir beginnen mit dem Thema. Das passende Format wählen wir, sobald wir es verstanden haben.",
+    title: "Die Situation entscheidet, wer die Arbeit trägt.",
+    intro: "Beginnen Sie mit dem, was passiert. Sobald ich die Situation verstanden habe, empfehle ich das passende Format.",
     linkLabel: "So arbeite ich",
     responsibility: {
       "/bottleneck-assessment": "Die Ursache ist noch nicht klar genug.",
@@ -283,21 +279,17 @@ const german: HomeCopy = {
       "/bottleneck-assessment": "Wir schaffen zuerst eine belastbare Grundlage.",
       "/executive-coaching": "Einzeln oder als Gruppe.",
       "/advisory": "Die Frage ist sichtbar, aber schwer zu beantworten.",
-      "/peer-advisory": "Niemand berichtet aneinander. Genau das macht den offenen Austausch möglich.",
+      "/peer-advisory": "Die Beteiligten stehen nicht in einer Berichtslinie zueinander. Genau das macht den offenen Austausch möglich.",
       "/fractional-people-leadership": "Die Arbeit braucht jetzt eine erfahrene Person, die sie führt.",
     },
   },
   experience: {
     title: "Erfahrung auf beiden Seiten des Gesprächs.",
     body: "Ich habe People-Arbeit in einem Scale-up geleitet, ein Unternehmen mitgegründet, Führungskräfte gecoacht und HR interimistisch geführt. So sehe ich die menschliche Spannung und die betriebliche Folge.",
-    aboutLabel: "Über mich",
-    resultsLabel: "Alle Ergebnisse ansehen",
+    aboutLabel: "Über mich (English)",
+    resultsLabel: "Ergebnisse ansehen (English)",
     imageAlt: "Marc Berghoff in einem Büro",
     proof: [
-      [
-        { text: "Im zweiten Jahr des Executive Coachings mit der Geschäftsleitung eines Konsumgüter-Scale-ups mit mehr als " },
-        { text: "200 Mio. € ARR", strong: true },
-      ],
       [
         { text: "Executive Coaching mit Bereichsleitungen bei einer " },
         { text: "nationalen Finanzaufsicht", strong: true },
@@ -327,25 +319,25 @@ const german: HomeCopy = {
       ],
       [
         { text: "Keynote bei " },
-        { text: "Maltas größter HR-Konferenz", strong: true },
+        { text: "einer großen HR-Konferenz in Malta", strong: true },
       ],
     ],
   },
   process: {
     title: "Was nach Ihrer Kontaktaufnahme passiert.",
     summary:
-      "Zuerst ein kostenloses 30-minütiges Gespräch. Danach sehe ich mir an, was bereits versucht wurde und wer beteiligt ist. Bevor bezahlte Arbeit beginnt, halte ich den Umfang schriftlich fest.",
+      "Zuerst ein kostenloses Gespräch, normalerweise 30 Minuten. Danach sehe ich mir an, was bereits versucht wurde und wer beteiligt ist. Bevor bezahlte Arbeit beginnt, halte ich den Umfang schriftlich fest.",
     linkLabel: "Die vier Schritte im Detail",
   },
   insights: {
-    title: "Verstehen Sie das Thema, bevor Sie die Hilfe wählen.",
+    title: "Verstehen Sie das Muster, bevor Sie eine Lösung festlegen.",
     intro:
       "Diese Texte zeigen, warum Führungsarbeit manchmal schwer zu erkennen, zuzuordnen oder voranzubringen ist.",
     languageNote: "Englischer Artikel",
   },
   closing: {
     title: "Beginnen Sie mit dem, was gerade passiert.",
-    body: "Die ersten 30 Minuten sind kostenlos. Bringen Sie das Thema mit, Ihre bisherigen Versuche und den Punkt, an dem es immer wieder zurückkommt. Mein Ziel ist, dass Sie mit einer klareren Frage gehen — auch wenn die Zusammenarbeit dort endet.",
+    body: "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Bringen Sie das Thema mit, Ihre bisherigen Versuche und den Punkt, an dem es immer wieder zurückkommt. Mein Ziel ist, dass Sie mit einer klareren Frage gehen — auch wenn die Zusammenarbeit dort endet.",
     bookingLabel: "Termin wählen",
     noteLabel: "Nachricht senden",
   },

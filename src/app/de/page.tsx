@@ -1,5 +1,6 @@
 import { HomePageView } from "@/components/home-page";
 import { createPageMetadata } from "@/config/metadata";
+import { getLanguageAlternates } from "@/config/routes";
 import { getHomeCopy } from "@/content/home";
 
 const copy = getHomeCopy("de");
@@ -9,7 +10,7 @@ export const metadata = createPageMetadata({
   description: copy.metadata.description,
   path: "/de",
   locale: "de_DE",
-  languages: { "en-GB": "/", "de-DE": "/de" },
+  languages: getLanguageAlternates("home"),
 });
 
 export default function GermanHomePage() {

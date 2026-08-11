@@ -4,10 +4,11 @@ import Link from "next/link";
 
 import { ButtonLink } from "@/components/button";
 import { HomeDiagnosticDisclosure } from "@/components/home-diagnostic-disclosure";
+import { getRouteHref } from "@/config/routes";
 import { getPrimaryContactAction } from "@/config/site";
 import { BLOG_POSTS } from "@/content/blog";
 import { getHomeCopy, type HomeLocale } from "@/content/home";
-import { WORKING_FORMATS } from "@/content/working-formats";
+import { getWorkingFormats } from "@/content/working-formats";
 
 import styles from "@/app/home.module.css";
 
@@ -15,7 +16,8 @@ const homeArticles = BLOG_POSTS.slice(0, 3);
 
 export function HomePageView({ locale }: { locale: HomeLocale }) {
   const copy = getHomeCopy(locale);
-  const primaryAction = getPrimaryContactAction();
+  const primaryAction = getPrimaryContactAction(locale);
+  const workingFormats = getWorkingFormats(locale);
   const primaryLabel = primaryAction.isBooking
     ? copy.hero.primaryBookingLabel
     : copy.hero.primaryFallbackLabel;
@@ -133,10 +135,11 @@ export function HomePageView({ locale }: { locale: HomeLocale }) {
               <p>{copy.services.intro}</p>
             </div>
             <div className={styles.offerList}>
-              {WORKING_FORMATS.map((offer) => {
+              {workingFormats.map((offer) => {
+                const copyKey = offer.href.replace(/^\/de/, "");
                 const responsibility =
-                  copy.services.responsibility[offer.href] ?? offer.responsibility;
-                const summary = copy.services.summary[offer.href] ?? offer.signal;
+                  copy.services.responsibility[copyKey] ?? offer.responsibility;
+                const summary = copy.services.summary[copyKey] ?? offer.signal;
 
                 return (
                   <Link className={styles.offer} href={offer.href} key={offer.href}>
@@ -148,7 +151,11 @@ export function HomePageView({ locale }: { locale: HomeLocale }) {
                 );
               })}
             </div>
-            <ButtonLink className={styles.compareLink} href="/services" variant="text">
+            <ButtonLink
+              className={styles.compareLink}
+              href={getRouteHref("services", locale)}
+              variant="text"
+            >
               {copy.services.linkLabel}
             </ButtonLink>
           </div>
@@ -174,10 +181,18 @@ export function HomePageView({ locale }: { locale: HomeLocale }) {
                   ))}
                 </ul>
                 <div className={styles.backgroundActions}>
-                  <ButtonLink href="/about" variant="secondary">
+                  <ButtonLink
+                    href="/about"
+                    hrefLang={locale === "de" ? "en" : undefined}
+                    variant="secondary"
+                  >
                     {copy.experience.aboutLabel}
                   </ButtonLink>
-                  <ButtonLink href="/results" variant="text">
+                  <ButtonLink
+                    href="/results"
+                    hrefLang={locale === "de" ? "en" : undefined}
+                    variant="text"
+                  >
                     {copy.experience.resultsLabel}
                   </ButtonLink>
                 </div>
@@ -203,7 +218,10 @@ export function HomePageView({ locale }: { locale: HomeLocale }) {
               <h2>{copy.process.title}</h2>
               <div>
                 <p>{copy.process.summary}</p>
-                <ButtonLink href="/services#process" variant="text">
+                <ButtonLink
+                  href={getRouteHref("services", locale, "#process")}
+                  variant="text"
+                >
                   {copy.process.linkLabel}
                 </ButtonLink>
               </div>
@@ -219,7 +237,11 @@ export function HomePageView({ locale }: { locale: HomeLocale }) {
             </div>
             <div className={styles.articleList}>
               {homeArticles.map((article) => (
-                <Link href={`/blog/${article.slug}`} key={article.slug}>
+                <Link
+                  href={`/blog/${article.slug}`}
+                  hrefLang={locale === "de" ? "en" : undefined}
+                  key={article.slug}
+                >
                   <span>
                     <span lang={locale === "de" ? "en" : undefined}>
                       {article.category}
@@ -254,7 +276,11 @@ export function HomePageView({ locale }: { locale: HomeLocale }) {
                 {primaryAction.isBooking ? (
                   <Link
                     className={styles.finalTextLink}
-                    href="/contact#contact-form"
+                    href={
+                      locale === "de"
+                        ? getRouteHref("contact", "de", "#direct-contact")
+                        : getRouteHref("contact", "en", "#contact-form")
+                    }
                   >
                     {copy.closing.noteLabel}
                     <ArrowRight aria-hidden="true" size={18} />

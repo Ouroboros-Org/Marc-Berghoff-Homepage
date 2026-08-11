@@ -83,9 +83,9 @@ components:
 
 The site should feel like a clear working document with a strong point of view: generous space, large direct headlines, ruled structures and a restrained blue/yellow identity. It is calm and human, not corporate-luxury or startup-glossy. Paper, pale-blue and deep-blue sections create pace; yellow is a precise marker, never a wash.
 
-The message architecture starts with the reader’s situation, moves to the level of responsibility needed, explains the same four-step process, and ends with a free 30-minute conversation. The outcome is consistent: make a leadership, organisation or people issue clear enough to act on and put the right ownership around it. [PRODUCT.md](./PRODUCT.md), [docs/copy-deck.md](./docs/copy-deck.md) and [docs/feedback-coverage.md](./docs/feedback-coverage.md) are the source documents for product truth, copy and resolved feedback.
+The message architecture starts with the reader’s situation, moves to the level of responsibility needed, explains the same four-step process, and ends with a free first conversation that typically takes 30 minutes. The outcome is consistent: make a leadership, organisation or people issue clear enough to act on and put the right ownership around it. [PRODUCT.md](./PRODUCT.md), [docs/copy-deck.md](./docs/copy-deck.md) and [docs/feedback-coverage.md](./docs/feedback-coverage.md) are the source documents for product truth, copy and resolved feedback.
 
-**The Responsibility Spectrum Rule.** Executive Coaching means the client carries the work, individually or as a group; Strategic People Advisory means the client keeps the decision; Fractional People Leadership means Marc carries a defined remit; the Bottleneck Assessment provides evidence when the cause is unclear; Peer Advisory gives leaders a room to work on the decisions each of them is facing. Marc’s public professional description is “Organisational Psychologist · Vistage Chair · Executive Coach”.
+**The Responsibility Spectrum Rule.** The Bottleneck Assessment is the entry product when the cause is disputed. Present the four follow-on formats in their fixed order: Executive Coaching (the client carries the work, individually or as a group), Strategic People Advisory (the client keeps the decision), Peer Advisory (peers carry the work with the client) and Fractional People Leadership (Marc carries a defined remit). Marc’s public professional description is “Organisational Psychologist · Vistage Chair · Executive Coach”.
 
 ## Colors
 
@@ -139,7 +139,7 @@ The 4.8rem sticky header uses the logo, grouped “How I help”, “Insights”
 
 ### Universal four-step process
 
-Always use the same sequence and meaning: **First conversation → Make the issue clearer → Agree my involvement → Move and review.** On desktop, four numbered circles sit on one horizontal rule; on mobile, they form a vertical timeline. The first conversation is free, detailed, 30 minutes and precedes paid work. Do not create service-specific process variants.
+Always use the same sequence and meaning: **First conversation → Make the issue clearer → Agree my involvement → Move and review.** The complete sequence belongs on `/services`; individual service detail pages use a compact summary that links back to it. On desktop, four numbered circles sit on one horizontal rule; on mobile, they form a vertical timeline. The first conversation is free, detailed, typically 30 minutes and precedes paid work. Do not create service-specific process variants.
 
 ### Forms and calendar
 
@@ -169,5 +169,5 @@ Target WCAG 2.2 AA: semantic headings, labelled controls, keyboard-complete menu
 - **Don't** use hype, generic consulting language, invented claims or unconfirmed company-size, growth, ARR or outcome figures.
 - **Don't** use AI-writing tells: puffed significance, formulaic negative parallelism, decorative triads, excessive em dashes or conclusions that explain what the preceding copy already showed.
 - **Don't** make founders, managers or employees the villain; describe behavior and operating consequences.
-- **Don't** make assessment mandatory, invent Peer Advisory details or let one service name swallow the broader practice.
+- **Don't** invent Peer Advisory details or let the entry assessment swallow the broader practice. Keep the unfinished sample report out of navigation and the sitemap and marked `noindex, nofollow` until it is ready.
 - **Don't** replace editorial rules with grids of interchangeable cards, decorative gradients or heavy shadows.

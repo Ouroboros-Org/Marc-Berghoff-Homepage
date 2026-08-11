@@ -39,7 +39,7 @@ export const DIAGNOSTIC_COPY: Record<DiagnosticLocale, DiagnosticCopy> = {
     eyebrow: "Ten-statement check",
     title: "See whether the pattern is structural.",
     intro:
-      "Ten statements. Mark each one true or not true for you. Nothing is stored and you get a mini-result without us asking you for your mail ;)",
+      "Ten statements. Mark each one true or not true for you. Nothing is stored. You see the result without giving an email address.",
     statements: {
       "shared-priorities":
         "Ask your leadership team for the top three priorities and you would get the exact same three.",
@@ -75,9 +75,9 @@ export const DIAGNOSTIC_COPY: Record<DiagnosticLocale, DiagnosticCopy> = {
       high: "High",
     },
     resultBodies: {
-      low: "Not much here points at a structural constraint. Whatever is slowing you down is probably somewhere else — market, product, cash, or a single situation rather than a pattern. That's worth knowing: it means you can stop looking here.",
-      moderate: "There's a pattern here, but it isn't everywhere yet. Usually this means one or two hand-offs are doing the damage — decisions, information, or work moving between people. Findable, and usually cheaper to fix now than in a year.",
-      high: "This is a recognisable pattern. When this many hold at once, the constraint is almost never the people — it's where work, decisions and information hand over between them. It also means you are unlikely to find it from the inside, because you are inside it.",
+      low: "Little here suggests a structural constraint. The issue may sit in the market, product, cash or one isolated decision. That narrows the search.",
+      moderate: "A pattern is forming, but it does not appear across the whole company. One or two hand-offs may be enough to explain it. Look at where decisions, information or work move between people.",
+      high: "Several structural signals are present. The next question is where decisions, information or work change hands. This check cannot diagnose that by itself; it tells you where a closer look may be useful.",
     },
     score: (score, maximum) => `${score} of ${maximum}`,
     booking: "Book a free 30-minute conversation",
@@ -98,7 +98,7 @@ export const DIAGNOSTIC_COPY: Record<DiagnosticLocale, DiagnosticCopy> = {
     eyebrow: "Check mit zehn Aussagen",
     title: "Prüfen Sie, ob das Muster strukturell ist.",
     intro:
-      "Zehn Aussagen. Markieren Sie, was auf Sie zutrifft und was nicht. Es wird nichts gespeichert. Ihr kurzes Ergebnis sehen Sie, ohne dass wir nach Ihrer E-Mail-Adresse fragen ;)",
+      "Zehn Aussagen. Markieren Sie, was auf Sie zutrifft und was nicht. Es wird nichts gespeichert. Ihr Ergebnis sehen Sie ohne E-Mail-Adresse.",
     statements: {
       "shared-priorities":
         "Wenn Sie Ihr Führungsteam nach den drei wichtigsten Prioritäten fragen, erhalten Sie von allen genau dieselben drei.",
@@ -134,9 +134,9 @@ export const DIAGNOSTIC_COPY: Record<DiagnosticLocale, DiagnosticCopy> = {
       high: "Hoch",
     },
     resultBodies: {
-      low: "Hier deutet wenig auf ein strukturelles Hindernis hin. Was Sie bremst, liegt wahrscheinlich woanders — beim Markt, Produkt, Kapital oder in einer einzelnen Situation statt in einem Muster. Das zu wissen hilft: Sie können aufhören, an dieser Stelle zu suchen.",
-      moderate: "Hier ist ein Muster erkennbar, aber noch nicht überall. Meist richten ein oder zwei Übergaben den Schaden an — wenn Entscheidungen, Informationen oder Arbeit zwischen Menschen wechseln. Das lässt sich finden und ist heute meist günstiger zu beheben als in einem Jahr.",
-      high: "Das ist ein erkennbares Muster. Wenn so vieles gleichzeitig zutrifft, liegt das Hindernis fast nie bei den Menschen. Es liegt dort, wo Arbeit, Entscheidungen und Informationen zwischen ihnen weitergegeben werden. Von innen lässt es sich wahrscheinlich nicht finden, weil Sie selbst Teil des Systems sind.",
+      low: "Hier deutet wenig auf eine strukturelle Einschränkung hin. Das Thema liegt möglicherweise im Markt, Produkt, Kapital oder in einer einzelnen Entscheidung. Damit wird die Suche enger.",
+      moderate: "Ein Muster entsteht, aber noch nicht im ganzen Unternehmen. Ein oder zwei Übergaben können es bereits erklären. Sehen Sie sich an, wo Entscheidungen, Informationen oder Arbeit zwischen Personen wechseln.",
+      high: "Mehrere strukturelle Anzeichen sind vorhanden. Die nächste Frage lautet, wo Entscheidungen, Informationen oder Arbeit den Besitzer wechseln. Dieser Check stellt keine Diagnose; er zeigt, wo ein genauerer Blick sinnvoll sein kann.",
     },
     score: (score, maximum) => `${score} von ${maximum}`,
     booking: "Kostenloses 30-Minuten-Gespräch buchen",

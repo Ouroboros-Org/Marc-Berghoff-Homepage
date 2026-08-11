@@ -1,25 +1,40 @@
-import { ENGAGEMENT_PROCESS } from "@/content/engagement-process";
+import type { SiteLocale } from "@/config/routes";
+import { getEngagementProcess } from "@/content/engagement-process";
 
 import styles from "./engagement-process.module.css";
 
 export function EngagementProcess({
-  title = "What happens after you get in touch.",
-  intro = "The question comes before the format. I use the same four steps whether the work becomes coaching, advisory, assessment or a defined remit.",
+  title,
+  intro,
   wide = false,
+  locale = "en",
 }: {
   title?: string;
   intro?: string;
   wide?: boolean;
+  locale?: SiteLocale;
 } = {}) {
+  const steps = getEngagementProcess(locale);
+  const resolvedTitle =
+    title ??
+    (locale === "de"
+      ? "Was nach Ihrer Kontaktaufnahme passiert."
+      : "What happens after you get in touch.");
+  const resolvedIntro =
+    intro ??
+    (locale === "de"
+      ? "Die Frage kommt vor dem Format. Diese vier Schritte gelten unabhängig davon, wie die Zusammenarbeit danach aussieht."
+      : "The question comes before the format. I use the same four steps whether the work becomes coaching, advisory, assessment or a defined remit.");
+
   return (
     <section className={styles.section} aria-labelledby="engagement-process-title">
       <div className={`${styles.container} ${wide ? styles.containerWide : ""}`}>
         <div className={styles.header}>
-          <h2 id="engagement-process-title">{title}</h2>
-          <p>{intro}</p>
+          <h2 id="engagement-process-title">{resolvedTitle}</h2>
+          <p>{resolvedIntro}</p>
         </div>
         <ol className={styles.steps}>
-          {ENGAGEMENT_PROCESS.map((step, index) => (
+          {steps.map((step, index) => (
             <li className={styles.step} key={step.title}>
               <span className={styles.number} aria-hidden="true">
                 {index + 1}

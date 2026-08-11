@@ -3,26 +3,30 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { getAlternateLocaleHref } from "@/config/routes";
+
 import styles from "./locale-switcher.module.css";
 
 export function LocaleSwitcher({ className = "" }: { className?: string }) {
   const pathname = usePathname();
 
-  if (pathname !== "/" && pathname !== "/de") return null;
+  const alternate = getAlternateLocaleHref(pathname);
 
-  const isGerman = pathname === "/de";
-  const href = isGerman ? "/" : "/de";
-  const label = isGerman ? "EN" : "DE";
-  const language = isGerman ? "en" : "de";
-  const fullLabel = isGerman ? "Switch to English" : "Zur deutschen Seite wechseln";
+  if (!alternate) return null;
+
+  const isGermanDestination = alternate.locale === "de";
+  const label = isGermanDestination ? "DE" : "EN";
+  const fullLabel = isGermanDestination
+    ? "Zur deutschen Version dieser Seite wechseln"
+    : "Switch to the English version of this page";
 
   return (
     <Link
       aria-label={fullLabel}
       className={`${styles.switcher} ${className}`}
-      href={href}
-      hrefLang={language}
-      lang={language}
+      href={alternate.href}
+      hrefLang={alternate.locale}
+      lang={alternate.locale}
     >
       {label}
     </Link>

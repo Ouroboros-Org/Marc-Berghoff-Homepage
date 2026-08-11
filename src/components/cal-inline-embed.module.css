@@ -13,6 +13,26 @@
   overflow: auto;
 }
 
+.fallback {
+  display: grid;
+  min-height: 24rem;
+  place-content: center;
+  justify-items: start;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: 0 18px 55px rgba(19, 45, 82, 0.08);
+}
+
+.fallback p {
+  max-width: 38ch;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 @media (max-width: 42rem) {
   .shell,
   .embed {

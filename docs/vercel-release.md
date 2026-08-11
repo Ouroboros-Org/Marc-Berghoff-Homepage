@@ -26,9 +26,9 @@ delivery:
   `marc@marcberghoff.com` when this is missing or invalid.
 - `NEXT_PUBLIC_CAL_LINK` — the Cal.com username and 30-minute event slug without the
   domain, for example `marc/first-conversation`. The contact page embeds this event
-  inline. Leave it unset while the event is being prepared; all booking actions then
-  become “Send me a note” links and the empty calendar is omitted. Full URLs and
-  malformed paths are ignored safely.
+  inline. Leave it unset while the event is being prepared; booking actions still lead
+  to the booking section, where an email fallback is shown instead of an empty calendar.
+  Full URLs and malformed paths are ignored safely. Configure the real event before launch.
 - `NEXT_PUBLIC_CONTACT_PHONE` — optional public phone number in international
   format, for example `+49 123 456789`. Leave it unset to omit telephone links.
 - `GOOGLE_FORM_ACTION_URL`

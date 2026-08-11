@@ -12,21 +12,23 @@ Founders, senior leaders and leadership teams in growing businesses. They arrive
 
 ## Product Purpose
 
-The website helps a prospective client recognise a stuck leadership-level issue, understand how Marc Berghoff can help make it clear and move it, and begin with a free 30-minute conversation. Success is a visitor who understands the range from coaching to a defined leadership remit without having to diagnose the issue or choose a service first.
+The website helps a prospective client recognise a stuck leadership-level issue, begin with a free first conversation that typically takes 30 minutes, and understand the path from the Bottleneck Assessment entry product to the format that should carry the work next. Success is a visitor who can see the fixed sequence without having to diagnose the issue alone.
 
 ## Positioning
 
-Marc works between coaching, candid strategic advice and embedded people leadership. He helps founders and leadership teams see what is constraining the company before anyone starts fixing it. His public professional description is “Organisational Psychologist · Vistage Chair · Executive Coach”. The Bottleneck Assessment is used when the cause is not yet clear. It is one tool within the offer, not the identity of the practice.
+Marc works between coaching, candid strategic advice and embedded people leadership. He helps founders and leadership teams see what is constraining the company before anyone starts fixing it. His public professional description is “Organisational Psychologist · Vistage Chair · Executive Coach”. The Bottleneck Assessment is the public entry product when the cause is disputed. It directs the next step without becoming the identity of the practice.
 
 ## Operating Context
 
-Every engagement begins with a detailed, free 30-minute fit conversation. A universal four-step process then makes the issue clearer, agrees the right level of involvement, records the remit and begins the work with an agreed review rhythm. Marc may coach, advise, assess, take a defined remit or say that another specialist is a better fit. Visitors may contact Marc through a form, email or an embedded Cal.com booking flow. A telephone number appears only when a confirmed public number is configured.
+Every engagement begins with a detailed, free fit conversation that typically takes 30 minutes. The complete four-step process is shown on `/services`; individual service pages use a compact, linked summary. The process makes the issue clearer, agrees the right level of involvement, records the remit and begins the work with an agreed review rhythm. Marc may coach, advise, assess, take a defined remit or say that another specialist is a better fit. Visitors may contact Marc through a form, email or an embedded Cal.com booking flow. A telephone number appears only when a confirmed public number is configured.
 
 ## Capabilities and Constraints
 
-- English is served at `/`. A German homepage is served at `/de` and addresses the reader with formal “Sie”. Secondary pages remain English in this scoped pass.
-- Current working formats: Bottleneck Assessment, Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership.
-- Peer Advisory is the fifth service. Its dedicated page remains intentionally brief until its full content is supplied.
+- English is served at `/`. German counterparts exist for the homepage, services, all five service pages and contact under `/de`; German copy addresses the reader with formal “Sie”.
+- The fixed working-format order is: Bottleneck Assessment; Executive Coaching; Strategic People Advisory; Peer Advisory; Fractional People Leadership. The assessment is the entry product; the four follow-on formats differ by who carries the work.
+- Peer Advisory is a complete service page, covering the peer room, its formats, confidentiality, fit and availability.
+- The unfinished sample report remains available only by direct URL. It is excluded from navigation and the sitemap and carries `noindex, nofollow` metadata.
+- Executive Coaching can cover individual or group work, but this first deployment provides no legacy group-coaching route or redirect.
 - The ten-statement check appears in full near the top of the homepage. All statements require an explicit answer before a result is shown.
 - Contact details are collapsed by default. Links may intentionally open the detailed fields when their label promises a detailed enquiry.
 - Cal.com is embedded directly and must work on mobile. Final public environment values will be added after implementation.
@@ -45,13 +47,13 @@ Every engagement begins with a detailed, free 30-minute fit conversation. A univ
 - Existing portraits, approved service descriptions, selected company context, testimonials and sample report assets in `public/images` and `src/content`.
 - Evidence and publishing constraints are recorded in `docs/claim-ledger.md`.
 - The 350+ coaching-hours claim exists in the ledger, but the current rewrite should focus on Marc and the confirmed feedback rather than expanding public claims.
-- Peer Advisory page details are not yet available and must not be fabricated.
+- The sample report is illustrative and fictional; it is withheld from discovery routes until the preview is ready for wider publication.
 
 ## Product Principles
 
 1. Start with the reader's situation, not a service label.
-2. Present coaching, advisory and defined responsibility as different levels of involvement.
-3. Use assessment when the issue is not clear enough to choose a response; never make it a mandatory gateway.
+2. Make the Bottleneck Assessment the clear entry product when the cause is disputed, then present the four follow-on formats in their fixed order.
+3. Distinguish the follow-on formats by who carries the work: the client, the client as decision-maker, peers with the client, or Marc with a defined remit.
 4. Make the first conversation the clear, low-friction route into every engagement.
 5. Show what the client keeps: a clearer issue, an owned decision, stronger leadership practice or a handed-over remit.
 6. Say when Marc is not the right person and offer a useful introduction where possible.

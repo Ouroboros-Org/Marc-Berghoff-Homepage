@@ -76,19 +76,19 @@ describe("getContactEmail", () => {
 });
 
 describe("getPrimaryContactAction", () => {
-  it("routes to the embedded 30-minute booking when Cal is configured", () => {
-    expect(getPrimaryContactAction("marc/first-conversation")).toEqual({
+  it("always routes the English primary action to booking", () => {
+    expect(getPrimaryContactAction("en")).toEqual({
       href: "/contact#booking",
       label: "Book a free 30-minute conversation",
       isBooking: true,
     });
   });
 
-  it("falls back to the contact form when Cal is not configured", () => {
-    expect(getPrimaryContactAction(" ")).toEqual({
-      href: "/contact#contact-form",
-      label: "Send me a note",
-      isBooking: false,
+  it("routes the German primary action to the German booking page", () => {
+    expect(getPrimaryContactAction("de")).toEqual({
+      href: "/de/contact#booking",
+      label: "Kostenloses 30-Minuten-Gespräch buchen",
+      isBooking: true,
     });
   });
 });

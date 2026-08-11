@@ -18,6 +18,7 @@ import {
 } from "react";
 
 import { Button, ButtonLink } from "@/components/button";
+import { getRouteHref } from "@/config/routes";
 import { getPrimaryContactAction } from "@/config/site";
 import type { ContactApiResponse } from "@/lib/contact-api";
 import {
@@ -72,7 +73,10 @@ export function BottleneckDiagnostic({
   const firstRadioRef = useRef<HTMLInputElement>(null);
   const answeredCount = Object.keys(answers).length;
   const allAnswered = answeredCount === DIAGNOSTIC_ITEMS.length;
-  const primaryContactAction = useMemo(() => getPrimaryContactAction(), []);
+  const primaryContactAction = useMemo(
+    () => getPrimaryContactAction(locale),
+    [locale],
+  );
   const primaryContactLabel = primaryContactAction.isBooking
     ? copy.booking
     : primaryContactAction.label;
@@ -283,7 +287,11 @@ export function BottleneckDiagnostic({
             {result.band === "low" ? (
               <ButtonLink
                 className={styles.resultAction}
-                href="/contact#contact-form"
+                href={
+                  locale === "de"
+                    ? getRouteHref("contact", "de", "#direct-contact")
+                    : getRouteHref("contact", "en", "#contact-form")
+                }
                 variant="secondary"
               >
                 {copy.lowReferral}

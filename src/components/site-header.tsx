@@ -7,7 +7,16 @@ import { useEffect, useRef, useState } from "react";
 
 import { Button, ButtonLink } from "@/components/button";
 import { LocaleSwitcher } from "@/components/locale-switcher";
-import { headerNavigation, siteConfig } from "@/config/site";
+import {
+  getLocaleFromPathname,
+  getRouteHref,
+  type SiteLocale,
+} from "@/config/routes";
+import {
+  getHeaderNavigation,
+  getPrimaryContactAction,
+  siteConfig,
+} from "@/config/site";
 
 import { SiteLogo } from "./site-logo";
 
@@ -18,12 +27,13 @@ export function isCurrentNavigationPage(pathname: string, href: string) {
 }
 
 export function getActiveHeaderGroupId(pathname: string) {
+  const navigation = getHeaderNavigation(getLocaleFromPathname(pathname));
   const containsPath = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    headerNavigation.find((group) => containsPath(group.href))?.id ??
-    headerNavigation.find((group) =>
+    navigation.find((group) => containsPath(group.href))?.id ??
+    navigation.find((group) =>
       group.items.some((item) => containsPath(item.href)),
     )?.id ??
     null
@@ -55,7 +65,7 @@ function LinkedInIcon({ size = 20 }: { size?: number }) {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({ locale = "en" }: { locale?: SiteLocale }) {
   const pathname = usePathname();
   const [mobileState, setMobileState] = useState<PathBoundState>(null);
   const [desktopMenuState, setDesktopMenuState] = useState<PathBoundState>(null);
@@ -69,7 +79,8 @@ export function SiteHeader() {
   const firstMobileControlRef = useRef<HTMLButtonElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const activeGroupId = getActiveHeaderGroupId(pathname);
-  const contactAction = siteConfig.contact.primaryAction;
+  const navigation = getHeaderNavigation(locale);
+  const contactAction = getPrimaryContactAction(locale);
 
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 54.001rem)");
@@ -182,10 +193,10 @@ export function SiteHeader() {
       }}
     >
       <div className="site-header__inner">
-        <SiteLogo />
+        <SiteLogo locale={locale} />
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {headerNavigation.map((group) => {
+          {navigation.map((group) => {
             const open = openDesktopMenu === group.id;
             const active = activeGroupId === group.id;
             return (
@@ -233,7 +244,11 @@ export function SiteHeader() {
         <LocaleSwitcher className="header-locale" />
 
         <ButtonLink
-          aria-label="Open Marc Berghoff's LinkedIn profile"
+          aria-label={
+            locale === "de"
+              ? "LinkedIn-Profil von Marc Berghoff öffnen"
+              : "Open Marc Berghoff's LinkedIn profile"
+          }
           className="header-social"
           external
           href={siteConfig.social.linkedin}
@@ -256,7 +271,15 @@ export function SiteHeader() {
         <Button
           aria-controls="mobile-navigation"
           aria-expanded={mobileOpen}
-          aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+          aria-label={
+            mobileOpen
+              ? locale === "de"
+                ? "Navigation schließen"
+                : "Close navigation"
+              : locale === "de"
+                ? "Navigation öffnen"
+                : "Open navigation"
+          }
           className="mobile-menu-button"
           onClick={() =>
             setMobileState((current) =>
@@ -271,7 +294,7 @@ export function SiteHeader() {
         </Button>
       </div>
 
-      {headerNavigation.map((group) =>
+      {navigation.map((group) =>
         openDesktopMenu === group.id ? (
           <div
             className="desktop-submenu"
@@ -296,6 +319,7 @@ export function SiteHeader() {
                     }
                     className="desktop-submenu__link"
                     href={item.href}
+                    hrefLang={item.language}
                     key={item.href}
                   >
                     <span>{item.label}</span>
@@ -315,8 +339,10 @@ export function SiteHeader() {
         id="mobile-navigation"
       >
         <nav className="mobile-nav__inner" aria-label="Mobile navigation">
-          <p className="mobile-nav__eyebrow">Choose where to start</p>
-          {headerNavigation.map((group, index) => {
+          <p className="mobile-nav__eyebrow">
+            {locale === "de" ? "Beginnen Sie mit der Situation" : "Start with what is happening"}
+          </p>
+          {navigation.map((group, index) => {
             const sectionOpen = openMobileSection === group.id;
             const active = activeGroupId === group.id;
             return (
@@ -361,6 +387,7 @@ export function SiteHeader() {
                         }
                         className="mobile-nav__link"
                         href={item.href}
+                        hrefLang={item.language}
                         key={item.href}
                         tabIndex={mobileOpen && sectionOpen ? 0 : -1}
                       >
@@ -386,16 +413,24 @@ export function SiteHeader() {
             </ButtonLink>
             {contactAction.isBooking ? (
               <ButtonLink
-                href="/contact#contact-form"
+                href={
+                  locale === "de"
+                    ? getRouteHref("contact", "de", "#direct-contact")
+                    : getRouteHref("contact", "en", "#contact-form")
+                }
                 size="wide"
                 tabIndex={mobileOpen ? 0 : -1}
                 variant="secondary"
               >
-                Send me a note
+                {locale === "de" ? "E-Mail schreiben" : "Send me a note"}
               </ButtonLink>
             ) : null}
             <ButtonLink
-              aria-label="Open Marc Berghoff's LinkedIn profile"
+              aria-label={
+                locale === "de"
+                  ? "LinkedIn-Profil von Marc Berghoff öffnen"
+                  : "Open Marc Berghoff's LinkedIn profile"
+              }
               className="mobile-nav__social"
               external
               href={siteConfig.social.linkedin}

@@ -1,6 +1,6 @@
 # Claim ledger
 
-Last reviewed: 29 July 2026
+Last reviewed: 11 August 2026
 
 This file records where substantive website claims came from and what may be
 published. It is an editorial control document, not a substitute for keeping
@@ -20,6 +20,7 @@ contracts, client approvals, certificates or underlying performance records.
 | --- | --- | --- |
 | D1 | `MArc B offer V2.pptx`, supplied by the site owner; especially slides 3, 5, 7–8 and 11–15 | Current offer, process, price, biography, portfolio and testimonial copy |
 | U1 | Owner instruction in the implementation brief, 29 July 2026 | Authorisation to use material that is public, on HX Solutions/LinkedIn, or in D1 |
+| U2 | Owner service-page brief and implementation follow-up, 11 August 2026 | Assessment-first sequence; fixed-fee wording without a number; money-back guarantee; two-to-three-week assessment timing; one-to-two-day fractional rhythm; Europe availability; approved fractional proof wording |
 | P1 | [Mdina Partners — Advisory](https://mdinapartners.com/cluster/advisory/) | HR Advisor & Coach; ICF ACC; Vistage peer-advisory facilitator; 50+ leaders; 35-to-150 scale-up result |
 | P2 | [Marc Berghoff — LinkedIn](https://mt.linkedin.com/in/marcberghoff/en) | Malta location; listed services; current experience; ACC credential dates; Vistage affiliation |
 | P3 | [MaltaCEOs — Marc Berghoff named Chair at Vistage Malta](https://maltaceos.mt/marc-berghoff-named-chair-at-vistage-malta/) | Vistage Malta Chair appointment; MSc Psychology; certified coach; HX Solutions founder; six-plus years of HR experience at publication |
@@ -53,10 +54,11 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 
 | Claim | Evidence | Status | Publishing rule |
 | --- | --- | --- | --- |
-| Bottleneck Assessment fee is fixed by project size | Current homepage brief supersedes D1 pricing copy | **Approved wording** | Publish only: “The fee is fixed based on the size of the project and agreed before we start.” Do not publish a number. |
-| Process: discovery; 1–2 weeks on-site/online assessment; report workshop about one week later | D1 slide 8; U1 | **Deck-authorised** | Present as a typical plan, not a guaranteed calendar. Scope depends on access, team size and scheduling. |
-| First conversation is free/no charge | D1 slide 15; U1 | **Deck-authorised** | Safe while Marc continues to offer it. Avoid promising a fixed duration unless confirmed. |
-| Strategic People Advisory, Fractional People Leadership and Executive Coaching are follow-on paths | D1 slide 7 | **Deck-authorised** | Do not imply that buyers must complete the assessment first; the deck explicitly says it is not mandatory. |
+| Bottleneck Assessment fee is fixed and agreed before work starts | U2, superseding earlier pricing copy | **Owner-authorised** | Publish without a number, range, package or project-size formula. |
+| Assessment guarantee: refund if the leadership team cannot identify one finding worth acting on | U2 | **Owner-authorised, contractual** | Keep the guarantee narrow. State that its terms are written into the scope before work begins; do not broaden it into an outcome or implementation guarantee. |
+| Assessment runs two to three weeks from kickoff to workshop | U2, refining D1 slide 8 | **Owner-authorised** | Present as typical timing, not a guaranteed calendar. Scope still depends on access, team size and scheduling. |
+| First conversation is free and typically 30 minutes | D1 slide 15; U2 | **Owner-authorised** | Use “typically” or “normally” in prose. The booking-button label may state “30-minute conversation.” |
+| The Bottleneck Assessment is the entry product; Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership are follow-on formats | U2, superseding D1 slide 7 positioning | **Owner-authorised** | Put the assessment first in every service list. Do not make the reader diagnose the format; recommend it after the first conversation. |
 | The diagnostic identifies decision, ownership and execution friction | D1 slides 5, 7–9 | **Deck-authorised** | Describe it as an organisational diagnostic. It is not a clinical or psychometric diagnosis. |
 | “A single stalled quarter costs much more” than the assessment | D1 slide 8 | **Do not use as written** | It is an unquantified financial comparison. Use the approved fixed-fee sentence without a comparative claim. |
 | “Tried and tested tools eliminate bias” | D1 slide 8 | **Do not use as written** | No method eliminates bias. Use “combines quantitative and qualitative evidence to reduce blind spots” if accurate. |
@@ -66,6 +68,8 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | Claim | Evidence | Status | Publishing rule |
 | --- | --- | --- | --- |
 | Klarsolar scaled from 35 to 150 people in six months with Marc’s support | P1; D1 slide 12 | **Publicly supported** | Keep “helped” or “supported”; do not attribute all hiring or growth solely to Marc. |
+| Head of HR at a solar scale-up later acquired by E.ON | U2 | **Owner-authorised** | Publish this concise employment/acquisition context without adding a causal growth claim. Retain the underlying employment and transaction evidence. |
+| Fractional People Leadership for a Malta fire-safety and security group | U2 | **Owner-authorised** | Keep the client anonymous and the wording factual. Do not imply an outcome not stated in the brief. |
 | Klarsolar achieved more than 100% revenue growth over two years during that period | D1 slide 12 | **Deck-authorised** | Keep the time period explicit and avoid causal wording. Retain company approval and financial substantiation. |
 | Giftagoods grew from €30k ARR to €350k ARR in one year during Marc’s strategic support | D1 slide 12 | **Deck-authorised** | Use “during the engagement,” not “Marc grew.” Retain company approval and underlying ARR evidence. |
 | Marc co-founded CyberKongz, a global nine-figure Web3 project in 2021 | D1 slide 12 | **Deck-authorised, high scrutiny** | This is the exact deck-authorised wording. Verify the entity, what “nine-figure” measures and permission to publish before launch; treat it as a time-bounded 2021 description, not a current valuation. |

@@ -1,6 +1,6 @@
 # Marc Berghoff — Design System Master
 
-**Updated:** 2026-08-04
+**Updated:** 2026-08-11
 **Product:** English-language personal advisory website  
 **Direction:** Editorial people leadership, calm authority, spacious, direct
 **Design dials:** variance 4/10 · motion 3/10 · density 3/10
@@ -84,7 +84,7 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 ### Universal engagement process
 
 - Show the four engagement steps as one connected sequence: a horizontal line with deep-blue numbered circles on wide screens, two columns at intermediate widths and a vertical line on small screens.
-- Keep the step titles and sequence identical across services and contact routes. Supporting copy may explain the selected format, but it must not imply a different process.
+- Show the full sequence on `/services`. Service detail pages use the same compact start-of-work summary and link to `/services#process`; supporting copy may explain the selected format, but it must not imply a different process.
 
 ### Progressive disclosures
 
@@ -102,13 +102,12 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 
 1. Name the responsibility or operating problem in plain language.
 2. Explain the amount of ownership available without turning the page into a biography or credentials pitch.
-3. Let the reader choose Fractional People Leadership, advisory, assessment or coaching by
-   asking who needs to carry the work.
-4. Use the same four-step engagement process across every format.
+3. Start with the Bottleneck Assessment when the cause is disputed. Then present Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership in that fixed order, asking who carries the work.
+4. Use the full four-step engagement process on `/services`; use the compact linked summary on service detail pages.
 5. Show the ten-statement diagnostic in full near the top of the homepage.
 6. Use only confirmed named work, approved credentials and attributed testimonials;
    never invent performance proof or expose unconfirmed company metrics.
-7. Close with the free 30-minute conversation; keep optional contact details collapsed
+7. Close with the free first conversation, typically 30 minutes; keep optional contact details collapsed
    unless the incoming CTA promises a detailed enquiry.
 
 ## Motion

@@ -9,28 +9,30 @@ This checklist reconciles the original feedback with the later implementation de
 - [x] Services page whitespace reduced through ruled rows, tighter sections and one decision guide instead of two.
 - [x] Insights page states what the articles are for and how a reader can use them.
 - [x] Home and About begin with the reader's problem, then explain the available response and next action.
-- [x] The home page shows every working format. Its follow-up link now promises added scope and fee information rather than repeating the same list.
-- [x] One universal four-step process appears across services, About and Contact.
-- [x] The first conversation is clearly described as free, detailed and required before paid work.
-- [x] Cal.com is embedded on the contact page with a mobile layout. Without a configured link, booking actions become “Send me a note” and the empty calendar is omitted.
+- [x] The home page shows every working format. Its follow-up link leads to the fixed sequence and full engagement process rather than repeating the same list without context.
+- [x] The full universal four-step process is shown on `/services`; service detail pages use the same compact summary and link to `/services#process`.
+- [x] The first conversation is clearly described as free, detailed, typically 30 minutes and required before paid work.
+- [x] German counterparts exist for services, each service detail page and contact, not only for the homepage.
+- [x] Cal.com is embedded on the contact page with a mobile layout. Booking actions always target the booking section; without a configured link, that section gives an honest email fallback.
 
 ## Diagnostic
 
 - [x] The home diagnostic is collapsed by default and opens when a CTA promises it.
 - [x] The extra preamble and repeated tool title are removed; the open tool begins with one short sentence.
 - [x] The site logo links back to `/` from the diagnostic and every other page.
-- [x] The paid assessment remains one service rather than the site's main identity.
+- [x] The paid assessment is the entry product when the cause is disputed without becoming the site's whole identity.
 
 ## Coaching
 
 - [x] Individual and shared coaching now sit together under Executive Coaching.
 - [x] The former coaching split is gone; all five services use the same ruled-row pattern.
-- [x] Peer Advisory is present as the fifth service, with an intentionally brief page until final content is supplied.
+- [x] Peer Advisory is the fourth follow-on format and has a complete page covering the room, formats, confidentiality, fit and availability.
 - [x] Executive Coaching defines the current state, desired change and signs of progress before sessions begin.
 - [x] Coaching is shown as one route among Fractional People Leadership, advisory, Peer Advisory and assessment.
 - [x] The harsh “cannot discuss inside the business” line is replaced with a calmer invitation.
 - [x] ICF ACC and 350+ coaching hours remain the only public coaching proof used here.
 - [x] The unapproved “€200m ARR” coaching-range claim is excluded under the later claims decision.
+- [x] Executive Coaching may be individual or group work. No group-coaching redirect is supplied in this first deployment because there is no legacy route to preserve.
 
 ## Contact
 
@@ -45,14 +47,15 @@ The original note asked for the detailed enquiry to be open immediately. The lat
 
 - [x] Public copy is reader-first and written from Marc's first-person perspective.
 - [x] “One blurred decision can keep pulling work back upstairs” is used as a reader-facing entry point.
-- [x] The Bottleneck Assessment is one tool among several.
+- [x] The Bottleneck Assessment is the entry product when the cause is disputed; the fixed follow-on order is Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership.
 - [x] Footer copy focuses on the reader's question rather than promoting Marc.
 - [x] Leadership principles cover hands-on to strategic work, evidence and KPIs, repeatable methods, OKRs/Scaling Up, coaching and mentoring.
 - [x] No unconfirmed client growth, company-size or ARR claims are published.
 - [x] Every core offer points towards one outcome: make the issue visible, decide where responsibility should sit and move the work.
-- [x] Coaching, advisory and Fractional People Leadership are distinguished by who carries the work after the conversation.
-- [x] The assessment is a supporting tool for unclear causes; it is not the public positioning.
+- [x] The four follow-on formats are distinguished by who carries the work: the client, the client as decision-maker, peers with the client, or Marc with a defined remit.
+- [x] The assessment establishes evidence before the follow-on format is chosen; it does not erase the broader practice.
 - [x] Insights use the same decision model and lead back to the appropriate level of involvement.
 - [x] Marc is positioned between coaching distance, candid advice and defined responsibility without forcing one title across the site.
 - [x] The About page includes the supplied mix of empathy, directness, operator experience and personal detail.
 - [x] The final editorial pass removed promotional filler, repeated negative parallelisms, decorative triads and over-explained conclusions.
+- [x] The unfinished sample report is excluded from global navigation and the sitemap and uses `noindex, nofollow` metadata until it is ready for discovery.

@@ -1,4 +1,5 @@
-import { WORKING_FORMATS } from "@/content/working-formats";
+import { getRouteHref, type SiteLocale } from "@/config/routes";
+import { getWorkingFormats } from "@/content/working-formats";
 
 const DEFAULT_SITE_URL = "https://marcberghoff.com";
 const DEFAULT_CONTACT_EMAIL = "marc@marcberghoff.com";
@@ -107,22 +108,15 @@ export type PrimaryContactAction = {
 };
 
 export function getPrimaryContactAction(
-  configuredCalLink = process.env.NEXT_PUBLIC_CAL_LINK,
+  locale: SiteLocale = "en",
 ): PrimaryContactAction {
-  const configured = getCalLink(configuredCalLink);
-
-  if (configured) {
-    return {
-      href: "/contact#booking",
-      label: "Book a free 30-minute conversation",
-      isBooking: true,
-    };
-  }
-
   return {
-    href: "/contact#contact-form",
-    label: "Send me a note",
-    isBooking: false,
+    href: getRouteHref("contact", locale, "#booking"),
+    label:
+      locale === "de"
+        ? "Kostenloses 30-Minuten-Gespräch buchen"
+        : "Book a free 30-minute conversation",
+    isBooking: true,
   };
 }
 
@@ -170,21 +164,36 @@ export type NavigationLink = {
   href: string;
   label: string;
   description: string;
+  language?: SiteLocale;
 };
 
-export const serviceNavigation = [
-  {
-    href: "/services",
-    label: "How I can help",
-    description:
-      "See the range from coaching distance to a defined people-leadership remit.",
-  },
-  ...WORKING_FORMATS.map((format) => ({
-    href: format.href,
-    label: format.title,
-    description: `${format.responsibility} ${format.signal}`,
-  })),
-] as const satisfies readonly NavigationLink[];
+export type HeaderNavigationGroup = {
+  id: "work" | "insights" | "about";
+  label: string;
+  href: string;
+  description: string;
+  items: readonly NavigationLink[];
+};
+
+export function getServiceNavigation(locale: SiteLocale) {
+  return [
+    {
+      href: getRouteHref("services", locale),
+      label: locale === "de" ? "Wie ich arbeite" : "How I can help",
+      description:
+        locale === "de"
+          ? "Wie die Situation bestimmt, wer die Arbeit nach der Klärung trägt."
+          : "See how the situation determines who carries the work afterwards.",
+    },
+    ...getWorkingFormats(locale).map((format) => ({
+      href: format.href,
+      label: format.title,
+      description: `${format.responsibility} ${format.signal}`,
+    })),
+  ] satisfies readonly NavigationLink[];
+}
+
+export const serviceNavigation = getServiceNavigation("en");
 
 export const insightNavigation = [
   {
@@ -213,9 +222,9 @@ export const insightNavigation = [
   },
   {
     href: "/blog/executive-coaching-advisory-or-assessment",
-    label: "Choose the right level of help",
+    label: "When the format should change",
     description:
-      "Use ownership and uncertainty to choose a proportionate response.",
+      "See how ownership and uncertainty point to a proportionate response.",
   },
 ] as const satisfies readonly NavigationLink[];
 
@@ -238,29 +247,86 @@ export const aboutNavigation = [
   },
 ] as const satisfies readonly NavigationLink[];
 
-export const headerNavigation = [
-  {
-    id: "work",
-    label: "How I help",
-    href: "/services",
-    description: "Choose how involved I should be after we understand the issue.",
-    items: serviceNavigation,
-  },
-  {
-    id: "insights",
-    label: "Insights",
-    href: "/blog",
-    description: "Read practical notes on leadership issues that are hard to see or move.",
-    items: insightNavigation,
-  },
-  {
-    id: "about",
-    label: "About",
-    href: "/about",
-    description: "Read how I work, see relevant experience or get in touch.",
-    items: aboutNavigation,
-  },
-] as const;
+export function getHeaderNavigation(
+  locale: SiteLocale,
+): readonly HeaderNavigationGroup[] {
+  if (locale === "de") {
+    return [
+      {
+        id: "work",
+        label: "Zusammenarbeit",
+        href: getRouteHref("services", "de"),
+        description:
+          "Die Situation entscheidet, wie stark ich mich einbringen sollte.",
+        items: getServiceNavigation("de"),
+      },
+      {
+        id: "insights",
+        label: "Einblicke",
+        href: "/blog",
+        description:
+          "Englische Texte zu Führungsfragen, die sich schwer erkennen oder bewegen lassen.",
+        items: insightNavigation.map((item) => ({
+          ...item,
+          label: `${item.label} (English)`,
+          language: "en" as const,
+        })),
+      },
+      {
+        id: "about",
+        label: "Über Marc",
+        href: "/about",
+        description:
+          "Hintergrund und Ergebnisse sind derzeit auf Englisch verfügbar. Die Buchung ist auf Deutsch möglich.",
+        items: [
+          {
+            href: "/about",
+            label: "Über mich (English)",
+            description: "Wie ich zwischen Coaching, Beratung und Verantwortung arbeite.",
+            language: "en" as const,
+          },
+          {
+            href: "/results",
+            label: "Ergebnisse & Erfahrung (English)",
+            description: "Kontexte und Verantwortung aus bisherigen Mandaten.",
+            language: "en" as const,
+          },
+          {
+            href: getRouteHref("contact", "de"),
+            label: "Kontakt & Buchung",
+            description: "Ein kostenloses Erstgespräch buchen oder direkt schreiben.",
+          },
+        ],
+      },
+    ] as const;
+  }
+
+  return [
+    {
+      id: "work",
+      label: "How I help",
+      href: getRouteHref("services", "en"),
+      description: "See how the situation determines my level of involvement.",
+      items: getServiceNavigation("en"),
+    },
+    {
+      id: "insights",
+      label: "Insights",
+      href: "/blog",
+      description: "Read practical notes on leadership issues that are hard to see or move.",
+      items: insightNavigation,
+    },
+    {
+      id: "about",
+      label: "About",
+      href: "/about",
+      description: "Read how I work, see relevant experience or get in touch.",
+      items: aboutNavigation,
+    },
+  ] as const;
+}
+
+export const headerNavigation = getHeaderNavigation("en");
 
 export const primaryNavigation = headerNavigation.map(({ href, label }) => ({
   href,

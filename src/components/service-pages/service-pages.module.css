@@ -1,0 +1,113 @@
+.formatList {
+  border-top: 1px solid var(--page-line);
+}
+
+.formatItem {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.45fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(1.6rem, 4vw, 2.75rem) 0;
+  border-bottom: 1px solid var(--page-line);
+}
+
+.formatItem h3 {
+  margin: 0;
+  font-family: var(--page-font-display);
+  font-size: clamp(1.45rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.formatItem p {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--page-muted);
+  line-height: 1.72;
+}
+
+.credentialProof {
+  display: grid;
+  grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.badgeWrap {
+  position: relative;
+  width: min(100%, 16rem);
+  aspect-ratio: 1;
+}
+
+.badge {
+  object-fit: contain;
+}
+
+.credentialList {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid color-mix(in srgb, var(--page-white) 22%, transparent);
+  list-style: none;
+}
+
+.credentialList li {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--page-white) 22%, transparent);
+  color: color-mix(in srgb, var(--page-white) 84%, transparent);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.proofList {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--page-line);
+  list-style: none;
+}
+
+.proofList li {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--page-line);
+  line-height: 1.7;
+}
+
+.proofList li::before {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-top: 0.48rem;
+  border-radius: 50%;
+  background: var(--page-yellow);
+  content: "";
+}
+
+.availability {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--page-line);
+}
+
+.availability p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--page-muted);
+  line-height: 1.7;
+}
+
+.availability p + p {
+  margin-top: 0.9rem;
+}
+
+@media (max-width: 42rem) {
+  .formatItem,
+  .credentialProof {
+    grid-template-columns: 1fr;
+  }
+
+  .badgeWrap {
+    width: 11rem;
+  }
+}

@@ -1,27 +1,38 @@
 import type { MetadataRoute } from "next";
 
-import { LEGAL_DETAILS } from "@/app/privacy/legal-details";
+import { LEGAL_DETAILS } from "@/app/(en)/privacy/legal-details";
+import {
+  getLanguageAlternates,
+  getRouteHref,
+  type LocalizedRouteId,
+  type SiteLocale,
+} from "@/config/routes";
 import { getSiteUrl } from "@/config/site";
 import { BLOG_POSTS } from "@/content/blog";
 
-const routes = [
-  { path: "", changeFrequency: "monthly", priority: 1 },
-  { path: "/de", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/bottleneck-assessment", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/services", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/advisory", changeFrequency: "monthly", priority: 0.8 },
+const localizedRoutes = [
+  { id: "home", changeFrequency: "monthly", priority: 1 },
+  { id: "services", changeFrequency: "monthly", priority: 0.9 },
+  { id: "bottleneckAssessment", changeFrequency: "monthly", priority: 0.9 },
+  { id: "executiveCoaching", changeFrequency: "monthly", priority: 0.8 },
+  { id: "advisory", changeFrequency: "monthly", priority: 0.8 },
+  { id: "peerAdvisory", changeFrequency: "monthly", priority: 0.8 },
   {
-    path: "/fractional-people-leadership",
+    id: "fractionalPeopleLeadership",
     changeFrequency: "monthly",
     priority: 0.8,
   },
-  { path: "/executive-coaching", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/peer-advisory", changeFrequency: "monthly", priority: 0.8 },
+  { id: "contact", changeFrequency: "yearly", priority: 0.6 },
+] as const satisfies readonly {
+  id: LocalizedRouteId;
+  changeFrequency: "monthly" | "yearly";
+  priority: number;
+}[];
+
+const englishRoutes = [
   { path: "/results", changeFrequency: "monthly", priority: 0.7 },
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/contact", changeFrequency: "yearly", priority: 0.6 },
-  { path: "/sample-report", changeFrequency: "yearly", priority: 0.5 },
 ] as const;
 
 const legalRoutes = LEGAL_DETAILS.isComplete
@@ -33,13 +44,31 @@ const legalRoutes = LEGAL_DETAILS.isComplete
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
+  const locales: readonly SiteLocale[] = ["en", "de"];
 
   return [
-    ...[...routes, ...legalRoutes].map(({ path, changeFrequency, priority }) => ({
-      url: `${siteUrl}${path}`,
-      changeFrequency,
-      priority,
-    })),
+    ...localizedRoutes.flatMap(({ id, changeFrequency, priority }) => {
+      const alternates = Object.fromEntries(
+        Object.entries(getLanguageAlternates(id)).map(([language, path]) => [
+          language,
+          `${siteUrl}${path}`,
+        ]),
+      );
+
+      return locales.map((locale) => ({
+        url: `${siteUrl}${getRouteHref(id, locale)}`,
+        changeFrequency,
+        priority,
+        alternates: { languages: alternates },
+      }));
+    }),
+    ...[...englishRoutes, ...legalRoutes].map(
+      ({ path, changeFrequency, priority }) => ({
+        url: `${siteUrl}${path}`,
+        changeFrequency,
+        priority,
+      }),
+    ),
     ...BLOG_POSTS.map((post) => ({
       url: `${siteUrl}/blog/${post.slug}`,
       lastModified: new Date(`${post.updatedAt}T00:00:00Z`),

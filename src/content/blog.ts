@@ -174,8 +174,8 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     slug: "executive-coaching-advisory-or-assessment",
     title: "Coaching, advice, assessment or defined responsibility?",
     description:
-      "Choose a starting point by asking who should carry the work and whether the cause is clear enough to act on.",
-    category: "Choosing support",
+      "A starting point depends on who should carry the work and whether the cause is clear enough to act on.",
+    category: "Working formats",
     publishedAt: "2026-07-29",
     updatedAt: "2026-08-04",
     intro:
@@ -191,7 +191,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       {
         heading: "Coaching keeps the work with the leader",
         paragraphs: [
-          "Choose executive coaching when the central question concerns a leader's behaviour, judgement or experience of the role. They may bring a conflict, a difficult decision or a response they want to change. The sessions examine their part in the situation and what they will try next.",
+          "Executive Coaching fits when the central question concerns a leader's behaviour, judgement or experience of the role. They may bring a conflict, a difficult decision or a response they want to change. The sessions examine their part in the situation and what they will try next.",
           "Coaching should not quietly become an investigation of colleagues who never agreed to take part. If the leader needs facts about the wider system, pause and define a separate piece of work with the organisation.",
         ],
       },
@@ -225,7 +225,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       },
     ],
     nextStep: {
-      label: "Choose the level of involvement",
+      label: "See how the formats differ",
       href: "/services",
     },
   },

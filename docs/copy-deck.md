@@ -16,13 +16,15 @@ I help founders and leadership teams see what is really happening and get the ri
 
 I stay independent enough to be candid and close enough to help. If I am not the right person, I say so. Where I can make a useful introduction, I will.
 
-### Responsibility model
+### Working-format sequence
 
-- **Coaching — you carry the work.** I help you define the change, challenge your thinking and review what happens next.
-- **Advisory — you keep the decision.** I bring an outside view to the reasoning, trade-offs and next action.
-- **Fractional People Leadership — I carry a defined remit.** I work inside the operating rhythm, build what is needed and hand responsibility to named people.
-- **Assessment — the cause is not clear enough yet.** I compare what people report with relevant operating evidence before the leadership team chooses a response.
-- **Peer Advisory — leaders work on their own decisions together.** A room of leaders who do not report to each other work on the decisions each of them is facing.
+The Bottleneck Assessment is the entry product when the cause is disputed. The four formats that follow are always presented in this order and differ by who carries the work.
+
+1. **Bottleneck Assessment — establish evidence first.** I compare what people report with relevant operating evidence before the leadership team chooses a response.
+2. **Executive Coaching — you carry the work.** I help you define the change, challenge your thinking and review what happens next.
+3. **Strategic People Advisory — you keep the decision.** I bring an outside view to the reasoning, trade-offs and next action.
+4. **Peer Advisory — peers carry the work with you.** Leaders who do not report to each other work on the decisions each of them is facing; I chair the room.
+5. **Fractional People Leadership — I carry a defined remit.** I work inside the operating rhythm, build what is needed and hand responsibility to named people.
 
 ## Voice rules
 
@@ -59,7 +61,7 @@ I stay independent enough to be candid and close enough to help. If I am not the
 
 ### 1. First conversation
 
-You explain what is happening and why it matters now. I ask enough to understand the question and whether I can help. The conversation is free and lasts 30 minutes. I do not begin paid work before it.
+You explain what is happening and why it matters now. I ask enough to understand the question and whether I can help. The conversation is free and typically takes 30 minutes. I do not begin paid work before it.
 
 ### 2. Make the issue clearer
 
@@ -117,11 +119,11 @@ Trust note: **If I am not the right person, I will say so. Where I can make a us
 
 ### Ways to work
 
-H2: **Choose the level of involvement the issue needs.**
+H2: **The situation decides who should carry the work.**
 
-Intro: Start with the issue. We can choose the format after we understand it.
+Intro: Start with the issue. Marc recommends the format after he understands it.
 
-Formats: Bottleneck Assessment, Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership.
+Format order: **1. Bottleneck Assessment, 2. Executive Coaching, 3. Strategic People Advisory, 4. Peer Advisory, 5. Fractional People Leadership.** The assessment is the entry product; the remaining four formats differ by who carries the work.
 
 Link: **See how I work**
 
@@ -141,7 +143,7 @@ Body: I have led people work inside a scale-up, co-founded a business, coached l
 
 ### Insights
 
-H2: **Read the issue before you choose the help.**
+H2: **Read the pattern before you name the help.**
 
 Body: These notes look at what makes leadership work difficult to see, own or move.
 
@@ -153,23 +155,27 @@ Body: The first 30 minutes are free. Bring the issue, what you have tried and wh
 
 ## Services overview
 
-H1: **The issue decides how involved I should be.**
+H1: **The situation decides how involved I should be.**
 
 Lead: Sometimes you need room to think. Sometimes you need a candid second view. Sometimes the work needs an owner. I use the first conversation to understand the issue before I recommend a format.
 
-Section heading: **Start with the issue.**
+Section heading: **Five ways the work can continue.**
 
-Section intro: We can choose the format after we understand it. The five routes differ in the evidence, responsibility and company context they need.
+Section intro: The Bottleneck Assessment is the entry product when the cause is disputed. The four formats that follow differ in one practical way: who carries the work afterwards. Keep the fixed order: Bottleneck Assessment, Executive Coaching, Strategic People Advisory, Peer Advisory, Fractional People Leadership.
+
+Process placement: Show the full four-step process on `/services`. On each service detail page, show only the compact start-of-work summary and link back to `/services#process`.
 
 ## Fractional People Leadership
 
-H1: **When the work needs an owner before the permanent answer is clear.**
+H1: **A capable people team can still lack senior direction.**
 
-Lead: I join the operating rhythm for an agreed share of the week or month and carry a defined people, organisation or leadership remit.
+Lead: You may not need a full-time Chief People Officer. You may still need someone to set direction, hold agreed decisions and lead the work above an operationally sound team.
 
-Introduction: **I step in when advice would leave the work unowned.**
+Introduction: **Use this when the team can operate but the remit above it is empty.**
 
-Boundary: We agree the decisions I own, the support I need and how responsibility will return to named people inside the business.
+Shape: **Defined scope. Agreed decision rights. An end point from the start.** The usual rhythm is one or two days a week; the duration follows the written remit.
+
+Boundary: If a capable people lead is already in place and decisions stall above them, a second senior owner is usually the wrong fix.
 
 ## Strategic people advisory
 
@@ -183,7 +189,15 @@ Boundary: If the work needs someone to coordinate execution or hold decision rig
 
 ## Executive Coaching
 
-H1: **Make the change you want to see specific.**
+H1: **The decisions that keep coming back to you.**
+
+Lead: The role and company have changed, but the leader's way of working has not caught up yet.
+
+Formats: **Individually** for one leader's own shift. **As a group** for leaders from the same organisation working on the same shift together.
+
+Shape: Minimum six sessions over at least three months.
+
+Credentials: ICF Associate Certified Coach; more than 350 coaching hours; Co-Active trained; organisational psychologist. The ICF Member badge is supporting evidence, not the ACC credential itself.
 
 Lead: We define where you are now, what you want to handle differently and how you will recognise progress. Sessions use situations from your current role.
 
@@ -195,11 +209,23 @@ Close: **Bring a situation that needs room to think.**
 
 ## Peer Advisory
 
-H1: **Peer Advisory**
+H1: **Sometimes you need to get out of the business to work on it.**
 
-Lead: A room of leaders who don’t report to each other, working on the decisions each of them is facing.
+Lead: The most useful advice a founder gets does not always come from an adviser. Sometimes it comes from someone six months ahead, facing the same problem.
 
-Action: **Send me a note**
+Why it works: A peer has paid for being wrong in a similar situation. I get the room to the real question, stop people performing and make sure each person leaves with a decision they have made.
+
+Formats: **A group of business owners** — a Vistage peer advisory group of owners and CEOs of non-competing companies in Malta. **In-house, for larger organisations** — leaders without mutual reporting lines solve one another's live problems; reporting boundaries and confidentiality are agreed before the first session.
+
+What happens in the room: **State the decision. Question before advising. Decide and commit.** Each person brings a live decision, not a presentation.
+
+Confidentiality: **Nothing said in the room leaves it.** Nobody is there to sell to anyone. The boundary between an in-house group and its sponsoring organisation is written down before the first session.
+
+Fit and availability: For leaders for whom isolation has become part of the problem. In-person sessions can be arranged across Europe; location, cadence and room are agreed with the group.
+
+Compact process summary: A free first conversation, typically 30 minutes; written scope before paid work; then the work with a defined end point. Link: **See the full process**
+
+Action: **Book a free 30-minute conversation**
 
 ## Bottleneck Assessment
 
@@ -216,6 +242,8 @@ Diagnostic disclosure: **Run the ten-statement check** / **Use the last few week
 H1: **See how an unclear issue becomes a usable finding.**
 
 Lead: The report shows the main finding, the evidence behind it and the decisions that need attention. The preview uses a fictional company; no client material is shown.
+
+Publishing status: The page is unfinished and available only by direct URL. Keep it out of global navigation and the sitemap, with `noindex, nofollow` metadata until the preview is approved for discovery.
 
 ## About
 
@@ -248,9 +276,9 @@ Lead: These examples show where I have worked as a people leader, founder, advis
 
 ## Insights
 
-H1: **See the issue more clearly before you choose outside help.**
+H1: **See the issue more clearly before you act on it.**
 
-Lead: These notes examine why work returns to senior leaders, why role boundaries fail and how to choose the right level of support.
+Lead: These notes examine why work returns to senior leaders, why role boundaries fail and what level of support the situation calls for.
 
 Article list heading: **Start with the pattern closest to yours.**
 
@@ -271,6 +299,10 @@ Form intro: Your name, email and a few lines are enough.
 Optional details: **Add context about the business**
 
 Direct details: **Would you rather call or send an email?**
+
+Locale coverage: German service and contact counterparts exist under `/de`, including `/de/services`, each of the five service routes and `/de/contact`. The German first-conversation copy uses “normally 30 minutes”.
+
+Deployment note: Executive Coaching may be individual or group work, but this first deployment has no legacy group-coaching URL or redirect.
 
 ## Footer and global copy
 

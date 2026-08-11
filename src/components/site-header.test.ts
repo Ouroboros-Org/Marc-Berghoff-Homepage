@@ -14,6 +14,8 @@ describe("header navigation state", () => {
   it.each([
     ["/advisory", "work"],
     ["/peer-advisory", "work"],
+    ["/de/advisory", "work"],
+    ["/de/peer-advisory", "work"],
     ["/results", "about"],
     ["/blog/founder-bottleneck-or-operating-model", "insights"],
     ["/contact", "about"],
@@ -30,6 +32,13 @@ describe("header navigation state", () => {
 
   it("marks the assessment destination in the work group", () => {
     const pathname = "/bottleneck-assessment";
+
+    expect(isCurrentHeaderItem(pathname, "work", pathname)).toBe(true);
+    expect(isCurrentHeaderItem(pathname, "about", pathname)).toBe(false);
+  });
+
+  it("marks the German assessment destination in the work group", () => {
+    const pathname = "/de/bottleneck-assessment";
 
     expect(isCurrentHeaderItem(pathname, "work", pathname)).toBe(true);
     expect(isCurrentHeaderItem(pathname, "about", pathname)).toBe(false);

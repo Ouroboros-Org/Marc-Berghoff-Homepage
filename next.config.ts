@@ -12,6 +12,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  experimental: {
+    globalNotFound: true,
+  },
   poweredByHeader: false,
   compress: true,
   allowedDevOrigins: ["127.0.0.1"],

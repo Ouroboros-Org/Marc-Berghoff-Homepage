@@ -1,10 +1,19 @@
+import {
+  getRouteHref,
+  type LocalizedRouteId,
+  type SiteLocale,
+} from "@/config/routes";
+
+export type WorkingFormatId =
+  | "bottleneck-assessment"
+  | "executive-coaching"
+  | "advisory"
+  | "peer-advisory"
+  | "fractional-people-leadership";
+
 export type WorkingFormat = {
-  id:
-    | "bottleneck-assessment"
-    | "executive-coaching"
-    | "advisory"
-    | "peer-advisory"
-    | "fractional-people-leadership";
+  id: WorkingFormatId;
+  routeId: Exclude<LocalizedRouteId, "home" | "services" | "contact">;
   title: string;
   responsibility: string;
   signal: string;
@@ -14,61 +23,105 @@ export type WorkingFormat = {
   kind: "core";
 };
 
-export const WORKING_FORMATS = [
-  {
-    id: "bottleneck-assessment",
-    title: "Bottleneck Assessment",
-    responsibility: "The cause isn't clear enough yet.",
-    signal: "We get evidence first.",
-    summary: "The cause isn't clear enough yet. We get evidence first.",
-    href: "/bottleneck-assessment",
-    meta: "Focused diagnostic",
-    kind: "core",
-  },
-  {
-    id: "executive-coaching",
-    title: "Executive Coaching",
-    responsibility: "You carry the work.",
-    signal: "Individually or as a group.",
-    summary: "You carry the work. Individually or as a group.",
-    href: "/executive-coaching",
-    meta: "Individual or group",
-    kind: "core",
-  },
-  {
-    id: "advisory",
-    title: "Strategic People Advisory",
-    responsibility: "You keep the decision.",
-    signal: "The question is visible, but difficult.",
-    summary: "You keep the decision. The question is visible, but difficult.",
-    href: "/advisory",
-    meta: "Ongoing or time-bound",
-    kind: "core",
-  },
-  {
-    id: "peer-advisory",
-    title: "Peer Advisory",
-    responsibility: "A room of leaders who don't report to each other,",
-    signal: "working on the decisions each of them is facing.",
-    summary:
-      "A room of leaders who don't report to each other, working on the decisions each of them is facing.",
-    href: "/peer-advisory",
-    meta: "Confidential peer room",
-    kind: "core",
-  },
-  {
-    id: "fractional-people-leadership",
-    title: "Fractional People Leadership",
-    responsibility: "I carry a defined remit.",
-    signal: "The work needs a senior owner now.",
-    summary: "I carry a defined remit. The work needs a senior owner now.",
-    href: "/fractional-people-leadership",
-    meta: "Defined part-time remit",
-    kind: "core",
-  },
-] as const satisfies readonly WorkingFormat[];
+const FORMAT_COPY = {
+  en: [
+    {
+      id: "bottleneck-assessment",
+      routeId: "bottleneckAssessment",
+      title: "Bottleneck Assessment",
+      responsibility: "Start here when the cause is still disputed.",
+      signal: "We get evidence before anyone starts fixing.",
+      meta: "Focused diagnostic",
+    },
+    {
+      id: "executive-coaching",
+      routeId: "executiveCoaching",
+      title: "Executive Coaching",
+      responsibility: "You carry the work.",
+      signal: "Individually, or with leaders making the same shift.",
+      meta: "Individual or group",
+    },
+    {
+      id: "advisory",
+      routeId: "advisory",
+      title: "Strategic People Advisory",
+      responsibility: "You keep the decision.",
+      signal: "I bring judgment from outside your reporting line.",
+      meta: "Ongoing or time-bound",
+    },
+    {
+      id: "peer-advisory",
+      routeId: "peerAdvisory",
+      title: "Peer Advisory",
+      responsibility: "Other leaders carry it with you.",
+      signal: "I chair the room and keep it on the real decision.",
+      meta: "Confidential peer room",
+    },
+    {
+      id: "fractional-people-leadership",
+      routeId: "fractionalPeopleLeadership",
+      title: "Fractional People Leadership",
+      responsibility: "I carry a defined remit.",
+      signal: "The work gets senior ownership for an agreed period.",
+      meta: "Defined part-time remit",
+    },
+  ],
+  de: [
+    {
+      id: "bottleneck-assessment",
+      routeId: "bottleneckAssessment",
+      title: "Bottleneck Assessment",
+      responsibility: "Hier beginnen, wenn die Ursache umstritten ist.",
+      signal: "Wir sammeln Belege, bevor jemand mit der nächsten Lösung beginnt.",
+      meta: "Gezielte Analyse",
+    },
+    {
+      id: "executive-coaching",
+      routeId: "executiveCoaching",
+      title: "Executive Coaching",
+      responsibility: "Sie tragen die Arbeit.",
+      signal: "Allein oder mit Führungskräften, die denselben Schritt gehen.",
+      meta: "Einzeln oder als Gruppe",
+    },
+    {
+      id: "advisory",
+      routeId: "advisory",
+      title: "Strategic People Advisory",
+      responsibility: "Die Entscheidung bleibt bei Ihnen.",
+      signal: "Ich bringe Urteilskraft von außerhalb Ihrer Berichtslinie ein.",
+      meta: "Laufend oder befristet",
+    },
+    {
+      id: "peer-advisory",
+      routeId: "peerAdvisory",
+      title: "Peer Advisory",
+      responsibility: "Andere Führungskräfte tragen die Arbeit mit Ihnen.",
+      signal: "Ich leite die Runde und halte sie bei der eigentlichen Entscheidung.",
+      meta: "Vertrauliche Peer-Runde",
+    },
+    {
+      id: "fractional-people-leadership",
+      routeId: "fractionalPeopleLeadership",
+      title: "Fractional People Leadership",
+      responsibility: "Ich übernehme einen klar definierten Verantwortungsbereich.",
+      signal: "Die Arbeit bekommt für einen vereinbarten Zeitraum erfahrene Führung.",
+      meta: "Mandat mit klarem Umfang",
+    },
+  ],
+} as const satisfies Record<SiteLocale, readonly Omit<WorkingFormat, "href" | "summary" | "kind">[]>;
 
-/** @deprecated Use WORKING_FORMATS. All five services now share one list. */
+export function getWorkingFormats(locale: SiteLocale): readonly WorkingFormat[] {
+  return FORMAT_COPY[locale].map((format) => ({
+    ...format,
+    href: getRouteHref(format.routeId, locale),
+    summary: `${format.responsibility} ${format.signal}`,
+    kind: "core" as const,
+  }));
+}
+
+export const WORKING_FORMATS = getWorkingFormats("en");
+
+/** @deprecated Use WORKING_FORMATS or getWorkingFormats(locale). */
 export const CORE_WORKING_FORMATS = WORKING_FORMATS;
 
 /** @deprecated The supporting-service split no longer exists. */
