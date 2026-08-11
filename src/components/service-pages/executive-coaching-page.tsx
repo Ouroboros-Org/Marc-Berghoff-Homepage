@@ -203,7 +203,7 @@ export function ExecutiveCoachingPageView({ locale }: { locale: SiteLocale }) {
               className={pageStyles.badge}
               fill
               sizes="(max-width: 672px) 11rem, 16rem"
-              src="/images/credentials/icf-member-badge.htm"
+              src="/images/credentials/icf-member-badge.webp"
             />
           </div>
           <div>

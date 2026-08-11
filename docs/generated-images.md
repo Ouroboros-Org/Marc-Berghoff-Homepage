@@ -8,7 +8,7 @@ client engagement or real event.
 ## `marc-seated-editorial.webp`
 
 - Mode: identity-preserving edit
-- Reference: `public/images/portraits/marc-seated-original.jpg`
+- Reference: `public/images/portraits/marc-seated-original.webp`
 - Size: 1123×1401
 - Use: homepage hero
 - Review gate: Marc must approve the likeness and the AI-extended setting before launch.
@@ -26,7 +26,7 @@ Prompt:
 ## `diagnostic-worktable.webp`
 
 - Mode: photorealistic generation with the seated portrait used only as a lighting/material reference
-- Reference: `public/images/portraits/marc-seated-original.jpg`
+- Reference: `public/images/portraits/marc-seated-original.webp`
 - Size: 1586×992
 - Use: Bottleneck Assessment page
 
@@ -43,7 +43,7 @@ Prompt:
 ## `leadership-room.webp`
 
 - Mode: photorealistic generation with the seated portrait used only as a lighting/material reference
-- Reference: `public/images/portraits/marc-seated-original.jpg`
+- Reference: `public/images/portraits/marc-seated-original.webp`
 - Size: 1586×992
 - Use: Fractional People Leadership page
 

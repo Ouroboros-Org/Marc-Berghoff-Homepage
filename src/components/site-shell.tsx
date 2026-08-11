@@ -39,7 +39,7 @@ export function SiteShell({
             "@id": `${siteUrl}/#marc-berghoff`,
             name: siteConfig.name,
             url: siteUrl,
-            image: `${siteUrl}/images/portraits/marc-seated-original.jpg`,
+            image: `${siteUrl}/images/portraits/marc-seated-original.webp`,
             jobTitle: isGerman
               ? "Organisationspsychologe · Vistage Chair · Executive Coach"
               : "Organisational Psychologist · Vistage Chair · Executive Coach",

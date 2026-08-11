@@ -77,7 +77,7 @@ export default function SampleReportPage() {
             <div className={styles.reportCoverWrap}>
               <Image
                 className={styles.reportCoverImage}
-                src="/images/proof/sample-report-cover.png"
+                src="/images/proof/sample-report-cover.webp"
                 alt="Illustrative Bottleneck Assessment report cover for a fictional company"
                 fill
                 sizes="(max-width: 1184px) calc(100vw - 2rem), 1184px"

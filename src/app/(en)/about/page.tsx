@@ -78,7 +78,7 @@ export default function AboutPage() {
             <div className={styles.portraitImageWrap}>
               <Image
                 className={styles.portraitImage}
-                src="/images/portraits/marc-seated-original.jpg"
+                src="/images/portraits/marc-seated-original.webp"
                 alt="Marc Berghoff seated in an office setting"
                 fill
                 sizes="(max-width: 928px) calc(100vw - 2rem), 38vw"
