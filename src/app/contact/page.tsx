@@ -48,9 +48,8 @@ export default async function ContactPage({
 
       <section className={styles.startSection} aria-label="Contact and booking">
         <div
-          className={`${styles.startGrid} ${
-            contactAction.isBooking ? "" : styles.startGridSingle
-          }`}
+          className={`${styles.startGrid} ${contactAction.isBooking ? "" : styles.startGridSingle
+            }`}
         >
           <div className={styles.formColumn}>
             <div className={styles.startHeader}>
