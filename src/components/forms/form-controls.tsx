@@ -3,7 +3,10 @@ import type {
   SelectHTMLAttributes,
   TextareaHTMLAttributes,
 } from "react";
+import Link from "next/link";
 import type { FieldError, UseFormRegisterReturn } from "react-hook-form";
+
+import type { SiteLocale } from "@/config/routes";
 
 import styles from "./contact-forms.module.css";
 
@@ -11,6 +14,7 @@ type SharedFieldProps = {
   id: string;
   label: string;
   optional?: boolean;
+  optionalLabel?: string;
   helper?: string;
   error?: FieldError;
   registration: UseFormRegisterReturn;
@@ -43,10 +47,12 @@ function FieldLabel({
   id,
   label,
   optional,
-}: Pick<SharedFieldProps, "id" | "label" | "optional">) {
+  optionalLabel = "optional",
+}: Pick<SharedFieldProps, "id" | "label" | "optional" | "optionalLabel">) {
   return (
     <label className={styles.label} htmlFor={id}>
-      {label} {optional ? <span className={styles.optional}>(optional)</span> : null}
+      {label}{" "}
+      {optional ? <span className={styles.optional}>({optionalLabel})</span> : null}
     </label>
   );
 }
@@ -55,6 +61,7 @@ export function FormInput({
   id,
   label,
   optional,
+  optionalLabel,
   helper,
   error,
   registration,
@@ -62,7 +69,12 @@ export function FormInput({
 }: SharedFieldProps & Omit<InputHTMLAttributes<HTMLInputElement>, "id" | "name">) {
   return (
     <div className={styles.field}>
-      <FieldLabel id={id} label={label} optional={optional} />
+      <FieldLabel
+        id={id}
+        label={label}
+        optional={optional}
+        optionalLabel={optionalLabel}
+      />
       <input
         {...inputProps}
         {...registration}
@@ -82,6 +94,7 @@ export function FormSelect({
   id,
   label,
   optional,
+  optionalLabel,
   helper,
   error,
   registration,
@@ -93,7 +106,12 @@ export function FormSelect({
   }) {
   return (
     <div className={styles.field}>
-      <FieldLabel id={id} label={label} optional={optional} />
+      <FieldLabel
+        id={id}
+        label={label}
+        optional={optional}
+        optionalLabel={optionalLabel}
+      />
       <select
         {...selectProps}
         {...registration}
@@ -117,6 +135,7 @@ export function FormTextarea({
   id,
   label,
   optional,
+  optionalLabel,
   helper,
   error,
   registration,
@@ -128,7 +147,12 @@ export function FormTextarea({
   }) {
   return (
     <div className={styles.field}>
-      <FieldLabel id={id} label={label} optional={optional} />
+      <FieldLabel
+        id={id}
+        label={label}
+        optional={optional}
+        optionalLabel={optionalLabel}
+      />
       <textarea
         {...textareaProps}
         {...registration}
@@ -148,11 +172,15 @@ export function ConsentField({
   id,
   error,
   registration,
+  locale = "en",
 }: {
   id: string;
   error?: FieldError;
   registration: UseFormRegisterReturn;
+  locale?: SiteLocale;
 }) {
+  const isGerman = locale === "de";
+
   return (
     <div className={styles.checkboxField}>
       <label className={styles.checkboxLabel} htmlFor={id}>
@@ -165,8 +193,19 @@ export function ConsentField({
           type="checkbox"
         />
         <span>
-          I agree that Marc may use these details to respond to my enquiry. See the{" "}
-          <a href="/privacy">privacy notice</a> for how the information is handled.
+          {isGerman ? (
+            <>
+              Ich bin damit einverstanden, dass Marc diese Angaben verwendet, um
+              meine Anfrage zu beantworten. Wie die Daten verarbeitet werden, steht
+              in der <Link href="/de/datenschutz">Datenschutzerklärung</Link>.
+            </>
+          ) : (
+            <>
+              I agree that Marc may use these details to respond to my enquiry. See
+              the <Link href="/privacy">privacy notice</Link> for how the information is
+              handled.
+            </>
+          )}
         </span>
       </label>
       {error ? (
@@ -182,15 +221,19 @@ export function BotTrapFields({
   websiteRegistration,
   startedAtRegistration,
   prefix,
+  locale = "en",
 }: {
   websiteRegistration: UseFormRegisterReturn;
   startedAtRegistration: UseFormRegisterReturn;
   prefix: string;
+  locale?: SiteLocale;
 }) {
   return (
     <>
       <div aria-hidden="true" className={styles.honeypot}>
-        <label htmlFor={`${prefix}-website`}>Leave this field empty</label>
+        <label htmlFor={`${prefix}-website`}>
+          {locale === "de" ? "Dieses Feld leer lassen" : "Leave this field empty"}
+        </label>
         <input
           {...websiteRegistration}
           autoComplete="off"
@@ -203,4 +246,3 @@ export function BotTrapFields({
     </>
   );
 }
-

@@ -286,8 +286,8 @@ const german: HomeCopy = {
   experience: {
     title: "Erfahrung auf beiden Seiten des Gesprächs.",
     body: "Ich habe People-Arbeit in einem Scale-up geleitet, ein Unternehmen mitgegründet, Führungskräfte gecoacht und HR interimistisch geführt. So sehe ich die menschliche Spannung und die betriebliche Folge.",
-    aboutLabel: "Über mich (English)",
-    resultsLabel: "Ergebnisse ansehen (English)",
+    aboutLabel: "Über mich",
+    resultsLabel: "Ergebnisse ansehen",
     imageAlt: "Marc Berghoff in einem Büro",
     proof: [
       [

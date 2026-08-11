@@ -4,9 +4,9 @@ export default function NotFound() {
   return (
     <section className="page-shell error-page">
       <div className="container error-page__inner">
-        <h1>This page is not here.</h1>
-        <p>The link may be old, or the page may have moved.</p>
-        <ButtonLink href="/">Go to the homepage</ButtonLink>
+        <h1>I could not find that page.</h1>
+        <p>The link may be out of date. Start again from the homepage.</p>
+        <ButtonLink href="/">Go to homepage</ButtonLink>
       </div>
     </section>
   );

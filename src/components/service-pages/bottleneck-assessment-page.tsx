@@ -22,7 +22,7 @@ import {
 
 const copy = {
   en: {
-    breadcrumbServices: "Services",
+    breadcrumbServices: "How I can help",
     breadcrumbPage: "Bottleneck Assessment",
     title: "When you can feel the issue but cannot yet point to it.",
     lead: "The Bottleneck Assessment is one way to stop guessing. I compare what people experience with how decisions and work actually move, then give the leadership team a focused finding to test.",
@@ -60,7 +60,7 @@ const copy = {
       {
         title: "Write the report",
         description:
-          "The report sets out the main finding, likely causes, operating cost and the evidence behind each point.",
+          "The report sets out the main finding, likely causes, operating consequences and the evidence behind each point.",
       },
       {
         title: "Work through it together",
@@ -78,17 +78,17 @@ const copy = {
     ],
     reportTitle: "The report is written to be disagreed with.",
     reportBody: [
-      "It sets out what I found, what is likely causing it and what it is costing the organisation. The evidence sits beside the finding, so the team can argue with the evidence instead of arguing with me.",
+      "It sets out what I found, what is likely causing it and the consequences for the organisation. The evidence sits beside the finding, so the team can test the evidence instead of accepting my view.",
       "Then we sit down together and work through it. This is often the first time the leadership team has the same picture in front of it at the same time. The outcome is not my list of recommendations. It is a decision the team has made together.",
     ],
     termsTitle: "A fixed fee. A finding you can test.",
     termsBody: [
       "The fee is fixed and agreed before we start.",
-      "I will find the constraints with the most impact, what is likely causing them and what they are costing you. If none of it resonates — if the leadership team cannot name one finding worth getting hold of — you get your money back. The guarantee is written into the scope before the work begins.",
+      "If the leadership team cannot identify one finding worth acting on, you get your money back. The guarantee is written into the scope before work begins.",
     ],
     nothingTitle: "Sometimes nothing is structurally wrong.",
     nothingBody:
-      "That is a finding too. It tells you the constraint may sit somewhere you have not been looking, possibly in one decision or in your own role. It stops another year of fixing the wrong thing and gives the team permission to focus on building.",
+      "Sometimes the evidence does not support an organisation-wide constraint. That narrows the next question: the issue may sit in one decision, one role or somewhere outside the assessment's scope.",
     checkLabel: "Ten-statement check",
     checkTitle: "Check whether the pattern is broader than one decision",
     checkIntro: "Ten statements. Use the last few weeks as your reference point.",
@@ -120,96 +120,96 @@ const copy = {
   de: {
     breadcrumbServices: "Zusammenarbeit",
     breadcrumbPage: "Bottleneck Assessment",
-    title: "Wenn Sie das Problem spüren, aber noch nicht darauf zeigen können.",
-    lead: "Mit dem Bottleneck Assessment hören Sie auf zu raten. Ich vergleiche die Erfahrungen im Team mit der Art, wie Entscheidungen und Arbeit tatsächlich durch das Unternehmen laufen. Das Führungsteam erhält einen klaren Befund, den es prüfen kann.",
+    title: "Wenn Sie merken, dass etwas nicht stimmt, aber die Ursache nicht greifen können.",
+    lead: "Das Bottleneck Assessment schafft eine Grundlage, bevor die nächste Lösung beschlossen wird. Ich vergleiche die Erfahrungen im Team damit, wie Entscheidungen fallen und Arbeit tatsächlich verteilt wird. Das Führungsteam erhält einen Befund, den es prüfen kann.",
     secondary: "Zum 2-Minuten-Check",
-    signalsTitle: "Die Analyse passt, solange die Ursache noch offen ist.",
+    signalsTitle: "Die Analyse passt, wenn die Ursache noch offen ist.",
     signalsBody:
-      "Wenn Sie die Entscheidung bereits benennen können, reicht möglicherweise Beratung. Wenn eine Führungskraft die Veränderung trägt, passt Coaching besser. Die Analyse ist für Situationen gedacht, in denen mehrere Erklärungen konkurrieren und eine einzelne Sicht nicht ausreicht.",
+      "Können Sie die Entscheidung bereits benennen, reicht vielleicht eine Beratung. Liegt die Veränderung bei einer Führungskraft, kann Coaching passen. Die Analyse ist sinnvoll, wenn im Team mehrere Erklärungen nebeneinanderstehen und die Sicht einer einzelnen Person nicht trägt.",
     signalsHeading: "Häufige Anzeichen",
     signals: [
-      "Verantwortung und Aufgaben landen bei Ihnen, obwohl sie vernünftigerweise woanders liegen sollten.",
-      "Menschen bitten um Erlaubnis für Entscheidungen, für die sie bereits bezahlt werden.",
-      "Sie haben ein fähiges Team und fühlen sich trotzdem wie die einzige Person mit dem Gesamtbild.",
-      "Die Arbeit könnte schneller vorankommen, aber Sie können nicht benennen, was sie stoppt.",
-      "Ein Thema, das Sie mehrfach angesprochen haben, steht noch genau dort, wo Sie es zurückgelassen haben.",
+      "Aufgaben und Entscheidungen landen bei Ihnen, obwohl die Zuständigkeit eigentlich woanders liegt.",
+      "Menschen holen sich Zustimmung für Entscheidungen, die längst zu ihrer Rolle gehören.",
+      "Ihr Team ist fähig. Trotzdem scheint nur eine Person das Gesamtbild zu sehen.",
+      "Die Arbeit könnte schneller vorankommen, doch niemand kann benennen, was sie bremst.",
+      "Ein Thema war schon in mehreren Besprechungen und ist noch immer nicht weiter.",
     ],
     flowTitle: "Was tatsächlich passiert.",
     flowIntro:
-      "Die Feldarbeit bleibt bewusst kompakt. Das Führungsteam bekommt trotzdem genug Zeit, den Befund zu prüfen, bevor es entscheidet.",
+      "Ich halte die Erhebung bewusst kompakt. Bevor das Team handelt, bekommt es Zeit, den Befund zu hinterfragen.",
     flow: [
       {
         title: "Die Frage festlegen",
         description:
-          "Ein 30-minütiges Gespräch klärt, welche Frage die Analyse beantworten soll.",
+          "In einem 30-minütigen Gespräch legen wir fest, welche Frage die Analyse beantworten soll.",
       },
       {
-        title: "Das Team einzeln hören",
+        title: "Einzelne Sichtweisen aufnehmen",
         description:
-          "Ich spreche mit Personen aus dem Team, normalerweise jeweils 90 Minuten. Dazu kommt ein kurzer Fragebogen.",
+          "Ich spreche mit mehreren Personen aus dem Team, normalerweise jeweils 90 Minuten. Ein kurzer Fragebogen ergänzt die Gespräche.",
       },
       {
         title: "Vor dem Workshop abgleichen",
         description:
-          "Wir besprechen den entstehenden Befund 20–30 Minuten lang. Im Workshop soll Sie nichts überraschen.",
+          "Vor dem Workshop besprechen wir den vorläufigen Befund 20–30 Minuten lang. Dort soll Sie nichts unvorbereitet treffen.",
       },
       {
         title: "Den Bericht schreiben",
         description:
-          "Der Bericht beschreibt den wichtigsten Befund, wahrscheinliche Ursachen, betriebliche Kosten und die Belege dahinter.",
+          "Der Bericht beschreibt den wichtigsten Befund, wahrscheinliche Ursachen, betriebliche Folgen und die Belege dahinter.",
       },
       {
         title: "Gemeinsam daran arbeiten",
         description:
-          "Das Führungsteam prüft die Belege in einem Workshop und entscheidet, was als Nächstes geschieht.",
+          "Im Workshop prüft das Führungsteam die Belege und entscheidet, was als Nächstes geschieht.",
       },
     ],
     timingLabel: "Typischer Zeitrahmen",
     timing: "Zwei bis drei Wochen vom Auftakt bis zum Workshop.",
-    confidentialityTitle: "Was Ihr Team sagt, erhalten Sie nicht als Protokoll zurück.",
+    confidentialityTitle: "Die Aussagen Ihres Teams werden nicht zum Gesprächsprotokoll.",
     confidentialityBody: [
       "Einzelne Aussagen werden zusammengefasst oder sinngemäß wiedergegeben. Im Bericht werden sie keiner Person zugeordnet.",
       "Das Material bleibt getrennt von Personal- und Leistungsakten. Es geht um die Organisation, nicht um die Bewertung einzelner Personen.",
       "Klinische und medizinische Diagnosen liegen außerhalb des Auftrags. Wenn die Frage diese Expertise braucht, sage ich das.",
     ],
-    reportTitle: "Der Bericht ist dafür geschrieben, dass Sie ihm widersprechen.",
+    reportTitle: "Der Bericht ist kein Schlusswort.",
     reportBody: [
-      "Er beschreibt meinen Befund, wahrscheinliche Ursachen und die Kosten für die Organisation. Die Belege stehen direkt daneben. So kann das Team über die Belege streiten, statt über meine Meinung.",
-      "Danach arbeiten wir gemeinsam daran. Für viele Führungsteams ist es das erste Mal, dass alle gleichzeitig dasselbe Bild vor sich haben. Das Ergebnis ist keine Empfehlungsliste von mir. Es ist eine Entscheidung, die das Team selbst getroffen hat.",
+      "Er beschreibt meinen Befund, wahrscheinliche Ursachen und die Folgen für die Organisation. Die Belege stehen direkt daneben, damit das Team sie prüfen und ihnen widersprechen kann.",
+      "Danach arbeiten wir den Befund gemeinsam durch. Häufig liegt damit zum ersten Mal dasselbe Bild vor dem gesamten Führungsteam. Welche Entscheidung daraus folgt, trifft das Team selbst.",
     ],
-    termsTitle: "Ein fester Preis. Ein Befund, den Sie prüfen können.",
+    termsTitle: "Ein festes Honorar. Ein Befund, der sich prüfen lässt.",
     termsBody: [
       "Das Honorar steht fest und wird vor dem Beginn vereinbart.",
-      "Ich finde die wirkungsvollsten Engpässe, ihre wahrscheinlichen Ursachen und ihre Kosten. Wenn nichts davon überzeugt — wenn das Führungsteam keinen einzigen Befund für wichtig hält — erhalten Sie Ihr Geld zurück. Die Garantie steht vor Beginn in der schriftlichen Vereinbarung zum Umfang.",
+      "Wenn das Führungsteam keinen einzigen Befund erkennt, mit dem es weiterarbeiten kann, erhalten Sie Ihr Geld zurück. Die Garantie steht vor Beginn in der schriftlichen Vereinbarung zum Umfang.",
     ],
-    nothingTitle: "Manchmal ist strukturell nichts falsch.",
+    nothingTitle: "Manchmal liegt kein strukturelles Problem vor.",
     nothingBody:
-      "Auch das ist ein Befund. Er zeigt, dass die Einschränkung möglicherweise an einer Stelle liegt, die Sie bisher nicht betrachtet haben: in einer einzelnen Entscheidung oder in Ihrer eigenen Rolle. So verbringen Sie nicht noch ein Jahr damit, das falsche Problem zu reparieren.",
+      "Manchmal stützen die Belege keinen organisationsweiten Engpass. Dann wird die nächste Frage enger: Das Thema liegt vielleicht in einer Entscheidung, einer Rolle oder außerhalb des untersuchten Bereichs.",
     checkLabel: "Check mit zehn Aussagen",
     checkTitle: "Prüfen Sie, ob das Muster über eine einzelne Entscheidung hinausgeht",
     checkIntro: "Zehn Aussagen. Denken Sie dabei an die vergangenen Wochen.",
-    fitTitle: "Das Team braucht Raum für eine Antwort, mit der es nicht gerechnet hat.",
+    fitTitle: "Das Team muss eine unerwartete Antwort zulassen können.",
     goodLabel: "Passt gut",
-    goodTitle: "Die geschäftliche Frage ist real und noch offen.",
+    goodTitle: "Die Frage ist wichtig und noch offen.",
     goodBody:
-      "Das Führungsteam nimmt sich Zeit, teilt relevante Belege und handelt auch dann, wenn der Befund unangenehm ist.",
+      "Das Führungsteam nimmt sich Zeit, teilt relevante Unterlagen und ist bereit, auch einen unangenehmen Befund zu prüfen.",
     wrongLabel: "Passt nicht",
-    wrongTitle: "Der Auftrag hat die Antwort bereits festgelegt.",
+    wrongTitle: "Die Antwort steht bereits fest.",
     wrongBody:
       "Eine vorab beschlossene Umstrukturierung, eine klinische Frage oder eine isolierte Mitarbeitendenbefragung braucht einen anderen Auftrag und möglicherweise andere Expertise.",
     adjacent: [
       {
         routeId: "advisory" as const,
         label: "Strategic People Advisory",
-        text: "Wenn die Ursache klar und nur die Entscheidung schwierig ist, ist Beratung wahrscheinlich die bessere Nutzung Ihrer Zeit.",
+        text: "Wenn die Ursache klar und nur die Entscheidung schwierig ist, passt Beratung wahrscheinlich besser.",
       },
       {
         routeId: "fractionalPeopleLeadership" as const,
         label: "Fractional People Leadership",
-        text: "Wenn die Arbeit eine erfahrene Leitung statt einer Antwort braucht, passt Fractional People Leadership.",
+        text: "Wenn die Arbeit eine erfahrene Leitung statt weiterer Analyse braucht, passt Fractional People Leadership.",
       },
     ],
-    closingTitle: "Nutzen Sie die Analyse, solange die Ursache noch offen ist.",
+    closingTitle: "Beginnen Sie mit der Analyse, wenn die Ursache noch offen ist.",
     closingText:
       "Beschreiben Sie, was passiert und was Sie bereits versucht haben. Ich sage Ihnen, ob die Analyse passt.",
   },
@@ -238,6 +238,7 @@ export function BottleneckAssessmentPageView({
         ]}
         title={pageCopy.title}
         lead={pageCopy.lead}
+        locale={locale}
         primary={contactAction}
         ctaPrimary
         secondary={{ label: pageCopy.secondary, href: "#assessment-check" }}
@@ -331,7 +332,9 @@ export function BottleneckAssessmentPageView({
             ))}
             <div className={styles.spacedTop}>
               <h3 className={styles.featureCardTitle}>{pageCopy.nothingTitle}</h3>
-              <p className={styles.smallSpacedTop}>{pageCopy.nothingBody}</p>
+              <div className={styles.smallSpacedTop}>
+                <p>{pageCopy.nothingBody}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -388,6 +391,7 @@ export function BottleneckAssessmentPageView({
         title={pageCopy.closingTitle}
         text={pageCopy.closingText}
         label={contactAction.label}
+        locale={locale}
       />
     </div>
   );

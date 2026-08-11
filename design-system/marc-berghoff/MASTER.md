@@ -88,7 +88,7 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 
 ### Progressive disclosures
 
-- Diagnostics and optional enquiry fields are collapsed by default. An incoming link may open the promised disclosure through its hash or query parameter.
+- Show the ten-statement diagnostic in full on Home. Diagnostic disclosures on service pages and optional enquiry fields remain collapsed by default; an incoming link may open the promised disclosure through its hash or query parameter.
 - Use native disclosure semantics, a rotating chevron and a bordered white surface. The complete summary remains a generous click and keyboard target.
 - Opening content must expand in place without hiding the summary or creating a separate modal flow.
 

@@ -73,6 +73,7 @@
   --button-fg: var(--paper);
   --button-bg: var(--blue-deep);
   --button-border: var(--blue-deep);
+  --button-hover-fg: var(--ink);
   --button-hover-bg: var(--blue-hover);
   --button-hover-border: var(--ink);
 }
@@ -219,6 +220,10 @@
     border-color 180ms ease,
     box-shadow 180ms ease,
     transform 120ms ease;
+}
+
+.primary.cta {
+  --button-hover-fg: var(--paper);
 }
 
 .secondary.cta {

@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/config/metadata";
 import { getLanguageAlternates } from "@/config/routes";
 
 export const metadata = createPageMetadata({
-  title: "Wie ich arbeite",
+  title: "Zusammenarbeit",
   description:
     "Die Situation bestimmt, ob die Arbeit mit Belegen, Coaching, Beratung, Peers oder einem klaren People-Leadership-Auftrag beginnt.",
   path: "/de/services",

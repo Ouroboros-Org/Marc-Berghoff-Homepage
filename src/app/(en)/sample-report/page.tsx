@@ -44,7 +44,7 @@ const boundaries = [
   "The report is written for leadership decisions and stays separate from employee performance files.",
   "Individual comments are aggregated or paraphrased. They are not attributed.",
   "Clinical and medical diagnosis sits outside the scope of the assessment.",
-  "Each recommendation is limited to the evidence gathered for that engagement.",
+  "Each finding is limited to the evidence gathered for that engagement.",
 ] as const;
 
 export default function SampleReportPage() {

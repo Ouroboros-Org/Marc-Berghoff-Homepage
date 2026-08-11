@@ -15,16 +15,16 @@ import {
 
 const copy = {
   en: {
-    breadcrumbServices: "Services",
+    breadcrumbServices: "How I can help",
     breadcrumbPage: "Strategic People Advisory",
     title: "The decision is yours. It does not have to be made alone.",
     lead: "Bring a people, role or organisation question you can already see. I test the reasoning, assumptions and trade-offs. You keep the decision.",
     situationsTitle: "Common situations.",
     situations: [
-      "You need to decide how to distribute current and future talent: who stays, who moves up and where an external hire is necessary.",
+      "You need to decide who should stay in their role, who is ready for more responsibility and where an external hire is needed.",
       "Your company has values on the wall, but they do not yet show up in everyday decisions.",
-      "A rapid scale-up phase is approaching and you need someone to challenge the current organisation before growth makes its weaknesses expensive.",
-      "You struggle to attract the right people because the employer story is unclear or does not match the experience inside the company.",
+      "You expect to add teams or management layers and want to test the current decision structure before the same gaps appear in more places.",
+      "Candidates hear one promise while employees experience something different, and hiring the right people has become harder.",
     ],
     boundaryTitle: "Advisory stops where ownership begins.",
     boundary:
@@ -52,35 +52,35 @@ const copy = {
     breadcrumbServices: "Zusammenarbeit",
     breadcrumbPage: "Strategic People Advisory",
     title: "Die Entscheidung bleibt bei Ihnen. Sie müssen sie nicht allein treffen.",
-    lead: "Bringen Sie eine People-, Rollen- oder Organisationsfrage mit, die Sie bereits klar sehen. Ich prüfe Ihre Logik, Annahmen und Abwägungen. Sie behalten die Entscheidung.",
+    lead: "Bringen Sie eine People-, Rollen- oder Organisationsfrage mit, die bereits greifbar ist. Ich prüfe mit Ihnen die Annahmen und Folgen der möglichen Wege. Die Entscheidung bleibt bei Ihnen.",
     situationsTitle: "Häufige Situationen.",
     situations: [
-      "Sie müssen entscheiden, wie Sie heutiges und zukünftiges Talent verteilen: Wer bleibt, wer steigt auf und wo ist eine externe Einstellung nötig?",
-      "Ihr Unternehmen hat Werte formuliert, aber im Alltag sind sie noch nicht Teil der Entscheidungen.",
-      "Eine schnelle Wachstumsphase steht bevor. Sie brauchen jemanden, der die heutige Organisation prüft, bevor Wachstum ihre Schwächen teuer macht.",
-      "Sie gewinnen nicht die richtigen Personen, weil die Geschichte als Arbeitgeber unklar ist oder nicht zur tatsächlichen Erfahrung im Unternehmen passt.",
+      "Sie müssen entscheiden, wer die aktuelle Rolle behalten sollte, wer bereit für mehr Verantwortung ist und wo eine externe Besetzung nötig wird.",
+      "Ihr Unternehmen hat Werte formuliert. In alltäglichen Entscheidungen spielen sie bisher kaum eine Rolle.",
+      "Sie planen weitere Teams oder Führungsebenen und möchten die heutige Entscheidungsstruktur prüfen, bevor dieselben Lücken an mehr Stellen auftauchen.",
+      "Bewerberinnen und Bewerber hören ein anderes Versprechen als das, was Beschäftigte im Alltag erleben. Die passenden Menschen zu gewinnen, wird dadurch schwieriger.",
     ],
-    boundaryTitle: "Beratung endet dort, wo Verantwortung beginnen müsste.",
+    boundaryTitle: "Beratung endet, sobald jemand die Umsetzung tragen muss.",
     boundary:
-      "Wenn jemand die Umsetzung koordinieren oder Entscheidungsrechte halten muss, ist Beratung zu wenig.",
+      "Wenn die Arbeit Koordination oder eigene Entscheidungsrechte verlangt, reicht Beratung nicht aus.",
     shapeTitle: "Der Umfang folgt der Entscheidung.",
     shape:
-      "Als monatliches Mandat oder für eine einzelne Entscheidung. In beiden Fällen steht der Umfang schriftlich fest, bevor etwas beginnt.",
+      "Die Begleitung kann laufend oder auf eine einzelne Entscheidung begrenzt sein. In beiden Fällen halten wir den Umfang schriftlich fest, bevor die Arbeit beginnt.",
     adjacent: [
       {
         routeId: "peerAdvisory" as const,
         label: "Peer Advisory",
-        text: "Wenn mehrere Personen von demselben Raum stärker profitieren als von Einzelberatung, passt Peer Advisory.",
+        text: "Wenn mehrere Führungskräfte ihre eigenen Entscheidungen in einer gemeinsamen Runde bearbeiten sollen, passt Peer Advisory.",
       },
       {
         routeId: "bottleneckAssessment" as const,
         label: "Bottleneck Assessment",
-        text: "Wenn Ihr Team das Problem unterschiedlich beschreibt, beginnen Sie mit der Analyse.",
+        text: "Wenn im Team verschiedene Erklärungen für das Problem nebeneinanderstehen, beginnen Sie mit der Analyse.",
       },
     ],
-    closingTitle: "Bringen Sie die Entscheidung mit, die nicht vorankommt.",
+    closingTitle: "Bringen Sie die Entscheidung mit, bei der Sie sich im Kreis drehen.",
     closingText:
-      "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Ich sage Ihnen, ob eine zweite Sicht von außen ausreicht.",
+      "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Ich sage offen, ob eine zweite Sicht von außen genügt.",
   },
 } as const;
 
@@ -103,6 +103,7 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
         ]}
         title={pageCopy.title}
         lead={pageCopy.lead}
+        locale={locale}
         primary={contactAction}
         ctaPrimary
         secondary={{
@@ -151,6 +152,7 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
       <ContactBand
         href={contactAction.href}
         label={contactAction.label}
+        locale={locale}
         text={pageCopy.closingText}
         title={pageCopy.closingTitle}
       />

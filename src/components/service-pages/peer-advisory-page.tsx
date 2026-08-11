@@ -17,14 +17,14 @@ import {
 
 const copy = {
   en: {
-    breadcrumbServices: "Services",
+    breadcrumbServices: "How I can help",
     breadcrumbPage: "Peer Advisory",
     title: "Sometimes you need to get out of the business to work on it.",
     lead: "The most useful advice a founder gets does not always come from an adviser. Sometimes it comes from someone six months ahead, facing the same problem.",
     whyTitle: "Why this works when advice does not.",
     whyBody: [
       "Outside advice has a weakness: the person giving it has not paid for being wrong about your situation. A peer has. They made the hire, kept the wrong person too long, split the role badly or waited nine months to have the conversation. They can tell you what it cost.",
-      "My job is not to be the smartest person in the room. I get the room to the real question quickly, stop people performing and make sure each person leaves with a decision they actually made.",
+      "I get the room to the real question quickly, stop people performing and make sure each person leaves with a decision they actually made.",
     ],
     formatsTitle: "Two formats.",
     formats: [
@@ -84,62 +84,62 @@ const copy = {
   de: {
     breadcrumbServices: "Zusammenarbeit",
     breadcrumbPage: "Peer Advisory",
-    title: "Manchmal braucht es Abstand vom Unternehmen, um am Unternehmen zu arbeiten.",
-    lead: "Der nützlichste Rat für eine Gründerin oder einen Gründer kommt nicht immer von einer Beratung. Manchmal kommt er von jemandem, der bereits sechs Monate weiter ist und vor demselben Problem stand.",
-    whyTitle: "Warum das funktioniert, wenn Rat allein nicht reicht.",
+    title: "Manchmal hilft erst der Abstand vom Unternehmen, um daran zu arbeiten.",
+    lead: "Der nützlichste Rat kommt nicht immer von außen. Manchmal kommt er von jemandem, der dieselbe Entscheidung vor sechs Monaten treffen musste.",
+    whyTitle: "Warum Peers anders helfen als externe Beratung.",
     whyBody: [
-      "Rat von außen hat eine Schwäche: Die Person, die ihn gibt, hat nicht für einen Fehler in Ihrer konkreten Situation bezahlt. Ein Peer hat diesen Preis bereits gezahlt: bei einer Einstellung, einer Fehlbesetzung, einer unklar zugeschnittenen Rolle oder einem zu lange aufgeschobenen Gespräch.",
-      "Meine Aufgabe ist nicht, die klügste Person im Raum zu sein. Ich bringe die Runde schnell zur eigentlichen Frage, stoppe Selbstdarstellung und sorge dafür, dass jede Person mit einer eigenen Entscheidung geht.",
+      "Wer von außen berät, trägt nicht die Folgen einer falschen Entscheidung in Ihrer Situation. Ein Peer kennt diesen Preis aus eigener Erfahrung: nach einer Fehlbesetzung, einer schlecht zugeschnittenen Rolle oder einem Gespräch, das zu lange aufgeschoben wurde.",
+      "Ich halte die Runde bei der eigentlichen Frage, statt bei Selbstdarstellung oder schnellen Ratschlägen. Am Ende steht eine Entscheidung der Person, die sie auch umsetzen muss.",
     ],
     formatsTitle: "Zwei Formate.",
     formats: [
       {
         title: "Eine Gruppe von Unternehmensinhabern",
-        text: "Ich leite in Malta eine Vistage Peer-Advisory-Gruppe für Unternehmensinhaber. Eigentümer und CEOs nicht konkurrierender Unternehmen treffen sich regelmäßig und arbeiten an Entscheidungen, die gerade vor ihnen liegen.",
+        text: "Ich leite in Malta eine Vistage Peer-Advisory-Gruppe für Unternehmensinhaber. Inhaber und CEOs nicht konkurrierender Unternehmen treffen sich regelmäßig und arbeiten an Entscheidungen, die gerade vor ihnen liegen.",
       },
       {
         title: "Unternehmensintern, für größere Organisationen",
-        text: "Dasselbe Format kann innerhalb eines Unternehmens mit Führungskräften stattfinden, die nicht in einer Berichtslinie zueinander stehen. Sie beginnen, die Probleme der anderen zu lösen, statt jede Frage an die Unternehmensleitung zurückzuspielen. Berichtslinien und Vertraulichkeit stehen vor der ersten Sitzung fest.",
+        text: "Dasselbe Format kann innerhalb eines Unternehmens mit Führungskräften stattfinden, die nicht in einer Berichtslinie zueinander stehen. Sie helfen einander bei aktuellen Entscheidungen, statt jede Frage an die Unternehmensleitung zurückzugeben. Grenzen der Berichterstattung und Vertraulichkeit stehen vor der ersten Sitzung fest.",
       },
     ],
-    roomTitle: "Was im Raum passiert.",
+    roomTitle: "So arbeitet die Runde.",
     roomIntro:
       "Jede Person bringt ein aktuelles Thema mit. Keine Präsentation, sondern eine noch offene Entscheidung.",
     roomSteps: [
       {
         title: "Die Entscheidung benennen",
         description:
-          "Die Person beschreibt die Entscheidung, die Einschränkung und was bereits versucht wurde.",
+          "Die Person beschreibt die offene Entscheidung, die Einschränkungen und bisherige Versuche.",
       },
       {
-        title: "Fragen, bevor Rat kommt",
+        title: "Erst fragen, dann beraten",
         description:
-          "Die Runde fragt nach, bis das eigentliche Thema klar ist. Niemand versucht, zuerst die richtige Antwort zu liefern.",
+          "Die Runde fragt nach, bis das eigentliche Thema klar ist. Niemand muss als Erstes die richtige Antwort liefern.",
       },
       {
-        title: "Entscheiden und zusagen",
+        title: "Entscheiden und festlegen",
         description:
-          "Erst dann sagen Peers, was sie tun würden und was ihr eigener Fehler gekostet hat. Die Person geht mit einer Entscheidung und einem nächsten Schritt.",
+          "Erst dann beschreiben Peers, was sie tun würden und welche Folgen ihre eigenen Fehler hatten. Die Person verlässt die Runde mit einer Entscheidung und einem nächsten Schritt.",
       },
     ],
-    confidenceTitle: "Nichts aus dem Raum verlässt den Raum.",
+    confidenceTitle: "Was in der Runde gesagt wird, bleibt in der Runde.",
     confidenceBody:
-      "Niemand ist dort, um etwas zu verkaufen. Bei einer internen Gruppe wird die Grenze zwischen der Runde und der beauftragenden Organisation vor der ersten Sitzung schriftlich festgelegt.",
+      "Niemand ist dort, um etwas zu verkaufen. Bei einer internen Gruppe halten wir vor der ersten Sitzung schriftlich fest, was in der Runde bleibt und was die beauftragende Organisation erfährt.",
     suitsTitle: "Für wen das passt.",
     suitsBody:
-      "Für Führungskräfte, denen mehr Information nicht mehr hilft und bei denen Isolation Teil des Problems geworden ist. Wenn Sie ein fähiges Team haben und sich trotzdem wie die einzige Person mit dem Gesamtbild fühlen, können Peers diese Sicht hinterfragen, ohne Teil Ihrer Berichtslinie zu werden.",
+      "Das Format passt zu Führungskräften, denen mehr Information nicht weiterhilft und für die Isolation Teil des Problems geworden ist. Peers können Ihre Sicht hinterfragen, ohne Teil Ihrer Berichtslinie zu werden.",
     availability:
-      "Persönliche Treffen können in Europa vereinbart werden. Ort, Rhythmus und Zusammensetzung werden mit der Gruppe festgelegt.",
+      "Treffen vor Ort sind in Europa möglich. Ort, Rhythmus und Zusammensetzung legen wir mit der Gruppe fest.",
     adjacent: [
       {
         routeId: "executiveCoaching" as const,
         label: "Executive Coaching",
-        text: "Wenn die Arbeit nur Ihnen gehört und persönlich ist, passt Executive Coaching besser.",
+        text: "Wenn die Arbeit bei Ihnen allein liegt und Ihre eigene Arbeitsweise betrifft, passt Executive Coaching besser.",
       },
       {
         routeId: "advisory" as const,
         label: "Strategic People Advisory",
-        text: "Wenn Sie eine einzelne Entscheidung mit jemandem außerhalb Ihrer Berichtslinie durchdenken möchten, passt Strategic People Advisory.",
+        text: "Wenn Sie eine einzelne Entscheidung mit einer Person außerhalb Ihrer Berichtslinie durchdenken möchten, passt Strategic People Advisory.",
       },
     ],
     closingTitle: "Bringen Sie eine Entscheidung mit, keine Präsentation.",
@@ -168,6 +168,7 @@ export function PeerAdvisoryPageView({ locale }: { locale: SiteLocale }) {
         lead={pageCopy.lead}
         primary={contactAction}
         ctaPrimary
+        locale={locale}
         secondary={{
           label: locale === "de" ? "Alle Formate ansehen" : "See all formats",
           href: getRouteHref("services", locale),
@@ -247,6 +248,7 @@ export function PeerAdvisoryPageView({ locale }: { locale: SiteLocale }) {
       <ContactBand
         href={contactAction.href}
         label={contactAction.label}
+        locale={locale}
         text={pageCopy.closingText}
         title={pageCopy.closingTitle}
       />

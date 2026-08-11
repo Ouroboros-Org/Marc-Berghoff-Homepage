@@ -119,11 +119,6 @@
   margin-top: 2.25rem;
 }
 
-.contactLink:focus-visible {
-  outline: 3px solid var(--page-blue-deep);
-  outline-offset: 3px;
-}
-
 .heroAside {
   display: grid;
   gap: 1rem;
@@ -238,11 +233,11 @@
 }
 
 .spacedTop {
-  margin-top: 2.5rem !important;
+  margin-top: 2.5rem;
 }
 
 .smallSpacedTop {
-  margin-top: 1.25rem !important;
+  margin-top: 1.25rem;
 }
 
 .split {
@@ -256,9 +251,7 @@
 
 .plainList,
 .checkList,
-.detailList,
 .processList,
-.metricList,
 .reportList {
   margin: 0;
   padding: 0;
@@ -361,7 +354,6 @@
 }
 
 .cardGrid,
-.metricGrid,
 .caseGrid,
 .credentialGrid,
 .reportGrid {
@@ -372,33 +364,7 @@
   list-style: none;
 }
 
-.scopeGrid {
-  display: grid;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--page-line);
-  list-style: none;
-}
-
-.scopeItem {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  padding: clamp(1.35rem, 3vw, 2rem) 0;
-  border-bottom: 1px solid var(--page-line);
-}
-
-.scopeItem .featureCardTitle {
-  max-width: 30ch;
-}
-
-.sectionDark .scopeGrid,
-.sectionDark .scopeItem {
-  border-color: color-mix(in srgb, var(--page-white) 22%, transparent);
-}
-
 .featureCard,
-.metricCard,
 .caseCard,
 .credentialCard,
 .reportCard,
@@ -413,14 +379,6 @@
 .darkCard {
   border-color: color-mix(in srgb, var(--page-white) 20%, transparent);
   background: color-mix(in srgb, var(--page-white) 6%, transparent);
-}
-
-.darkCardNumber {
-  margin: 0 0 3.5rem;
-  color: var(--page-blue);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
 }
 
 .featureCardTitle,
@@ -562,25 +520,6 @@
   line-height: 1.7;
 }
 
-.metricCard {
-  min-height: 13rem;
-}
-
-.metricValue {
-  margin: 0;
-  font-family: var(--page-font-display);
-  font-size: clamp(2rem, 4.7vw, 4rem);
-  font-weight: 520;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-}
-
-.metricLabel {
-  margin: 1rem 0 0;
-  color: var(--page-muted);
-  line-height: 1.55;
-}
-
 .caseCard {
   display: flex;
   min-width: 0;
@@ -616,40 +555,6 @@
   color: var(--page-muted);
   font-size: 0.82rem;
   line-height: 1.65;
-}
-
-.diagnosticMount {
-  min-height: 22rem;
-  border: 1px solid var(--page-line);
-  border-radius: 1.2rem;
-  background: var(--page-white);
-}
-
-.diagnosticFallback {
-  display: grid;
-  min-height: 22rem;
-  place-items: center;
-  margin: 0;
-  padding: 2rem;
-  color: var(--page-muted);
-  text-align: center;
-  line-height: 1.65;
-}
-
-.portraitSlot {
-  position: relative;
-  display: grid;
-  min-height: 30rem;
-  place-items: end start;
-  overflow: hidden;
-  border-radius: 1.2rem;
-  background:
-    linear-gradient(
-      145deg,
-      transparent 0 45%,
-      color-mix(in srgb, var(--page-blue-deep) 25%, transparent)
-    ),
-    color-mix(in srgb, var(--page-blue) 38%, var(--page-paper));
 }
 
 .portraitImageWrap {
@@ -697,95 +602,6 @@
   object-fit: cover;
 }
 
-.portraitSlot::before {
-  position: absolute;
-  top: 12%;
-  left: 18%;
-  width: 64%;
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--page-blue-deep) 25%, transparent);
-  border-radius: 50%;
-  content: "";
-}
-
-.imageSlotLabel {
-  position: relative;
-  z-index: 1;
-  max-width: 24rem;
-  margin: 1.25rem;
-  padding: 0.8rem 1rem;
-  border-radius: 0.65rem;
-  color: var(--page-white);
-  background: color-mix(in srgb, var(--page-ink) 86%, transparent);
-  font-size: 0.78rem;
-  line-height: 1.5;
-}
-
-.contactLayout {
-  display: grid;
-  gap: clamp(2.5rem, 6vw, 6rem);
-  align-items: start;
-}
-
-.contactDetails {
-  display: grid;
-  gap: 1.6rem;
-  margin-top: 2rem;
-}
-
-.contactDetail {
-  padding-top: 1rem;
-  border-top: 1px solid var(--page-line);
-}
-
-.contactDetail dt {
-  color: var(--page-muted);
-  font-size: 0.76rem;
-  font-weight: 750;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.contactDetail dd {
-  margin: 0.45rem 0 0;
-  font-size: 1rem;
-  line-height: 1.55;
-}
-
-.contactLink {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  color: inherit;
-  text-underline-offset: 0.22em;
-  transition: color 180ms ease;
-}
-
-.contactLink:hover {
-  color: var(--page-blue-deep);
-}
-
-.formShell {
-  min-width: 0;
-  padding: clamp(1.25rem, 4vw, 2.5rem);
-  border: 1px solid var(--page-line);
-  border-radius: 1.2rem;
-  background: var(--page-white);
-  box-shadow: 0 1.5rem 4rem
-    color-mix(in srgb, var(--page-blue-deep) 8%, transparent);
-}
-
-.reportMockup {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(1.25rem, 4vw, 3rem);
-  border: 1px solid var(--page-line);
-  border-radius: 1.2rem;
-  background: var(--page-white);
-  box-shadow: 0 2rem 5rem
-    color-mix(in srgb, var(--page-blue-deep) 12%, transparent);
-}
-
 .reportCoverWrap {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -799,51 +615,6 @@
 
 .reportCoverImage {
   object-fit: cover;
-}
-
-.reportMockup::before {
-  display: block;
-  width: 4rem;
-  height: 0.4rem;
-  margin-bottom: clamp(4rem, 9vw, 8rem);
-  border-radius: 999px;
-  background: var(--page-yellow);
-  content: "";
-}
-
-.reportMockupEyebrow {
-  margin: 0;
-  color: var(--page-muted);
-  font-size: 0.72rem;
-  font-weight: 750;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-}
-
-.reportMockupTitle {
-  max-width: 12ch;
-  margin: 0.9rem 0 0;
-  font-family: var(--page-font-display);
-  font-size: clamp(2rem, 5vw, 4.25rem);
-  font-weight: 520;
-  letter-spacing: -0.04em;
-  line-height: 0.98;
-}
-
-.reportRule {
-  width: 100%;
-  height: 1px;
-  margin: clamp(3rem, 7vw, 6rem) 0 1rem;
-  background: var(--page-line);
-}
-
-.reportMeta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.75rem 2rem;
-  color: var(--page-muted);
-  font-size: 0.78rem;
 }
 
 .reportSectionNumber {
@@ -889,39 +660,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .metricGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .cardGridTwo {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .scopeGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .scopeItem {
-    padding-inline: clamp(1.5rem, 3vw, 2.5rem);
-  }
-
-  .scopeItem:nth-child(odd) {
-    padding-left: 0;
-    border-right: 1px solid var(--page-line);
-  }
-
-  .scopeItem:nth-child(even) {
-    padding-right: 0;
-  }
-
-  .scopeItem:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    padding-right: 0;
-    border-right: 0;
-  }
-
-  .sectionDark .scopeItem:nth-child(odd) {
-    border-right-color: color-mix(in srgb, var(--page-white) 22%, transparent);
   }
 
   .processItem {
@@ -948,15 +688,6 @@
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
-  .contactLayout {
-    grid-template-columns: minmax(16rem, 0.7fr) minmax(0, 1.3fr);
-  }
-
-  .contactLayout > aside {
-    position: sticky;
-    top: 7rem;
-  }
-
   .caseGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -967,11 +698,6 @@
 }
 
 @media (max-width: 41.999rem) {
-  .formShell {
-    padding: 1rem;
-    border-radius: 0.9rem;
-  }
-
   .buttonRow {
     display: grid;
   }
@@ -992,7 +718,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contactLink,
   .relatedLink {
     transition-duration: 0.01ms;
   }

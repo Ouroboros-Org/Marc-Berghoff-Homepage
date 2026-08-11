@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 
 import {
   contactPayloadSchema,
-  extendedContactDefaults,
   quickContactDefaults,
 } from "./contact-schema";
 import {
@@ -24,21 +23,6 @@ describe("contactPayloadSchema", () => {
     expect(contactPayloadSchema.safeParse(payload).success).toBe(true);
   });
 
-  it("requires the detailed context fields for an extended enquiry", () => {
-    const payload = {
-      ...extendedContactDefaults(),
-      fullName: "Alex Morgan",
-      email: "alex@example.com",
-      company: "Example Company",
-      role: "Founder",
-      currentSituation: "Important decisions keep returning to two senior people.",
-      desiredOutcome: "Teams make sound day-to-day decisions without waiting for us.",
-      consent: true,
-    };
-
-    expect(contactPayloadSchema.safeParse(payload).success).toBe(true);
-  });
-
   it("rejects an enquiry without consent", () => {
     const payload = {
       ...quickContactDefaults(),
@@ -54,13 +38,13 @@ describe("contactPayloadSchema", () => {
     }
   });
 
-  it("does not accept extended-only fields as a substitute for the quick message", () => {
+  it("does not accept an unrelated field as a substitute for the quick message", () => {
     const payload = {
       ...quickContactDefaults(),
       fullName: "Alex Morgan",
       email: "alex@example.com",
       message: "",
-      currentSituation: "A long but misplaced answer that belongs to another form.",
+      note: "A long but misplaced answer that is not the message field.",
       consent: true,
     };
 

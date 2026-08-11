@@ -8,6 +8,7 @@ contracts, client approvals, certificates or underlying performance records.
 
 ## Status key
 
+- **Owner-authorised** — the site owner explicitly approved the formulation for publication. Keep the underlying evidence or approval record outside this repository.
 - **Publicly supported** — a current public source directly supports the claim.
 - **Deck-authorised** — the current offer deck makes the claim and the site owner
   authorised use of deck material on 29 July 2026. Keep underlying evidence.
@@ -21,6 +22,7 @@ contracts, client approvals, certificates or underlying performance records.
 | D1 | `MArc B offer V2.pptx`, supplied by the site owner; especially slides 3, 5, 7–8 and 11–15 | Current offer, process, price, biography, portfolio and testimonial copy |
 | U1 | Owner instruction in the implementation brief, 29 July 2026 | Authorisation to use material that is public, on HX Solutions/LinkedIn, or in D1 |
 | U2 | Owner service-page brief and implementation follow-up, 11 August 2026 | Assessment-first sequence; fixed-fee wording without a number; money-back guarantee; two-to-three-week assessment timing; one-to-two-day fractional rhythm; Europe availability; approved fractional proof wording |
+| U3 | Owner review and confirmation during the repository consistency implementation, 11 August 2026 | Approval of the revised Home biography, credentials and anonymised proof statements, and authorisation to carry those statements into supporting pages |
 | P1 | [Mdina Partners — Advisory](https://mdinapartners.com/cluster/advisory/) | HR Advisor & Coach; ICF ACC; Vistage peer-advisory facilitator; 50+ leaders; 35-to-150 scale-up result |
 | P2 | [Marc Berghoff — LinkedIn](https://mt.linkedin.com/in/marcberghoff/en) | Malta location; listed services; current experience; ACC credential dates; Vistage affiliation |
 | P3 | [MaltaCEOs — Marc Berghoff named Chair at Vistage Malta](https://maltaceos.mt/marc-berghoff-named-chair-at-vistage-malta/) | Vistage Malta Chair appointment; MSc Psychology; certified coach; HX Solutions founder; six-plus years of HR experience at publication |
@@ -49,6 +51,9 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | “Youngest peer-advisory chair at Vistage Global” | D1 slide 12 | **Approval needed** | A comparative superlative requires confirmation from Vistage. Do not publish “youngest” on deck evidence alone. |
 | Age 34 | D1 slides 3 and 11 | **Do not use as written** | It becomes stale and is irrelevant to the service. Omit rather than automate it. |
 | German, based in Malta | D1 slides 3 and 11; Malta location in P2/P5 | **Deck-authorised** | “Malta-based” is enough for most pages. Confirm nationality before making it a legal or identity statement. |
+| Organisational Psychologist | U3 | **Owner-authorised; jurisdiction check** | This is the owner-approved Home title. Confirm that the title is warranted in every jurisdiction where the site is marketed; do not imply clinical diagnosis or treatment. |
+| Lecturer in training and development and organisational leadership | U3 | **Owner-authorised** | Keep the wording tied to the subjects taught. Retain appointment or teaching records and recheck before implying a current post. |
+| Almost a decade across HR, coaching and organisational development, in-house and independently | U3 | **Owner-authorised** | This broader, time-sensitive formulation supersedes the seven-plus-year wording on Home. Keep the underlying CV chronology; update it deliberately rather than silently increasing the number. |
 
 ## Service and offer claims
 
@@ -76,6 +81,12 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | Marc served as interim Head of HR for Alberta Fire & Security during transformation | D1 slide 12 | **Deck-authorised** | Keep the wording operational and time-bounded; retain client approval. |
 | Coaching/advisory experience spans organisations from €100k ARR to €250m | D1 slide 12 | **Deck-authorised, clarify** | Specify what the numbers measure and whether endpoints refer to clients or engagements. Do not publish the range while it remains ambiguous. |
 | Advisory for an MLP board member or a €200m+ beverage scale-up | D1 slide 16 feedback notes only | **Approval needed** | These are internal content suggestions, not finished case-study claims. Do not publish names or figures without a release and a final factual statement. |
+| Executive coaching with department leaders at a national financial regulator | U3 | **Owner-authorised** | Keep the regulator, country, departments and participants anonymous unless a separate release permits identification. Describe the remit, not a regulatory endorsement or measured outcome. |
+| Individual coaching and group sessions with the top management team of a global events and media group | U3 | **Owner-authorised** | Keep the group and participants anonymous. Do not imply that the whole organisation or its brands endorse Marc. |
+| Worked with the CFO of a German financial services group to establish a sourcing approach the group still used five years later | U3 | **Owner-authorised** | Keep the group and executive anonymous. Preserve the five-year time boundary and supporting records; do not broaden the statement into a quantified performance or causal claim. |
+| Interim group-wide HR leadership for a security company with 400 employees across four companies | U3 | **Owner-authorised** | Keep the group anonymous. "400 employees" and "four companies" describe the approved engagement context, not a growth result attributable to Marc. |
+| Executive coaching and mediation between the CEO and owner of an agency in Dubai | U3 | **Owner-authorised** | Keep the agency and people anonymous. State only the remit; do not publish the substance of the relationship, dispute or mediation. |
+| Keynote at a major HR conference in Malta | U3 | **Owner-authorised** | Keep the event unnamed unless the organiser has approved identification. Do not imply organiser endorsement or invent audience size, date or reception. |
 
 ## Testimonials, marks and photography
 

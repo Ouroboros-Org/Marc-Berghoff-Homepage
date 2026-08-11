@@ -18,7 +18,7 @@ import {
 
 const copy = {
   en: {
-    breadcrumbServices: "Services",
+    breadcrumbServices: "How I can help",
     breadcrumbPage: "Fractional People Leadership",
     title: "A capable people team can still lack senior direction.",
     lead: "You may not need a full-time Chief People Officer. You may still need someone to set direction, hold agreed decisions and lead the work above an operationally sound team.",
@@ -61,38 +61,38 @@ const copy = {
   de: {
     breadcrumbServices: "Zusammenarbeit",
     breadcrumbPage: "Fractional People Leadership",
-    title: "Ein fähiges People-Team kann trotzdem ohne übergeordnete Führung arbeiten.",
-    lead: "Vielleicht brauchen Sie keinen Chief People Officer in Vollzeit. Sie brauchen aber möglicherweise jemanden, der Richtung gibt, vereinbarte Entscheidungen verantwortet und die Arbeit oberhalb eines operativ stabilen Teams führt.",
-    fitTitle: "Das passt, wenn das Team arbeiten kann, aber die übergeordnete Verantwortung nicht besetzt ist.",
+    title: "Auch ein fähiges People-Team kann ohne strategische Führung dastehen.",
+    lead: "Vielleicht brauchen Sie keinen Chief People Officer in Vollzeit. Trotzdem muss jemand die Richtung setzen, Entscheidungen verantworten und die Themen führen, die über das Tagesgeschäft eines stabilen Teams hinausgehen.",
+    fitTitle: "Das Team trägt den Alltag. Die strategische Verantwortung ist unbesetzt.",
     fitBody: [
-      "Das People-Team erledigt die tägliche Arbeit. Es fehlt an erfahrener Richtung: Organisationsentscheidungen, Erwartungen an Führung und Prioritäten, die die People-Arbeit mit dem Geschäftsplan verbinden.",
-      "Das Mandat gibt dieser Arbeit für einen festgelegten Zeitraum eine verantwortliche Person. Sie erhalten strategische Führung und Entscheidungen auf dem nötigen Niveau, ohne zu früh eine dauerhafte Vollzeitrolle zu schaffen.",
+      "Das People-Team erledigt die tägliche Arbeit. Offen bleiben die Organisationsentscheidungen, Erwartungen an Führung und Prioritäten, die die People-Arbeit mit dem Geschäftsplan verbinden.",
+      "Für einen festgelegten Zeitraum übernehme ich diese Verantwortung. So bekommt die Arbeit eine erfahrene Leitung, ohne dass Sie vorschnell eine dauerhafte Vollzeitrolle schaffen.",
     ],
     shapeTitle: "Klarer Umfang. Vereinbarte Entscheidungsrechte. Ein Endpunkt von Anfang an.",
     shapeBody: [
-      "Der übliche Rhythmus liegt bei ein bis zwei Tagen pro Woche. Die Dauer folgt dem Auftrag und wird schriftlich festgehalten, statt vorab geraten zu werden.",
-      "Dort stehen auch meine Entscheidungen, die nötige Unterstützung, der Überprüfungsrhythmus und die Bedingungen für die Übergabe an das Team oder eine dauerhafte Besetzung.",
+      "Der übliche Rhythmus liegt bei ein bis zwei Tagen pro Woche. Wie lange das Mandat dauert, richtet sich nach dem Auftrag und wird vor Beginn schriftlich festgehalten.",
+      "Die schriftliche Vereinbarung benennt meine Entscheidungsrechte, die nötige Unterstützung, wann wir den Auftrag gemeinsam überprüfen und unter welchen Bedingungen die Arbeit an das Team oder eine dauerhafte Besetzung übergeht.",
     ],
     availability:
-      "Ich übernehme jeweils nur ein Fractional-People-Leadership-Mandat. Wenn Ihr Bedarf dringend ist und meine Zeit bereits gebunden ist, vermittle ich nach Möglichkeit eine vertraute Kollegin oder einen vertrauten Kollegen.",
+      "Ich übernehme nur ein Fractional-People-Leadership-Mandat gleichzeitig. Wenn Ihre Frage dringend ist und meine Zeit bereits gebunden ist, empfehle ich nach Möglichkeit eine vertraute Person aus meinem Netzwerk.",
     proofTitle: "Erfahrung in der People-Führung.",
     proof: [
       "Head of HR bei einem Solar-Scale-up, das später von E.ON übernommen wurde.",
       "Fractional People Leadership für eine maltesische Unternehmensgruppe für Brand- und Sicherheitstechnik.",
     ],
-    wrongTitle: "Wann das die falsche Antwort ist.",
+    wrongTitle: "Wann ein anderes Format besser passt.",
     wrongBody:
-      "Wenn Sie bereits eine fähige People-Leitung haben und Entscheidungen oberhalb dieser Rolle feststecken, ist das die falsche Lösung. Dann geht es meist um Beratung oder eine Analyse. Eine zweite erfahrene Leitung löst selten ein Problem, das durch unklare Entscheidungsrechte entstanden ist.",
+      "Wenn bereits eine fähige People-Leitung da ist und Entscheidungen oberhalb dieser Rolle feststecken, braucht es meist Beratung oder eine Analyse. Eine zweite erfahrene Leitung klärt keine Entscheidungsrechte.",
     adjacent: [
       {
         routeId: "bottleneckAssessment" as const,
         label: "Bottleneck Assessment",
-        text: "Wenn der Auftrag unklar ist, weil sich niemand darüber einig ist, wo die Arbeit feststeckt, beginnen Sie mit der Analyse.",
+        text: "Wenn der Auftrag unklar ist, weil im Team verschiedene Erklärungen für den Engpass bestehen, beginnen Sie mit der Analyse.",
       },
       {
         routeId: "advisory" as const,
         label: "Strategic People Advisory",
-        text: "Wenn das Team bereits eine verantwortliche Person hat und eine einzelne schwierige Entscheidung darüber feststeckt, ist Beratung meist die leichtere Antwort.",
+        text: "Wenn das Team bereits eine verantwortliche Person hat und eine Entscheidung außerhalb ihres Mandats feststeckt, ist Beratung meist die passendere Antwort.",
       },
     ],
     closingTitle: "Welcher Teil der Arbeit hat derzeit keine klar verantwortliche Person?",
@@ -124,6 +124,7 @@ export function FractionalPeopleLeadershipPageView({
         ]}
         title={pageCopy.title}
         lead={pageCopy.lead}
+        locale={locale}
         primary={contactAction}
         ctaPrimary
         secondary={{
@@ -208,6 +209,7 @@ export function FractionalPeopleLeadershipPageView({
       <ContactBand
         href={contactAction.href}
         label={contactAction.label}
+        locale={locale}
         text={pageCopy.closingText}
         title={pageCopy.closingTitle}
       />

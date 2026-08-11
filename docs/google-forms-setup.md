@@ -26,40 +26,16 @@ makes maintenance easier.
 
 | Question | Suggested Google type | Website source |
 | --- | --- | --- |
-| Submission type | Short answer | Quick contact / Extended enquiry / Diagnostic result |
-| Full name | Short answer | Contact forms |
-| Email | Short answer | All three submission types |
-| Phone | Short answer | Contact forms |
-| Company | Short answer | Contact forms |
-| Role | Short answer | Extended form |
-| Company size | Short answer or multiple choice | Extended form |
-| Service | Short answer or multiple choice | Contact forms |
-| Urgency | Short answer or multiple choice | Extended form |
-| Message | Paragraph | Quick form |
-| Current situation | Paragraph | Extended form |
-| Desired outcome | Paragraph | Extended form |
-| Referral source | Short answer | Extended form |
-| Diagnostic summary | Paragraph | Optional on contact forms; score and all ten answers for a shared diagnostic result |
-| Consent recorded | Short answer | Contact forms send `Yes`; a diagnostic share sends `Result sharing requested` |
+| Submission type | Short answer | Quick message / Diagnostic result |
+| Full name | Short answer | Contact form |
+| Email | Short answer | Both submission types |
+| Message | Paragraph | Contact form, including any optional context the visitor adds |
+| Diagnostic summary | Paragraph | Optional on the contact form; score and all ten answers for a shared diagnostic result |
+| Consent recorded | Short answer | Contact form sends `Yes`; a diagnostic share sends `Result sharing requested` |
 
-If **Company size**, **Service** or **Urgency** uses Google Forms’ multiple-choice
-or dropdown type, its choices must match the website’s submitted labels exactly.
-Copy these values, including punctuation and capitalisation:
-
-| Field | Accepted choices |
-| --- | --- |
-| Company size | `1–10 people`; `11–25 people`; `26–50 people`; `51–100 people`; `101–250 people`; `251+ people`; `Prefer not to say` |
-| Service | `Bottleneck Assessment`; `Executive Coaching`; `Strategic People Advisory`; `Peer Advisory`; `Fractional People Leadership`; `I’m not sure yet` |
-| Urgency | `I’m exploring options`; `Within this quarter`; `Within the next month`; `There is an immediate issue` |
-
-The application keeps these labels in one shared mapping and sends the visible
-label, not its internal value. If you prefer not to maintain matching choices,
-use Google Forms’ **Short answer** type for these three questions.
-
-Leave Google’s **Required** toggle off for fields that are absent from one form
-variant. The website already performs the authoritative field validation. If a
-Google question is required while the quick form sends it blank, Google may
-reject or omit the response even when the HTTP request looks successful.
+Leave Google’s **Required** toggle off for fields that a diagnostic-result
+submission does not contain. The website performs the authoritative validation
+before forwarding a response.
 
 In the Form’s **Responses** tab, optionally connect a Google Sheet. Configure
 access and deletion rules on both the Form and Sheet; the website has no contact
@@ -92,18 +68,9 @@ GOOGLE_FORM_ACTION_URL=https://docs.google.com/forms/d/e/FORM_PUBLIC_ID/formResp
 GOOGLE_FORM_ENTRY_FORM_TYPE=entry.0000000001
 GOOGLE_FORM_ENTRY_FULL_NAME=entry.0000000002
 GOOGLE_FORM_ENTRY_EMAIL=entry.0000000003
-GOOGLE_FORM_ENTRY_PHONE=entry.0000000004
-GOOGLE_FORM_ENTRY_COMPANY=entry.0000000005
-GOOGLE_FORM_ENTRY_ROLE=entry.0000000006
-GOOGLE_FORM_ENTRY_COMPANY_SIZE=entry.0000000007
-GOOGLE_FORM_ENTRY_SERVICE=entry.0000000008
-GOOGLE_FORM_ENTRY_URGENCY=entry.0000000009
-GOOGLE_FORM_ENTRY_MESSAGE=entry.0000000010
-GOOGLE_FORM_ENTRY_CURRENT_SITUATION=entry.0000000011
-GOOGLE_FORM_ENTRY_DESIRED_OUTCOME=entry.0000000012
-GOOGLE_FORM_ENTRY_REFERRAL=entry.0000000013
-GOOGLE_FORM_ENTRY_DIAGNOSTIC_SUMMARY=entry.0000000014
-GOOGLE_FORM_ENTRY_CONSENT=entry.0000000015
+GOOGLE_FORM_ENTRY_MESSAGE=entry.0000000004
+GOOGLE_FORM_ENTRY_DIAGNOSTIC_SUMMARY=entry.0000000005
+GOOGLE_FORM_ENTRY_CONSENT=entry.0000000006
 ```
 
 The example IDs are deliberate placeholders. The application refuses to submit
@@ -112,18 +79,18 @@ HTTPS `docs.google.com/forms/d/e/.../formResponse` action URL.
 
 ## 4. Test the complete path
 
-1. Start the app with `pnpm dev` and submit the quick form.
-2. Confirm the new row appears in Google Forms and in the linked Sheet, if used.
-3. Check that quick-only fields are populated and extended-only fields are blank.
-4. Submit the extended form and confirm the inverse mapping.
-5. Submit a diagnostic summary with contact details and confirm line breaks are
-   readable.
-6. Complete the ten-statement check, view the result without entering an email,
-   then choose to send it. Confirm the response contains the server-checked
-   score and all ten True / Not true answers.
-7. Test on the Vercel preview deployment. Environment variables added after a
+1. Start the app with `pnpm dev` and submit the contact form with its optional
+   context closed.
+2. Open the optional context, add several details and submit again. Confirm those
+   details appear in the message sent to Google Forms and the linked Sheet.
+3. Submit a diagnostic summary with the contact form and confirm its line breaks
+   remain readable.
+4. Complete the ten-statement check, view the result without entering an email,
+   then choose to send it. Confirm the response contains the server-checked score
+   and all ten True / Not true answers.
+5. Test on the Vercel preview deployment. Environment variables added after a
    deployment require a redeploy.
-8. Temporarily change one entry ID in a preview environment and verify that the
+6. Temporarily change one entry ID in a preview environment and verify that the
    UI reports a delivery error rather than claiming success. Restore it before
    promoting the deployment.
 

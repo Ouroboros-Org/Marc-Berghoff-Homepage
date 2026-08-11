@@ -5,7 +5,7 @@ import { getLanguageAlternates } from "@/config/routes";
 export const metadata = createPageMetadata({
   title: "Fractional People Leadership",
   description:
-    "Erfahrene Richtung und Entscheidungen für ein fähiges People-Team, mit klarem Auftrag und vereinbartem Endpunkt.",
+    "Strategische Führung für ein fähiges People-Team. Auftrag, Entscheidungsrechte und Endpunkt werden vorab vereinbart.",
   path: "/de/fractional-people-leadership",
   locale: "de_DE",
   languages: getLanguageAlternates("fractionalPeopleLeadership"),

@@ -58,18 +58,6 @@ export function getSiteUrl(
   );
 }
 
-export function getBookingUrl(
-  configured = process.env.NEXT_PUBLIC_BOOKING_URL,
-) {
-  const url = parsePublicUrl(configured);
-
-  if (!url || url.protocol !== "https:") {
-    return null;
-  }
-
-  return url.href;
-}
-
 export function getCalLink(configured = process.env.NEXT_PUBLIC_CAL_LINK) {
   const candidate = configured?.trim().replace(/^\/+|\/+$/g, "");
 
@@ -152,7 +140,6 @@ export const siteConfig = {
     phoneDisplay: contactPhone?.display ?? null,
     phoneHref: contactPhone?.href ?? null,
     calLink,
-    bookingUrl: calLink ? `https://cal.com/${calLink}` : getBookingUrl(),
     primaryAction: primaryContactAction,
   },
   social: {
@@ -179,10 +166,10 @@ export function getServiceNavigation(locale: SiteLocale) {
   return [
     {
       href: getRouteHref("services", locale),
-      label: locale === "de" ? "Wie ich arbeite" : "How I can help",
+      label: locale === "de" ? "Zusammenarbeit" : "How I can help",
       description:
         locale === "de"
-          ? "Wie die Situation bestimmt, wer die Arbeit nach der Klärung trägt."
+          ? "Fünf Formate, abhängig davon, was gerade gebraucht wird und wer die Arbeit danach trägt."
           : "See how the situation determines who carries the work afterwards.",
     },
     ...getWorkingFormats(locale).map((format) => ({
@@ -195,7 +182,7 @@ export function getServiceNavigation(locale: SiteLocale) {
 
 export const serviceNavigation = getServiceNavigation("en");
 
-export const insightNavigation = [
+const insightNavigation = [
   {
     href: "/blog",
     label: "All insights",
@@ -228,7 +215,7 @@ export const insightNavigation = [
   },
 ] as const satisfies readonly NavigationLink[];
 
-export const aboutNavigation = [
+const aboutNavigation = [
   {
     href: "/about",
     label: "About me",
@@ -257,7 +244,7 @@ export function getHeaderNavigation(
         label: "Zusammenarbeit",
         href: getRouteHref("services", "de"),
         description:
-          "Die Situation entscheidet, wie stark ich mich einbringen sollte.",
+          "Die Situation entscheidet, wie stark ich mich einbringe.",
         items: getServiceNavigation("de"),
       },
       {
@@ -268,28 +255,28 @@ export function getHeaderNavigation(
           "Englische Texte zu Führungsfragen, die sich schwer erkennen oder bewegen lassen.",
         items: insightNavigation.map((item) => ({
           ...item,
-          label: `${item.label} (English)`,
+          label: `${item.label} (Englisch)`,
           language: "en" as const,
         })),
       },
       {
         id: "about",
-        label: "Über Marc",
-        href: "/about",
+        label: "Über mich",
+        href: getRouteHref("about", "de"),
         description:
-          "Hintergrund und Ergebnisse sind derzeit auf Englisch verfügbar. Die Buchung ist auf Deutsch möglich.",
+          "Erfahren Sie mehr über meinen Hintergrund, meine Arbeitsweise und ausgewählte Mandate.",
         items: [
           {
-            href: "/about",
-            label: "Über mich (English)",
-            description: "Wie ich zwischen Coaching, Beratung und Verantwortung arbeite.",
-            language: "en" as const,
+            href: getRouteHref("about", "de"),
+            label: "Über mich",
+            description:
+              "Wie ich zwischen Coaching, Beratung und einem klaren Auftrag arbeite.",
           },
           {
-            href: "/results",
-            label: "Ergebnisse & Erfahrung (English)",
-            description: "Kontexte und Verantwortung aus bisherigen Mandaten.",
-            language: "en" as const,
+            href: getRouteHref("results", "de"),
+            label: "Ergebnisse & Erfahrung",
+            description:
+              "Ausgewählte Mandate und die Verantwortung, die ich jeweils übernommen habe.",
           },
           {
             href: getRouteHref("contact", "de"),
@@ -304,7 +291,7 @@ export function getHeaderNavigation(
   return [
     {
       id: "work",
-      label: "How I help",
+      label: "How I can help",
       href: getRouteHref("services", "en"),
       description: "See how the situation determines my level of involvement.",
       items: getServiceNavigation("en"),
@@ -325,10 +312,3 @@ export function getHeaderNavigation(
     },
   ] as const;
 }
-
-export const headerNavigation = getHeaderNavigation("en");
-
-export const primaryNavigation = headerNavigation.map(({ href, label }) => ({
-  href,
-  label,
-}));

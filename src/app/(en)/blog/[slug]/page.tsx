@@ -180,17 +180,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className={styles.authorNote}>
             <strong>About me</strong>
             <p>
-              I work with founders and leadership teams on leadership, organisation
-              and people issues. Depending on the question, I coach, advise, assess or
-              carry a defined remit.
+              I work with founders and leadership teams when a leadership question
+              has become an operating problem. My role can stay at coaching distance,
+              or move closer to the work when the situation needs it.
             </p>
           </div>
         </div>
       </div>
 
       <ContactBand
-        title="Bring this back to your situation."
-        text="The next page shows the level of involvement that most often fits this question. You can also start with a free conversation, typically 30 minutes."
+        title="Bring the question back to your situation."
+        text="The next page explains one relevant format. If you are unsure whether it fits, start with a free 30-minute conversation."
         href={post.nextStep.href}
         label={post.nextStep.label}
       />

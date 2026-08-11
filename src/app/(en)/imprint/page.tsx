@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import { LEGAL_DETAILS } from "@/app/(en)/privacy/legal-details";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { createPageMetadata } from "@/config/metadata";
+import { getLanguageAlternates } from "@/config/routes";
 
 export const metadata = {
   ...createPageMetadata({
     title: "Imprint",
     description: "Provider and contact information for the Marc Berghoff website.",
     path: "/imprint",
+    languages: getLanguageAlternates("imprint"),
   }),
   robots: LEGAL_DETAILS.isComplete
     ? { index: true, follow: true }

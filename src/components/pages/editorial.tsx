@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
 import { ButtonLink, type ButtonVariant } from "@/components/button";
+import type { SiteLocale } from "@/config/routes";
 
 import styles from "./secondary-pages.module.css";
 
@@ -19,6 +20,7 @@ type PageHeroProps = {
   secondary?: { label: string; href: string; variant?: ButtonVariant };
   ctaSecondary?: boolean;
   breadcrumbs?: readonly BreadcrumbItem[];
+  locale?: SiteLocale;
 };
 
 export function PageHero({
@@ -34,12 +36,17 @@ export function PageHero({
   secondary,
   ctaSecondary,
   breadcrumbs,
+  locale = "en",
 }: PageHeroProps) {
   return (
     <header className={`${styles.hero} ${compact ? styles.heroCompact : ""}`}>
       {breadcrumbs?.length ? (
         <div className={styles.container}>
-          <Breadcrumbs className={styles.heroBreadcrumbs} items={breadcrumbs} />
+          <Breadcrumbs
+            className={styles.heroBreadcrumbs}
+            items={breadcrumbs}
+            locale={locale}
+          />
         </div>
       ) : null}
       <div className={`${styles.container} ${styles.heroGrid}`}>
@@ -157,14 +164,19 @@ export function ContactBand({
   text,
   href = "/contact",
   label = "Request a conversation",
+  locale = "en",
 }: {
   title: string;
   text: string;
   href?: string;
   label?: string;
+  locale?: SiteLocale;
 }) {
   return (
-    <aside className={styles.contactBand} aria-label="Next step">
+    <aside
+      className={styles.contactBand}
+      aria-label={locale === "de" ? "Nächster Schritt" : "Next step"}
+    >
       <div className={`${styles.container} ${styles.contactBandGrid}`}>
         <div>
           <h2 className={styles.contactBandTitle}>{title}</h2>

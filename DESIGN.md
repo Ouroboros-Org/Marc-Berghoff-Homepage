@@ -135,7 +135,7 @@ Use ruled rows for service choices, insights and repeated comparable items. A ro
 
 ### Navigation
 
-The 4.8rem sticky header uses the logo, grouped “How I help”, “Insights” and “About” navigation, LinkedIn and one booking CTA. Active groups use a blue underline. Desktop submenus pair a short orientation line with two-column page links. The mobile menu occupies the viewport below the header, uses numbered accordion groups, locks background scroll, traps focus, closes with Escape and restores focus. Hide the logo descriptor on the narrowest screens.
+The 4.8rem sticky header uses the logo, grouped “How I can help”, “Insights” and “About” navigation, LinkedIn and one booking CTA. Active groups use a blue underline. Desktop submenus pair a short orientation line with two-column page links. The mobile menu occupies the viewport below the header, uses numbered accordion groups, locks background scroll, traps focus, closes with Escape and restores focus. Hide the logo descriptor on the narrowest screens.
 
 ### Universal four-step process
 

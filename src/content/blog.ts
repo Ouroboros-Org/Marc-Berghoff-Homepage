@@ -24,12 +24,12 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     slug: "founder-bottleneck-or-operating-model",
     title: "When work keeps returning to the founder",
     description:
-      "Trace the decisions that come back upstairs before deciding whether the issue is founder behaviour, role clarity or the operating model.",
+      "Before you call the founder a bottleneck, trace the decisions that came back and the reason each hand-off made sense.",
     category: "Leadership systems",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-08-04",
+    updatedAt: "2026-08-11",
     intro:
-      "A product launch is waiting for approval. A manager asks the founder to settle a disagreement between two teams. Last week's hiring decision is open again. It is easy to call the founder the bottleneck. That label says little about why the work came back.",
+      "A product launch is waiting for approval. A manager asks the founder to settle a disagreement between two teams. Last week's hiring decision is open again. Calling the founder a bottleneck is tempting. The label says little about why the work came back.",
     sections: [
       {
         heading: "Track the decisions that come back",
@@ -39,7 +39,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
         ],
       },
       {
-        heading: "Ask why escalation felt sensible",
+        heading: "Why did escalation feel sensible?",
         paragraphs: [
           "People usually escalate for a reason that makes sense from where they sit. Look for the condition that rewarded the hand-off. You may find one of these patterns:",
         ],
@@ -61,12 +61,12 @@ export const BLOG_POSTS: readonly BlogPost[] = [
         heading: "Run one small test",
         paragraphs: [
           "Choose one recurring class of decision. State who owns it, what input that person needs, the limit of their authority and the circumstances that justify escalation. Then observe the next three cycles without rescuing the process too early.",
-          "If the decision stays with its owner, repeat the experiment elsewhere. If it returns, inspect the moment it moved. You may discover a capability gap, a missing piece of information or a founder habit that the first conversation did not surface. That uncertainty is valuable; it is narrower than the one you began with.",
+          "If the decision stays with its owner, repeat the experiment elsewhere. If it returns, inspect the moment it moved. Write down what sent it back. That is the next thing to test.",
         ],
       },
     ],
     nextStep: {
-      label: "See how I can help",
+      label: "See how I work",
       href: "/services",
     },
   },
@@ -77,7 +77,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       "A job description lists responsibilities. Growing companies also need explicit outcomes, decision rights and working agreements between roles.",
     category: "Decision rights",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-08-04",
+    updatedAt: "2026-08-11",
     intro:
       "The sales director owns revenue. The operations director owns delivery quality. A large prospect wants terms that put delivery at risk. Both job descriptions can be accurate while the decision between them remains completely unowned.",
     sections: [
@@ -108,7 +108,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
         ],
       },
       {
-        heading: "See whether the meeting changes",
+        heading: "Take the agreement into the next meeting",
         paragraphs: [
           "The document earns its value in the operating rhythm. If a person owns the decision, the relevant meeting should give them the information and space to make it. Minutes should record the decision and any condition attached to it. Senior leaders have to resist quietly reopening it elsewhere.",
           "Review the agreement after a few real cases. Some boundaries will hold. Others will reveal that the role lacks information, capability or backing. That is a better discussion than debating whether the wording of a job description is sufficiently comprehensive.",
@@ -122,17 +122,17 @@ export const BLOG_POSTS: readonly BlogPost[] = [
   },
   {
     slug: "when-fractional-people-leadership-makes-sense",
-    title: "When Fractional People Leadership fits",
+    title: "When a fractional people remit fits",
     description:
-      "How to tell whether the people and organisation work needs advice, a permanent hire or someone to carry a defined remit now.",
+      "Choose between advice, a permanent hire and a defined part-time remit by looking at who needs to carry the work now.",
     category: "Fractional People Leadership",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-08-04",
+    updatedAt: "2026-08-11",
     intro:
       "The people agenda may already fill half the founder's week, while the long-term leadership role is still hard to define. Hiring quickly can lock in the wrong brief. Waiting leaves important work without an owner. A defined part-time remit can cover that awkward middle period.",
     sections: [
       {
-        heading: "Work out whether you need advice or ownership",
+        heading: "Do you need advice or an owner?",
         paragraphs: [
           "Occasional advice fits a founder who still has the time and authority to carry the work. Fractional People Leadership goes further. The external leader joins the operating rhythm, owns an agreed remit and follows decisions through with managers, HR colleagues and specialist providers.",
           "Write down what must be different over the next few months. If the list depends on somebody attending leadership meetings, coordinating contributors and making day-to-day calls, you are describing ownership. If you mainly want to test a choice before acting, advisory may be enough.",
@@ -174,15 +174,15 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     slug: "executive-coaching-advisory-or-assessment",
     title: "Coaching, advice, assessment or defined responsibility?",
     description:
-      "A starting point depends on who should carry the work and whether the cause is clear enough to act on.",
+      "Choose the starting point by asking who should carry the work and how much is actually known about the cause.",
     category: "Working formats",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-08-04",
+    updatedAt: "2026-08-11",
     intro:
       "A founder says the leadership team avoids difficult decisions. One person may need coaching. The team may need evidence. A visible decision may need a second view, or the work may need an owner. The symptom cannot choose the format on its own.",
     sections: [
       {
-        heading: "First decide who owns the question",
+        heading: "Start with who owns the question",
         paragraphs: [
           "Ask who wants the work, who will take part and who is expected to act on what emerges. Coaching has an individual client. Advisory supports the person or group carrying a defined business decision. An organisational assessment gathers evidence across the relevant part of the company for its decision-makers.",
           "That distinction affects confidentiality. It also sets the limit of what the work can establish. One person's account can be excellent material for coaching; it cannot tell you, by itself, what is happening across a whole team.",

@@ -17,6 +17,8 @@ describe("header navigation state", () => {
     ["/de/advisory", "work"],
     ["/de/peer-advisory", "work"],
     ["/results", "about"],
+    ["/de/about", "about"],
+    ["/de/results", "about"],
     ["/blog/founder-bottleneck-or-operating-model", "insights"],
     ["/contact", "about"],
   ])("maps %s to the %s group", (pathname, groupId) => {
@@ -42,5 +44,12 @@ describe("header navigation state", () => {
 
     expect(isCurrentHeaderItem(pathname, "work", pathname)).toBe(true);
     expect(isCurrentHeaderItem(pathname, "about", pathname)).toBe(false);
+  });
+
+  it("marks the localized German About destination in the about group", () => {
+    const pathname = "/de/about";
+
+    expect(isCurrentHeaderItem(pathname, "about", pathname)).toBe(true);
+    expect(isCurrentHeaderItem(pathname, "work", pathname)).toBe(false);
   });
 });

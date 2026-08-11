@@ -175,10 +175,10 @@ export async function POST(request: Request) {
     }
 
     return json(
-      {
-        ok: false,
-        code: "UPSTREAM_ERROR",
-        message: "Something went wrong while sending the message. Please try again.",
+        {
+          ok: false,
+          code: "UPSTREAM_ERROR",
+          message: "Your message was not sent. Wait a moment and try again.",
       },
       500,
     );

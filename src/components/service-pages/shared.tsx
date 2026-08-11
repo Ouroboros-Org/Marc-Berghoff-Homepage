@@ -15,7 +15,10 @@ import {
 import { getSiteUrl } from "@/config/site";
 
 type RelatedLink = {
-  routeId: Exclude<LocalizedRouteId, "home" | "services" | "contact">;
+  routeId: Exclude<
+    LocalizedRouteId,
+    "home" | "services" | "contact" | "privacy" | "imprint"
+  >;
   label: string;
   text: string;
 };
@@ -68,7 +71,7 @@ export function CompactProcess({
       ? {
           title: "So beginnt die Zusammenarbeit.",
           summary:
-            "Ein kostenloses Erstgespräch, normalerweise 30 Minuten. Vor jeder bezahlten Arbeit erhalten Sie eine schriftliche Vereinbarung zum Umfang. Dann beginnt die Arbeit mit einem festgelegten Endpunkt. Wenn ich nicht der Richtige bin, sage ich das.",
+            "Am Anfang steht ein kostenloses Gespräch, normalerweise 30 Minuten. Vor jeder bezahlten Arbeit halte ich Umfang und Endpunkt schriftlich fest. Wenn ein anderes Format oder eine andere Person besser passt, sage ich das.",
           link: "Den vollständigen Ablauf ansehen",
         }
       : {

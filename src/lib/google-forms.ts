@@ -1,9 +1,4 @@
-import {
-  COMPANY_SIZE_LABELS,
-  SERVICE_LABELS,
-  URGENCY_LABELS,
-  type ContactPayload,
-} from "./contact-schema";
+import type { ContactPayload } from "./contact-schema";
 import { formatDiagnosticSubmission } from "./contact-diagnostic";
 
 const GOOGLE_FORM_ENV_KEYS = {
@@ -11,16 +6,7 @@ const GOOGLE_FORM_ENV_KEYS = {
   formType: "GOOGLE_FORM_ENTRY_FORM_TYPE",
   fullName: "GOOGLE_FORM_ENTRY_FULL_NAME",
   email: "GOOGLE_FORM_ENTRY_EMAIL",
-  phone: "GOOGLE_FORM_ENTRY_PHONE",
-  company: "GOOGLE_FORM_ENTRY_COMPANY",
-  role: "GOOGLE_FORM_ENTRY_ROLE",
-  companySize: "GOOGLE_FORM_ENTRY_COMPANY_SIZE",
-  service: "GOOGLE_FORM_ENTRY_SERVICE",
-  urgency: "GOOGLE_FORM_ENTRY_URGENCY",
   message: "GOOGLE_FORM_ENTRY_MESSAGE",
-  currentSituation: "GOOGLE_FORM_ENTRY_CURRENT_SITUATION",
-  desiredOutcome: "GOOGLE_FORM_ENTRY_DESIRED_OUTCOME",
-  referral: "GOOGLE_FORM_ENTRY_REFERRAL",
   diagnosticSummary: "GOOGLE_FORM_ENTRY_DIAGNOSTIC_SUMMARY",
   consent: "GOOGLE_FORM_ENTRY_CONSENT",
 } as const;
@@ -112,27 +98,15 @@ export function buildGoogleFormsBody(
   payload: ContactPayload,
   config: GoogleFormsConfig,
 ): URLSearchParams {
-  const isExtended = payload.formType === "extended";
   const isDiagnosticResult = payload.formType === "diagnostic-result";
   const values: Record<GoogleFormsField, string> = {
     formType:
       payload.formType === "quick"
         ? "Quick message"
-        : isExtended
-          ? "Extended enquiry"
-          : "Diagnostic result",
+        : "Diagnostic result",
     fullName: isDiagnosticResult ? "" : payload.fullName,
     email: payload.email,
-    phone: isExtended ? payload.phone : "",
-    company: isExtended ? payload.company : "",
-    role: isExtended ? payload.role : "",
-    companySize: isExtended ? COMPANY_SIZE_LABELS[payload.companySize] : "",
-    service: isExtended ? SERVICE_LABELS[payload.service] : "",
-    urgency: isExtended ? URGENCY_LABELS[payload.urgency] : "",
     message: payload.formType === "quick" ? payload.message : "",
-    currentSituation: isExtended ? payload.currentSituation : "",
-    desiredOutcome: isExtended ? payload.desiredOutcome : "",
-    referral: isExtended ? payload.referralSource : "",
     diagnosticSummary: isDiagnosticResult
       ? formatDiagnosticSubmission(payload.answers)
       : payload.diagnosticSummary,

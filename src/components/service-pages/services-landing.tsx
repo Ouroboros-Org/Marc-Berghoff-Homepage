@@ -43,7 +43,7 @@ const copy = {
       "Tell me what is happening and what you have tried. I will tell you what level of involvement, if any, makes sense from here.",
   },
   de: {
-    breadcrumb: "Wie ich arbeite",
+    breadcrumb: "Zusammenarbeit",
     title: "Die Situation entscheidet, wie stark ich mich einbringen sollte.",
     lead: [
       "Manche Probleme brauchen Raum zum Denken. Manche brauchen eine offene zweite Sicht. Und manche brauchen für eine Weile eine Person, die einen Teil der Arbeit übernimmt.",
@@ -114,6 +114,7 @@ export function ServicesLanding({ locale }: { locale: SiteLocale }) {
         }
         primary={contactAction}
         ctaPrimary
+        locale={locale}
         secondary={{
           label: pageCopy.secondary,
           href: `${getRouteHref("home", locale)}#diagnostic`,
@@ -170,6 +171,7 @@ export function ServicesLanding({ locale }: { locale: SiteLocale }) {
       <ContactBand
         href={contactAction.href}
         label={contactAction.label}
+        locale={locale}
         text={pageCopy.closingText}
         title={pageCopy.closingTitle}
       />

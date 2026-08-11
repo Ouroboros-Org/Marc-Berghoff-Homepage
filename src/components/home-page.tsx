@@ -182,15 +182,13 @@ export function HomePageView({ locale }: { locale: HomeLocale }) {
               </ul>
               <div className={styles.backgroundActions}>
                 <ButtonLink
-                  href="/about"
-                  hrefLang={locale === "de" ? "en" : undefined}
+                  href={getRouteHref("about", locale)}
                   variant="secondary"
                 >
                   {copy.experience.aboutLabel}
                 </ButtonLink>
                 <ButtonLink
-                  href="/results"
-                  hrefLang={locale === "de" ? "en" : undefined}
+                  href={getRouteHref("results", locale)}
                   variant="text"
                 >
                   {copy.experience.resultsLabel}

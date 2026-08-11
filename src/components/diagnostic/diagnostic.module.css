@@ -372,18 +372,6 @@
   animation: spin 800ms linear infinite;
 }
 
-.flow {
-  display: grid;
-  gap: clamp(3rem, 7vw, 5rem);
-}
-
-.formPanel {
-  padding: clamp(1.25rem, 4vw, 2.5rem);
-  border: 1px solid var(--diag-line);
-  border-radius: 1.05rem;
-  background: var(--diag-white);
-}
-
 .homeWrapper {
   width: 100%;
 }

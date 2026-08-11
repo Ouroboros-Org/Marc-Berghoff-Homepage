@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
-import type { SiteLocale } from "@/config/routes";
+import { getRouteHref, type SiteLocale } from "@/config/routes";
 import {
   getPrimaryContactAction,
   getServiceNavigation,
@@ -16,9 +16,12 @@ export function SiteFooter({ locale = "en" }: { locale?: SiteLocale }) {
   const isGerman = locale === "de";
   const explore: Array<{ href: string; label: string; language?: SiteLocale }> = isGerman
     ? [
-        { href: "/results", label: "Ergebnisse & Erfahrung (English)", language: "en" },
-        { href: "/blog", label: "Einblicke (English)", language: "en" },
-        { href: "/about", label: "Über mich (English)", language: "en" },
+        {
+          href: getRouteHref("results", "de"),
+          label: "Ergebnisse & Erfahrung",
+        },
+        { href: "/blog", label: "Einblicke (Englisch)", language: "en" },
+        { href: getRouteHref("about", "de"), label: "Über mich" },
       ]
     : [
         { href: "/results", label: "Results & experience" },
@@ -88,11 +91,17 @@ export function SiteFooter({ locale = "en" }: { locale?: SiteLocale }) {
       <div className="site-footer__bottom">
         <span>© {new Date().getFullYear()} Marc Berghoff</span>
         <div>
-          <Link href="/privacy" hrefLang="en" lang={isGerman ? "en" : undefined}>
-            {isGerman ? "Privacy (English)" : "Privacy"}
+          <Link
+            href={getRouteHref("privacy", locale)}
+            hrefLang={isGerman ? "de" : "en"}
+          >
+            {isGerman ? "Datenschutz" : "Privacy"}
           </Link>
-          <Link href="/imprint" hrefLang="en" lang={isGerman ? "en" : undefined}>
-            {isGerman ? "Imprint (English)" : "Imprint"}
+          <Link
+            href={getRouteHref("imprint", locale)}
+            hrefLang={isGerman ? "de" : "en"}
+          >
+            {isGerman ? "Impressum" : "Imprint"}
           </Link>
         </div>
       </div>

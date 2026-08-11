@@ -13,7 +13,10 @@ export type WorkingFormatId =
 
 export type WorkingFormat = {
   id: WorkingFormatId;
-  routeId: Exclude<LocalizedRouteId, "home" | "services" | "contact">;
+  routeId: Exclude<
+    LocalizedRouteId,
+    "home" | "services" | "contact" | "privacy" | "imprint"
+  >;
   title: string;
   responsibility: string;
   signal: string;
@@ -120,9 +123,3 @@ export function getWorkingFormats(locale: SiteLocale): readonly WorkingFormat[] 
 }
 
 export const WORKING_FORMATS = getWorkingFormats("en");
-
-/** @deprecated Use WORKING_FORMATS or getWorkingFormats(locale). */
-export const CORE_WORKING_FORMATS = WORKING_FORMATS;
-
-/** @deprecated The supporting-service split no longer exists. */
-export const SUPPORTING_WORKING_FORMATS = [] as const;

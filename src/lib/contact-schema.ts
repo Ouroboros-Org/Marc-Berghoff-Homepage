@@ -112,39 +112,6 @@ export const quickContactSchema = z.object({
     .max(4_000, "Keep your message to 4,000 characters or fewer."),
 });
 
-export const extendedContactSchema = z.object({
-  formType: z.literal("extended"),
-  ...baseFields,
-  phone: optionalShortText(50).refine(
-    (value) => !value || /^[+()\d\s./-]+$/.test(value),
-    "Use numbers and common phone symbols only.",
-  ),
-  company: z
-    .string()
-    .trim()
-    .min(2, "Enter your company or organisation.")
-    .max(160, "Keep the company name to 160 characters or fewer."),
-  role: z
-    .string()
-    .trim()
-    .min(2, "Enter your role.")
-    .max(120, "Keep your role to 120 characters or fewer."),
-  companySize: z.enum(COMPANY_SIZE_VALUES),
-  service: z.enum(SERVICE_VALUES),
-  urgency: z.enum(URGENCY_VALUES),
-  currentSituation: z
-    .string()
-    .trim()
-    .min(20, "Add a little more detail about what is happening now.")
-    .max(5_000, "Keep this to 5,000 characters or fewer."),
-  desiredOutcome: z
-    .string()
-    .trim()
-    .min(20, "Add a little more detail about what should change.")
-    .max(5_000, "Keep this to 5,000 characters or fewer."),
-  referralSource: optionalShortText(500),
-});
-
 const diagnosticAnswersSchema = z
   .record(z.enum(DIAGNOSTIC_ITEM_IDS), z.boolean())
   .refine(
@@ -175,17 +142,14 @@ export const diagnosticResultSchema = z.object({
 
 export const contactPayloadSchema = z.discriminatedUnion("formType", [
   quickContactSchema,
-  extendedContactSchema,
   diagnosticResultSchema,
 ]);
 
 export type QuickContactPayload = z.infer<typeof quickContactSchema>;
-export type ExtendedContactPayload = z.infer<typeof extendedContactSchema>;
 export type DiagnosticResultPayload = z.infer<typeof diagnosticResultSchema>;
 export type ContactPayload = z.infer<typeof contactPayloadSchema>;
 export type ContactFieldName =
   | keyof QuickContactPayload
-  | keyof ExtendedContactPayload
   | keyof DiagnosticResultPayload;
 
 export const quickContactDefaults = (
@@ -195,27 +159,6 @@ export const quickContactDefaults = (
   fullName: "",
   email: "",
   message: "",
-  diagnosticSummary,
-  consent: false,
-  website: "",
-  startedAt: Date.now(),
-});
-
-export const extendedContactDefaults = (
-  diagnosticSummary = "",
-): ExtendedContactPayload => ({
-  formType: "extended",
-  fullName: "",
-  email: "",
-  phone: "",
-  company: "",
-  role: "",
-  companySize: "prefer-not-to-say",
-  service: "not-sure",
-  urgency: "exploring",
-  currentSituation: "",
-  desiredOutcome: "",
-  referralSource: "",
   diagnosticSummary,
   consent: false,
   website: "",

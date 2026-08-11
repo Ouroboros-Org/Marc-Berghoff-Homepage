@@ -12,12 +12,12 @@ This checklist reconciles the original feedback with the later implementation de
 - [x] The home page shows every working format. Its follow-up link leads to the fixed sequence and full engagement process rather than repeating the same list without context.
 - [x] The full universal four-step process is shown on `/services`; service detail pages use the same compact summary and link to `/services#process`.
 - [x] The first conversation is clearly described as free, detailed, typically 30 minutes and required before paid work.
-- [x] German counterparts exist for services, each service detail page and contact, not only for the homepage.
+- [x] German counterparts exist for services, each service detail page, About, Results & Experience and contact, not only for the homepage. Insights remain explicitly marked as English.
 - [x] Cal.com is embedded on the contact page with a mobile layout. Booking actions always target the booking section; without a configured link, that section gives an honest email fallback.
 
 ## Diagnostic
 
-- [x] The home diagnostic is collapsed by default and opens when a CTA promises it.
+- [x] The ten-statement home diagnostic is shown in full near the top of the page. Service-page diagnostic disclosures remain collapsed until a visitor opens them.
 - [x] The extra preamble and repeated tool title are removed; the open tool begins with one short sentence.
 - [x] The site logo links back to `/` from the diagnostic and every other page.
 - [x] The paid assessment is the entry product when the cause is disputed without becoming the site's whole identity.

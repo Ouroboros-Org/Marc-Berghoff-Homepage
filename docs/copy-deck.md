@@ -48,11 +48,25 @@ The Bottleneck Assessment is the entry product when the cause is disputed. The f
 - Vary sentence length naturally. Keep most sentences under 25 words.
 - Keep uncertainty intact. Do not manufacture a neat diagnosis or reassuring ending.
 - Use real roles, decisions and meetings instead of abstract business language.
+- Let each page follow the actual work. Do not force every subject through the same problem, insight and tidy resolution.
+- Repeat the correct noun when the meaning is the same. Forced synonyms make the writing less precise.
+- End with the next real action. Do not add a summary paragraph that repeats the page.
+
+These checks use Wikipedia's descriptive [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) as editing prompts, not as an AI detector. They also apply the useful structural finding from [StoryScope](https://arxiv.org/abs/2604.03136): cosmetic word replacement does not fix prose that explains every theme, follows one frictionless causal path and resolves every uncertainty.
+
+### German transcreation
+
+- Preserve the English facts, responsibility boundary and next action. Rewrite the sentence in natural German rather than copying the English order.
+- Use formal **Sie** throughout and let Marc speak as **ich**.
+- Prefer direct verbs such as **ist**, **hat**, **entscheidet**, **fragt**, **übernimmt** and **landet** over noun-heavy constructions.
+- Keep **Frage**, **Arbeit**, **Entscheidung**, **Verantwortung** and **Auftrag** stable when they refer to the same thing.
+- Avoid mechanical connectors such as **darüber hinaus**, **zusätzlich** and **außerdem**, and do not close with **zusammenfassend**, **abschließend** or a repeated **Fazit**.
+- Shorten labels where German expansion makes a control or navigation item unwieldy. Preserve the action, not the English word count.
 
 ## Repeated actions
 
 - **Book a free 30-minute conversation**
-- **See how I can help**
+- **See how I work**
 - **Run the ten-statement check**
 - **Send me a note**
 - **Add context about the business**
@@ -129,11 +143,11 @@ Link: **See how I work**
 
 ### Diagnostic
 
-Closed label: **Run the ten-statement check**
+Label: **Run the ten-statement check**
 
-Closed helper: **Use it when the issue is hard to name**
+Helper: **Use it when the issue is hard to name**
 
-Inside: **Answer from the last few weeks, including the awkward days.**
+The complete ten-statement check remains visible on Home. Prompt: **Answer from the last few weeks, including the awkward days.**
 
 ### Experience
 
@@ -249,46 +263,48 @@ Publishing status: The page is unfinished and available only by direct URL. Keep
 
 H1: **When the issue sits between the people and the way the business works.**
 
-Lead: I help founders and leadership teams understand what is happening, decide what needs to change and choose how involved I should be. My range runs from coaching to a defined remit.
+Lead: I work with founders and leadership teams when a people question has become an operating problem. The work may stay in coaching or advice, or it may need evidence and a defined remit.
 
-Primary: **Book a free conversation**
+Primary: **Book a free 30-minute conversation**
 
 Secondary: **Run the ten-statement check**
 
-Biography: I have worked in HR and coaching for more than seven years. I have led people work inside a fast-growing company, co-founded CyberKongz, coached leaders and served as interim Head of HR. I hold an MSc in Psychology and the ICF Associate Certified Coach credential.
+Biography: I have worked across HR, coaching and organisational development for almost a decade, both in-house and independently. I have led people work inside a fast-growing company, co-founded CyberKongz, coached leaders and served as interim Head of HR. I hold an MSc in Psychology, the ICF Associate Certified Coach credential and teach training and development and organisational leadership.
 
-Working stance heading: **I work at the boundary between reflection and responsibility.**
+Biography heading: **I have worked on both sides of the conversation.**
 
 Personal note: Away from work, I am usually reading, climbing, exploring a new culture or trying to improve my homemade chilaquiles.
 
 Leadership principles:
 
-1. **From hands-on to strategic.** Start with the live detail, then move attention towards the decision or system behind it.
-2. **Use evidence that answers a decision.** KPIs help when they change what someone can see or decide. Reporting without a decision adds noise.
-3. **Make progress observable.** Coaching begins with a current state, a desired change and signs that the change is happening.
-4. **Use methods when they help the work.** OKRs and Scaling Up can provide structure. The method serves the issue; it is not the product.
+1. **Start with the live decision.** Ask what happened, who held the decision first and where it moved.
+2. **Use evidence for a decision.** A measure earns its place when it changes what someone can see or decide.
+3. **Make progress visible.** Name what should be handled differently and what would show that the change is happening in the working week.
+4. **Use the method that fits.** Start with the issue and use a method only when it helps. That may include OKRs or Scaling Up.
 
 ## Results and experience
 
-H1: **See the kinds of responsibility I have carried.**
+H1: **The work behind my point of view.**
 
-Lead: These examples show where I have worked as a people leader, founder, advisor and interim operator. They provide context for my judgement; they do not promise your outcome.
+Lead: These examples show where I have coached, advised, operated or carried an HR remit. They give the reader context for Marc's judgement; they do not forecast another company's outcome.
+
+Approved examples include coaching department leaders at a national financial regulator; individual and group work with the top management team of a global events and media group; a sourcing approach developed with the CFO of a German financial services group and still used five years later; interim HR responsibility for a 400-person security group across four companies; Head of HR at Klarsolar before its acquisition by E.ON; CEO-owner coaching and mediation in Dubai; and a keynote at a major HR conference in Malta.
 
 ## Insights
 
-H1: **See the issue more clearly before you act on it.**
+H1: **Read the pattern before you name the help.**
 
-Lead: These notes examine why work returns to senior leaders, why role boundaries fail and what level of support the situation calls for.
+Lead: A decision is back on your desk. Two roles are waiting for each other. A people remit has no owner. These notes start with the working week, before anyone turns the situation into a diagnosis.
 
 Article list heading: **Start with the pattern closest to yours.**
 
-Article footer: **Bring the article back to your situation.** / The first conversation is free. We can discuss what fits, what does not and whether another person would be more useful.
+Article footer: **Bring the question back to your situation.** / The next page explains one relevant format. If you are unsure whether it fits, start with a free 30-minute conversation.
 
 ## Contact
 
 H1: **Bring the issue as it is.**
 
-Lead: Bring the issue before you have chosen a service or worked out a diagnosis. Book a time below, or send a short note if writing is easier.
+Lead: You do not need to choose a format first. Book a time below, or send a few lines if writing is easier.
 
 Calendar heading: **Choose a time to talk it through.**
 
@@ -298,9 +314,9 @@ Form intro: Your name, email and a few lines are enough.
 
 Optional details: **Add context about the business**
 
-Direct details: **Would you rather call or send an email?**
+Direct details: **If the form gets in the way, contact me directly.**
 
-Locale coverage: German service and contact counterparts exist under `/de`, including `/de/services`, each of the five service routes and `/de/contact`. The German first-conversation copy uses “normally 30 minutes”.
+Locale coverage: German counterparts exist for Home, Services, all five service routes, About, Results & Experience, Contact, Privacy and Imprint. Unknown `/de/*` paths also recover in German. Insights remain English-only and are labelled as English in the German navigation. The German first-conversation copy uses “normally 30 minutes”.
 
 Deployment note: Executive Coaching may be individual or group work, but this first deployment has no legacy group-coaching URL or redirect.
 
@@ -312,8 +328,8 @@ Footer body: **Start with what is happening. We can choose my level of involveme
 
 Default metadata title: **Marc Berghoff | Leadership, organisation and coaching**
 
-404: **This page is not here.** / The link may be out of date. Return home or book the free conversation.
+404: **I could not find that page.** / The link may be out of date. Start again from the homepage.
 
 ## Legal pages
 
-Privacy and imprint copy remain legally scoped. They inherit the revised navigation, footer and metadata shell but are not rewritten for marketing tone.
+Privacy and imprint copy remain legally scoped in both English and German. Both locales read production provider details from the same environment-backed source. The German legal copy needs qualified review before release; see `docs/legal-localization-review.md`.

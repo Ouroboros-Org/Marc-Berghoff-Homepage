@@ -19,12 +19,12 @@ import {
 
 const copy = {
   en: {
-    breadcrumbServices: "Services",
+    breadcrumbServices: "How I can help",
     breadcrumbPage: "Executive Coaching",
     title: "The decisions that keep coming back to you.",
     lead: [
-      "Most leaders who reach this point have not run out of ability. They have run out of a way of working that used to fit and no longer does.",
-      "Your role changed. The company changed around you. The way you lead has not caught up yet. Other people often feel that before you do.",
+      "Your role and the company have changed.",
+      "Decisions that once fitted your way of working now return to you, move too slowly or depend too heavily on your involvement.",
     ],
     situationsTitle: "What this is for.",
     situations: [
@@ -42,12 +42,12 @@ const copy = {
       },
       {
         title: "As a group",
-        text: "Several leaders from the same organisation work on the same shift at the same time. Progress is slower per person and often stronger for the company, because the change happens between them. It also avoids the familiar pattern where one leader develops and returns to a team that has not moved. The group creates accountability; I help it keep that accountability alive.",
+        text: "Several leaders from the same organisation work on a shared change. Sessions focus on what happens between their roles, and the group agrees how it will hold each other to the work.",
       },
     ],
     shapeTitle: "Give the work enough time to hold.",
     shapeBody:
-      "A minimum of six sessions over at least three months. Sustainable development takes longer than a burst of insight, and I would rather turn down the work than pretend otherwise.",
+      "The minimum is six sessions over at least three months. That gives us time to try changes between sessions and review what actually happened.",
     credentialsTitle: "Training and coaching practice.",
     credentials: [
       "ICF Associate Certified Coach",
@@ -75,38 +75,38 @@ const copy = {
   de: {
     breadcrumbServices: "Zusammenarbeit",
     breadcrumbPage: "Executive Coaching",
-    title: "Die Entscheidungen, die immer wieder bei Ihnen landen.",
+    title: "Entscheidungen, die immer wieder bei Ihnen landen.",
     lead: [
-      "Den meisten Führungskräften an diesem Punkt fehlt es nicht an Fähigkeit. Ihre bisherige Arbeitsweise passt nur nicht mehr zur Rolle.",
-      "Ihre Rolle hat sich verändert. Das Unternehmen auch. Ihre Art zu führen ist noch nicht nachgezogen. Andere merken das oft früher als Sie selbst.",
+      "Ihre Rolle und das Unternehmen haben sich verändert.",
+      "Entscheidungen, die früher zu Ihrer Arbeitsweise passten, landen wieder bei Ihnen, dauern zu lange oder hängen zu stark von Ihrer Beteiligung ab.",
     ],
     situationsTitle: "Wofür dieses Coaching gedacht ist.",
     situations: [
-      "Die Gespräche, die Sie weiter aufschieben, obwohl sie nicht leichter werden.",
-      "Herausfinden, welche Arbeit nur Sie leisten können — und warum Sie trotzdem nach allem anderen greifen.",
+      "Ein Gespräch führen, das Sie seit Wochen aufschieben, obwohl es nicht leichter wird.",
+      "Klären, welche Aufgaben wirklich bei Ihnen liegen und warum Sie andere trotzdem nicht abgeben.",
       "Menschen führen, die ihr Fach inzwischen tiefer beherrschen als Sie.",
       "Ein Führungsteam aufbauen, das nicht jede Entscheidung über Sie laufen lässt.",
-      "Belastbar bleiben, während sich das Unternehmen schneller verändert, als sich Ihre Rolle vertraut anfühlt.",
+      "Belastbar bleiben, während sich das Unternehmen schneller verändert, als Sie in Ihrer neuen Rolle ankommen.",
     ],
     formatsTitle: "Einzeln oder als Gruppe.",
     formats: [
       {
         title: "Einzeln",
-        text: "Eine Führungskraft arbeitet im eigenen Tempo an der eigenen Veränderung. Nichts aus dem Raum wird weitergetragen.",
+        text: "Eine Führungskraft arbeitet im eigenen Tempo an ihrer Veränderung. Was im Coaching besprochen wird, bleibt dort.",
       },
       {
         title: "Als Gruppe",
-        text: "Mehrere Führungskräfte derselben Organisation arbeiten gleichzeitig an derselben Veränderung. Der Fortschritt pro Person ist langsamer, für das Unternehmen aber oft stärker, weil die Veränderung zwischen den Personen stattfindet. So kehrt nicht eine einzelne entwickelte Führungskraft in ein unverändertes Team zurück. Die Gruppe schafft Verbindlichkeit; ich helfe ihr, diese einzuhalten.",
+        text: "Mehrere Führungskräfte derselben Organisation arbeiten gleichzeitig an einer gemeinsamen Veränderung. Dabei geht es auch um das, was zwischen ihnen passiert: Absprachen, Reibung und gegenseitige Erwartungen. Die Gruppe schafft Verbindlichkeit; ich halte den Prozess in Bewegung.",
       },
     ],
-    shapeTitle: "Die Veränderung braucht genug Zeit, um zu halten.",
+    shapeTitle: "Veränderung braucht Zeit, damit sie im Alltag hält.",
     shapeBody:
-      "Mindestens sechs Sitzungen über mindestens drei Monate. Nachhaltige Entwicklung braucht mehr als einen kurzen Erkenntnisschub. Lieber lehne ich den Auftrag ab, als etwas anderes zu versprechen.",
+      "Mindestens sechs Sitzungen über drei Monate. So bleibt Zeit, zwischen den Terminen etwas auszuprobieren und gemeinsam zu prüfen, was im Alltag tatsächlich passiert ist.",
     credentialsTitle: "Ausbildung und Coaching-Praxis.",
     credentials: [
       "ICF Associate Certified Coach",
       "Mehr als 350 Coaching-Stunden",
-      "Co-Active ausgebildet",
+      "Co-Active-Training",
       "Organisationspsychologe",
     ],
     badgeAlt: "Mitgliedsabzeichen der International Coaching Federation",
@@ -114,7 +114,7 @@ const copy = {
       {
         routeId: "advisory" as const,
         label: "Strategic People Advisory",
-        text: "Wenn es um eine Entscheidung statt um Ihre Arbeitsweise geht, passt Beratung besser.",
+        text: "Wenn die Entscheidung im Vordergrund steht und nicht Ihre Arbeitsweise, passt Beratung besser.",
       },
       {
         routeId: "bottleneckAssessment" as const,
@@ -122,7 +122,7 @@ const copy = {
         text: "Wenn sich noch niemand über das eigentliche Problem einig ist, beginnen Sie mit der Analyse.",
       },
     ],
-    closingTitle: "Bringen Sie die Entscheidung mit, die immer wieder zurückkehrt.",
+    closingTitle: "Bringen Sie eine Situation mit, die Raum zum Denken braucht.",
     closingText:
       "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Wir klären die Frage und prüfen, ob Coaching der richtige Rahmen ist.",
   },
@@ -155,6 +155,7 @@ export function ExecutiveCoachingPageView({ locale }: { locale: SiteLocale }) {
         }
         primary={contactAction}
         ctaPrimary
+        locale={locale}
         secondary={{
           label: locale === "de" ? "Alle Formate ansehen" : "See all formats",
           href: getRouteHref("services", locale),
@@ -210,11 +211,13 @@ export function ExecutiveCoachingPageView({ locale }: { locale: SiteLocale }) {
             <h2 className={styles.sectionTitle} id="coaching-credentials">
               {pageCopy.credentialsTitle}
             </h2>
-            <ul className={`${pageStyles.credentialList} ${styles.spacedTop}`}>
-              {pageCopy.credentials.map((credential) => (
-                <li key={credential}>{credential}</li>
-              ))}
-            </ul>
+            <div className={styles.spacedTop}>
+              <ul className={pageStyles.credentialList}>
+                {pageCopy.credentials.map((credential) => (
+                  <li key={credential}>{credential}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -228,6 +231,7 @@ export function ExecutiveCoachingPageView({ locale }: { locale: SiteLocale }) {
       <ContactBand
         href={contactAction.href}
         label={contactAction.label}
+        locale={locale}
         text={pageCopy.closingText}
         title={pageCopy.closingTitle}
       />

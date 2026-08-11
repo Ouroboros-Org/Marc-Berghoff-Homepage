@@ -195,7 +195,10 @@ export function SiteHeader({ locale = "en" }: { locale?: SiteLocale }) {
       <div className="site-header__inner">
         <SiteLogo locale={locale} />
 
-        <nav className="desktop-nav" aria-label="Primary navigation">
+        <nav
+          className="desktop-nav"
+          aria-label={locale === "de" ? "Hauptnavigation" : "Primary navigation"}
+        >
           {navigation.map((group) => {
             const open = openDesktopMenu === group.id;
             const active = activeGroupId === group.id;
@@ -294,10 +297,14 @@ export function SiteHeader({ locale = "en" }: { locale?: SiteLocale }) {
         </Button>
       </div>
 
-      {navigation.map((group) =>
-        openDesktopMenu === group.id ? (
+      {navigation.map((group) => {
+        const open = openDesktopMenu === group.id;
+
+        return (
           <div
+            aria-hidden={!open}
             className="desktop-submenu"
+            hidden={!open}
             id={`desktop-submenu-${group.id}`}
             key={group.id}
           >
@@ -307,7 +314,11 @@ export function SiteHeader({ locale = "en" }: { locale?: SiteLocale }) {
                 <p className="desktop-submenu__title">{group.description}</p>
               </div>
               <nav
-                aria-label={`${group.label} pages`}
+                aria-label={
+                  locale === "de"
+                    ? `Seiten unter ${group.label}`
+                    : `${group.label} pages`
+                }
                 className="desktop-submenu__links"
               >
                 {group.items.map((item) => (
@@ -329,8 +340,8 @@ export function SiteHeader({ locale = "en" }: { locale?: SiteLocale }) {
               </nav>
             </div>
           </div>
-        ) : null,
-      )}
+        );
+      })}
 
       <div
         aria-hidden={!mobileOpen}
@@ -338,9 +349,14 @@ export function SiteHeader({ locale = "en" }: { locale?: SiteLocale }) {
         data-open={mobileOpen || undefined}
         id="mobile-navigation"
       >
-        <nav className="mobile-nav__inner" aria-label="Mobile navigation">
+        <nav
+          className="mobile-nav__inner"
+          aria-label={locale === "de" ? "Mobile Navigation" : "Mobile navigation"}
+        >
           <p className="mobile-nav__eyebrow">
-            {locale === "de" ? "Beginnen Sie mit der Situation" : "Start with what is happening"}
+            {locale === "de"
+              ? "Beginnen Sie mit dem, was gerade passiert"
+              : "Start with what is happening"}
           </p>
           {navigation.map((group, index) => {
             const sectionOpen = openMobileSection === group.id;
@@ -415,14 +431,14 @@ export function SiteHeader({ locale = "en" }: { locale?: SiteLocale }) {
               <ButtonLink
                 href={
                   locale === "de"
-                    ? getRouteHref("contact", "de", "#direct-contact")
+                    ? getRouteHref("contact", "de", "#contact-form")
                     : getRouteHref("contact", "en", "#contact-form")
                 }
                 size="wide"
                 tabIndex={mobileOpen ? 0 : -1}
                 variant="secondary"
               >
-                {locale === "de" ? "E-Mail schreiben" : "Send me a note"}
+                {locale === "de" ? "Nachricht senden" : "Send me a note"}
               </ButtonLink>
             ) : null}
             <ButtonLink

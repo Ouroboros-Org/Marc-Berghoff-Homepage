@@ -1,13 +1,40 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  getBookingUrl,
   getCalLink,
   getContactEmail,
   getContactPhone,
+  getHeaderNavigation,
   getPrimaryContactAction,
   getSiteUrl,
 } from "./site";
+
+describe("getHeaderNavigation", () => {
+  it("uses localized About and Results links in the German navigation", () => {
+    const aboutGroup = getHeaderNavigation("de").find(
+      (group) => group.id === "about",
+    );
+
+    expect(aboutGroup?.href).toBe("/de/about");
+    expect(aboutGroup?.items.map(({ href, language }) => ({ href, language })))
+      .toEqual([
+        { href: "/de/about", language: undefined },
+        { href: "/de/results", language: undefined },
+        { href: "/de/contact", language: undefined },
+      ]);
+  });
+
+  it("keeps German Insights links explicitly marked as English", () => {
+    const insightGroup = getHeaderNavigation("de").find(
+      (group) => group.id === "insights",
+    );
+
+    expect(insightGroup?.href).toBe("/blog");
+    expect(insightGroup?.items.every((item) => item.language === "en")).toBe(
+      true,
+    );
+  });
+});
 
 describe("getSiteUrl", () => {
   it.each([
@@ -90,25 +117,6 @@ describe("getPrimaryContactAction", () => {
       label: "Kostenloses 30-Minuten-Gespräch buchen",
       isBooking: true,
     });
-  });
-});
-
-describe("getBookingUrl", () => {
-  it.each([
-    undefined,
-    "",
-    "https://YOUR_DOMAIN/book",
-    "http://calendar.example/marc",
-    "javascript:alert(1)",
-    "https://user:password@calendar.example/marc",
-  ])("rejects an absent, placeholder or unsafe value: %s", (value) => {
-    expect(getBookingUrl(value)).toBeNull();
-  });
-
-  it("returns a valid HTTPS scheduling URL", () => {
-    expect(getBookingUrl(" https://calendar.example/marc?month=2026-08 ")).toBe(
-      "https://calendar.example/marc?month=2026-08",
-    );
   });
 });
 

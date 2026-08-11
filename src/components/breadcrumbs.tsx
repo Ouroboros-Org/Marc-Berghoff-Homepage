@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
+import { getRouteHref, type SiteLocale } from "@/config/routes";
 import { cn } from "@/lib/utils";
 
 import styles from "./breadcrumbs.module.css";
@@ -13,17 +14,25 @@ export type BreadcrumbItem = {
 export function Breadcrumbs({
   items,
   className,
+  locale = "en",
 }: {
   items: readonly BreadcrumbItem[];
   className?: string;
+  locale?: SiteLocale;
 }) {
   const trail: readonly BreadcrumbItem[] = [
-    { label: "Home", href: "/" },
+    {
+      label: locale === "de" ? "Startseite" : "Home",
+      href: getRouteHref("home", locale),
+    },
     ...items,
   ];
 
   return (
-    <nav className={cn(styles.breadcrumbs, className)} aria-label="Breadcrumb">
+    <nav
+      className={cn(styles.breadcrumbs, className)}
+      aria-label={locale === "de" ? "Brotkrümelnavigation" : "Breadcrumb"}
+    >
       <ol>
         {trail.map((item, index) => {
           const current = index === trail.length - 1;
@@ -44,4 +53,3 @@ export function Breadcrumbs({
     </nav>
   );
 }
-

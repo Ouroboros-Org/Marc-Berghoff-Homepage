@@ -10,7 +10,11 @@ export type LocalizedRouteId =
   | "advisory"
   | "peerAdvisory"
   | "fractionalPeopleLeadership"
-  | "contact";
+  | "about"
+  | "results"
+  | "contact"
+  | "privacy"
+  | "imprint";
 
 export const LOCALIZED_ROUTES = {
   home: { en: "/", de: "/de" },
@@ -29,7 +33,11 @@ export const LOCALIZED_ROUTES = {
     en: "/fractional-people-leadership",
     de: "/de/fractional-people-leadership",
   },
+  about: { en: "/about", de: "/de/about" },
+  results: { en: "/results", de: "/de/results" },
   contact: { en: "/contact", de: "/de/contact" },
+  privacy: { en: "/privacy", de: "/de/datenschutz" },
+  imprint: { en: "/imprint", de: "/de/impressum" },
 } as const satisfies Record<
   LocalizedRouteId,
   Record<SiteLocale, `/${string}` | "/">

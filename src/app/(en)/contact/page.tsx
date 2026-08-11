@@ -34,8 +34,8 @@ export default async function ContactPage({
         breadcrumbs={[{ label: "Contact" }]}
         lead={
           contactAction.isBooking
-            ? "Bring the issue before you have chosen a service or worked out a diagnosis. Book a time below, or send a short note if writing is easier."
-            : "Bring the issue before you have chosen a service or worked out a diagnosis. Send a short note and I will reply to arrange a time."
+            ? "You do not need to choose a format first. Book a time below, or send a few lines if writing is easier."
+            : "You do not need to choose a format first. Send a few lines and I will reply to arrange a time."
         }
         primary={contactAction}
         ctaPrimary
@@ -53,13 +53,6 @@ export default async function ContactPage({
             }`}
         >
           <div className={styles.formColumn}>
-            <div className={styles.startHeader}>
-              <h2>Start with a few lines.</h2>
-              <p>
-                I read every message myself. Leave the service open if you are unsure
-                where the question belongs.
-              </p>
-            </div>
             <div className={styles.formShell}>
               <ProgressiveContactForm initialDetailsOpen={initialDetailsOpen} />
             </div>
@@ -69,8 +62,8 @@ export default async function ContactPage({
               <div className={styles.startHeader}>
                 <h2 id="booking-title">Choose a time to talk it through.</h2>
                 <p>
-                  The first conversation is free, typically takes 30 minutes and comes before any paid relationship.
-                  We will work out whether another conversation makes sense.
+                  There is no charge and it typically takes 30 minutes. We use the time
+                  to understand the question and decide what, if anything, should happen next.
                 </p>
               </div>
               <CalInlineEmbed calLink={siteConfig.contact.calLink} locale="en" />
@@ -87,10 +80,10 @@ export default async function ContactPage({
         <div className={styles.container}>
           <div className={styles.directHeader}>
             <h2 id="direct-contact-title">
-              Would you rather call or send an email?
+              If the form gets in the way, contact me directly.
             </h2>
             <p>
-              Reach me directly if a form is not the easiest way to start.
+              Use whichever direct route is easier.
             </p>
           </div>
           <dl className={styles.directList}>
@@ -114,7 +107,7 @@ export default async function ContactPage({
             ) : null}
             <div>
               <dt>Location</dt>
-              <dd>Malta · working internationally</dd>
+              <dd>Based in Malta · working internationally</dd>
             </div>
           </dl>
         </div>

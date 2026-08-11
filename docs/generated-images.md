@@ -5,24 +5,6 @@ Generated on 29 July 2026 with the built-in Codex ImageGen workflow. The files i
 They are illustrative marketing assets and must not be described as records of a
 client engagement or real event.
 
-## `marc-seated-editorial.webp`
-
-- Mode: identity-preserving edit
-- Reference: `public/images/portraits/marc-seated-original.webp`
-- Size: 1123×1401
-- Use: homepage hero
-- Review gate: Marc must approve the likeness and the AI-extended setting before launch.
-
-Prompt:
-
-> Create a natural editorial website hero by extending the supplied seated
-> portrait into a wider 4:5 vertical composition. Preserve Marc’s identity, face,
-> hair, glasses, expression, pose, hands, body shape, navy shirt, watch and table
-> objects. Keep the same quiet office, pale walls, curtains and soft daylight.
-> Use realistic skin, fabric and material texture with subtle grain. Extend the
-> background only; do not add people, an invented meeting, logos, text, watermark,
-> beauty retouching, artificial bokeh or corporate stock-photo polish.
-
 ## `diagnostic-worktable.webp`
 
 - Mode: photorealistic generation with the seated portrait used only as a lighting/material reference

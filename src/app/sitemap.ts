@@ -22,6 +22,8 @@ const localizedRoutes = [
     changeFrequency: "monthly",
     priority: 0.8,
   },
+  { id: "about", changeFrequency: "monthly", priority: 0.7 },
+  { id: "results", changeFrequency: "monthly", priority: 0.7 },
   { id: "contact", changeFrequency: "yearly", priority: 0.6 },
 ] as const satisfies readonly {
   id: LocalizedRouteId;
@@ -29,40 +31,48 @@ const localizedRoutes = [
   priority: number;
 }[];
 
-const englishRoutes = [
-  { path: "/results", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
-] as const;
-
-const legalRoutes = LEGAL_DETAILS.isComplete
+const localizedLegalRoutes = LEGAL_DETAILS.isComplete
   ? [
-      { path: "/privacy", changeFrequency: "yearly" as const, priority: 0.2 },
-      { path: "/imprint", changeFrequency: "yearly" as const, priority: 0.2 },
+      {
+        id: "privacy" as const,
+        changeFrequency: "yearly" as const,
+        priority: 0.2,
+      },
+      {
+        id: "imprint" as const,
+        changeFrequency: "yearly" as const,
+        priority: 0.2,
+      },
     ]
   : [];
+
+const englishRoutes = [
+  { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   const locales: readonly SiteLocale[] = ["en", "de"];
 
   return [
-    ...localizedRoutes.flatMap(({ id, changeFrequency, priority }) => {
-      const alternates = Object.fromEntries(
-        Object.entries(getLanguageAlternates(id)).map(([language, path]) => [
-          language,
-          `${siteUrl}${path}`,
-        ]),
-      );
+    ...[...localizedRoutes, ...localizedLegalRoutes].flatMap(
+      ({ id, changeFrequency, priority }) => {
+        const alternates = Object.fromEntries(
+          Object.entries(getLanguageAlternates(id)).map(([language, path]) => [
+            language,
+            `${siteUrl}${path}`,
+          ]),
+        );
 
-      return locales.map((locale) => ({
-        url: `${siteUrl}${getRouteHref(id, locale)}`,
-        changeFrequency,
-        priority,
-        alternates: { languages: alternates },
-      }));
-    }),
-    ...[...englishRoutes, ...legalRoutes].map(
+        return locales.map((locale) => ({
+          url: `${siteUrl}${getRouteHref(id, locale)}`,
+          changeFrequency,
+          priority,
+          alternates: { languages: alternates },
+        }));
+      },
+    ),
+    ...englishRoutes.map(
       ({ path, changeFrequency, priority }) => ({
         url: `${siteUrl}${path}`,
         changeFrequency,

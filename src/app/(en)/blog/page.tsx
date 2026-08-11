@@ -17,7 +17,7 @@ import styles from "./blog.module.css";
 export const metadata = createPageMetadata({
   title: "Leadership and Organisation Insights",
   description:
-    "Notes for founders and leadership teams on decision rights, role clarity, coaching, defined people leadership and recurring organisation issues.",
+    "Notes on decisions that return upstairs, unclear role boundaries and people work that has lost its owner.",
   path: "/blog",
 });
 
@@ -55,11 +55,11 @@ export default function BlogPage() {
 
       <PageHero
         breadcrumbs={[{ label: "Insights" }]}
-        title="See the issue more clearly before you act on it."
-        lead="These notes start with situations that show up in the working week: a decision returning upstairs, an unclear boundary, a role that has outgrown its shape. Use the closest one as a place to begin."
+        title="Read the pattern before you name the help."
+        lead="A decision is back on your desk. Two roles are waiting for each other. A people remit has no owner. These notes start with the working week, before anyone turns the situation into a diagnosis."
         primary={{ label: "Start with the latest article", href: "#featured-article" }}
         ctaPrimary={true}
-        secondary={{ label: "See how I can help", href: "/services" }}
+        secondary={{ label: "See how I work", href: "/services" }}
       />
 
       <section className={pageStyles.section} aria-labelledby="featured-article">
@@ -78,7 +78,7 @@ export default function BlogPage() {
                 <span>{getReadingTime(featured)}</span>
               </div>
               <Link className={styles.readLink} href={`/blog/${featured.slug}`}>
-                Read the article
+                Read article
                 <ArrowRight aria-hidden="true" size={17} strokeWidth={1.8} />
               </Link>
             </div>
@@ -120,8 +120,8 @@ export default function BlogPage() {
 
       <ContactBand
         href={contactAction.href}
-        title="Bring the article back to your situation."
-        text="Tell me which part felt familiar and what is happening in your company. The first conversation is free and typically takes 30 minutes."
+        title="If an article sounds familiar, bring the live version."
+        text="Tell me where the pattern shows up in your company and what you have already tried. The first conversation is free and typically takes 30 minutes."
         label={contactAction.label}
       />
     </div>
