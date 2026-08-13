@@ -14,6 +14,8 @@ type DiagnosticCopy = {
   falseLabel: string;
   answered: (count: number, total: number) => string;
   progressLabel: string;
+  showMore: string;
+  showLess: string;
   seeResult: string;
   reset: string;
   resultLabel: string;
@@ -66,6 +68,8 @@ export const DIAGNOSTIC_COPY: Record<DiagnosticLocale, DiagnosticCopy> = {
     falseLabel: "Not true",
     answered: (count, total) => `${count} of ${total} answered`,
     progressLabel: "Check progress",
+    showMore: "Show more",
+    showLess: "Show less",
     seeResult: "See my result",
     reset: "Reset",
     resultLabel: "Your mini-result",
@@ -125,6 +129,8 @@ export const DIAGNOSTIC_COPY: Record<DiagnosticLocale, DiagnosticCopy> = {
     falseLabel: "Trifft nicht zu",
     answered: (count, total) => `${count} von ${total} beantwortet`,
     progressLabel: "Fortschritt des Checks",
+    showMore: "Mehr anzeigen",
+    showLess: "Weniger anzeigen",
     seeResult: "Ergebnis anzeigen",
     reset: "Zurücksetzen",
     resultLabel: "Ihr kurzes Ergebnis",

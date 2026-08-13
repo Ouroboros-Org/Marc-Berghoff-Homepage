@@ -81,6 +81,17 @@ const copy = {
       "It sets out what I found, what is likely causing it and the consequences for the organisation. The evidence sits beside the finding, so the team can test the evidence instead of accepting my view.",
       "Then we sit down together and work through it. This is often the first time the leadership team has the same picture in front of it at the same time. The outcome is not my list of recommendations. It is a decision the team has made together.",
     ],
+    reportQuestionsTitle: "Four questions the report answers",
+    reportQuestions: [
+      "What organisational bottleneck best explains the business issue?",
+      "Which recurring observations and decision patterns support the finding?",
+      "Where does the bottleneck consume leadership attention or slow important work?",
+      "Which decisions and first steps will the leadership team agree after discussing it?",
+    ],
+    reportVisualAlt:
+      "Illustrative Bottleneck Assessment report page for a fictional company",
+    reportVisualCaption:
+      "Illustrative sample. The company, figures and findings are fictional.",
     termsTitle: "A fixed fee. A finding you can test.",
     termsBody: [
       "The fee is fixed and agreed before we start.",
@@ -177,6 +188,17 @@ const copy = {
       "Er beschreibt meinen Befund, wahrscheinliche Ursachen und die Folgen für die Organisation. Die Belege stehen direkt daneben, damit das Team sie prüfen und ihnen widersprechen kann.",
       "Danach arbeiten wir den Befund gemeinsam durch. Häufig liegt damit zum ersten Mal dasselbe Bild vor dem gesamten Führungsteam. Welche Entscheidung daraus folgt, trifft das Team selbst.",
     ],
+    reportQuestionsTitle: "Vier Fragen, die der Bericht beantwortet",
+    reportQuestions: [
+      "Welcher organisatorische Engpass erklärt das Geschäftsproblem am besten?",
+      "Welche wiederkehrenden Beobachtungen und Entscheidungsmuster stützen den Befund?",
+      "Wo bindet der Engpass Aufmerksamkeit im Führungsteam oder bremst wichtige Arbeit?",
+      "Welche Entscheidungen und ersten Schritte vereinbart das Führungsteam nach der Besprechung?",
+    ],
+    reportVisualAlt:
+      "Illustrative Seite eines Bottleneck-Assessment-Berichts für ein fiktives Unternehmen",
+    reportVisualCaption:
+      "Illustratives Muster. Firmenname, Zahlen und Befunde sind frei erfunden.",
     termsTitle: "Ein festes Honorar. Ein Befund, der sich prüfen lässt.",
     termsBody: [
       "Das Honorar steht fest und wird vor dem Beginn vereinbart.",
@@ -265,22 +287,6 @@ export function BottleneckAssessmentPageView({
         </div>
       </section>
 
-      <section className={styles.mediaBreak} aria-label={pageCopy.flowTitle}>
-        <div className={styles.container}>
-          <figure className={styles.editorialFigure}>
-            <div className={styles.editorialImageWrap}>
-              <Image
-                className={styles.editorialImage}
-                src="/images/generated/diagnostic-worktable.webp"
-                alt=""
-                fill
-                sizes="(max-width: 1184px) calc(100vw - 2rem), 1184px"
-              />
-            </div>
-          </figure>
-        </div>
-      </section>
-
       <section className={styles.sectionTint} aria-labelledby="assessment-flow">
         <div className={styles.container}>
           <SectionHeading
@@ -309,15 +315,46 @@ export function BottleneckAssessmentPageView({
       </section>
 
       <section className={styles.section} aria-labelledby="assessment-report">
-        <div className={`${styles.container} ${styles.split}`}>
-          <h2 className={styles.sectionTitle} id="assessment-report">
-            {pageCopy.reportTitle}
-          </h2>
-          <div className={styles.bodyCopy}>
-            {pageCopy.reportBody.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+        <div className={styles.container}>
+          <div className={styles.split}>
+            <h2 className={styles.sectionTitle} id="assessment-report">
+              {pageCopy.reportTitle}
+            </h2>
+            <div>
+              <div className={styles.bodyCopy}>
+                {pageCopy.reportBody.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <div className={styles.spacedTop}>
+                <h3 className={styles.featureCardTitle}>
+                  {pageCopy.reportQuestionsTitle}
+                </h3>
+                <ol className={`${styles.reportList} ${styles.smallSpacedTop}`}>
+                  {pageCopy.reportQuestions.map((question, index) => (
+                    <li key={question}>
+                      <strong>0{index + 1}</strong>
+                      <span>{question}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
           </div>
+          <figure className={styles.reportPreview}>
+            <div className={styles.reportCoverWrap}>
+              <Image
+                alt={pageCopy.reportVisualAlt}
+                className={styles.reportCoverImage}
+                fill
+                sizes="(max-width: 1184px) calc(100vw - 2rem), 1184px"
+                src="/images/proof/sample-report-cover.webp"
+              />
+            </div>
+            <figcaption className={styles.disclaimer}>
+              {pageCopy.reportVisualCaption}
+            </figcaption>
+          </figure>
         </div>
       </section>
 

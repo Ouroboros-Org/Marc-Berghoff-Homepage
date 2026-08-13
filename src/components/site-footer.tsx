@@ -18,13 +18,13 @@ export function SiteFooter({ locale = "en" }: { locale?: SiteLocale }) {
     ? [
         {
           href: getRouteHref("results", "de"),
-          label: "Ergebnisse & Erfahrung",
+          label: "Ausgewählte Arbeit",
         },
         { href: "/blog", label: "Einblicke (Englisch)", language: "en" },
         { href: getRouteHref("about", "de"), label: "Über mich" },
       ]
     : [
-        { href: "/results", label: "Results & experience" },
+        { href: "/results", label: "Selected work" },
         { href: "/blog", label: "Insights" },
         { href: "/about", label: "About me" },
       ];

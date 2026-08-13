@@ -97,8 +97,8 @@ export default function AboutPage() {
               <p>
                 I have spent almost a decade across HR, coaching and organisational
                 development, both in-house and independently. I have led HR in a
-                fast-growing company, worked as an interim people leader and co-founded
-                CyberKongz.
+                fast-growing company, coached leaders and worked as an interim people
+                leader.
               </p>
               <p>
                 I want to know what happened in the last meeting, where the decision

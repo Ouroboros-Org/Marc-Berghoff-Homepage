@@ -152,7 +152,7 @@ const english: HomeCopy = {
     title: "Experience on both sides of the conversation.",
     body: "I have led people work inside a scale-up, co-founded a business, coached leaders and led HR on an interim basis. That mix helps me notice the human tension and the operating consequence.",
     aboutLabel: "About me",
-    resultsLabel: "See the full results",
+    resultsLabel: "See selected work",
     imageAlt: "Marc Berghoff seated in an office setting",
     proof: [
       [
@@ -287,7 +287,7 @@ const german: HomeCopy = {
     title: "Erfahrung auf beiden Seiten des Gesprächs.",
     body: "Ich habe People-Arbeit in einem Scale-up geleitet, ein Unternehmen mitgegründet, Führungskräfte gecoacht und HR interimistisch geführt. So sehe ich die menschliche Spannung und die betriebliche Folge.",
     aboutLabel: "Über mich",
-    resultsLabel: "Ergebnisse ansehen",
+    resultsLabel: "Ausgewählte Arbeit ansehen",
     imageAlt: "Marc Berghoff in einem Büro",
     proof: [
       [

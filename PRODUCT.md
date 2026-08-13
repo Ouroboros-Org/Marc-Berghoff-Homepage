@@ -27,9 +27,9 @@ Every engagement begins with a detailed, free fit conversation that typically ta
 - English is served at `/`. German counterparts exist for the homepage, services, all five service pages and contact under `/de`; German copy addresses the reader with formal “Sie”.
 - The fixed working-format order is: Bottleneck Assessment; Executive Coaching; Strategic People Advisory; Peer Advisory; Fractional People Leadership. The assessment is the entry product; the four follow-on formats differ by who carries the work.
 - Peer Advisory is a complete service page, covering the peer room, its formats, confidentiality, fit and availability.
-- The unfinished sample report remains available only by direct URL. It is excluded from navigation and the sitemap and carries `noindex, nofollow` metadata.
+- The Bottleneck Assessment page shows the questions its report answers, its confidentiality boundaries and an illustrative report page. There is no separate sample-report route.
 - Executive Coaching can cover individual or group work, but this first deployment provides no legacy group-coaching route or redirect.
-- The ten-statement check appears in full near the top of the homepage. All statements require an explicit answer before a result is shown.
+- The ten-statement check appears near the top of the homepage. It starts with the first statement and reveals the complete list when the visitor answers it or chooses to show more. All statements require an explicit answer before a result is shown.
 - Contact details are collapsed by default. Links may intentionally open the detailed fields when their label promises a detailed enquiry.
 - Cal.com is embedded directly and must work on mobile. Final public environment values will be added after implementation.
 - Do not publish unconfirmed company-size, ARR or coaching-range claims.
@@ -44,10 +44,10 @@ Every engagement begins with a detailed, free fit conversation that typically ta
 
 ## Evidence on Hand
 
-- Existing portraits, approved service descriptions, selected company context, testimonials and sample report assets in `public/images` and `src/content`.
+- Existing portraits, approved service descriptions, selected company context, testimonials, provisional client marks and an illustrative report asset in `public/images` and `src/content`.
 - Evidence and publishing constraints are recorded in `docs/claim-ledger.md`.
 - The 350+ coaching-hours claim exists in the ledger, but the current rewrite should focus on Marc and the confirmed feedback rather than expanding public claims.
-- The sample report is illustrative and fictional; it is withheld from discovery routes until the preview is ready for wider publication.
+- The report image is illustrative and fictional. Its company, figures and findings must always be labelled as such until an approved anonymised real page replaces it.
 
 ## Product Principles
 

@@ -208,8 +208,7 @@
 }
 
 .sectionDark .sectionTitle,
-.sectionDark .featureCardTitle,
-.sectionDark .reportTitle {
+.sectionDark .featureCardTitle {
   color: var(--page-white);
 }
 
@@ -354,9 +353,7 @@
 }
 
 .cardGrid,
-.caseGrid,
-.credentialGrid,
-.reportGrid {
+.credentialGrid {
   display: grid;
   gap: 1rem;
   margin: 0;
@@ -365,9 +362,7 @@
 }
 
 .featureCard,
-.caseCard,
 .credentialCard,
-.reportCard,
 .darkCard {
   position: relative;
   padding: clamp(1.4rem, 3vw, 2.25rem);
@@ -382,9 +377,7 @@
 }
 
 .featureCardTitle,
-.caseTitle,
-.credentialTitle,
-.reportTitle {
+.credentialTitle {
   margin: 0;
   font-family: var(--page-font-display);
   font-size: clamp(1.3rem, 2.2vw, 1.75rem);
@@ -394,9 +387,7 @@
 }
 
 .featureCard p,
-.credentialCard p,
-.reportCard p,
-.caseContext {
+.credentialCard p {
   margin: 0.8rem 0 0;
   color: var(--page-muted);
   line-height: 1.65;
@@ -520,33 +511,154 @@
   line-height: 1.7;
 }
 
-.caseCard {
+.contactBandActions {
   display: flex;
-  min-width: 0;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
 }
 
-.caseCompany {
+.contactBandSecondary {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding-inline: 0.25rem;
+  color: var(--page-white);
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--page-blue) 70%, transparent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35rem;
+}
+
+.contactBandSecondary:hover {
+  text-decoration-color: var(--page-yellow);
+}
+
+.contactBandSecondary:focus-visible {
+  border-radius: 0.5rem;
+  outline: 3px solid var(--page-yellow);
+  outline-offset: 3px;
+}
+
+.resultList {
   margin: 0;
-  color: var(--page-blue-deep);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
+  padding: 0;
+  border-top: 1px solid var(--page-line);
+  list-style: none;
 }
 
-.caseTitle {
-  max-width: 18ch;
-  margin-top: clamp(3rem, 6vw, 5rem);
-  font-size: clamp(1.75rem, 3.2vw, 2.65rem);
-  overflow-wrap: break-word;
+.resultItem {
+  display: grid;
+  grid-template-columns: 0.75rem minmax(0, 1fr);
+  gap: clamp(0.85rem, 2vw, 1.4rem);
+  padding: clamp(1.25rem, 2.8vw, 1.9rem) 0;
+  border-bottom: 1px solid var(--page-line);
 }
 
-.caseEngagement {
-  margin: 0.7rem 0 0;
+.resultMarker {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.56rem;
+  background: var(--page-yellow);
+}
+
+.resultItem p {
+  max-width: 62rem;
+  margin: 0;
+  font-size: clamp(1.05rem, 1.65vw, 1.28rem);
+  line-height: 1.55;
+}
+
+.resultItem strong {
+  font-weight: 680;
+}
+
+.resultContext {
   color: var(--page-muted);
-  font-size: 0.88rem;
+}
+
+.testimonialSection {
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.subsectionTitle {
+  max-width: 20ch;
+  margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
+  font-family: var(--page-font-display);
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.testimonialGrid {
+  display: grid;
+  gap: 0 clamp(2rem, 6vw, 5rem);
+  border-top: 1px solid var(--page-line);
+}
+
+.testimonial {
+  margin: 0;
+  padding: clamp(1.75rem, 4vw, 2.75rem) 0;
+  border-bottom: 1px solid var(--page-line);
+}
+
+.testimonial p {
+  margin: 0;
+  font-family: var(--page-font-display);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 490;
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+}
+
+.testimonial footer {
+  margin-top: 1.25rem;
+  color: var(--page-muted);
+  font-size: 0.86rem;
   font-weight: 650;
+  line-height: 1.5;
+}
+
+.logoList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-block: 1px solid var(--page-line);
+  list-style: none;
+}
+
+.logoItem {
+  display: grid;
+  min-width: 0;
+  min-height: 7.5rem;
+  place-items: center;
+  padding: 1.5rem 1rem;
+}
+
+.clientLogo {
+  width: auto;
+  max-width: min(100%, 9rem);
+  height: auto;
+  max-height: 3.6rem;
+  filter: grayscale(1) contrast(0.88);
+  object-fit: contain;
+  opacity: 0.68;
+}
+
+.honestNote {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  border-top: 1px solid var(--page-line);
+  background: var(--page-paper);
+}
+
+.honestNote p {
+  margin: 0;
+  color: var(--page-muted);
+  font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+  line-height: 1.7;
 }
 
 .disclaimer {
@@ -617,12 +729,8 @@
   object-fit: cover;
 }
 
-.reportSectionNumber {
-  margin: 0 0 1.1rem;
-  color: var(--page-blue-deep);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+.reportPreview {
+  margin: clamp(3rem, 7vw, 6rem) 0 0;
 }
 
 .reportList {
@@ -655,12 +763,19 @@
   }
 
   .cardGrid,
-  .credentialGrid,
-  .reportGrid {
+  .credentialGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .cardGridTwo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .logoList {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .testimonialGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -688,13 +803,6 @@
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
-  .caseGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .reportGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 41.999rem) {
@@ -704,6 +812,18 @@
 
   .buttonRow > * {
     width: 100%;
+  }
+
+  .contactBandActions {
+    display: grid;
+  }
+
+  .contactBandActions > * {
+    width: 100%;
+  }
+
+  .contactBandSecondary {
+    justify-content: center;
   }
 }
 

@@ -88,7 +88,7 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 
 ### Progressive disclosures
 
-- Show the ten-statement diagnostic in full on Home. Diagnostic disclosures on service pages and optional enquiry fields remain collapsed by default; an incoming link may open the promised disclosure through its hash or query parameter.
+- Show the ten-statement diagnostic on Home with only its first statement visible initially, then reveal the complete list when the visitor answers it or uses the quiet show-more text control below the list. Diagnostic disclosures on service pages and optional enquiry fields remain collapsed by default; an incoming link may open the promised disclosure through its hash or query parameter.
 - Use native disclosure semantics, a rotating chevron and a bordered white surface. The complete summary remains a generous click and keyboard target.
 - Opening content must expand in place without hiding the summary or creating a separate modal flow.
 
@@ -104,7 +104,7 @@ Yellow is a signal, not a surface colour: use it for short rules, small marks, d
 2. Explain the amount of ownership available without turning the page into a biography or credentials pitch.
 3. Start with the Bottleneck Assessment when the cause is disputed. Then present Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership in that fixed order, asking who carries the work.
 4. Use the full four-step engagement process on `/services`; use the compact linked summary on service detail pages.
-5. Show the ten-statement diagnostic in full near the top of the homepage.
+5. Show the compact-first ten-statement diagnostic near the top of the homepage and preserve its complete expanded list.
 6. Use only confirmed named work, approved credentials and attributed testimonials;
    never invent performance proof or expose unconfirmed company metrics.
 7. Close with the free first conversation, typically 30 minutes; keep optional contact details collapsed

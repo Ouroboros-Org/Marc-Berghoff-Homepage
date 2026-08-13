@@ -6,17 +6,23 @@ This is the hand-off register for assets, contact data, legal disclosures and th
 Google Forms connection. A checked item means both the source and the rendered
 site were verified. Do not launch while any item marked **BLOCKER** remains.
 
-## Deck assets currently in the repository
+## Portrait, proof and client assets
 
-The three files below were extracted from `MArc B offer V2.pptx`. The deck owner
-authorised use in the implementation brief, but copyright, photographer and
-trademark permissions still need to be retained outside this public repository.
+The portraits and report preview came from `MArc B offer V2.pptx`. Two client marks
+were recovered from repository history; three more are temporary official-site
+downloads for the review loop. Copyright, photographer and trademark permissions
+still need to be retained outside this public repository.
 
 | File | Pixels | Assessment | Replacement/action |
 | --- | ---: | --- | --- |
 | `public/images/portraits/marc-seated-original.webp` | 1202×1601 | The strongest available portrait. Good for an editorial portrait block and restrained hero crop; not wide enough for an uncropped full-bleed desktop background. | Keep for launch if image rights are confirmed. Request the camera original for sharper large/retina use. Add photographer credit if required. |
 | `public/images/portraits/marc-speaking-original.webp` | 495×724 | Genuine event context, but only 39 KB and visibly soft. Safe at roughly 240 CSS pixels for high-density displays; weak as a large feature image. | **BLOCKER if shown large:** replace with the original event photograph at least 1200 px wide. Do not use AI sharpening as proof of image authenticity. |
-| `public/images/proof/sample-report-cover.webp` | 1920×1080 | Crisp deck graphic. It contains the fictional/example company “Wayline GmbH,” an August 2026 date and sample metrics. | Label it clearly as an illustrative/anonymised sample. Prefer an approved anonymised real report before launch. Never imply that Wayline or the figures are a client result. |
+| `public/images/proof/sample-report-cover.webp` | 1920×1080 | Crisp deck graphic. It contains the fictional/example company “Wayline GmbH,” an August 2026 date and sample metrics. | Label it clearly as an illustrative fictional sample. Prefer an approved anonymised real report before launch. Never imply that Wayline or the figures are a client result. |
+| `public/images/clients/klarsolar.webp` | 580×390 source canvas | Recovered unchanged from repository history. | **REVIEW:** retain client and trademark permission; replace with a current approved mark if supplied. |
+| `public/images/clients/giftagoods.webp` | 447×447 source canvas | Recovered unchanged from repository history. | **REVIEW:** retain client and trademark permission; replace with a current approved mark if supplied. |
+| `public/images/clients/cyberkongz.svg` | 1200×381 viewBox | Temporary black wordmark downloaded from the official CyberKongz press kit. | **BLOCKER:** replace or retain only after confirming permitted website use. |
+| `public/images/clients/alberta.svg` | 107×80 viewBox | Temporary mark downloaded from the official Alberta Fire & Security site. | **BLOCKER:** replace with a human-supplied approved file and retain written permission. |
+| `public/images/clients/vistage.svg` | 112×22 viewBox | Temporary wordmark copied from the official Vistage Malta site's inline SVG. | **BLOCKER:** replace with the approved Chair brand-portal asset and retain permission. |
 
 ## Generated-image slots
 
@@ -27,7 +33,6 @@ company event or invent a testimonial speaker.
 
 | Proposed file/slot | Intended role | Generation/review constraints | Final state |
 | --- | --- | --- | --- |
-| `public/images/generated/diagnostic-worktable.webp` | Wide break on the Bottleneck Assessment page | Empty strategy table with an interrupted sequence; no people, logos or client information. | Generated 29 July 2026 · 1586×992 · integrated on `/bottleneck-assessment` · Marc review recommended |
 | `public/images/generated/leadership-room.webp` | Fractional people leadership transition image | Empty room prepared for a leadership conversation; explicitly captioned as illustrative. | Generated 29 July 2026 · 1586×992 · integrated on `/fractional-people-leadership` · Marc review recommended |
 | Decision-detail concept | Optional mobile-friendly editorial detail/callout | The final layout does not need another still life. | Not generated; no active website slot |
 

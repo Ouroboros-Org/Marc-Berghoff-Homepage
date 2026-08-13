@@ -12,12 +12,12 @@ This checklist reconciles the original feedback with the later implementation de
 - [x] The home page shows every working format. Its follow-up link leads to the fixed sequence and full engagement process rather than repeating the same list without context.
 - [x] The full universal four-step process is shown on `/services`; service detail pages use the same compact summary and link to `/services#process`.
 - [x] The first conversation is clearly described as free, detailed, typically 30 minutes and required before paid work.
-- [x] German counterparts exist for services, each service detail page, About, Results & Experience and contact, not only for the homepage. Insights remain explicitly marked as English.
+- [x] German counterparts exist for services, each service detail page, About, Selected work and contact, not only for the homepage. Insights remain explicitly marked as English.
 - [x] Cal.com is embedded on the contact page with a mobile layout. Booking actions always target the booking section; without a configured link, that section gives an honest email fallback.
 
 ## Diagnostic
 
-- [x] The ten-statement home diagnostic is shown in full near the top of the page. Service-page diagnostic disclosures remain collapsed until a visitor opens them.
+- [x] The ten-statement home diagnostic starts with its first statement near the top of the page and reveals the complete list when the visitor answers it or chooses to show more. Service-page diagnostic disclosures remain collapsed until a visitor opens them.
 - [x] The extra preamble and repeated tool title are removed; the open tool begins with one short sentence.
 - [x] The site logo links back to `/` from the diagnostic and every other page.
 - [x] The paid assessment is the entry product when the cause is disputed without becoming the site's whole identity.
@@ -31,7 +31,7 @@ This checklist reconciles the original feedback with the later implementation de
 - [x] Coaching is shown as one route among Fractional People Leadership, advisory, Peer Advisory and assessment.
 - [x] The harsh “cannot discuss inside the business” line is replaced with a calmer invitation.
 - [x] ICF ACC and 350+ coaching hours remain the only public coaching proof used here.
-- [x] The unapproved “€200m ARR” coaching-range claim is excluded under the later claims decision.
+- [x] The owner-supplied “over €200m ARR” engagement appears on Results with its anonymised descriptor and is retained as a launch-review claim.
 - [x] Executive Coaching may be individual or group work. No group-coaching redirect is supplied in this first deployment because there is no legacy route to preserve.
 
 ## Contact
@@ -58,4 +58,4 @@ The original note asked for the detailed enquiry to be open immediately. The lat
 - [x] Marc is positioned between coaching distance, candid advice and defined responsibility without forcing one title across the site.
 - [x] The About page includes the supplied mix of empathy, directness, operator experience and personal detail.
 - [x] The final editorial pass removed promotional filler, repeated negative parallelisms, decorative triads and over-explained conclusions.
-- [x] The unfinished sample report is excluded from global navigation and the sitemap and uses `noindex, nofollow` metadata until it is ready for discovery.
+- [x] The separate sample-report route is removed. The report questions, confidentiality boundaries and clearly labelled fictional preview now live on the Bottleneck Assessment page.

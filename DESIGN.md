@@ -147,7 +147,7 @@ Keep name, email and message visible. Put business context in a collapsed, optio
 
 ### Diagnostic disclosure
 
-The ten-statement check appears in full near the top of the homepage. Each statement uses explicit True and Not true controls, with unanswered kept as a separate state. The paid assessment remains one service, not the site identity or a mandatory gateway.
+The ten-statement check appears near the top of the homepage. It starts with the first statement and reveals the complete list when the visitor answers it or uses the quiet show-more text control below the list, keeping the default page compact while preserving the full-list view in use. Each statement uses explicit True and Not true controls, with unanswered kept as a separate state. The paid assessment remains one service, not the site identity or a mandatory gateway.
 
 ### Images, accessibility and motion
 
@@ -169,5 +169,5 @@ Target WCAG 2.2 AA: semantic headings, labelled controls, keyboard-complete menu
 - **Don't** use hype, generic consulting language, invented claims or unconfirmed company-size, growth, ARR or outcome figures.
 - **Don't** use AI-writing tells: puffed significance, formulaic negative parallelism, decorative triads, excessive em dashes or conclusions that explain what the preceding copy already showed.
 - **Don't** make founders, managers or employees the villain; describe behavior and operating consequences.
-- **Don't** invent Peer Advisory details or let the entry assessment swallow the broader practice. Keep the unfinished sample report out of navigation and the sitemap and marked `noindex, nofollow` until it is ready.
+- **Don't** invent Peer Advisory details or let the entry assessment swallow the broader practice. Keep the illustrative report page clearly labelled; never present fictional figures as client evidence.
 - **Don't** replace editorial rules with grids of interchangeable cards, decorative gradients or heavy shadows.

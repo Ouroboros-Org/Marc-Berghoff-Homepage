@@ -224,8 +224,8 @@ const aboutNavigation = [
   },
   {
     href: "/results",
-    label: "Results & experience",
-    description: "Review the kinds of responsibility I have carried.",
+    label: "Selected work",
+    description: "Review selected engagements, client evidence and public work.",
   },
   {
     href: "/contact",
@@ -274,9 +274,9 @@ export function getHeaderNavigation(
           },
           {
             href: getRouteHref("results", "de"),
-            label: "Ergebnisse & Erfahrung",
+            label: "Ausgewählte Arbeit",
             description:
-              "Ausgewählte Mandate und die Verantwortung, die ich jeweils übernommen habe.",
+              "Ausgewählte Mandate, Kundenstimmen und öffentliche Arbeit.",
           },
           {
             href: getRouteHref("contact", "de"),

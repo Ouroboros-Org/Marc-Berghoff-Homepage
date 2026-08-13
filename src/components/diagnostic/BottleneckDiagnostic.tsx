@@ -3,6 +3,7 @@
 import {
   AlertCircle,
   CheckCircle2,
+  ChevronDown,
   LoaderCircle,
   RotateCcw,
   Send,
@@ -62,6 +63,7 @@ export function BottleneckDiagnostic({
   const copy = DIAGNOSTIC_COPY[locale];
   const radioGroupId = useId().replaceAll(":", "");
   const [answers, setAnswers] = useState<Partial<DiagnosticAnswers>>({});
+  const [expanded, setExpanded] = useState(false);
   const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [shareState, setShareState] = useState<ShareState>("idle");
@@ -88,6 +90,7 @@ export function BottleneckDiagnostic({
 
   function selectAnswer(itemId: DiagnosticItemId, answer: boolean) {
     setAnswers((current) => ({ ...current, [itemId]: answer }));
+    setExpanded(true);
     setResult(null);
     setShareOpen(false);
     setShareState("idle");
@@ -102,6 +105,7 @@ export function BottleneckDiagnostic({
 
   function reset() {
     setAnswers({});
+    setExpanded(false);
     setResult(null);
     setShareOpen(false);
     setShareState("idle");
@@ -204,52 +208,82 @@ export function BottleneckDiagnostic({
         </div>
       </div>
 
-      <ol className={styles.statementList}>
-        {DIAGNOSTIC_ITEMS.map((item, index) => {
-          const selectedAnswer = answers[item.id];
+      <div className={styles.statementBlock}>
+        <ol className={styles.statementList} id={`${id}-statements`}>
+          {DIAGNOSTIC_ITEMS.map((item, index) => {
+            const selectedAnswer = answers[item.id];
+            const isCollapsible = index > 0;
 
-          return (
-            <li className={styles.statementItem} key={item.id}>
-              <fieldset className={styles.statementFieldset}>
-                <legend className={styles.legend}>
-                  {copy.statements[item.id]}
-                </legend>
-                <div aria-hidden="true" className={styles.statementPrompt}>
-                  <span aria-hidden="true" className={styles.statementNumber}>
-                    {index + 1}
-                  </span>
-                  <span>{copy.statements[item.id]}</span>
+            return (
+              <li
+                className={`${styles.statementItem} ${
+                  isCollapsible ? styles.statementCollapsible : ""
+                } ${
+                  isCollapsible && expanded
+                    ? styles.statementCollapsibleExpanded
+                    : ""
+                }`}
+                aria-hidden={isCollapsible && !expanded ? true : undefined}
+                inert={isCollapsible && !expanded}
+                key={item.id}
+              >
+                <div className={styles.statementInner}>
+                  <fieldset className={styles.statementFieldset}>
+                    <legend className={styles.legend}>
+                      {copy.statements[item.id]}
+                    </legend>
+                    <div aria-hidden="true" className={styles.statementPrompt}>
+                      <span
+                        aria-hidden="true"
+                        className={styles.statementNumber}
+                      >
+                        {index + 1}
+                      </span>
+                      <span>{copy.statements[item.id]}</span>
+                    </div>
+                    <div className={styles.options}>
+                      <label className={styles.option}>
+                        <input
+                          checked={selectedAnswer === true}
+                          className={styles.radio}
+                          name={`${radioGroupId}-${item.id}`}
+                          onChange={() => selectAnswer(item.id, true)}
+                          ref={index === 0 ? firstRadioRef : undefined}
+                          type="radio"
+                          value="true"
+                        />
+                        <span>{copy.trueLabel}</span>
+                      </label>
+                      <label className={styles.option}>
+                        <input
+                          checked={selectedAnswer === false}
+                          className={styles.radio}
+                          name={`${radioGroupId}-${item.id}`}
+                          onChange={() => selectAnswer(item.id, false)}
+                          type="radio"
+                          value="false"
+                        />
+                        <span>{copy.falseLabel}</span>
+                      </label>
+                    </div>
+                  </fieldset>
                 </div>
-                <div className={styles.options}>
-                  <label className={styles.option}>
-                    <input
-                      checked={selectedAnswer === true}
-                      className={styles.radio}
-                      name={`${radioGroupId}-${item.id}`}
-                      onChange={() => selectAnswer(item.id, true)}
-                      ref={index === 0 ? firstRadioRef : undefined}
-                      type="radio"
-                      value="true"
-                    />
-                    <span>{copy.trueLabel}</span>
-                  </label>
-                  <label className={styles.option}>
-                    <input
-                      checked={selectedAnswer === false}
-                      className={styles.radio}
-                      name={`${radioGroupId}-${item.id}`}
-                      onChange={() => selectAnswer(item.id, false)}
-                      type="radio"
-                      value="false"
-                    />
-                    <span>{copy.falseLabel}</span>
-                  </label>
-                </div>
-              </fieldset>
-            </li>
-          );
-        })}
-      </ol>
+              </li>
+            );
+          })}
+        </ol>
+        <Button
+          aria-controls={`${id}-statements`}
+          aria-expanded={expanded}
+          className={styles.statementToggle}
+          onClick={() => setExpanded((current) => !current)}
+          size="compact"
+          variant="text"
+        >
+          {expanded ? copy.showLess : copy.showMore}
+          <ChevronDown aria-hidden="true" size={16} />
+        </Button>
+      </div>
 
       <div className={styles.checkControls}>
         <Button cta disabled={!allAnswered} onClick={showResult}>

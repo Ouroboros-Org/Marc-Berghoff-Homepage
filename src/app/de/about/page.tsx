@@ -105,7 +105,7 @@ export default function GermanAboutPage() {
                 Ich arbeite seit fast einem Jahrzehnt in HR, Coaching und
                 Organisationsentwicklung: in Unternehmen und selbstständig. Ich habe HR
                 in einem schnell wachsenden Unternehmen geleitet, HR interimistisch
-                geführt und CyberKongz mitgegründet.
+                geführt und Führungskräfte gecoacht.
               </p>
               <p>
                 Ich möchte wissen, was in der letzten Besprechung passiert ist, welchen

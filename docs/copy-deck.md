@@ -147,7 +147,7 @@ Label: **Run the ten-statement check**
 
 Helper: **Use it when the issue is hard to name**
 
-The complete ten-statement check remains visible on Home. Prompt: **Answer from the last few weeks, including the awkward days.**
+The ten-statement check starts with the first statement on Home and reveals the complete list when the visitor answers it or chooses **Show more**. Prompt: **Answer from the last few weeks, including the awkward days.**
 
 ### Experience
 
@@ -251,14 +251,6 @@ Problem heading: **Use the assessment when the cause is still open.**
 
 Diagnostic disclosure: **Run the ten-statement check** / **Use the last few weeks as your reference point.**
 
-## Sample report
-
-H1: **See how an unclear issue becomes a usable finding.**
-
-Lead: The report shows the main finding, the evidence behind it and the decisions that need attention. The preview uses a fictional company; no client material is shown.
-
-Publishing status: The page is unfinished and available only by direct URL. Keep it out of global navigation and the sitemap, with `noindex, nofollow` metadata until the preview is approved for discovery.
-
 ## About
 
 H1: **When the issue sits between the people and the way the business works.**
@@ -269,7 +261,7 @@ Primary: **Book a free 30-minute conversation**
 
 Secondary: **Run the ten-statement check**
 
-Biography: I have worked across HR, coaching and organisational development for almost a decade, both in-house and independently. I have led people work inside a fast-growing company, co-founded CyberKongz, coached leaders and served as interim Head of HR. I hold an MSc in Psychology, the ICF Associate Certified Coach credential and teach training and development and organisational leadership.
+Biography: I have worked across HR, coaching and organisational development for almost a decade, both in-house and independently. I have led people work inside a fast-growing company, coached leaders and served as interim Head of HR. I hold an MSc in Psychology, the ICF Associate Certified Coach credential and teach training and development and organisational leadership.
 
 Biography heading: **I have worked on both sides of the conversation.**
 
@@ -282,13 +274,15 @@ Leadership principles:
 3. **Make progress visible.** Name what should be handled differently and what would show that the change is happening in the working week.
 4. **Use the method that fits.** Start with the issue and use a method only when it helps. That may include OKRs or Scaling Up.
 
-## Results and experience
+## Selected work
 
-H1: **The work behind my point of view.**
+H1: **Selected work**
 
-Lead: These examples show where I have coached, advised, operated or carried an HR remit. They give the reader context for Marc's judgement; they do not forecast another company's outcome.
+Lead: Some clients can be named. Others are described accurately, with enough detail for the reader to judge relevance.
 
-Approved examples include coaching department leaders at a national financial regulator; individual and group work with the top management team of a global events and media group; a sourcing approach developed with the CFO of a German financial services group and still used five years later; interim HR responsibility for a 400-person security group across four companies; Head of HR at Klarsolar before its acquisition by E.ON; CEO-owner coaching and mediation in Dubai; and a keynote at a major HR conference in Malta.
+Order the work by institutional weight. Lead with scale, duration or outcome. Follow it with speaking and teaching, two approved testimonials, a restrained row of named organisation marks and the honest note that examples are not promises. CyberKongz appears only in the organisation-mark row.
+
+The primary action keeps the established booking route at `/contact#booking`; the secondary action leads to `/services`.
 
 ## Insights
 
@@ -316,7 +310,7 @@ Optional details: **Add context about the business**
 
 Direct details: **If the form gets in the way, contact me directly.**
 
-Locale coverage: German counterparts exist for Home, Services, all five service routes, About, Results & Experience, Contact, Privacy and Imprint. Unknown `/de/*` paths also recover in German. Insights remain English-only and are labelled as English in the German navigation. The German first-conversation copy uses “normally 30 minutes”.
+Locale coverage: German counterparts exist for Home, Services, all five service routes, About, Selected work, Contact, Privacy and Imprint. Unknown `/de/*` paths also recover in German. Insights remain English-only and are labelled as English in the German navigation. The German first-conversation copy uses “normally 30 minutes”.
 
 Deployment note: Executive Coaching may be individual or group work, but this first deployment has no legacy group-coaching URL or redirect.
 

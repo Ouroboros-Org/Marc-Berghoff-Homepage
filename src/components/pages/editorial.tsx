@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
 import { ButtonLink, type ButtonVariant } from "@/components/button";
@@ -164,12 +165,14 @@ export function ContactBand({
   text,
   href = "/contact",
   label = "Request a conversation",
+  secondary,
   locale = "en",
 }: {
   title: string;
   text: string;
   href?: string;
   label?: string;
+  secondary?: { href: string; label: string };
   locale?: SiteLocale;
 }) {
   return (
@@ -182,9 +185,16 @@ export function ContactBand({
           <h2 className={styles.contactBandTitle}>{title}</h2>
           <p className={styles.contactBandText}>{text}</p>
         </div>
-        <ButtonLink cta href={href} variant="inverse">
-          {label}
-        </ButtonLink>
+        <div className={styles.contactBandActions}>
+          <ButtonLink cta href={href} variant="inverse">
+            {label}
+          </ButtonLink>
+          {secondary ? (
+            <Link className={styles.contactBandSecondary} href={secondary.href}>
+              {secondary.label}
+            </Link>
+          ) : null}
+        </div>
       </div>
     </aside>
   );
