@@ -60,7 +60,7 @@ const copy = {
       { label: "Selected work" },
     ],
     title: "Selected work",
-    lead: "Some of these clients can be named. Several can't, so they're described instead — accurately, and in enough detail that you can judge whether the work is relevant to you.",
+    lead: "Some clients can be named. Others are described accurately and with enough detail for you to judge whether the work is relevant.",
     selectedTitle: "Selected engagements.",
     work: [
       {
@@ -139,7 +139,7 @@ const copy = {
     clientsTitle: "Named organisations.",
     closingTitle: "What keeps returning to the leadership team?",
     closingText:
-      "Tell me what has happened, who is involved and what you have already tried. I will tell you if I can help.",
+      "Tell me what happened and what you have already tried. I will ask about the people involved, then tell you if I can help.",
     secondaryCta: "How I work",
   },
   de: {
@@ -230,7 +230,7 @@ const copy = {
     clientsTitle: "Organisationen, die ich nennen kann.",
     closingTitle: "Welche Frage landet immer wieder bei Ihrem Führungsteam?",
     closingText:
-      "Beschreiben Sie, was passiert ist, wer beteiligt ist und was Sie bereits versucht haben. Ich sage Ihnen offen, ob ich helfen kann.",
+      "Beschreiben Sie, was passiert ist und was Sie bereits versucht haben. Ich frage nach den beteiligten Personen und sage Ihnen dann offen, ob ich helfen kann.",
     secondaryCta: "So arbeite ich",
   },
 } as const;
@@ -244,7 +244,7 @@ function RuledProofList({ items }: { items: readonly WorkItem[] }) {
           <p>
             <strong>{item.statement}</strong>
             {item.context ? (
-              <span className={styles.resultContext}> — {item.context}</span>
+              <span className={styles.resultContext}> · {item.context}</span>
             ) : null}
           </p>
         </li>

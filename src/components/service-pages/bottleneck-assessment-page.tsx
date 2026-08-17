@@ -76,10 +76,10 @@ const copy = {
       "The material stays separate from employee performance files. This is an organisational assessment, not a route into individual evaluation.",
       "Clinical and medical diagnosis sits outside the scope. If the question needs that expertise, I will say so.",
     ],
-    reportTitle: "The report is written to be disagreed with.",
+    reportTitle: "A report the team can test.",
     reportBody: [
-      "It sets out what I found, what is likely causing it and the consequences for the organisation. The evidence sits beside the finding, so the team can test the evidence instead of accepting my view.",
-      "Then we sit down together and work through it. This is often the first time the leadership team has the same picture in front of it at the same time. The outcome is not my list of recommendations. It is a decision the team has made together.",
+      "It sets out the main finding and the evidence behind it. The team can use that evidence to test my view.",
+      "Then we sit down together and work through it. This is often the first time the leadership team has the same picture in front of it. What comes out is a decision the team has made together.",
     ],
     reportQuestionsTitle: "Four questions the report answers",
     reportQuestions: [
@@ -183,10 +183,10 @@ const copy = {
       "Das Material bleibt getrennt von Personal- und Leistungsakten. Es geht um die Organisation, nicht um die Bewertung einzelner Personen.",
       "Klinische und medizinische Diagnosen liegen außerhalb des Auftrags. Wenn die Frage diese Expertise braucht, sage ich das.",
     ],
-    reportTitle: "Der Bericht ist kein Schlusswort.",
+    reportTitle: "Ein Bericht, den das Team prüfen kann.",
     reportBody: [
-      "Er beschreibt meinen Befund, wahrscheinliche Ursachen und die Folgen für die Organisation. Die Belege stehen direkt daneben, damit das Team sie prüfen und ihnen widersprechen kann.",
-      "Danach arbeiten wir den Befund gemeinsam durch. Häufig liegt damit zum ersten Mal dasselbe Bild vor dem gesamten Führungsteam. Welche Entscheidung daraus folgt, trifft das Team selbst.",
+      "Er beschreibt den wichtigsten Befund und die Belege dahinter. Anhand dieser Belege kann das Team meine Sicht prüfen.",
+      "Danach arbeiten wir den Befund gemeinsam durch. Häufig liegt damit zum ersten Mal dasselbe Bild vor dem gesamten Führungsteam. Daraus entsteht eine Entscheidung, die das Team gemeinsam getroffen hat.",
     ],
     reportQuestionsTitle: "Vier Fragen, die der Bericht beantwortet",
     reportQuestions: [

@@ -59,7 +59,7 @@ describe("results and sample-report content contract", () => {
 
     expect(renderedIds).toEqual([...localeIds, ...localeIds]);
     expect(resultsSource).toContain(
-      "Some of these clients can be named. Several can't, so they're described instead",
+      "Some clients can be named. Others are described accurately",
     );
     expect(resultsSource).toContain("Named organisations.");
     expect(resultsSource).toContain("Organisationen, die ich nennen kann.");
@@ -100,18 +100,19 @@ describe("results and sample-report content contract", () => {
     expect(productionSource).not.toContain("Arringo");
   });
 
+  it("keeps public Web3 wording on Results only", () => {
+    expect(resultsSource).toContain("Web3 business");
+    expect(productionSource.replace(resultsSource, "")).not.toMatch(/Web3/i);
+  });
+
   it("keeps the established localized CTA routes", () => {
     expect(resultsSource).toContain("getPrimaryContactAction(locale)");
     expect(resultsSource).toContain('getRouteHref("services", locale)');
   });
 
   it("uses current Vistage wording in both locales", () => {
-    const aboutEnglish = readFileSync(
-      resolve(repositoryRoot, "src/app/(en)/about/page.tsx"),
-      "utf8",
-    );
-    const aboutGerman = readFileSync(
-      resolve(repositoryRoot, "src/app/de/about/page.tsx"),
+    const about = readFileSync(
+      resolve(repositoryRoot, "src/components/about-page.tsx"),
       "utf8",
     );
     const peerAdvisory = readFileSync(
@@ -122,21 +123,21 @@ describe("results and sample-report content contract", () => {
     expect(resultsSource).toContain(
       "I chair a peer advisory group of business owners in Malta.",
     );
-    expect(aboutEnglish).toContain(
-      "I chair a Vistage peer advisory group of business owners in Malta.",
+    expect(about).toContain(
+      "I chair a peer advisory group of business owners in Malta",
     );
     expect(peerAdvisory).toContain(
       "I chair a Vistage peer advisory group of business owners in Malta.",
     );
-    expect(aboutGerman).toContain(
-      "Ich leite in Malta eine Vistage Peer-Advisory-Gruppe für Unternehmensinhaber.",
+    expect(about).toContain(
+      "Ich leite in Malta eine Peer-Advisory-Gruppe für Unternehmensinhaber",
     );
     expect(peerAdvisory).toContain(
       "Ich leite in Malta eine Vistage Peer-Advisory-Gruppe für Unternehmensinhaber.",
     );
   });
 
-  it("removes the old route without a redirect or stale link", () => {
+  it("removes old first-deployment routes without redirects or stale links", () => {
     const nextConfig = readFileSync(
       resolve(repositoryRoot, "next.config.ts"),
       "utf8",
@@ -150,6 +151,13 @@ describe("results and sample-report content contract", () => {
     expect(nextConfig).not.toContain("/sample-report");
     expect(productionSource).not.toMatch(/href\s*=\s*["']\/sample-report/);
     expect(productionSource).not.toContain('href: "/sample-report"');
+    expect(
+      existsSync(
+        resolve(repositoryRoot, "src/app/(en)/contact/message/page.tsx"),
+      ),
+    ).toBe(false);
+    expect(nextConfig).not.toContain("/contact/message");
+    expect(productionSource).not.toContain("/contact/message");
   });
 
   it("retains the report questions and confidentiality boundaries", () => {

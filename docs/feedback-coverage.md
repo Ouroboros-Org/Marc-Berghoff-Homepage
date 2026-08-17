@@ -49,7 +49,10 @@ The original note asked for the detailed enquiry to be open immediately. The lat
 - [x] “One blurred decision can keep pulling work back upstairs” is used as a reader-facing entry point.
 - [x] The Bottleneck Assessment is the entry product when the cause is disputed; the fixed follow-on order is Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership.
 - [x] Footer copy focuses on the reader's question rather than promoting Marc.
-- [x] Leadership principles cover hands-on to strategic work, evidence and KPIs, repeatable methods, OKRs/Scaling Up, coaching and mentoring.
+- [x] About follows the approved order: name-led hero, professional path, credentials, beliefs, personal material, compact start and booking action.
+- [x] The former four-principles block is removed rather than reworded.
+- [x] About leads with the organisational psychologist credential, adds Co-Active training and describes Vistage as a group Marc chairs.
+- [x] The English and German About pages carry the same facts and section order.
 - [x] No unconfirmed client growth, company-size or ARR claims are published.
 - [x] Every core offer points towards one outcome: make the issue visible, decide where responsibility should sit and move the work.
 - [x] The four follow-on formats are distinguished by who carries the work: the client, the client as decision-maker, peers with the client, or Marc with a defined remit.
@@ -58,4 +61,6 @@ The original note asked for the detailed enquiry to be open immediately. The lat
 - [x] Marc is positioned between coaching distance, candid advice and defined responsibility without forcing one title across the site.
 - [x] The About page includes the supplied mix of empathy, directness, operator experience and personal detail.
 - [x] The final editorial pass removed promotional filler, repeated negative parallelisms, decorative triads and over-explained conclusions.
+- [x] The editorial pass also checks for thematic over-explanation and overly tidy resolutions, using StoryScope as a directional structural prompt rather than a detector for business copy.
 - [x] The separate sample-report route is removed. The report questions, confidentiality boundaries and clearly labelled fictional preview now live on the Bottleneck Assessment page.
+- [x] The obsolete `/contact/message` redirect page is removed without adding a first-deployment redirect.

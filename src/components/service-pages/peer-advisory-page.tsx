@@ -20,11 +20,11 @@ const copy = {
     breadcrumbServices: "How I can help",
     breadcrumbPage: "Peer Advisory",
     title: "Sometimes you need to get out of the business to work on it.",
-    lead: "The most useful advice a founder gets does not always come from an adviser. Sometimes it comes from someone six months ahead, facing the same problem.",
-    whyTitle: "Why this works when advice does not.",
+    lead: "The most useful advice usually comes from someone six months ahead of you with the same problem.",
+    whyTitle: "Why peers help.",
     whyBody: [
-      "Outside advice has a weakness: the person giving it has not paid for being wrong about your situation. A peer has. They made the hire, kept the wrong person too long, split the role badly or waited nine months to have the conversation. They can tell you what it cost.",
-      "I get the room to the real question quickly, stop people performing and make sure each person leaves with a decision they actually made.",
+      "A peer knows the price of a bad decision from experience. They made the hire, kept the wrong person too long, split the role badly or waited nine months to have the conversation. They can tell you what it cost.",
+      "My job is to get the room to the real question and stop people performing. Each person leaves with a decision they actually made.",
     ],
     formatsTitle: "Two formats.",
     formats: [
@@ -39,7 +39,7 @@ const copy = {
     ],
     roomTitle: "What happens in the room.",
     roomIntro:
-      "Each person brings a live issue. Not a presentation: a decision they have not made yet.",
+      "Each person brings a live decision and states it without a presentation.",
     roomSteps: [
       {
         title: "State the decision",
@@ -77,19 +77,19 @@ const copy = {
         text: "If you need one specific decision thought through with someone outside your reporting line, that is advisory.",
       },
     ],
-    closingTitle: "Bring a decision, not a presentation.",
+    closingTitle: "Bring a live decision.",
     closingText:
-      "The first conversation is free and typically takes 30 minutes. We can discuss the room, the boundary and whether the format fits.",
+      "The first conversation is free and typically takes 30 minutes. We can discuss whether the room fits and how its confidentiality should work.",
   },
   de: {
     breadcrumbServices: "Zusammenarbeit",
     breadcrumbPage: "Peer Advisory",
     title: "Manchmal hilft erst der Abstand vom Unternehmen, um daran zu arbeiten.",
-    lead: "Der nützlichste Rat kommt nicht immer von außen. Manchmal kommt er von jemandem, der dieselbe Entscheidung vor sechs Monaten treffen musste.",
-    whyTitle: "Warum Peers anders helfen als externe Beratung.",
+    lead: "Der nützlichste Rat kommt oft von jemandem, der vor sechs Monaten vor demselben Problem stand.",
+    whyTitle: "Warum Peers helfen.",
     whyBody: [
-      "Wer von außen berät, trägt nicht die Folgen einer falschen Entscheidung in Ihrer Situation. Ein Peer kennt diesen Preis aus eigener Erfahrung: nach einer Fehlbesetzung, einer schlecht zugeschnittenen Rolle oder einem Gespräch, das zu lange aufgeschoben wurde.",
-      "Ich halte die Runde bei der eigentlichen Frage, statt bei Selbstdarstellung oder schnellen Ratschlägen. Am Ende steht eine Entscheidung der Person, die sie auch umsetzen muss.",
+      "Ein Peer kennt den Preis einer falschen Entscheidung aus eigener Erfahrung: nach einer Fehlbesetzung, einer schlecht zugeschnittenen Rolle oder einem Gespräch, das zu lange aufgeschoben wurde.",
+      "Ich halte die Runde bei der eigentlichen Frage und stoppe Selbstdarstellung. Am Ende steht eine Entscheidung der Person, die sie auch umsetzen muss.",
     ],
     formatsTitle: "Zwei Formate.",
     formats: [
@@ -104,7 +104,7 @@ const copy = {
     ],
     roomTitle: "So arbeitet die Runde.",
     roomIntro:
-      "Jede Person bringt ein aktuelles Thema mit. Keine Präsentation, sondern eine noch offene Entscheidung.",
+      "Jede Person bringt eine noch offene Entscheidung mit und beschreibt sie ohne Präsentation.",
     roomSteps: [
       {
         title: "Die Entscheidung benennen",
@@ -142,9 +142,9 @@ const copy = {
         text: "Wenn Sie eine einzelne Entscheidung mit einer Person außerhalb Ihrer Berichtslinie durchdenken möchten, passt Strategic People Advisory.",
       },
     ],
-    closingTitle: "Bringen Sie eine Entscheidung mit, keine Präsentation.",
+    closingTitle: "Bringen Sie eine offene Entscheidung mit.",
     closingText:
-      "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Wir klären, wie die Runde zusammengesetzt sein sollte, welcher Vertraulichkeitsrahmen gilt und ob das Format passt.",
+      "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Wir klären, ob die Runde passt und wie die Vertraulichkeit geregelt sein sollte.",
   },
 } as const;
 

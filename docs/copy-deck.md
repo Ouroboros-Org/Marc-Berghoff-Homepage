@@ -1,6 +1,6 @@
 # Website copy deck
 
-Status: approved direction for implementation; first complete copy pass
+Status: approved direction for implementation; About and editorial audit pass, 17 August 2026
 
 ## Message architecture
 
@@ -253,26 +253,37 @@ Diagnostic disclosure: **Run the ten-statement check** / **Use the last few week
 
 ## About
 
-H1: **When the issue sits between the people and the way the business works.**
+H1: **Marc Berghoff**
 
-Lead: I work with founders and leadership teams when a people question has become an operating problem. The work may stay in coaching or advice, or it may need evidence and a defined remit.
+Role: **Organisational Psychologist · Vistage Chair · Executive Coach**
 
-Primary: **Book a free 30-minute conversation**
+Lead: I work with founders and leadership teams on the problems that sit between the people and the way the business actually works.
 
-Secondary: **Run the ten-statement check**
+### The path
 
-Biography: I have worked across HR, coaching and organisational development for almost a decade, both in-house and independently. I have led people work inside a fast-growing company, coached leaders and served as interim Head of HR. I hold an MSc in Psychology, the ICF Associate Certified Coach credential and teach training and development and organisational leadership.
+I did the German thing of collecting internships: Freudenberg Sealing Technologies, Fresenius Medical Care, two months at Nintendo, and Mitsubishi Fuso in Japan. Then in-house people work, mostly in companies growing faster than their structures could handle, including a solar scale-up later acquired by E.ON. I co-founded a business along the way, which taught me more about how founders actually decide things than watching from the outside ever did.
 
-Biography heading: **I have worked on both sides of the conversation.**
+After almost a decade across HR, coaching and organisation development, I now work for myself from Malta, mostly with founder-led companies across Malta, Germany and the wider EU.
 
-Personal note: Away from work, I am usually reading, climbing, exploring a new culture or trying to improve my homemade chilaquiles.
+### Credentials
 
-Leadership principles:
+- **Organisational psychologist** — MSc in Psychology, applied to organisational and leadership questions
+- **ICF Associate Certified Coach** — 350+ coaching hours
+- **Co-Active trained**
+- **Vistage Chair** — I chair a peer advisory group of business owners in Malta
+- **Lecturer in training and development**
 
-1. **Start with the live decision.** Ask what happened, who held the decision first and where it moved.
-2. **Use evidence for a decision.** A measure earns its place when it changes what someone can see or decide.
-3. **Make progress visible.** Name what should be handled differently and what would show that the change is happening in the working week.
-4. **Use the method that fits.** Start with the issue and use a method only when it helps. That may include OKRs or Scaling Up.
+The page then carries the approved **What I believe about this work** and **Outside the work** prose from `src/components/about-page.tsx`. Both sections stay at body width with no cards, icons, columns or pull quotes. The four-principles block is retired.
+
+### How working together starts
+
+A free 30-minute conversation. A written scope before any paid work. Then the work itself, with a defined end point.
+
+If I'm not the right person, I'll say so — and where I can make a useful introduction, I will.
+
+Link: **See the full process** → `/services#process`
+
+The final booking action keeps the established route at `/contact#booking`.
 
 ## Selected work
 

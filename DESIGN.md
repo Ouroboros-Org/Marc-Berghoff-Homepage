@@ -161,6 +161,7 @@ Target WCAG 2.2 AA: semantic headings, labelled controls, keyboard-complete menu
 
 - **Do** write to the reader as “you” and let Marc write as “I”, “me” and “my”.
 - **Do** use concrete, plain language in each locale, observable situations and explicit responsibility boundaries.
+- **Do** trust the reader with some inference. Use specific places, decisions and lived detail before explaining what they mean.
 - **Do** state uncertainty, scope, fees, poor fit and what happens next without softening them into sales language.
 - **Do** reuse the responsibility spectrum, ruled-row offers and universal process before inventing a new pattern.
 
@@ -168,6 +169,7 @@ Target WCAG 2.2 AA: semantic headings, labelled controls, keyboard-complete menu
 
 - **Don't** use hype, generic consulting language, invented claims or unconfirmed company-size, growth, ARR or outcome figures.
 - **Don't** use AI-writing tells: puffed significance, formulaic negative parallelism, decorative triads, excessive em dashes or conclusions that explain what the preceding copy already showed.
+- **Don't** force every section through one frictionless cause-and-effect path or finish each passage with a lesson.
 - **Don't** make founders, managers or employees the villain; describe behavior and operating consequences.
 - **Don't** invent Peer Advisory details or let the entry assessment swallow the broader practice. Keep the illustrative report page clearly labelled; never present fictional figures as client evidence.
 - **Don't** replace editorial rules with grids of interchangeable cards, decorative gradients or heavy shadows.

@@ -1,6 +1,6 @@
 # Claim ledger
 
-Last reviewed: 11 August 2026
+Last reviewed: 17 August 2026
 
 This file records where substantive website claims came from and what may be
 published. It is an editorial control document, not a substitute for keeping
@@ -23,6 +23,7 @@ contracts, client approvals, certificates or underlying performance records.
 | U1 | Owner instruction in the implementation brief, 29 July 2026 | Authorisation to use material that is public, on HX Solutions/LinkedIn, or in D1 |
 | U2 | Owner service-page brief and implementation follow-up, 11 August 2026 | Assessment-first sequence; fixed-fee wording without a number; money-back guarantee; two-to-three-week assessment timing; one-to-two-day fractional rhythm; Europe availability; approved fractional proof wording |
 | U3 | Owner review and confirmation during the repository consistency implementation, 11 August 2026 | Approval of the revised Home biography, credentials and anonymised proof statements, and authorisation to carry those statements into supporting pages |
+| U4 | Owner About-page feedback and implementation confirmation, 17 August 2026 | Corrected internship history; About credentials and chronology; Malta, Germany and EU working range; Tokyo and Medellín residence; remote-work experience; approved personal copy; permission to keep the co-founded business unnamed |
 | P1 | [Mdina Partners — Advisory](https://mdinapartners.com/cluster/advisory/) | HR Advisor & Coach; ICF ACC; Vistage peer-advisory facilitator; 50+ leaders; 35-to-150 scale-up result |
 | P2 | [Marc Berghoff — LinkedIn](https://mt.linkedin.com/in/marcberghoff/en) | Malta location; listed services; current experience; ACC credential dates; Vistage affiliation |
 | P3 | [MaltaCEOs — Marc Berghoff named Chair at Vistage Malta](https://maltaceos.mt/marc-berghoff-named-chair-at-vistage-malta/) | Vistage Malta Chair appointment; MSc Psychology; certified coach; HX Solutions founder; six-plus years of HR experience at publication |
@@ -36,7 +37,7 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 
 | Claim | Evidence | Status | Publishing rule |
 | --- | --- | --- | --- |
-| Marc is based in Malta and works with founders and senior leaders | P2, P3, P5, D1 slide 3 | **Publicly supported** | Safe in concise biographical copy. “Working internationally” is supported by D1 rather than a public engagement list. |
+| Marc is based in Malta and works with founders and senior leaders across Malta, Germany and the wider EU | P2, P3, P5, D1 slide 3, U4 | **Owner-authorised and publicly supported in part** | Keep the geographic wording broad. Do not infer a public client list from it. |
 | HR Advisor & Coach / executive coach / HR consultant | P1, P2, P5 | **Publicly supported** | Use the title that best fits the page; do not imply clinical services. |
 | MSc in Psychology | P2, P3, D1 slides 3 and 11 | **Publicly supported** | Prefer “MSc in Psychology.” |
 | “Business Psychologist” | D1 slides 2, 3 and 11 | **Deck-authorised** | Confirm whether this is a regulated or warranted title in the provider’s jurisdiction. Until then, “MSc in Psychology” is the safer factual wording. |
@@ -46,14 +47,20 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | Over seven years of global HR and coaching experience | D1 slide 3; P3 reported six-plus years in 2024 | **Deck-authorised** | “Seven-plus years” is acceptable under U1; preserve CV evidence and update the number over time. |
 | Former Head of HR at a fast-growing startup | D1 slide 3 | **Deck-authorised** | Use only in Marc’s biography or first-person account unless the employer is named and documented. |
 | Former co-founder of a global Web3 project | D1 slide 3 | **Deck-authorised** | Use with the CyberKongz entry below; avoid implying ongoing affiliation without checking it. |
+| Co-founded a business | U4 | **Owner-authorised** | Keep the business unnamed on About. Public Web3 wording remains confined to the approved Results entry. |
 | 50+ leaders supported | P1 | **Publicly supported** | “Worked with 50+ leaders” matches the public wording. |
 | 350+ hours of leadership and executive coaching | D1 slide 12 | **Deck-authorised** | Retain coaching log or credential evidence. Do not silently increase the number. |
 | “Youngest peer-advisory chair at Vistage Global” | D1 slide 12 | **Approval needed** | A comparative superlative requires confirmation from Vistage. Do not publish “youngest” on deck evidence alone. |
 | Age 34 | D1 slides 3 and 11 | **Do not use as written** | It becomes stale and is irrelevant to the service. Omit rather than automate it. |
-| German, based in Malta | D1 slides 3 and 11; Malta location in P2/P5 | **Deck-authorised** | “Malta-based” is enough for most pages. Confirm nationality before making it a legal or identity statement. |
-| Organisational Psychologist | U3 | **Owner-authorised; jurisdiction check** | This is the owner-approved Home title. Confirm that the title is warranted in every jurisdiction where the site is marketed; do not imply clinical diagnosis or treatment. |
-| Lecturer in training and development and organisational leadership | U3 | **Owner-authorised** | Keep the wording tied to the subjects taught. Retain appointment or teaching records and recheck before implying a current post. |
-| Almost a decade across HR, coaching and organisational development, in-house and independently | U3 | **Owner-authorised** | This broader, time-sensitive formulation supersedes the seven-plus-year wording on Home. Keep the underlying CV chronology; update it deliberately rather than silently increasing the number. |
+| German, based in Malta | D1 slides 3 and 11; Malta location in P2/P5; U4 | **Owner-authorised** | Use as first-person biographical context rather than as a legal-status statement. |
+| Organisational Psychologist | U3, U4 | **Owner-authorised; jurisdiction check** | This is the owner-approved public title. Confirm that the title is warranted in every jurisdiction where the site is marketed; do not imply clinical diagnosis or treatment. |
+| Lecturer in training and development | U3, U4 | **Owner-authorised** | Retain appointment or teaching records and recheck before implying a current post. |
+| Almost a decade across HR, coaching and organisational development, in-house and independently | U3, U4 | **Owner-authorised** | This broader, time-sensitive formulation supersedes the seven-plus-year wording on Home. Keep the underlying CV chronology; update it deliberately rather than silently increasing the number. |
+| Internships at Freudenberg Sealing Technologies, Fresenius Medical Care, Nintendo for two months and Mitsubishi Fuso in Japan | U4 | **Owner-authorised** | Present all four as internships. Do not frame Nintendo as a first job or as a longer role. |
+| Co-Active trained | U4; current Executive Coaching copy | **Owner-authorised; evidence retention needed** | Use the supplied wording and retain the relevant training record. Do not imply a separate credential level that has not been named. |
+| Lived in Tokyo for one year and Medellín for six months | U4 | **Owner-authorised** | Use as personal biographical context. Keep the durations factual and do not turn them into professional expertise claims. |
+| Has worked fully remote, hybrid and in an office; prefers periodic in-person work | U4 | **Owner-authorised** | Present as a working preference, not as a claim that every engagement is in person. |
+| Bouldering, cooking, homemade chilaquiles, coffee, fountain pens, business books, fiction and the Acquired podcast | U4 | **Owner-authorised** | Use selectively as personal detail. Do not expand this into an unverified inventory of hobbies or recommendations. |
 
 ## Service and offer claims
 

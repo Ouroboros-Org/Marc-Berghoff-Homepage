@@ -19,8 +19,8 @@ const copy = {
     breadcrumb: "How I can help",
     title: "The situation decides how involved I should be.",
     lead: [
-      "Some problems need room to think. Some need a candid second view. Some need someone to own a piece of the work for a while.",
-      "And some need evidence first, because nobody yet agrees on what the problem is.",
+      "Some problems need room to think. Others need a candid view from outside the reporting line.",
+      "Sometimes the work needs an owner for a while. When nobody agrees on the cause, evidence comes first.",
     ],
     secondary: "Not sure where you sit? Take the 2-minute check",
     listTitle: "Five ways the work can continue.",
@@ -35,19 +35,19 @@ const copy = {
     ],
     decisionTitle: "You do not have to choose a format.",
     decisionBody: [
-      "That is part of the first conversation.",
-      "Most engagements start with a call, move to a written scope and only then to paid work. If the cause is still disputed, I will usually recommend the assessment first. A report nobody believes is worth less than no report at all.",
+      "Tell me what is happening. Choosing the format is part of the first conversation.",
+      "If the cause is disputed, I usually recommend the assessment first so the team has evidence it can examine together.",
     ],
-    closingTitle: "Start with the situation, not a service name.",
+    closingTitle: "Tell me what is happening.",
     closingText:
-      "Tell me what is happening and what you have tried. I will tell you what level of involvement, if any, makes sense from here.",
+      "Describe what is happening and what you have tried. I will tell you how involved I should be, if at all.",
   },
   de: {
     breadcrumb: "Zusammenarbeit",
     title: "Die Situation entscheidet, wie stark ich mich einbringen sollte.",
     lead: [
-      "Manche Probleme brauchen Raum zum Denken. Manche brauchen eine offene zweite Sicht. Und manche brauchen für eine Weile eine Person, die einen Teil der Arbeit übernimmt.",
-      "Manchmal braucht es zuerst Belege, weil sich noch niemand über das eigentliche Problem einig ist.",
+      "Manche Probleme brauchen Raum zum Denken. Bei anderen hilft eine offene Sicht von außerhalb der Berichtslinie.",
+      "Manchmal braucht die Arbeit für eine Weile eine verantwortliche Person. Wenn sich niemand über die Ursache einig ist, kommen die Belege zuerst.",
     ],
     secondary: "Noch unsicher? Zum 2-Minuten-Check",
     listTitle: "Fünf Wege, wie die Arbeit weitergehen kann.",
@@ -62,12 +62,12 @@ const copy = {
     ],
     decisionTitle: "Sie müssen das Format nicht selbst wählen.",
     decisionBody: [
-      "Das ist Teil des ersten Gesprächs.",
-      "Meist beginnen wir mit einem Gespräch. Danach folgt eine schriftliche Vereinbarung zum Umfang. Erst dann beginnt bezahlte Arbeit. Wenn die Ursache noch umstritten ist, empfehle ich in der Regel zuerst die Analyse. Ein Bericht, dem niemand glaubt, ist weniger wert als gar kein Bericht.",
+      "Beschreiben Sie, was passiert. Die Wahl des Formats gehört zum ersten Gespräch.",
+      "Wenn die Ursache umstritten ist, empfehle ich meist zuerst die Analyse. So hat das Team Belege, die es gemeinsam prüfen kann.",
     ],
-    closingTitle: "Beginnen Sie mit der Situation, nicht mit einem Leistungsnamen.",
+    closingTitle: "Beschreiben Sie, was passiert.",
     closingText:
-      "Beschreiben Sie, was passiert und was Sie bereits versucht haben. Ich sage Ihnen, welche Form der Unterstützung sinnvoll ist — falls überhaupt.",
+      "Schreiben Sie dazu, was Sie bereits versucht haben. Ich sage Ihnen, wie stark ich mich einbringen sollte, falls überhaupt.",
   },
 } as const;
 

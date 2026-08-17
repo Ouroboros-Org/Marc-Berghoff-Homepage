@@ -21,7 +21,7 @@ const copy = {
     breadcrumbServices: "How I can help",
     breadcrumbPage: "Fractional People Leadership",
     title: "A capable people team can still lack senior direction.",
-    lead: "You may not need a full-time Chief People Officer. You may still need someone to set direction, hold agreed decisions and lead the work above an operationally sound team.",
+    lead: "A defined part-time remit can provide senior direction, hold agreed decisions and lead the work above an operationally sound team.",
     fitTitle: "Use this when the team can operate but the remit above it is empty.",
     fitBody: [
       "The people team handles day-to-day work. What is missing is senior direction: the organisation choices, leadership expectations and priorities that connect the people agenda to the business plan.",
@@ -62,7 +62,7 @@ const copy = {
     breadcrumbServices: "Zusammenarbeit",
     breadcrumbPage: "Fractional People Leadership",
     title: "Auch ein fähiges People-Team kann ohne strategische Führung dastehen.",
-    lead: "Vielleicht brauchen Sie keinen Chief People Officer in Vollzeit. Trotzdem muss jemand die Richtung setzen, Entscheidungen verantworten und die Themen führen, die über das Tagesgeschäft eines stabilen Teams hinausgehen.",
+    lead: "Ein klarer Teilzeitauftrag kann die strategische Richtung setzen und die Entscheidungen oberhalb des Tagesgeschäfts eines stabilen Teams tragen.",
     fitTitle: "Das Team trägt den Alltag. Die strategische Verantwortung ist unbesetzt.",
     fitBody: [
       "Das People-Team erledigt die tägliche Arbeit. Offen bleiben die Organisationsentscheidungen, Erwartungen an Führung und Prioritäten, die die People-Arbeit mit dem Geschäftsplan verbinden.",

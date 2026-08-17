@@ -1,0 +1,74 @@
+.heroRole {
+  color: var(--page-ink);
+  font-family: var(--page-font-display);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+.heroStatement {
+  max-width: 39rem;
+}
+
+.pathCopy {
+  align-self: center;
+}
+
+.credentialList {
+  margin: 0;
+  border-top: 1px solid var(--page-line);
+}
+
+.credentialRow {
+  display: grid;
+  gap: 0.45rem;
+  padding: clamp(1.2rem, 2.5vw, 1.75rem) 0;
+  border-bottom: 1px solid var(--page-line);
+}
+
+.credentialTerm {
+  margin: 0;
+  font-family: var(--page-font-display);
+  font-weight: 620;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.credentialDescription {
+  margin: 0;
+  color: var(--page-muted);
+  line-height: 1.65;
+}
+
+.proseContainer {
+  width: min(100% - 2rem, 46rem);
+  margin-inline: auto;
+}
+
+.proseTitle {
+  max-width: 14ch;
+}
+
+.proseBody {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.proseBody p + p {
+  margin-top: clamp(1rem, 2.5vw, 1.65rem);
+}
+
+.startCopy {
+  align-self: start;
+}
+
+@media (min-width: 42rem) {
+  .proseContainer {
+    width: min(100% - 3rem, 46rem);
+  }
+
+  .credentialRow {
+    grid-template-columns: minmax(13rem, 0.72fr) minmax(0, 1.28fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: baseline;
+  }
+}

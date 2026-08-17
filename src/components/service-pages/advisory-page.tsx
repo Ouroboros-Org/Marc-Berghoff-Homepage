@@ -17,8 +17,8 @@ const copy = {
   en: {
     breadcrumbServices: "How I can help",
     breadcrumbPage: "Strategic People Advisory",
-    title: "The decision is yours. It does not have to be made alone.",
-    lead: "Bring a people, role or organisation question you can already see. I test the reasoning, assumptions and trade-offs. You keep the decision.",
+    title: "Bring the decision. We can think it through together.",
+    lead: "Bring a people, role or organisation question you can already see. I test your reasoning and the trade-offs. You keep the decision.",
     situationsTitle: "Common situations.",
     situations: [
       "You need to decide who should stay in their role, who is ready for more responsibility and where an external hire is needed.",
@@ -44,15 +44,15 @@ const copy = {
         text: "If the accounts of the problem differ across your team, start with the assessment.",
       },
     ],
-    closingTitle: "Bring the decision that is not moving.",
+    closingTitle: "Talk through a current decision.",
     closingText:
       "The first conversation is free and typically takes 30 minutes. I will tell you whether an outside view is enough.",
   },
   de: {
     breadcrumbServices: "Zusammenarbeit",
     breadcrumbPage: "Strategic People Advisory",
-    title: "Die Entscheidung bleibt bei Ihnen. Sie müssen sie nicht allein treffen.",
-    lead: "Bringen Sie eine People-, Rollen- oder Organisationsfrage mit, die bereits greifbar ist. Ich prüfe mit Ihnen die Annahmen und Folgen der möglichen Wege. Die Entscheidung bleibt bei Ihnen.",
+    title: "Bringen Sie die Entscheidung mit. Wir denken sie gemeinsam durch.",
+    lead: "Bringen Sie eine People-, Rollen- oder Organisationsfrage mit, die bereits greifbar ist. Ich prüfe mit Ihnen die Begründung und die Folgen der möglichen Wege. Die Entscheidung bleibt bei Ihnen.",
     situationsTitle: "Häufige Situationen.",
     situations: [
       "Sie müssen entscheiden, wer die aktuelle Rolle behalten sollte, wer bereit für mehr Verantwortung ist und wo eine externe Besetzung nötig wird.",
@@ -78,7 +78,7 @@ const copy = {
         text: "Wenn im Team verschiedene Erklärungen für das Problem nebeneinanderstehen, beginnen Sie mit der Analyse.",
       },
     ],
-    closingTitle: "Bringen Sie die Entscheidung mit, bei der Sie sich im Kreis drehen.",
+    closingTitle: "Denken Sie eine aktuelle Entscheidung mit mir durch.",
     closingText:
       "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Ich sage offen, ob eine zweite Sicht von außen genügt.",
   },

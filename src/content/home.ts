@@ -95,8 +95,8 @@ const english: HomeCopy = {
     title: "You've already tried everything that should have worked.",
     paragraphs: [
       "Consultants on your processes. Support from your investors. A new leadership team. The work you've done on yourself.",
-      "And it still feels like something is holding the company back — and you can't point at it.",
-      "Most outside help starts by solving. I start by understanding. Until you know what is actually constraining the company, every fix is a guess with an invoice attached.",
+      "Something still feels like it is holding the company back. You cannot point at it yet.",
+      "I start by understanding what is constraining the company. A fix before that is still a guess, just with an invoice attached.",
     ],
     primaryBookingLabel: "Book a free 30-minute conversation",
     primaryFallbackLabel: "Send me a note",
@@ -112,18 +112,18 @@ const english: HomeCopy = {
     "Organisational Psychologist",
     "Vistage Chair",
     "ICF Associate Certified Coach, 350+ hours",
-    "Lecturer in training and development & org. leadership",
-    "Almost a decade across HR, coaching and organisational development — in-house and independent",
+    "Lecturer in training and development",
+    "Almost a decade across HR, coaching and organisational development, in-house and independent",
   ],
   recognition: {
     title: "One blurred decision can keep pulling work back upstairs.",
     paragraph: [
       {
-        text: "Most of the founders I work with can describe the feeling long before they can describe the cause. The ",
+        text: "You can often describe the feeling long before you can name the cause. The ",
       },
       { text: "same decision", emphasis: true },
       {
-        text: " keeps arriving at their desk. Their leadership team gives ",
+        text: " keeps arriving at your desk. Your leadership team gives ",
       },
       { text: "three different accounts of the same problem", emphasis: true },
       {
@@ -200,7 +200,7 @@ const english: HomeCopy = {
   },
   closing: {
     title: "Start with what is happening now.",
-    body: "The first conversation is free and typically takes 30 minutes. Bring the issue, what you have tried and where it keeps returning. My aim is that you leave with a clearer question, even if the work stops there.",
+    body: "The first conversation is free and typically takes 30 minutes. Bring the issue and what you have tried. Show me where it keeps returning. My aim is that you leave with a clearer question, even if the work stops there.",
     bookingLabel: "Choose a time",
     noteLabel: "Send me a note",
   },
@@ -222,8 +222,8 @@ const german: HomeCopy = {
     title: "Sie haben bereits alles versucht, was hätte funktionieren sollen.",
     paragraphs: [
       "Berater für Ihre Prozesse. Unterstützung durch Ihre Investoren. Ein neues Führungsteam. Die Arbeit an sich selbst.",
-      "Und trotzdem fühlt es sich an, als würde etwas das Unternehmen zurückhalten — ohne dass Sie genau sagen können, was es ist.",
-      "Die meiste Hilfe von außen beginnt mit einer Lösung. Ich beginne damit, zu verstehen. Solange Sie nicht wissen, was das Unternehmen tatsächlich bremst, ist jede Lösung eine Vermutung, für die Sie bezahlen.",
+      "Etwas scheint das Unternehmen trotzdem zurückzuhalten. Sie können nur noch nicht genau sagen, was es ist.",
+      "Ich beginne damit, zu verstehen, was das Unternehmen bremst. Eine frühere Lösung bleibt eine Vermutung, für die Sie bezahlen.",
     ],
     primaryBookingLabel: "Kostenloses 30-Minuten-Gespräch buchen",
     primaryFallbackLabel: "Nachricht senden",
@@ -239,17 +239,17 @@ const german: HomeCopy = {
     "Organisationspsychologe",
     "Vistage Chair",
     "ICF Associate Certified Coach, mehr als 350 Stunden",
-    "Dozent für Training und Entwicklung sowie Organisationsführung",
-    "Fast ein Jahrzehnt in HR, Coaching und Organisationsentwicklung — intern und selbstständig",
+    "Dozent für Training und Entwicklung",
+    "Fast ein Jahrzehnt in HR, Coaching und Organisationsentwicklung, intern und selbstständig",
   ],
   recognition: {
     title: "Eine unklare Entscheidung zieht Arbeit immer wieder nach oben.",
     paragraph: [
       {
-        text: "Die meisten Gründer, mit denen ich arbeite, können das Gefühl lange beschreiben, bevor sie die Ursache benennen können. ",
+        text: "Oft können Sie das Gefühl lange beschreiben, bevor Sie die Ursache benennen können. ",
       },
       { text: "Dieselbe Entscheidung", emphasis: true },
-      { text: " landet immer wieder auf ihrem Schreibtisch. Ihr Führungsteam schildert " },
+      { text: " landet immer wieder auf Ihrem Schreibtisch. Ihr Führungsteam schildert " },
       { text: "dasselbe Problem auf drei verschiedene Arten", emphasis: true },
       { text: ". Alle sind fähig, alle arbeiten hart, und das Unternehmen ist trotzdem " },
       { text: "langsamer, als es sein sollte", emphasis: true },
@@ -337,7 +337,7 @@ const german: HomeCopy = {
   },
   closing: {
     title: "Beginnen Sie mit dem, was gerade passiert.",
-    body: "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Bringen Sie das Thema mit, Ihre bisherigen Versuche und den Punkt, an dem es immer wieder zurückkommt. Mein Ziel ist, dass Sie mit einer klareren Frage gehen — auch wenn die Zusammenarbeit dort endet.",
+    body: "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Bringen Sie das Thema und Ihre bisherigen Versuche mit. Zeigen Sie mir, wo es immer wieder zurückkommt. Mein Ziel ist, dass Sie mit einer klareren Frage gehen, auch wenn die Zusammenarbeit dort endet.",
     bookingLabel: "Termin wählen",
     noteLabel: "Nachricht senden",
   },
