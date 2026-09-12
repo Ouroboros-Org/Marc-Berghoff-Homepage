@@ -64,7 +64,7 @@ describe("results and sample-report content contract", () => {
 
     expect(renderedIds).toEqual(localeIds);
     expect(resultsSource).toContain(
-      "Some clients can be named. Others are described accurately",
+      "Some clients are named; others are described anonymously.",
     );
     expect(resultsSource).toContain("Named organisations.");
   });

@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
+import { OutcomeNumber } from "@/components/outcome-number";
+import { Reveal } from "@/components/reveal";
 import {
   ContactBand,
   PageHero,
@@ -59,7 +62,7 @@ const copy = {
       { label: "Selected work" },
     ],
     title: "Selected work",
-    lead: "Some clients can be named. Others are described accurately and with enough detail for you to judge whether the work is relevant.",
+    lead: "See how I have supported people, leadership and organisational change in different companies. Some clients are named; others are described anonymously.",
     selectedTitle: "Selected engagements.",
     work: [
       {
@@ -125,9 +128,9 @@ const copy = {
       },
     ] satisfies readonly WorkItem[],
     clientsTitle: "Named organisations.",
-    closingTitle: "What keeps returning to the leadership team?",
+    closingTitle: "What support would make a difference to your team?",
     closingText:
-      "Tell me what happened and what you have already tried. I will ask about the people involved, then tell you if I can help.",
+      "Tell me what you want to work on and who is involved. We can discuss where advice would help and where you need me to carry responsibility.",
     secondaryCta: "How I work",
   },
 } as const;
@@ -136,14 +139,16 @@ function RuledProofList({ items }: { items: readonly WorkItem[] }) {
   return (
     <ul className={styles.resultList}>
       {items.map((item) => (
-        <li className={styles.resultItem} key={item.id}>
-          <span className={styles.resultMarker} aria-hidden="true" />
-          <p>
-            <strong>{item.statement}</strong>
-            {item.context ? (
-              <span className={styles.resultContext}> · {item.context}</span>
-            ) : null}
-          </p>
+        <li key={item.id}>
+          <Reveal className={styles.resultItem}>
+            <span className={styles.resultMarker} aria-hidden="true" />
+            <p>
+              <strong>{item.statement}</strong>
+              {item.context ? (
+                <span className={styles.resultContext}>{item.context}</span>
+              ) : null}
+            </p>
+          </Reveal>
         </li>
       ))}
     </ul>
@@ -167,23 +172,23 @@ export function ResultsPageView({ locale }: { locale: SiteLocale }) {
       <section className={styles.section} aria-labelledby="featured-case">
         <div className={styles.container}>
           <div className={resultStyles.feature}>
-            <div>
+            <Reveal>
               <p className={resultStyles.kicker}>{FEATURED_CASE.kicker}</p>
               <h2 id="featured-case">{FEATURED_CASE.title}</h2>
               <p>{FEATURED_CASE.summary}</p>
               <Link className={resultStyles.featureLink} href={FEATURED_CASE.href}>
-                Read the case <span aria-hidden="true">↗</span>
+                Read the case <ArrowUpRight aria-hidden="true" size={18} />
               </Link>
-            </div>
+            </Reveal>
             <div className={resultStyles.featureMetric}>
-              <strong>{FEATURED_CASE.metric}</strong>
+              <strong><OutcomeNumber value={FEATURED_CASE.metric} /></strong>
               <span>{FEATURED_CASE.metricLabel}</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="selected-engagements">
+      <section className={`${styles.section} ${resultStyles.workSection}`} aria-labelledby="selected-engagements">
         <div className={styles.container}>
           <SectionHeading
             id="selected-engagements"
@@ -217,7 +222,7 @@ export function ResultsPageView({ locale }: { locale: SiteLocale }) {
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="named-clients">
+      <section className={`${styles.section} ${resultStyles.clientsSection}`} aria-labelledby="named-clients">
         <div className={styles.container}>
           <SectionHeading id="named-clients" title={pageCopy.clientsTitle} />
           <ul className={styles.logoList}>
@@ -239,7 +244,8 @@ export function ResultsPageView({ locale }: { locale: SiteLocale }) {
 
       <ContactBand
         href={contactAction.href}
-        label={contactAction.label}
+        label="Book a call"
+        helper="Free introduction · typically 30 minutes"
         locale={locale}
         secondary={{
           href: getRouteHref("services", locale),

@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
 import { ButtonLink, type ButtonVariant } from "@/components/button";
+import { Reveal } from "@/components/reveal";
 import type { SiteLocale } from "@/config/routes";
 
 import styles from "./secondary-pages.module.css";
@@ -16,9 +17,9 @@ type PageHeroProps = {
   asideLabel?: string;
   asideValue?: string;
   asideNote?: string;
-  primary?: { label: string; href: string; variant?: ButtonVariant };
+  primary?: { label: string; href: string; variant?: ButtonVariant; helper?: string };
   ctaPrimary?: boolean;
-  secondary?: { label: string; href: string; variant?: ButtonVariant };
+  secondary?: { label: string; href: string; variant?: ButtonVariant; helper?: string };
   ctaSecondary?: boolean;
   breadcrumbs?: readonly BreadcrumbItem[];
   locale?: SiteLocale;
@@ -50,7 +51,7 @@ export function PageHero({
           />
         </div>
       ) : null}
-      <div className={`${styles.container} ${styles.heroGrid}`}>
+      <div className={`${styles.container} ${styles.heroGrid} ${asideLabel && asideValue ? styles.heroGridWithAside : ""}`}>
         <div className={styles.heroCopy}>
           {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
           <h1 className={styles.heroTitle}>{title}</h1>
@@ -62,14 +63,20 @@ export function PageHero({
           {(primary || secondary) && (
             <div className={styles.buttonRow}>
               {primary && (
-                <ButtonLink cta={ctaPrimary ?? false} href={primary.href} variant={primary.variant ?? "primary"}>
-                  {primary.label}
-                </ButtonLink>
+                <div className={styles.actionGroup}>
+                  <ButtonLink cta={ctaPrimary ?? false} href={primary.href} variant={primary.variant ?? "primary"}>
+                    {primary.label}
+                  </ButtonLink>
+                  {primary.helper ? <p className={styles.actionHelper}>{primary.helper}</p> : null}
+                </div>
               )}
               {secondary && (
-                <ButtonLink cta={ctaSecondary ?? false} href={secondary.href} variant={secondary.variant ?? "secondary"}>
-                  {secondary.label}
-                </ButtonLink>
+                <div className={styles.actionGroup}>
+                  <ButtonLink cta={ctaSecondary ?? false} href={secondary.href} variant={secondary.variant ?? "secondary"}>
+                    {secondary.label}
+                  </ButtonLink>
+                  {secondary.helper ? <p className={styles.actionHelper}>{secondary.helper}</p> : null}
+                </div>
               )}
             </div>
           )}
@@ -95,11 +102,11 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ id, kicker, title, intro }: SectionHeadingProps) {
   return (
-    <div className={styles.sectionHeader}>
+    <Reveal className={styles.sectionHeader}>
       {kicker && <p className={styles.sectionKicker}>{kicker}</p>}
       <h2 className={styles.sectionTitle} id={id}>{title}</h2>
       {intro && <p className={styles.sectionIntro}>{intro}</p>}
-    </div>
+    </Reveal>
   );
 }
 
@@ -164,13 +171,15 @@ export function ContactBand({
   title,
   text,
   href = "/contact",
-  label = "Request a conversation",
+  label = "Book a call",
+  helper,
   secondary,
 }: {
   title: string;
   text: string;
   href?: string;
   label?: string;
+  helper?: string;
   secondary?: { href: string; label: string };
   locale?: SiteLocale;
 }) {
@@ -179,22 +188,25 @@ export function ContactBand({
       className={styles.contactBand}
       aria-label="Next step"
     >
-      <div className={`${styles.container} ${styles.contactBandGrid}`}>
+      <Reveal className={`${styles.container} ${styles.contactBandGrid}`}>
         <div>
           <h2 className={styles.contactBandTitle}>{title}</h2>
           <p className={styles.contactBandText}>{text}</p>
         </div>
         <div className={styles.contactBandActions}>
-          <ButtonLink cta href={href} variant="inverse">
-            {label}
-          </ButtonLink>
+          <div className={styles.actionGroup}>
+            <ButtonLink cta href={href} variant="inverse">
+              {label}
+            </ButtonLink>
+            {helper ? <p className={styles.actionHelper}>{helper}</p> : null}
+          </div>
           {secondary ? (
             <Link className={styles.contactBandSecondary} href={secondary.href}>
               {secondary.label}
             </Link>
           ) : null}
         </div>
-      </div>
+      </Reveal>
     </aside>
   );
 }

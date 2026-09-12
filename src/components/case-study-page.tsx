@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { OutcomeNumber } from "@/components/outcome-number";
 import { ContactBand, secondaryPageStyles as pageStyles } from "@/components/pages/editorial";
 import { StructuredData } from "@/components/structured-data";
+import { Reveal } from "@/components/reveal";
 import { getPrimaryContactAction, getSiteUrl } from "@/config/site";
 import type { CaseStudy } from "@/content/proof";
 
@@ -43,7 +46,7 @@ export function CaseStudyPageView({ caseStudy }: { caseStudy: CaseStudy }) {
             <div key={outcome.label}>
               <dt>{outcome.label}</dt>
               <dd>
-                <strong>{outcome.value}</strong>
+                <strong><OutcomeNumber value={outcome.value} /></strong>
                 <span>{outcome.context}</span>
               </dd>
             </div>
@@ -56,12 +59,12 @@ export function CaseStudyPageView({ caseStudy }: { caseStudy: CaseStudy }) {
           <span className={styles.kicker}>The engagement</span>
           <p>{caseStudy.client}</p>
           <span>{caseStudy.engagement}</span>
-          <Link href="/fractional-cpo">Explore Fractional CPO work <span aria-hidden="true">↗</span></Link>
+          <Link href="/fractional-cpo">Explore Fractional CPO work <ArrowUpRight aria-hidden="true" size={16} /></Link>
         </aside>
         <div className={styles.storyCopy}>
           {caseStudy.sections.map((section) => (
             <section key={section.heading}>
-              <h2>{section.heading}</h2>
+              <Reveal><h2>{section.heading}</h2></Reveal>
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </section>
           ))}
@@ -82,7 +85,8 @@ export function CaseStudyPageView({ caseStudy }: { caseStudy: CaseStudy }) {
         title="Growing into a different kind of company?"
         text="Bring the people and leadership work that growth has put on your desk. We can work out what kind of support would help."
         href={contact.href}
-        label={contact.label}
+        label="Book a call"
+        helper="Free introduction · typically 30 minutes"
         secondary={{ href: "/results", label: "More selected work" }}
       />
     </article>
