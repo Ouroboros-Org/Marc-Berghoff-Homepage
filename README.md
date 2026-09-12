@@ -2,7 +2,7 @@
 
 English website for Marc’s Fractional CPO and strategic people advisory work. Built with Next.js, React and TypeScript.
 
-Start with [context.tsv](context.tsv) for decisions and outstanding verification. [PRODUCT.md](PRODUCT.md) describes the offer and publishing rules; [DESIGN.md](DESIGN.md) and the [design system](design-system/marc-berghoff/MASTER.md) describe the visual direction. The [preparation brief](docs/redesign-preparation.md) records the initial audit and resolved owner inputs. The [refinement verification](docs/refinement-verification.md) records the current homepage, motion and self-check checks. The [initial redesign verification](docs/redesign-verification.md) preserves earlier evidence and external configuration limits.
+Start with [context.tsv](context.tsv) for decisions and outstanding verification. [PRODUCT.md](PRODUCT.md) describes the offer and publishing rules; [DESIGN.md](DESIGN.md) and the [design system](design-system/marc-berghoff/MASTER.md) describe the visual direction. The [site-wide verification](docs/sitewide-verification.md) records the latest cross-page design, copy and mobile navigation checks. The [homepage verification](docs/refinement-verification.md) preserves the hero, motion and self-check evidence. The [preparation brief](docs/redesign-preparation.md) records the initial audit and resolved owner inputs; [initial redesign verification](docs/redesign-verification.md) retains earlier evidence and external configuration limits.
 
 ## Development
 

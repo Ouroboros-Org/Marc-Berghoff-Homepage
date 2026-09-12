@@ -17,6 +17,8 @@ Updated 12 September 2026 for the Fractional CPO redesign.
 | Credential links | `src/components/credential-badges.tsx` | Authoritative ACC and CPCC artwork and Credly destinations, reusable on Home and About |
 | Process | `src/components/engagement-process.tsx` | Ordered four-step sequence on Services, distinct from choosing an engagement |
 | Navigation and contact | Shared shell and contact components | English-only navigation, direct Self-check shortcut, paid assessment in services, free conversation, preserved keyboard and form behavior |
+| Secondary editorial layouts | `src/components/pages/editorial.tsx`, `secondary-pages.module.css`, `utility-pages.module.css` | Shared hero gutters, optional aside column, short CTA labels with associated helpers, navy closing invitations and readable legal/404 templates |
+| Testimonial and fit styling | `src/app/globals.css`, `src/app/home.module.css` | Real italic quotations with upright attribution; green checks and red minus markers alongside descriptive headings |
 
 ## Fixed commitments
 
