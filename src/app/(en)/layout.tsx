@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/instrument-sans";
+import "@fontsource-variable/instrument-sans/wght-italic.css";
 import "@fontsource-variable/inter";
+import "@fontsource-variable/inter/wght-italic.css";
 import "../globals.css";
 
 import { SiteShell } from "@/components/site-shell";

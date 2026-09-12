@@ -9,7 +9,7 @@ export default function OpenGraphImage() {
     <div
       style={{
         alignItems: "stretch",
-        background: "#102c45",
+        background: "#0b203d",
         color: "#ffffff",
         display: "flex",
         fontFamily: "Arial, sans-serif",
@@ -61,12 +61,12 @@ export default function OpenGraphImage() {
               display: "flex",
               fontSize: 66,
               fontWeight: 700,
-              letterSpacing: "-0.055em",
-              lineHeight: 1.02,
+              letterSpacing: "-0.04em",
+              lineHeight: 1.08,
               maxWidth: 930,
             }}
           >
-            Your Fractional CPO.
+            Build the organisation you want to lead.
           </div>
           <div
             style={{
@@ -77,7 +77,7 @@ export default function OpenGraphImage() {
               maxWidth: 790,
             }}
           >
-            People, leadership and organisation. Ready for your next stage of growth.
+            Work with a Fractional CPO.
           </div>
         </div>
 
