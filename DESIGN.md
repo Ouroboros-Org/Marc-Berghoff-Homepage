@@ -107,7 +107,15 @@ The homepage container is 77.5rem with fluid gutters. Reading paragraphs usually
 
 Do not append generic statement sections around this sequence. Evidence replaces repetitive claims. Testimonials remain readable in place without a carousel.
 
+Set testimonial text in italic with opening and closing quotation marks on Home, Selected work and case pages. Load the existing typefaces' italic variants; keep attribution upright and preserve the approved wording. In the fit section, green checks use `--success` and red minus marks use `--error`. Headings and icon shapes retain the distinction independently of color.
+
 ## Components and behavior
+
+### Secondary pages
+
+Carry the same navy, white, light-blue and yellow palette, shared gutters, calm heading weights and short action labels through Services, About, Selected work, Contact, Insights, Self-check and legal pages. Remove older decorative circles and gradient hero fields. A page without a hero aside uses the available reading width rather than reserving an empty second column.
+
+Keep compositions appropriate to the content: About remains an image-supported personal narrative; services explain the engagement; case studies and articles prioritize reading. Use first-appearance entrances for concise headings, cards, images and closing invitations. Keep long article and story prose immediately readable. A shared closing invitation uses a navy field with a centered action and helper beneath it.
 
 ### Actions and engagement cards
 
@@ -140,6 +148,8 @@ Content is visible in the server render and without JavaScript. Reduced-motion v
 ### Shared shell, forms and navigation
 
 Preserve working menu semantics, focus handling, Escape behavior, scroll locking and focus return. Self-check is directly discoverable in header and footer; Bottleneck Assessment remains in the service navigation. Keep a booking/contact action in the shared header. Navigation content follows the current English-only route model.
+
+Mobile menu links keep the same text alignment in normal and selected states, with space between the current-page marker and the text. Reserve scrollbar space before an accordion expands. Active group decoration belongs on the title, not its decorative numeric prefix.
 
 Keep form labels, validation, errors, success feedback and explicit optional diagnostic sharing. Do not erase answers or contact text on recoverable errors. Keep calendar sizing, scrolling and contact fallbacks usable on phones.
 

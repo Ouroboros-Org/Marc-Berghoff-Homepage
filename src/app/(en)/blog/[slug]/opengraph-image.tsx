@@ -20,7 +20,7 @@ export default async function BlogOpenGraphImage({
     <div
       style={{
         background: "#f1f6ff",
-        color: "#11151a",
+        color: "#0b203d",
         display: "flex",
         fontFamily: "Arial, sans-serif",
         height: "100%",
@@ -72,7 +72,7 @@ export default async function BlogOpenGraphImage({
               fontSize: titleSize,
               fontWeight: 700,
               letterSpacing: "-0.04em",
-              lineHeight: 1.02,
+              lineHeight: 1.08,
               maxWidth: 980,
             }}
           >

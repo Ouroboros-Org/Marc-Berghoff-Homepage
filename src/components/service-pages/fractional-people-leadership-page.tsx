@@ -30,12 +30,12 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
         locale={locale}
         breadcrumb="Fractional CPO"
         eyebrow="Senior people leadership"
-        title={<><span className={styles.highlight}>Fractional CPO.</span> Built around your next stage.</>}
-        lead="A Chief People Officer connects the people agenda to the direction of the business. I support your people, leadership and organisation as you grow, with a level of involvement that fits your team."
+        title={<>Work with a <span className={styles.highlight}>Fractional CPO.</span> Choose the support your team needs.</>}
+        lead="As your Chief People Officer, I connect people strategy, leadership development and organisational structure to your business plans. We agree what I lead, where I advise and how I work with your team."
         aside={{
           label: "A typical rhythm",
           value: "Often 1–2 days a week",
-          note: "The remit sets the pace. We agree responsibility, availability and duration together, without a minimum or maximum term.",
+          note: "We agree the work, responsibility, availability and duration together. There is no minimum or maximum term.",
         }}
       />
 
@@ -43,28 +43,28 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
         <div className={styles.container}>
           <div className={`${styles.sectionHeading} ${styles.centered}`}>
             <p className={styles.eyebrow}>Agree who carries the work</p>
-            <h2 className={styles.sectionTitle} id="fractional-involvement">An embedded CPO or a continuing strategic partner.</h2>
-            <p className={styles.intro}>Both bring senior attention to the people agenda. The difference is the responsibility you want me to hold.</p>
+            <h2 className={styles.sectionTitle} id="fractional-involvement">Choose what you want me to lead.</h2>
+            <p className={styles.intro}>I can take responsibility for an agreed part of your people work or support the team that already leads it.</p>
           </div>
           <div className={styles.twoColumns}>
             <article className={`${styles.choice} ${styles.choicePrimary}`}>
               <p className={styles.eyebrow}>Fractional CPO</p>
-              <h3>I carry an agreed leadership remit.</h3>
-              <p>I join your operating rhythm, hold agreed decision rights and work with your managers and HR team to move the people agenda forward.</p>
+              <h3>I take responsibility for agreed people work.</h3>
+              <p>I work with your managers and HR team to deliver agreed people priorities. We set out the decisions I can make and how we review progress.</p>
               <ul className={styles.receiveList}>
                 <li>A people strategy tied to the business plan</li>
                 <li>Leadership and organisational development</li>
-                <li>Ownership, review and a planned handover</li>
+                <li>Clear responsibilities, regular reviews and a planned handover</li>
               </ul>
             </article>
             <article className={styles.choice}>
               <p className={styles.eyebrow}>Ongoing Strategic People Advisory</p>
-              <h3>Your team carries the remit, with my support.</h3>
-              <p>I stay close to the decisions and provide continuing advice, challenge and perspective. Your leadership team retains authority and manages delivery.</p>
+              <h3>Your team leads the work, with my support.</h3>
+              <p>I give continuing advice and work through decisions with you. Your leadership team keeps authority and manages implementation.</p>
               <ul className={styles.receiveList}>
-                <li>A consistent partner for live decisions</li>
+                <li>Regular advice on the decisions in front of you</li>
                 <li>Working sessions and leadership support</li>
-                <li>An agreed rhythm to review priorities and progress</li>
+                <li>An agreed schedule for reviewing priorities and progress</li>
               </ul>
             </article>
           </div>
@@ -84,8 +84,8 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
           </div>
           <div className={styles.textColumn}>
             <p className={styles.eyebrow}>Room for the work ahead</p>
-            <h2 className={styles.sectionTitle} id="fractional-direction">Help the organisation grow with the business.</h2>
-            <p>The people team may run day-to-day work well while the bigger questions remain unresolved: how the organisation should develop, what leaders need to do differently, and where to invest attention.</p>
+            <h2 className={styles.sectionTitle} id="fractional-direction">Develop your organisation as your business grows.</h2>
+            <p>Your HR team may run day-to-day work well while wider questions need attention: how your organisation should develop, what your leaders need and where your team should focus its effort.</p>
             <p>I bring experience from Head of HR work at a solar scale-up later acquired by E.ON, and fractional people leadership for a Malta fire-safety and security group.</p>
             <ButtonLink href="/results" variant="text">See selected work</ButtonLink>
           </div>
@@ -97,7 +97,7 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
           <div className={styles.sectionHeading}>
             <p className={styles.eyebrow}>An agreed remit</p>
             <h2 className={styles.sectionTitle} id="fractional-scope">Clear responsibility from the beginning.</h2>
-            <p className={styles.intro}>We name the decisions I hold, the support I need and how the work returns to your team or a permanent hire. Coaching, workshops and practical documents sit within that remit.</p>
+            <p className={styles.intro}>We agree which decisions I make, what your team handles and how we review progress. If responsibility moves to your team or a permanent hire, we plan the handover. Coaching, workshops and practical documents support that work.</p>
           </div>
           <EngagementDetails engagement={engagement} />
           <p className={styles.scopeNote}>{ENGAGEMENT_SCOPE_NOTE}</p>
@@ -109,13 +109,13 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
           <div className={styles.twoColumns}>
             <article className={styles.feature}>
               <p className={styles.eyebrow}>The right foundations</p>
-              <h2 className={styles.sectionTitle} id="fractional-fit">Access, decision rights and a team to work with.</h2>
-              <p>The leadership team needs to make room for the work, share relevant context and agree who can decide. Day-to-day HR administration needs an operational owner.</p>
+              <h2 className={styles.sectionTitle} id="fractional-fit">You bring access and a team to work with.</h2>
+              <p>Your leadership team needs time to work with me, share relevant information and agree who can decide. Someone in your business needs to handle day-to-day HR administration.</p>
             </article>
             <article className={styles.feature}>
               <h3>When another approach fits better</h3>
               <p>If you need payroll, routine HR administration or a replacement for your whole operational team, this engagement does not provide that capacity.</p>
-              <p>If you already have the right senior owner and one decision is stuck, focused advisory may be enough. If nobody agrees on the underlying problem, an assessment is a better starting point.</p>
+              <p>If you already have someone leading the work and want help with one decision, focused advisory may be enough. If the underlying issue is unclear, we can discuss whether an assessment would help.</p>
             </article>
           </div>
         </div>
@@ -126,14 +126,14 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
         locale={locale}
         id="fractional-adjacent"
         links={[
-          { href: "/bottleneck-assessment", label: "Bottleneck Assessment with Review", text: "Establish the cause before deciding what kind of leadership remit the company needs." },
+          { href: "/bottleneck-assessment", label: "Bottleneck Assessment with Review", text: "Understand an unclear people or organisation issue before deciding what support you need." },
           { href: "/advisory", label: "Strategic People Advisory", text: "Work through a defined decision with a shorter, focused engagement." },
         ]}
       />
       <ServiceClosing
         locale={locale}
-        title="What does your people agenda need now?"
-        text="Bring the team you have, the direction of the business and the work that needs senior attention."
+        title="What support do you need for your people and organisation?"
+        text="Tell me your priorities, who already carries the work and where you want me to take responsibility or advise."
       />
     </div>
   );

@@ -64,7 +64,7 @@ describe("results and sample-report content contract", () => {
 
     expect(renderedIds).toEqual(localeIds);
     expect(resultsSource).toContain(
-      "Some clients can be named. Others are described accurately",
+      "Some clients are named; others are described anonymously.",
     );
     expect(resultsSource).toContain("Named organisations.");
   });
@@ -184,10 +184,10 @@ describe("results and sample-report content contract", () => {
     );
 
     for (const requiredText of [
-      "What organisational bottleneck best explains the business issue?",
+      "What organisational bottleneck best explains your business issue?",
       "Which recurring observations and decision patterns support the finding?",
       "Where does the bottleneck consume leadership attention or slow important work?",
-      "Which decisions and first steps will the leadership team agree after discussing it?",
+      "Which decisions and first steps will your leadership team agree after discussing it?",
       "Individual comments are aggregated or paraphrased.",
       "The material stays separate from employee performance files.",
       "Clinical and medical diagnosis sits outside the scope.",

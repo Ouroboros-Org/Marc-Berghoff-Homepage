@@ -102,7 +102,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
         </div>
         <Reveal className={`${styles.container} ${styles.personalQuoteWrap}`} variant="fade">
           <figure className={styles.personalQuote}>
-            <blockquote><p>{TESTIMONIALS[1].quote}</p></blockquote>
+            <blockquote><p>“{TESTIMONIALS[1].quote}”</p></blockquote>
             <figcaption>{TESTIMONIALS[1].attribution}</figcaption>
           </figure>
         </Reveal>
@@ -125,7 +125,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
           </div>
           <Reveal variant="fade">
           <figure className={styles.caseQuote}>
-            <blockquote><p>{TESTIMONIALS[0].quote}</p></blockquote>
+            <blockquote><p>“{TESTIMONIALS[0].quote}”</p></blockquote>
             <figcaption>{TESTIMONIALS[0].attribution}</figcaption>
           </figure>
           </Reveal>
@@ -196,11 +196,11 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
           <div className={styles.fitGrid}>
             <Reveal>
               <h3>This could be a good fit</h3>
-              <ul>{copy.fit.suitable.map((item) => <li key={item}><Check aria-hidden="true" size={19} /><span>{item}</span></li>)}</ul>
+              <ul>{copy.fit.suitable.map((item) => <li key={item}><Check aria-hidden="true" className={styles.fitPositive} size={19} /><span>{item}</span></li>)}</ul>
             </Reveal>
             <Reveal delay={80}>
               <h3>When you need different support</h3>
-              <ul>{copy.fit.otherSupport.map((item) => <li key={item}><Minus aria-hidden="true" size={19} /><span>{item}</span></li>)}</ul>
+              <ul>{copy.fit.otherSupport.map((item) => <li key={item}><Minus aria-hidden="true" className={styles.fitNegative} size={19} /><span>{item}</span></li>)}</ul>
             </Reveal>
           </div>
           <p className={styles.fitNote}>You do not need to know the right route yet. <Link href={primaryAction.href}>Bring your situation to a first conversation.<ArrowRight aria-hidden="true" size={17} /></Link></p>

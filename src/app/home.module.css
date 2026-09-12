@@ -629,7 +629,12 @@
 }
 .fitGrid svg {
   margin-top: 0.2rem;
-  color: var(--blue-deep);
+}
+.fitPositive {
+  color: var(--success);
+}
+.fitNegative {
+  color: var(--error);
 }
 .fitNote {
   max-width: 65ch;

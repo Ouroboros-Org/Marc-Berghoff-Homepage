@@ -103,6 +103,10 @@ p {
   color: var(--ink-soft);
 }
 
+blockquote > p {
+  font-style: italic;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -631,6 +635,7 @@ img {
     padding: 1.25rem var(--gutter) 2rem;
     padding-bottom: max(2rem, env(safe-area-inset-bottom));
     overflow-y: auto;
+    scrollbar-gutter: stable;
     overscroll-behavior: contain;
     opacity: 0;
     background: var(--canvas);
@@ -699,6 +704,9 @@ img {
   .mobile-nav__section-trigger[data-active] {
     --button-hover-fg: var(--blue-deep);
     color: var(--blue-deep);
+  }
+
+  .mobile-nav__section-trigger[data-active] .mobile-nav__section-label {
     text-decoration: underline;
     text-decoration-color: var(--blue);
     text-decoration-thickness: 2px;
@@ -738,13 +746,13 @@ img {
     display: grid;
     min-height: 0;
     overflow: hidden;
-    padding-left: 2.75rem;
+    padding-inline-start: 2rem;
   }
 
   .mobile-nav__link {
     display: grid;
     gap: 0.25rem;
-    padding: 0.82rem 0.25rem 0.82rem 0;
+    padding: 0.82rem 0.75rem;
     border-top: 1px solid var(--line);
   }
 
