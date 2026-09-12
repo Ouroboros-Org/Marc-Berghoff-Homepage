@@ -1,6 +1,6 @@
 # Claim ledger
 
-Last reviewed: 17 August 2026
+Last reviewed: 12 September 2026
 
 This file records where substantive website claims came from and what may be
 published. It is an editorial control document, not a substitute for keeping
@@ -24,11 +24,14 @@ contracts, client approvals, certificates or underlying performance records.
 | U2 | Owner service-page brief and implementation follow-up, 11 August 2026 | Assessment-first sequence; fixed-fee wording without a number; money-back guarantee; two-to-three-week assessment timing; one-to-two-day fractional rhythm; Europe availability; approved fractional proof wording |
 | U3 | Owner review and confirmation during the repository consistency implementation, 11 August 2026 | Approval of the revised Home biography, credentials and anonymised proof statements, and authorisation to carry those statements into supporting pages |
 | U4 | Owner About-page feedback and implementation confirmation, 17 August 2026 | Corrected internship history; About credentials and chronology; Malta, Germany and EU working range; Tokyo and Medellín residence; remote-work experience; approved personal copy; permission to keep the co-founded business unnamed |
+| U5 | Owner redesign follow-up, 12 September 2026 | Selection of the four existing outcome candidates and Klarsolar as the featured case; permission to implement with the existing facts, generate the requested Marc imagery, and show the clean website without AI labels |
 | P1 | [Mdina Partners — Advisory](https://mdinapartners.com/cluster/advisory/) | HR Advisor & Coach; ICF ACC; Vistage peer-advisory facilitator; 50+ leaders; 35-to-150 scale-up result |
 | P2 | [Marc Berghoff — LinkedIn](https://mt.linkedin.com/in/marcberghoff/en) | Malta location; listed services; current experience; ACC credential dates; Vistage affiliation |
 | P3 | [MaltaCEOs — Marc Berghoff named Chair at Vistage Malta](https://maltaceos.mt/marc-berghoff-named-chair-at-vistage-malta/) | Vistage Malta Chair appointment; MSc Psychology; certified coach; HX Solutions founder; six-plus years of HR experience at publication |
 | P4 | [Knights College — Local Faculty](https://knights.edu.mt/about/our-people/departments/local-faculty) | Listed as local faculty and “Vistage Malta Chair, Executive Coaching & Peer Advisory for CEOs” |
 | P5 | [MaltaCEOs — Bringing a championship mindset to business leadership](https://maltaceos.mt/bringing-a-championship-mindset-to-business-leadership/) | Malta-based leadership coach and HR consultant; HX Solutions and Vistage roles at publication |
+| P6 | [Marc's ACC credential on Credly](https://www.credly.com/badges/3ef5dbc3-30a7-4ae0-b9f1-d5e21d6caded/public_url), checked 12 September 2026 | Associate Certified Coach, issued to Marc by ICF Credentials and Standards; expiry 30 June 2027; official badge artwork |
+| P7 | [Marc's CPCC credential on Credly](https://www.credly.com/badges/2e498aea-87f1-4353-b575-679679b12547/public_url), checked 12 September 2026 | Certified Professional Co-Active Coach, issued to Marc by Co-Active Training Institute on 30 April 2024; official badge artwork |
 
 Public sources were checked on 29 July 2026. Recheck them before a material site
 revision; LinkedIn roles, credentials and organisation profiles can change.
@@ -41,7 +44,8 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | HR Advisor & Coach / executive coach / HR consultant | P1, P2, P5 | **Publicly supported** | Use the title that best fits the page; do not imply clinical services. |
 | MSc in Psychology | P2, P3, D1 slides 3 and 11 | **Publicly supported** | Prefer “MSc in Psychology.” |
 | “Business Psychologist” | D1 slides 2, 3 and 11 | **Deck-authorised** | Confirm whether this is a regulated or warranted title in the provider’s jurisdiction. Until then, “MSc in Psychology” is the safer factual wording. |
-| ICF Associate Certified Coach (ACC) | P1, P2 | **Publicly supported** | LinkedIn lists issue June 2024 and expiry June 2027. Recheck before displaying an expiry-sensitive badge. |
+| ICF Associate Certified Coach (ACC) | P1, P2, P6 | **Publicly supported; checked 12 September 2026** | Credly shows expiry 30 June 2027. Link the official ACC badge to P6; do not substitute the ICF membership badge. |
+| Certified Professional Co-Active Coach (CPCC) | P7 | **Publicly supported; checked 12 September 2026** | Use the exact credential title and official artwork; link to P7. This verified credential can replace the less specific “Co-Active trained” wording. |
 | Vistage Malta Chair / peer-advisory facilitator | P1, P2, P3, P4 | **Publicly supported** | Use present tense only while the role remains current. |
 | Founder of HX Solutions | P3 | **Publicly supported at publication** | Recheck the current trading/legal relationship before making HX Solutions the contracting entity. |
 | Over seven years of global HR and coaching experience | D1 slide 3; P3 reported six-plus years in 2024 | **Deck-authorised** | “Seven-plus years” is acceptable under U1; preserve CV evidence and update the number over time. |
@@ -112,6 +116,14 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | Marc portraits from the deck | D1 embedded media; U1 | **Deck-authorised** | Confirm photographer/licence credit if the images were not made by Marc. AI edits must not be presented as documentary evidence of an event. |
 
 ## Editorial rules
+
+The September redesign reuses the four selected existing outcomes: Klarsolar
+headcount and revenue growth, Giftagoods ARR growth, and five years of sourcing
+adoption. U5 confirms the selection; the underlying evidence status and
+attribution boundaries above remain. The Klarsolar case uses only the documented
+Head of HR remit, growth support, interim-management support from the existing
+testimonial, measured company outcomes and later E.ON acquisition. No additional
+intervention, client problem or causal result has been invented.
 
 1. Separate Marc’s contribution from the company’s result: use “supported during”
    or “helped,” not sole-cause language.
