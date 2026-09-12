@@ -236,7 +236,7 @@ img {
   bottom: -0.27rem;
   width: 0.7rem;
   height: 0.7rem;
-  background: var(--yellow);
+  background: #fff1ba;
   content: "";
 }
 
