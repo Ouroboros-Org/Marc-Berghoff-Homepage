@@ -1,180 +1,154 @@
 ---
 name: Marc Berghoff
-description: A candid blue-and-yellow editorial system for leadership, organisation and coaching.
+description: White and navy, human imagery and a clear progression into strategic people leadership.
 colors:
+  navy: "#0b203d"
   blue: "#7cb0ff"
-  blue-hover: "#6aa4fa"
   blue-deep: "#173d70"
-  blue-ink: "#14345e"
   blue-soft: "#dceaff"
   blue-mist: "#f1f6ff"
+  on-navy-secondary: "#c2d0e1"
+  blue-reading: "#36516c"
+  blue-supporting: "#405a76"
   yellow: "#fec302"
-  yellow-soft: "#fff2bd"
-  yellow-ink: "#604800"
-  ink: "#11151a"
-  ink-soft: "#353b43"
-  muted: "#626b76"
-  line: "#d9dee6"
-  line-dark: "#b8c2d0"
+  yellow-soft: "#fff1ba"
+  ink: "#12283f"
+  ink-soft: "#3e5062"
+  muted: "#5d6a78"
+  line: "#dce3eb"
   paper: "#ffffff"
   canvas: "#f7f9fc"
-  success: "#17643c"
-  success-bg: "#e9f7ef"
-  error: "#a42121"
-  error-bg: "#fff0f0"
 typography:
   display:
     fontFamily: "Instrument Sans Variable, Arial Narrow, Arial, sans-serif"
-    fontSize: "clamp(3.2rem, 7.2vw, 6rem)"
-    fontWeight: 650
-    lineHeight: 1.04
-    letterSpacing: "-0.035em"
+    fontSize: "clamp(3.2rem, 5.15vw, 5rem)"
+    fontWeight: 570
+    lineHeight: 1.07
+    letterSpacing: "-0.04em"
   headline:
     fontFamily: "Instrument Sans Variable, Arial Narrow, Arial, sans-serif"
-    fontSize: "clamp(2.45rem, 5vw, 4.9rem)"
+    fontSize: "clamp(2.5rem, 4.25vw, 4.15rem)"
+    fontWeight: 580
+    lineHeight: 1.08
+  label:
+    fontFamily: "Inter Variable, Inter, Arial, sans-serif"
+    fontSize: "0.75rem"
     fontWeight: 650
-    lineHeight: 1.04
-    letterSpacing: "-0.035em"
+    lineHeight: 1.5
   body:
     fontFamily: "Inter Variable, Inter, Arial, sans-serif"
     fontSize: "1rem"
-    fontWeight: 400
     lineHeight: 1.65
-  label:
-    fontFamily: "Inter Variable, Inter, Arial, sans-serif"
-    fontSize: "0.76rem"
-    fontWeight: 750
-    lineHeight: 1.25
-    letterSpacing: "0.12em"
-rounded:
-  sm: "0.5rem"
-  md: "0.875rem"
-  lg: "1.25rem"
-  pill: "999px"
 spacing:
   gutter: "clamp(1.25rem, 3.6vw, 3.5rem)"
   section: "clamp(4.5rem, 9vw, 8.5rem)"
-components:
-  button-primary:
-    backgroundColor: "{colors.blue-deep}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.pill}"
-    padding: "0.78rem 1.25rem"
-    height: "3.2rem"
-  button-secondary:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.blue-deep}"
-    rounded: "{rounded.pill}"
-    padding: "0.78rem 1.25rem"
-    height: "3.2rem"
-  input:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    rounded: "0.7rem"
-    padding: "0.72rem 0.85rem"
-    height: "3rem"
 ---
 
-# Design System: Marc Berghoff
+# Design system: Marc Berghoff
 
-> September 2026 redesign: [context.tsv](context.tsv) and the
-> [preparation brief](docs/redesign-preparation.md) govern the next implementation.
-> The flat-layout, repeated asymmetric, five-format and homepage-diagnostic rules
-> below describe the existing site and must not override that brief.
+Updated for the September 2026 redesign. [context.tsv](context.tsv) holds current owner decisions and unresolved delivery work. The [preparation brief](docs/redesign-preparation.md) records the investigation; later owner answers take precedence over its provisional recommendations.
 
-## Overview
+## Direction
 
-**Creative North Star: “The Candid Editorial Brief”**
+The site presents a Fractional CPO who can work through the people side of growth with a leadership team. Its visual character is direct, spacious and personal: white reading surfaces, navy contrast, genuine portraits and restrained yellow/light-blue details drawn from the existing logo.
 
-The site should feel like a clear working document with a strong point of view: generous space, large direct headlines, ruled structures and a restrained blue/yellow identity. It is calm and human, not corporate-luxury or startup-glossy. Paper, pale-blue and deep-blue sections create pace; yellow is a precise marker, never a wash.
+The homepage helps visitors choose and act. Article and case pages prioritize reading. The redesign replaces the former flat, repeated heading-left/copy-right pattern. Keep the personal voice and the logo; vary composition, scale and density to fit each section's purpose.
 
-The message architecture starts with the reader’s situation, moves to the level of responsibility needed, explains the same four-step process, and ends with a free first conversation that typically takes 30 minutes. The outcome is consistent: make a leadership, organisation or people issue clear enough to act on and put the right ownership around it. [PRODUCT.md](./PRODUCT.md), [docs/copy-deck.md](./docs/copy-deck.md) and [docs/feedback-coverage.md](./docs/feedback-coverage.md) are the source documents for product truth, copy and resolved feedback.
+The main visual gesture is the complete pale-yellow highlight behind “Fractional CPO,” finished with a small light-blue corner. It emphasizes the actual offer and echoes the logo geometry. Avoid heavy underlines that resemble a writing warning.
 
-**The Responsibility Spectrum Rule.** The Bottleneck Assessment is the entry product when the cause is disputed. Present the four follow-on formats in their fixed order: Executive Coaching (the client carries the work, individually or as a group), Strategic People Advisory (the client keeps the decision), Peer Advisory (peers carry the work with the client) and Fractional People Leadership (Marc carries a defined remit). Marc’s public professional description is “Organisational Psychologist · Vistage Chair · Executive Coach”.
+## Identity and content
 
-## Colors
+- Marc Berghoff is the public brand. HX Solutions appears only where the actual legal or operational identity requires it.
+- English is the only active publishing language for now.
+- Spell out Chief People Officer beside the main proposition. Explain people, leadership, organisational development and scaling in plain language.
+- Marc speaks as “I,” “me” and “my.” Address the visitor as “you.” Use specific responsibilities and outcomes instead of consulting slogans.
+- Present three engagements: Bottleneck Assessment with Review, Strategic People Advisory and Fractional CPO / ongoing Strategic People Advisory. Visitors can start with any of them.
+- A free introductory conversation, typically 30 minutes, remains available to everyone. Scope and cadence are flexible starting points, with no minimum or maximum term.
+- Coaching, leadership development, workshops and operational documents belong inside agreed engagements. They are not additional equally ranked offers.
+- Use the shared [engagement model](src/content/engagements.ts) and [proof model](src/content/proof.ts). Keep quote wording, attribution, metric units and periods intact.
 
-Blue carries structure and trust; yellow marks attention and forward movement; ink and paper keep the system editorial.
+## Palette
 
-- Use blue-deep for dark bands, primary actions and numbered process markers; blue-soft and blue-mist for welcoming heroes, diagnostic areas and supporting sections.
-- Use canvas as the default page field and paper for distinct reading or interaction surfaces. Use line and line-dark for structure before adding containers.
-- Reserve yellow for the logo counter-shape, eyebrow rule, selection, small image blocks and rare evidence accents. Ensure yellow text uses yellow-ink.
-- Use the success and error pairs only for real system feedback.
+`src/app/globals.css` owns the implementation tokens.
 
-**The Yellow Marker Rule.** Yellow should point, underline or counterbalance. It must not dominate a section.
+| Role | Token and value | Use |
+| --- | --- | --- |
+| Main contrast | `--navy: #0B203D` | Principal actions, proof band, featured engagement and closing |
+| Supporting blue | `--blue-deep: #173D70` | Focus on light surfaces, supporting links and existing secondary-page structures |
+| Brand blue | `--blue: #7CB0FF` | Small details and the preserved logo |
+| Light fields | `--blue-soft: #DCEAFF`, `--blue-mist: #F1F6FF` | Diagnostic invitation, image framing and calm reading pauses |
+| Yellow emphasis | `--yellow: #FEC302`, `--yellow-soft: #FFF1BA` | Role highlight, outcome figures and deliberate hover states |
+| Reading | `--ink: #12283F`, `--ink-soft: #3E5062` | Headings and body copy on white |
+| Supporting text | `--muted: #5D6A78` | Secondary text and CTA helper copy on white |
+| Structural line | `--line: #DCE3EB` | Light borders and separators |
+| Main surface | `--paper: #FFFFFF` | Primary reading surface |
 
-## Typography
+White text belongs on navy. Yellow and light-blue surfaces use dark text. Supporting text on dark sections uses a pale blue derived from that surface, not the light-surface muted token. Preserve the logo's own light-blue/light-yellow artwork. Signal success and errors with the existing semantic colors and explicit text.
 
-Instrument Sans Variable is the display voice; Inter Variable is the reading and interface voice. The pairing is contemporary, direct and compact without feeling technical.
+## Typography and spacing
 
-- Display headlines use tight tracking, balanced wrapping and short line lengths (usually 10–18 characters wide at the largest scale). Prefer weight 520–650; do not simulate authority with extra-bold type.
-- Body copy stays near 1rem with a 1.65–1.78 line height and roughly 42–60 characters per line. Leads may rise to 1.35–1.42rem.
-- Eyebrows and metadata are small, uppercase Inter with wide tracking. Pair them with a short yellow rule when they introduce a major section.
-- Use sentence case for headings, labels and actions. Links should say what opens or happens next.
+Instrument Sans is the display face; Inter is the reading and control face. Most homepage headings use weights around 550–620, while the highlighted role reaches 690. Keep tracking at or above -0.04em and headlines below 6rem. Headings wrap to the actual available space; avoid fixed line breaks that fail at nearby widths.
 
-## Layout
+Use generous separation before a major heading and tighter spacing between its heading and explanation. Do not apply one tall section-height pattern throughout. The outcome band and assessment invitation are compact. The engagements and personal introduction have more breathing room.
 
-The primary container is 77.5rem with fluid gutters; editorial secondary pages use a 74rem container and a 54rem narrow reading width. Major sections use the section spacing token, while compact sections use roughly 3.5–6rem. Heroes and section headers are asymmetric two-column compositions: the headline leads, and a narrower explanation, image or fact sits opposite it.
+The homepage container is 77.5rem with fluid gutters. Reading paragraphs usually sit between 40 and 60 characters per line. CTA helper text is outside the button, associated with that action and readable at ordinary mobile widths. Do not shrink text to force the hero into a fixed viewport height.
 
-Alternate canvas, paper, pale-blue and deep-blue sections to create chapter-like rhythm. Use thin border rules to separate sections and repeated rows. Ruled rows are the default for offers, article lists, contact facts and comparable choices because they keep the page dense and scannable.
+## Homepage composition
 
-At about 58–59rem, complex grids collapse and the four-step process becomes two columns. At 54rem the desktop navigation becomes a full mobile menu. At 46–42rem, layouts become one column, button rows become full-width stacks, offer rows reduce to label/title/body/arrow, and the four steps become a vertical timeline. Preserve section order; do not merely shrink desktop type.
+1. A white hero with the highlighted role, a short explanation, two actions and their helper text. The text begins at a stable top position. The portrait, name and verified credentials form a separate right-hand group on desktop.
+2. A compact navy band with four outcome values, labels and time/context lines. These are static evidence, not clickable counters.
+3. A centred introduction and three comparable engagement cards. Fractional CPO is navy at rest, with a pale-yellow title. Each card exposes the starting situation, what the client receives, typical cadence and a clear link.
+4. A featured case reverses the hero's balance: a navy result block on the left and the story on the right, followed by a supporting testimonial. Link to the full case.
+5. A compact light-blue self-check invitation. The full questionnaire belongs on the Bottleneck Assessment page.
+6. A personal introduction with a workshop image, a smaller genuine portrait and first-person prose. More of Marc's story remains on About.
+7. Paired, static fit criteria. Clearly distinguish strategic support from day-to-day administration or replacement of a whole HR team.
+8. One featured Insight with smaller companion article links and an overview route.
+9. A compact navy invitation to the free conversation, with a message option when booking is available.
 
-## Elevation & Depth
+Do not append generic statement sections around this sequence. Evidence replaces repetitive claims. Testimonials remain readable in place without a carousel.
 
-The system is flat by default. Depth comes from tonal section changes, rules, overlaps and occasional outlined circles. Use the soft blue shadow (`0 18px 55px rgba(19, 45, 82, 0.11)`) only for portraits, diagnostic disclosures, form shells, calendar shells and report-like artifacts. Submenus may use a tighter directional shadow. Ordinary content and offer rows stay shadowless.
+## Components and behavior
 
-## Shapes
+### Actions and engagement cards
 
-Editorial structure is mostly square and ruled. Large radii belong to bounded interactive or document-like surfaces; fields use a modest 0.7rem radius. Buttons are fully pill-shaped. Portraits and editorial images use near-square corners or the large radius, with precise cropping. Thin oversized circles and square blue/yellow logo geometry are recurring counter-shapes, not decorative wallpaper.
+Buttons retain pill geometry and a minimum height of 44px. Primary actions use navy with white text, secondary actions use a quiet outline, and inverse actions use white on navy. Hover changes the surface and foreground together. The booking button has a small static shadow; it has no looping decoration.
 
-## Components
+Only interactive cards respond to hover. Engagement cards turn pale yellow with navy text on hover or keyboard focus; article links use navy or a yellow tint. Titles, labels and icons change together. A visible focus outline remains independent of the color change. Static outcomes, quotes and process steps do not receive click-like affordances.
 
-### Buttons
+Each engagement card is one link, with no nested buttons. Keep the cards in the same reading order when stacked. Their numbers indicate the increasing level of support, not mandatory purchases or a completed/selected state.
 
-Primary buttons are deep blue on white with pill geometry, an arrow where direction helps, and at least a 3rem height. Secondary buttons are white with a deep-blue border; inverse buttons are white on deep-blue bands. Text links use a blue underline. Hover may shift color, add a small shadow or move 1px on active. The animated CTA border is reserved for the principal booking action, runs slowly, and becomes static under reduced motion.
+### Assessment and process
 
-### Ruled rows and cards
+Home links to `/bottleneck-assessment#bottleneck-check` for the free self-check. A link labelled Bottleneck Assessment opens the service explanation. Keep the two-minute self-check distinct from the paid engagement with interviews, a report and a review.
 
-Use ruled rows for service choices, insights and repeated comparable items. A row may tint pale blue on hover but should not lift. Use cards only when an item is genuinely bounded: a form, calendar, diagnostic, report preview, evidence unit or self-contained case/result. Do not turn every paragraph or service into a floating card.
+The existing four-step engagement process belongs on Services. Use a clear ordered sequence with the step title ahead of secondary metadata. Service choice is a separate decision; do not invent active or selected process steps.
 
-### Navigation
+### Credentials and imagery
 
-The 4.8rem sticky header uses the logo, grouped “How I can help”, “Insights” and “About” navigation, LinkedIn and one booking CTA. Active groups use a blue underline. Desktop submenus pair a short orientation line with two-column page links. The mobile menu occupies the viewport below the header, uses numbered accordion groups, locks background scroll, traps focus, closes with Escape and restores focus. Hide the logo descriptor on the narrowest screens.
+`CredentialBadges` owns the ACC and CPCC artwork links for Home and About. Use authoritative credential marks and their supplied Credly destinations. Do not reinterpret certification artwork.
 
-### Universal four-step process
+Use responsive WebP/AVIF photo derivatives with explicit sizes and deliberate crops. Keep original photographs. Generated working images support atmosphere and are recorded internally; captions must not imply a fabricated scene occurred at a named client. The clean public presentation does not expose internal asset-production notes.
 
-Always use the same sequence and meaning: **First conversation → Make the issue clearer → Agree my involvement → Move and review.** The complete sequence belongs on `/services`; individual service detail pages use a compact summary that links back to it. On desktop, four numbered circles sit on one horizontal rule; on mobile, they form a vertical timeline. The first conversation is free, detailed, typically 30 minutes and precedes paid work. Do not create service-specific process variants.
+Keep About as a personal narrative with imagery and chronology. Images create pauses in the story rather than substituting for factual evidence.
 
-### Forms and calendar
+### Motion
 
-Keep name, email and message visible. Put business context in a collapsed, optional disclosure and open it only when a link explicitly promises more detail. Labels remain visible above fields; helper, privacy and error copy is concrete. Inputs use paper, a visible border and a 3px deep-blue focus ring; errors use explicit text plus red styling. Put the short form and calendar side by side on desktop and form first on mobile. The Cal.com embed must scroll and size safely on mobile; show a clear contact fallback while unconfigured.
+The hero and outcome values are immediately available. `Reveal` adds a brief entrance to selected later sections once per element per page visit. It disconnects after first appearance, so scrolling back does not replay it. Use a small 12px rise or a quiet fade; no count-up figures, parallax, autoplay testimonials or looping CTA effects.
 
-### Diagnostic disclosure
+Content is visible in the server render and without JavaScript. Reduced-motion visitors receive immediate content; changing that preference also cancels an active entrance. Hover transitions are removed under reduced motion.
 
-The ten-statement check appears near the top of the homepage. It starts with the first statement and reveals the complete list when the visitor answers it or uses the quiet show-more text control below the list, keeping the default page compact while preserving the full-list view in use. Each statement uses explicit True and Not true controls, with unanswered kept as a separate state. The paid assessment remains one service, not the site identity or a mandatory gateway.
+### Shared shell, forms and navigation
 
-### Images, accessibility and motion
+Preserve working menu semantics, focus handling, Escape behavior, scroll locking and focus return. The assessment must be directly discoverable in both header and footer. Keep a booking/contact action in the shared header. Navigation content follows the current English-only route model.
 
-Use real portraits and working-detail photography, cropped deliberately with `object-fit: cover`. Pair key portraits with a paper caption and a small yellow offset block; use editorial images as broad pauses with restrained captions. Do not introduce generic stock metaphors.
+Keep form labels, validation, errors, success feedback and explicit optional diagnostic sharing. Do not erase answers or contact text on recoverable errors. Keep calendar sizing, scrolling and contact fallbacks usable on phones.
 
-Target WCAG 2.2 AA: semantic headings, labelled controls, keyboard-complete menus/disclosures, a skip link, visible 3px focus rings, adequate contrast and touch targets of at least 2.75rem. Use yellow focus on dark surfaces and deep blue on light surfaces. Default transitions are brief (about 180–220ms). Honor `prefers-reduced-motion` by removing smooth scrolling, continuous CTA animation and non-essential transitions.
+## Responsive acceptance
 
-## Do's and Don'ts
-
-### Do
-
-- **Do** write to the reader as “you” and let Marc write as “I”, “me” and “my”.
-- **Do** use concrete, plain language in each locale, observable situations and explicit responsibility boundaries.
-- **Do** trust the reader with some inference. Use specific places, decisions and lived detail before explaining what they mean.
-- **Do** state uncertainty, scope, fees, poor fit and what happens next without softening them into sales language.
-- **Do** reuse the responsibility spectrum, ruled-row offers and universal process before inventing a new pattern.
-
-### Don't
-
-- **Don't** use hype, generic consulting language, invented claims or unconfirmed company-size, growth, ARR or outcome figures.
-- **Don't** use AI-writing tells: puffed significance, formulaic negative parallelism, decorative triads, excessive em dashes or conclusions that explain what the preceding copy already showed.
-- **Don't** force every section through one frictionless cause-and-effect path or finish each passage with a lesson.
-- **Don't** make founders, managers or employees the villain; describe behavior and operating consequences.
-- **Don't** invent Peer Advisory details or let the entry assessment swallow the broader practice. Keep the illustrative report page clearly labelled; never present fictional figures as client evidence.
-- **Don't** replace editorial rules with grids of interchangeable cards, decorative gradients or heavy shadows.
+- At 1280×720 and 1366×768, both hero actions and their helper text should fit comfortably at ordinary zoom. Height-aware spacing complements width-based type sizing; it must not clip content.
+- Homepage engagement cards stack below 55rem; the hero becomes one column below 48rem. At phone widths, text and actions precede imagery. Below 30rem the hero actions stack, each followed immediately by its helper.
+- Outcomes become two columns below 48rem. Labels and units must remain readable and grouped with their value; reduce columns further if real content needs it.
+- The case, image-led introduction, fit criteria and Insights become a deliberate single-column reading sequence.
+- Check 360, 390, 430, 768, 1024, 1280, 1366, 1440 and 1920px layouts as appropriate, including the actual breakpoint boundaries. Check short heights, 200% zoom and narrow reflow.
+- Compare the reported Safari/MacBook Air behavior with another available browser at matching CSS viewport dimensions, loaded fonts and fresh/reloaded states. Equal 100% zoom alone is not a controlled comparison.
+- Verify keyboard focus, contrast, no horizontal overflow, accessible names, reduced motion and stable image loading. Source inspection is not a rendered pass; record actual checks and remaining limits.
