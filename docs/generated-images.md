@@ -10,7 +10,7 @@ client engagement or real event.
 - Mode: photorealistic generation with the seated portrait used only as a lighting/material reference
 - Reference: `public/images/portraits/marc-seated-original.webp`
 - Size: 1586×992
-- Use: Fractional People Leadership page
+- Use: Fractional CPO page at `/fractional-cpo`
 
 Prompt:
 

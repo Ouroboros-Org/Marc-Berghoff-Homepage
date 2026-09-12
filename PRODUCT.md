@@ -41,7 +41,7 @@ These are flexible starting points, with no minimum or maximum term. Scope, pace
 
 ## Brand Commitments
 
-White and dark navy establish the main contrast. Light blue and yellow provide accents; the logo remains light blue and light yellow. Use varied section composition, deliberate whitespace, clear reading order and restrained interactions. Entrances run only on first appearance and respect reduced motion. All content remains accessible without animation or JavaScript.
+White and dark navy establish the main contrast. Light blue and yellow provide accents; the logo remains light blue and light yellow. Use varied section composition, deliberate whitespace, clear reading order and restrained interactions. Entrances run only on first appearance and respect reduced motion. Static marketing content remains readable without animation or JavaScript; the interactive assessment and form submission require JavaScript.
 
 Public prose speaks to the reader as “you” and refers to Marc as “I”, “me” or “my”. Use concrete, calm language and avoid inflated causal claims. About remains a personal narrative supported by imagery.
 

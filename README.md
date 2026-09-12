@@ -2,7 +2,7 @@
 
 English website for Marc’s Fractional CPO and strategic people advisory work. Built with Next.js, React and TypeScript.
 
-Start with [context.tsv](context.tsv) for decisions and outstanding verification. [PRODUCT.md](PRODUCT.md) describes the offer and publishing rules; [DESIGN.md](DESIGN.md) and the [design system](design-system/marc-berghoff/MASTER.md) describe the visual direction. The [preparation brief](docs/redesign-preparation.md) records the initial audit and resolved owner inputs.
+Start with [context.tsv](context.tsv) for decisions and outstanding verification. [PRODUCT.md](PRODUCT.md) describes the offer and publishing rules; [DESIGN.md](DESIGN.md) and the [design system](design-system/marc-berghoff/MASTER.md) describe the visual direction. The [preparation brief](docs/redesign-preparation.md) records the initial audit and resolved owner inputs. The [verification report](docs/redesign-verification.md) records the completed checks and remaining external configuration limits.
 
 ## Development
 
@@ -19,7 +19,7 @@ Run `pnpm lint`, `pnpm typecheck`, `pnpm test` and `pnpm build` before merging. 
 
 - Three flexible engagement definitions: `src/content/engagements.ts`.
 - Outcomes, testimonials and case studies: `src/content/proof.ts` and `docs/claim-ledger.md`.
-- Manual article content: `src/content/blog.ts`; each published entry receives its own `/blog/[slug]` page.
+- Manual article content: `src/content/blog.ts`; each published entry receives its own `/blog/[slug]` page. Follow the [article publishing guide](docs/article-publishing.md).
 - Public domain and mailbox: `src/config/site.ts`, with environment overrides documented in `.env.example`.
 - Form delivery: [Google Forms setup](docs/google-forms-setup.md). Inbox notifications are an external setting, separate from public `mailto` links.
 - Image originals and optimized WebP derivatives: `public/images`; provenance in [generated images](docs/generated-images.md).

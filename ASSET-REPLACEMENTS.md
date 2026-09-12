@@ -36,7 +36,7 @@ named client, real event or testimonial speaker.
 
 | Proposed file/slot | Intended role | Generation/review constraints | Final state |
 | --- | --- | --- | --- |
-| `public/images/generated/leadership-room.webp` | Fractional people leadership transition image | Empty room prepared for a leadership conversation; explicitly captioned as illustrative. | Generated 29 July 2026 · 1586×992 · integrated on `/fractional-people-leadership` · Marc review recommended |
+| `public/images/generated/leadership-room.webp` | Fractional CPO transition image | Empty room prepared for a leadership conversation; provenance recorded internally, with no attribution to a real event. | Generated 29 July 2026 · 1586×992 · integrated on `/fractional-cpo` |
 | Decision-detail concept | Optional mobile-friendly editorial detail/callout | The final layout does not need another still life. | Not generated; no active website slot |
 
 Prompt and provenance notes are recorded in `docs/generated-images.md`. Generated
@@ -44,15 +44,17 @@ files are never used inside client-proof or testimonial panels.
 
 ## Contact and domain replacements
 
-- [ ] **BLOCKER:** Confirm the canonical domain and set `NEXT_PUBLIC_SITE_URL` in
-  Vercel Production to its HTTPS origin without a path or trailing slash.
-- [x] Public inbox defaults to `marc@marcberghoff.com` and may be changed with `NEXT_PUBLIC_CONTACT_EMAIL`.
-  It currently appears in `src/config/site.ts` because it came from deck slide 15.
+- [x] The owner selected `https://marcberghoff.com` as the canonical domain.
+- [ ] Verify `NEXT_PUBLIC_SITE_URL` in Vercel Production matches that origin.
+- [x] The confirmed working public inbox is `contact@marcberghoff.com`.
+  `src/config/site.ts`, local configuration and public links use it. A production
+  `NEXT_PUBLIC_CONTACT_EMAIL` override should use the same address.
 - [ ] Optional: set `NEXT_PUBLIC_CONTACT_PHONE` to a confirmed public number in
   international format. Leave it unset to omit telephone links.
-- [ ] **BLOCKER:** Set `NEXT_PUBLIC_CAL_LINK` to the confirmed Cal.com username and
+- [ ] To enable the calendar, set `NEXT_PUBLIC_CAL_LINK` to the confirmed Cal.com username and
   30-minute event slug without the domain, for example `marc/first-conversation`.
-  The live contact pages pass this value to the inline Cal.com embed.
+  The contact page passes this value to the inline Cal.com embed. Without it, the
+  booking section offers an email link to arrange a time directly.
 - [ ] Confirm the LinkedIn URL and whether the `/en` locale suffix should remain.
 
 ## Legal replacements
@@ -67,9 +69,7 @@ through `src/app/(en)/privacy/legal-details.ts`. Configure and verify:
 - [ ] `LEGAL_REGISTRATION_VAT` when applicable
 - [ ] `LEGAL_CONTENT_RESPONSIBLE`
 - [ ] `LEGAL_CONTACT_RETENTION_PERIOD`
-- [ ] `LEGAL_CONTACT_RETENTION_PERIOD_DE` when the German wording needs an override
 - [ ] `LEGAL_DISPUTE_RESOLUTION_STATEMENT` when applicable
-- [ ] `LEGAL_DISPUTE_RESOLUTION_STATEMENT_DE` when the German wording needs an override
 
 The legal email and telephone values reuse `NEXT_PUBLIC_CONTACT_EMAIL` and
 `NEXT_PUBLIC_CONTACT_PHONE`.
@@ -87,7 +87,8 @@ The legal email and telephone values reuse `NEXT_PUBLIC_CONTACT_EMAIL` and
 
 ## Google Forms and Sheet replacements
 
-Create the Form and configure all server-only Vercel environment variables below.
+Local Form mappings are configured. Verify the corresponding server-only Vercel
+environment variables below; local presence does not prove production delivery.
 The values in `.env.example` are deliberately non-working placeholders.
 
 - [ ] **BLOCKER:** `GOOGLE_FORM_ACTION_URL`
