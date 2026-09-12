@@ -1,179 +1,146 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+import { ButtonLink } from "@/components/button";
 import { EngagementProcess } from "@/components/engagement-process";
-import {
-  ContactBand,
-  PageHero,
-  secondaryPageStyles as pageStyles,
-} from "@/components/pages/editorial";
 import { StructuredData } from "@/components/structured-data";
-import { getRouteHref, type SiteLocale } from "@/config/routes";
+import type { SiteLocale } from "@/config/routes";
 import { getPrimaryContactAction, getSiteUrl } from "@/config/site";
-import { getWorkingFormats } from "@/content/working-formats";
+import { ENGAGEMENTS, ENGAGEMENT_SCOPE_NOTE } from "@/content/engagements";
 
+import { ServiceClosing, ServiceHero } from "./shared";
+import pageStyles from "./service-pages.module.css";
 import styles from "./services-landing.module.css";
 
-const copy = {
-  en: {
-    breadcrumb: "How I can help",
-    title: "The situation decides how involved I should be.",
-    lead: [
-      "Some problems need room to think. Others need a candid view from outside the reporting line.",
-      "Sometimes the work needs an owner for a while. When nobody agrees on the cause, evidence comes first.",
-    ],
-    secondary: "Not sure where you sit? Take the 2-minute check",
-    listTitle: "Five ways the work can continue.",
-    listIntro:
-      "The assessment comes first when the cause is disputed. The other four differ in one practical way: who carries the work afterwards.",
-    descriptions: [
-      "Your leadership team gives you three different accounts of the same problem, and you cannot tell which one is right. This finds out from evidence, then gives the team a finding it can act on.",
-      "For leaders whose role has outgrown the way they currently lead. Individually, or as a group of leaders working on the same shift at the same time.",
-      "For a question you can already see clearly and would rather not answer alone. I bring judgment from outside your reporting line. You decide.",
-      "A room of leaders who do not report to each other, working on decisions each of them is facing. I chair the room and push for a decision.",
-      "When the people work needs a senior owner now and hiring one is too slow or not yet justified. The scope, decision rights and end point are agreed at the start.",
-    ],
-    decisionTitle: "You do not have to choose a format.",
-    decisionBody: [
-      "Tell me what is happening. Choosing the format is part of the first conversation.",
-      "If the cause is disputed, I usually recommend the assessment first so the team has evidence it can examine together.",
-    ],
-    closingTitle: "Tell me what is happening.",
-    closingText:
-      "Describe what is happening and what you have tried. I will tell you how involved I should be, if at all.",
-  },
-  de: {
-    breadcrumb: "Zusammenarbeit",
-    title: "Die Situation entscheidet, wie stark ich mich einbringen sollte.",
-    lead: [
-      "Manche Probleme brauchen Raum zum Denken. Bei anderen hilft eine offene Sicht von außerhalb der Berichtslinie.",
-      "Manchmal braucht die Arbeit für eine Weile eine verantwortliche Person. Wenn sich niemand über die Ursache einig ist, kommen die Belege zuerst.",
-    ],
-    secondary: "Noch unsicher? Zum 2-Minuten-Check",
-    listTitle: "Fünf Wege, wie die Arbeit weitergehen kann.",
-    listIntro:
-      "Wenn die Ursache umstritten ist, steht die Analyse zuerst. Bei den vier anderen Formaten geht es um eine praktische Frage: Wer trägt die Arbeit danach?",
-    descriptions: [
-      "Ihr Führungsteam schildert dasselbe Problem auf drei verschiedene Arten. Sie können nicht sagen, welche stimmt. Die Analyse prüft das anhand von Belegen und gibt dem Team einen Befund, mit dem es arbeiten kann.",
-      "Für Führungskräfte, deren Rolle schneller gewachsen ist als die eigene Art zu führen. Einzeln oder als Gruppe, wenn mehrere Personen denselben Schritt gehen.",
-      "Für eine klar erkennbare Frage, die Sie nicht allein beantworten möchten. Ich bringe Urteilskraft von außerhalb Ihrer Berichtslinie ein. Sie entscheiden.",
-      "Führungskräfte ohne gegenseitige Berichtslinie arbeiten an den Entscheidungen, die gerade vor ihnen liegen. Ich leite die Runde und dränge auf eine klare Entscheidung.",
-      "Wenn die People-Arbeit jetzt eine erfahrene Leitung braucht, eine Einstellung aber zu langsam oder noch nicht sinnvoll wäre. Umfang, Entscheidungsrechte und Endpunkt stehen von Anfang an fest.",
-    ],
-    decisionTitle: "Sie müssen das Format nicht selbst wählen.",
-    decisionBody: [
-      "Beschreiben Sie, was passiert. Die Wahl des Formats gehört zum ersten Gespräch.",
-      "Wenn die Ursache umstritten ist, empfehle ich meist zuerst die Analyse. So hat das Team Belege, die es gemeinsam prüfen kann.",
-    ],
-    closingTitle: "Beschreiben Sie, was passiert.",
-    closingText:
-      "Schreiben Sie dazu, was Sie bereits versucht haben. Ich sage Ihnen, wie stark ich mich einbringen sollte, falls überhaupt.",
-  },
-} as const;
-
 export function ServicesLanding({ locale }: { locale: SiteLocale }) {
-  const pageCopy = copy[locale];
-  const formats = getWorkingFormats(locale);
-  const contactAction = getPrimaryContactAction(locale);
   const siteUrl = getSiteUrl();
 
   return (
-    <div className={pageStyles.page} lang={locale}>
+    <div className={pageStyles.page} lang="en">
       <StructuredData
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name:
-            locale === "de"
-              ? "Formate der Zusammenarbeit mit Marc Berghoff"
-              : "Ways to work with Marc Berghoff",
-          inLanguage: locale === "de" ? "de" : "en-GB",
-          itemListElement: formats.map((offer, index) => ({
+          name: "Ways to work with Marc Berghoff",
+          inLanguage: "en-GB",
+          itemListElement: ENGAGEMENTS.map((engagement, index) => ({
             "@type": "ListItem",
             position: index + 1,
             item: {
               "@type": "Service",
-              name: offer.title,
-              description: offer.summary,
-              url: `${siteUrl}${offer.href}`,
+              name: engagement.title,
+              description: engagement.summary,
+              url: `${siteUrl}${engagement.href}`,
               provider: { "@id": `${siteUrl}/#marc-berghoff` },
             },
           })),
         }}
       />
-
-      <PageHero
-        breadcrumbs={[{ label: pageCopy.breadcrumb }]}
-        compact
-        lead={
-          <>
-            {pageCopy.lead.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </>
-        }
-        primary={contactAction}
-        ctaPrimary
+      <ServiceHero
         locale={locale}
-        secondary={{
-          label: pageCopy.secondary,
-          href: `${getRouteHref("home", locale)}#diagnostic`,
+        breadcrumb="Services"
+        eyebrow="People, leadership and organisation"
+        title="The right support for your next step."
+        lead="Understand what is slowing you down, shape a response, or bring senior people leadership into the business. Start with the support you need now."
+        aside={{
+          label: "A conversation first",
+          value: "You do not have to choose alone.",
+          note: "Bring a question, a clear brief, or simply a wish to get to know me.",
         }}
-        title={pageCopy.title}
+        secondary={{
+          href: "/bottleneck-assessment#bottleneck-check",
+          label: "Start the check",
+          helper: "10 statements · about 2 minutes",
+        }}
       />
 
-      <section
-        aria-labelledby="service-options"
-        className={`${pageStyles.section} ${styles.optionsSection}`}
-      >
+      <section className={pageStyles.section} aria-labelledby="service-options">
         <div className={pageStyles.container}>
-          <div className={styles.header}>
-            <h2 id="service-options">{pageCopy.listTitle}</h2>
-            <p>{pageCopy.listIntro}</p>
+          <div className={`${pageStyles.sectionHeading} ${pageStyles.centered}`}>
+            <p className={pageStyles.eyebrow}>Three ways to work together</p>
+            <h2 className={pageStyles.sectionTitle} id="service-options">Start where your business is.</h2>
+            <p className={pageStyles.intro}>These are different starting points, with more ongoing involvement as you move across. You do not need to work through them in order.</p>
           </div>
-          <div className={styles.offerList}>
-            {formats.map((offer, index) => (
-              <Link className={styles.offer} href={offer.href} key={offer.href}>
-                <span className={styles.offerIndex} aria-hidden="true">
-                  {index + 1}
-                </span>
-                <div className={styles.offerHeading}>
-                  <h3>{offer.title}</h3>
-                  <p>{offer.responsibility}</p>
-                </div>
-                <p className={styles.offerDescription}>
-                  {pageCopy.descriptions[index]}
-                </p>
-                <ArrowRight aria-hidden="true" size={22} />
-              </Link>
+          <ol className={styles.offers}>
+            {ENGAGEMENTS.map((engagement) => (
+              <li key={engagement.id}>
+                <Link
+                  aria-labelledby={`offer-${engagement.id}`}
+                  className={`${styles.offer} ${engagement.featured ? styles.featured : ""}`}
+                  href={engagement.href}
+                >
+                  <div className={styles.offerTop}>
+                    <span className={styles.number} aria-hidden="true">{engagement.number}</span>
+                    <span className={styles.stage}>{engagement.shortTitle}</span>
+                  </div>
+                  <h3 id={`offer-${engagement.id}`}>{engagement.title}</h3>
+                  <p className={styles.situation}>{engagement.situation}</p>
+                  <p className={styles.rhythm}>{engagement.rhythm}</p>
+                  <div className={styles.receives}>
+                    <p className={styles.label}>You receive</p>
+                    <ul>
+                      {engagement.receives.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                  <dl className={styles.boundaries}>
+                    <div>
+                      <dt>What you bring</dt>
+                      <dd>{engagement.readiness}</dd>
+                    </div>
+                    <div>
+                      <dt>Where it leads</dt>
+                      <dd>{engagement.boundary}</dd>
+                    </div>
+                  </dl>
+                  <span className={styles.offerAction}>Explore the engagement <ArrowRight aria-hidden="true" size={19} /></span>
+                </Link>
+              </li>
             ))}
+          </ol>
+          <p className={pageStyles.scopeNote}>{ENGAGEMENT_SCOPE_NOTE}</p>
+        </div>
+      </section>
+
+      <section className={styles.decision} aria-labelledby="service-decision">
+        <div className={pageStyles.container}>
+          <div className={styles.decisionGrid}>
+            <div>
+              <p className={pageStyles.eyebrow}>Not sure where to begin?</p>
+              <h2 className={pageStyles.sectionTitle} id="service-decision">Tell me what is happening.</h2>
+            </div>
+            <div>
+              <p>You might know exactly what you want, or only that something needs to change. The introductory conversation is for both. I will tell you where I can help and where someone else may be a better fit.</p>
+              <ButtonLink href={getPrimaryContactAction(locale).href} variant="secondary">Book a call</ButtonLink>
+              <p className={pageStyles.helper}>Free introduction · typically 30 minutes</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className={pageStyles.sectionDark} aria-labelledby="format-decision">
-        <div className={`${pageStyles.container} ${pageStyles.split}`}>
-          <h2 className={pageStyles.sectionTitle} id="format-decision">
-            {pageCopy.decisionTitle}
-          </h2>
-          <div className={pageStyles.bodyCopy}>
-            {pageCopy.decisionBody.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div id="process">
+      <div id="process" className={styles.processAnchor}>
         <EngagementProcess locale={locale} />
       </div>
 
-      <ContactBand
-        href={contactAction.href}
-        label={contactAction.label}
+      <section className={pageStyles.sectionTint} aria-labelledby="service-methods">
+        <div className={pageStyles.container}>
+          <div className={`${pageStyles.sectionHeading} ${pageStyles.centered}`}>
+            <p className={pageStyles.eyebrow}>The tools follow the work</p>
+            <h2 className={pageStyles.sectionTitle} id="service-methods">One engagement can take several forms.</h2>
+            <p className={pageStyles.intro}>We choose the methods that help your team move. They sit inside the agreed scope.</p>
+          </div>
+          <ul className={pageStyles.methods}>
+            <li><h3>Coaching and leadership development</h3><p>Individual or group work on the expectations, decisions and conversations that leadership now requires.</p></li>
+            <li><h3>Workshops and peer discussion</h3><p>Focused sessions where the people involved test a question, work through differences and agree a way forward.</p></li>
+            <li><h3>Practical working documents</h3><p>Role clarity, decision responsibilities, people priorities and other documents your team can use after the engagement.</p></li>
+            <li><h3>Advice close to the work</h3><p>A sounding board for live decisions, with more direct involvement when a Fractional CPO remit calls for it.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <ServiceClosing
         locale={locale}
-        text={pageCopy.closingText}
-        title={pageCopy.closingTitle}
+        title="What would make the next stage easier?"
+        text="Bring the people or leadership question in front of you. We can work out the next step together."
       />
     </div>
   );

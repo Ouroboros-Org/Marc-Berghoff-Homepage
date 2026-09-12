@@ -1,434 +1,178 @@
 import Image from "next/image";
 
-import { DiagnosticDisclosure } from "@/components/diagnostic-disclosure";
 import { BottleneckDiagnostic } from "@/components/diagnostic";
-import {
-  CheckList,
-  ContactBand,
-  Evidence,
-  PageHero,
-  ProcessList,
-  SectionHeading,
-  secondaryPageStyles as styles,
-} from "@/components/pages/editorial";
-import { getRouteHref, type SiteLocale } from "@/config/routes";
-import { getPrimaryContactAction } from "@/config/site";
+import type { SiteLocale } from "@/config/routes";
 
 import {
   AdjacentServiceLinks,
   CompactProcess,
+  EngagementDetails,
+  getEngagement,
+  ServiceClosing,
+  ServiceHero,
   ServiceStructuredData,
 } from "./shared";
+import styles from "./service-pages.module.css";
 
-const copy = {
-  en: {
-    breadcrumbServices: "How I can help",
-    breadcrumbPage: "Bottleneck Assessment",
-    title: "When you can feel the issue but cannot yet point to it.",
-    lead: "The Bottleneck Assessment is one way to stop guessing. I compare what people experience with how decisions and work actually move, then give the leadership team a focused finding to test.",
-    secondary: "Take the 2-minute check",
-    signalsTitle: "Use the assessment when the cause is still open.",
-    signalsBody:
-      "If you can already name the decision, advice may be enough. If one leader owns the change, coaching may fit better. I use the assessment when several explanations are competing and the answer needs evidence from beyond one person's view.",
-    signalsHeading: "Common signals",
-    signals: [
-      "Responsibilities and tasks end up on your table when they reasonably should not.",
-      "People ask permission for decisions they are already paid to make.",
-      "You have a capable team but still feel like the only person seeing the full picture.",
-      "You know the work could move faster, but cannot name what is stopping it.",
-      "An issue you have raised more than once is still exactly where you left it.",
-    ],
-    flowTitle: "What actually happens.",
-    flowIntro:
-      "The fieldwork is deliberately compact. The leadership team still gets time to challenge the finding before deciding what to do.",
-    flow: [
-      {
-        title: "Agree the question",
-        description:
-          "A 30-minute conversation sets the question the assessment needs to answer.",
-      },
-      {
-        title: "Hear the team separately",
-        description:
-          "I speak with people across the team, usually for 90 minutes each. A short questionnaire sits alongside those conversations.",
-      },
-      {
-        title: "Check in before the workshop",
-        description:
-          "You and I spend 20–30 minutes on the emerging finding. Nothing in the workshop should surprise you.",
-      },
-      {
-        title: "Write the report",
-        description:
-          "The report sets out the main finding, likely causes, operating consequences and the evidence behind each point.",
-      },
-      {
-        title: "Work through it together",
-        description:
-          "The leadership team tests the evidence in a workshop and decides what it will do next.",
-      },
-    ],
-    timingLabel: "Typical timing",
-    timing: "Two to three weeks from kickoff to workshop.",
-    confidentialityTitle: "What your team says is not handed back as a transcript.",
-    confidentialityBody: [
-      "Individual comments are aggregated or paraphrased. They are not attributed in the report.",
-      "The material stays separate from employee performance files. This is an organisational assessment, not a route into individual evaluation.",
-      "Clinical and medical diagnosis sits outside the scope. If the question needs that expertise, I will say so.",
-    ],
-    reportTitle: "A report the team can test.",
-    reportBody: [
-      "It sets out the main finding and the evidence behind it. The team can use that evidence to test my view.",
-      "Then we sit down together and work through it. This is often the first time the leadership team has the same picture in front of it. What comes out is a decision the team has made together.",
-    ],
-    reportQuestionsTitle: "Four questions the report answers",
-    reportQuestions: [
-      "What organisational bottleneck best explains the business issue?",
-      "Which recurring observations and decision patterns support the finding?",
-      "Where does the bottleneck consume leadership attention or slow important work?",
-      "Which decisions and first steps will the leadership team agree after discussing it?",
-    ],
-    reportVisualAlt:
-      "Illustrative Bottleneck Assessment report page for a fictional company",
-    reportVisualCaption:
-      "Illustrative sample. The company, figures and findings are fictional.",
-    termsTitle: "A fixed fee. A finding you can test.",
-    termsBody: [
-      "The fee is fixed and agreed before we start.",
-      "If the leadership team cannot identify one finding worth acting on, you get your money back. The guarantee is written into the scope before work begins.",
-    ],
-    nothingTitle: "Sometimes nothing is structurally wrong.",
-    nothingBody:
-      "Sometimes the evidence does not support an organisation-wide constraint. That narrows the next question: the issue may sit in one decision, one role or somewhere outside the assessment's scope.",
-    checkLabel: "Ten-statement check",
-    checkTitle: "Check whether the pattern is broader than one decision",
-    checkIntro: "Ten statements. Use the last few weeks as your reference point.",
-    fitTitle: "The team needs room for an answer it may not expect.",
-    goodLabel: "Good fit",
-    goodTitle: "The business question is real and still open.",
-    goodBody:
-      "The leadership team can make time for the work, share relevant evidence and act if the finding is uncomfortable.",
-    wrongLabel: "Wrong fit",
-    wrongTitle: "The brief has already decided the answer.",
-    wrongBody:
-      "A predetermined restructure, clinical question or stand-alone employee survey calls for a different brief and may need another specialist.",
-    adjacent: [
-      {
-        routeId: "advisory" as const,
-        label: "Strategic People Advisory",
-        text: "If the cause is already clear and the question is simply difficult, advisory may be the better use of your time.",
-      },
-      {
-        routeId: "fractionalPeopleLeadership" as const,
-        label: "Fractional People Leadership",
-        text: "If the work needs a senior owner rather than an answer, that is Fractional People Leadership.",
-      },
-    ],
-    closingTitle: "Use the assessment when the cause is still in question.",
-    closingText:
-      "Tell me what is happening and what has already been tried. I will tell you if an assessment fits.",
-  },
-  de: {
-    breadcrumbServices: "Zusammenarbeit",
-    breadcrumbPage: "Bottleneck Assessment",
-    title: "Wenn Sie merken, dass etwas nicht stimmt, aber die Ursache nicht greifen können.",
-    lead: "Das Bottleneck Assessment schafft eine Grundlage, bevor die nächste Lösung beschlossen wird. Ich vergleiche die Erfahrungen im Team damit, wie Entscheidungen fallen und Arbeit tatsächlich verteilt wird. Das Führungsteam erhält einen Befund, den es prüfen kann.",
-    secondary: "Zum 2-Minuten-Check",
-    signalsTitle: "Die Analyse passt, wenn die Ursache noch offen ist.",
-    signalsBody:
-      "Können Sie die Entscheidung bereits benennen, reicht vielleicht eine Beratung. Liegt die Veränderung bei einer Führungskraft, kann Coaching passen. Die Analyse ist sinnvoll, wenn im Team mehrere Erklärungen nebeneinanderstehen und die Sicht einer einzelnen Person nicht trägt.",
-    signalsHeading: "Häufige Anzeichen",
-    signals: [
-      "Aufgaben und Entscheidungen landen bei Ihnen, obwohl die Zuständigkeit eigentlich woanders liegt.",
-      "Menschen holen sich Zustimmung für Entscheidungen, die längst zu ihrer Rolle gehören.",
-      "Ihr Team ist fähig. Trotzdem scheint nur eine Person das Gesamtbild zu sehen.",
-      "Die Arbeit könnte schneller vorankommen, doch niemand kann benennen, was sie bremst.",
-      "Ein Thema war schon in mehreren Besprechungen und ist noch immer nicht weiter.",
-    ],
-    flowTitle: "Was tatsächlich passiert.",
-    flowIntro:
-      "Ich halte die Erhebung bewusst kompakt. Bevor das Team handelt, bekommt es Zeit, den Befund zu hinterfragen.",
-    flow: [
-      {
-        title: "Die Frage festlegen",
-        description:
-          "In einem 30-minütigen Gespräch legen wir fest, welche Frage die Analyse beantworten soll.",
-      },
-      {
-        title: "Einzelne Sichtweisen aufnehmen",
-        description:
-          "Ich spreche mit mehreren Personen aus dem Team, normalerweise jeweils 90 Minuten. Ein kurzer Fragebogen ergänzt die Gespräche.",
-      },
-      {
-        title: "Vor dem Workshop abgleichen",
-        description:
-          "Vor dem Workshop besprechen wir den vorläufigen Befund 20–30 Minuten lang. Dort soll Sie nichts unvorbereitet treffen.",
-      },
-      {
-        title: "Den Bericht schreiben",
-        description:
-          "Der Bericht beschreibt den wichtigsten Befund, wahrscheinliche Ursachen, betriebliche Folgen und die Belege dahinter.",
-      },
-      {
-        title: "Gemeinsam daran arbeiten",
-        description:
-          "Im Workshop prüft das Führungsteam die Belege und entscheidet, was als Nächstes geschieht.",
-      },
-    ],
-    timingLabel: "Typischer Zeitrahmen",
-    timing: "Zwei bis drei Wochen vom Auftakt bis zum Workshop.",
-    confidentialityTitle: "Die Aussagen Ihres Teams werden nicht zum Gesprächsprotokoll.",
-    confidentialityBody: [
-      "Einzelne Aussagen werden zusammengefasst oder sinngemäß wiedergegeben. Im Bericht werden sie keiner Person zugeordnet.",
-      "Das Material bleibt getrennt von Personal- und Leistungsakten. Es geht um die Organisation, nicht um die Bewertung einzelner Personen.",
-      "Klinische und medizinische Diagnosen liegen außerhalb des Auftrags. Wenn die Frage diese Expertise braucht, sage ich das.",
-    ],
-    reportTitle: "Ein Bericht, den das Team prüfen kann.",
-    reportBody: [
-      "Er beschreibt den wichtigsten Befund und die Belege dahinter. Anhand dieser Belege kann das Team meine Sicht prüfen.",
-      "Danach arbeiten wir den Befund gemeinsam durch. Häufig liegt damit zum ersten Mal dasselbe Bild vor dem gesamten Führungsteam. Daraus entsteht eine Entscheidung, die das Team gemeinsam getroffen hat.",
-    ],
-    reportQuestionsTitle: "Vier Fragen, die der Bericht beantwortet",
-    reportQuestions: [
-      "Welcher organisatorische Engpass erklärt das Geschäftsproblem am besten?",
-      "Welche wiederkehrenden Beobachtungen und Entscheidungsmuster stützen den Befund?",
-      "Wo bindet der Engpass Aufmerksamkeit im Führungsteam oder bremst wichtige Arbeit?",
-      "Welche Entscheidungen und ersten Schritte vereinbart das Führungsteam nach der Besprechung?",
-    ],
-    reportVisualAlt:
-      "Illustrative Seite eines Bottleneck-Assessment-Berichts für ein fiktives Unternehmen",
-    reportVisualCaption:
-      "Illustratives Muster. Firmenname, Zahlen und Befunde sind frei erfunden.",
-    termsTitle: "Ein festes Honorar. Ein Befund, der sich prüfen lässt.",
-    termsBody: [
-      "Das Honorar steht fest und wird vor dem Beginn vereinbart.",
-      "Wenn das Führungsteam keinen einzigen Befund erkennt, mit dem es weiterarbeiten kann, erhalten Sie Ihr Geld zurück. Die Garantie steht vor Beginn in der schriftlichen Vereinbarung zum Umfang.",
-    ],
-    nothingTitle: "Manchmal liegt kein strukturelles Problem vor.",
-    nothingBody:
-      "Manchmal stützen die Belege keinen organisationsweiten Engpass. Dann wird die nächste Frage enger: Das Thema liegt vielleicht in einer Entscheidung, einer Rolle oder außerhalb des untersuchten Bereichs.",
-    checkLabel: "Check mit zehn Aussagen",
-    checkTitle: "Prüfen Sie, ob das Muster über eine einzelne Entscheidung hinausgeht",
-    checkIntro: "Zehn Aussagen. Denken Sie dabei an die vergangenen Wochen.",
-    fitTitle: "Das Team muss eine unerwartete Antwort zulassen können.",
-    goodLabel: "Passt gut",
-    goodTitle: "Die Frage ist wichtig und noch offen.",
-    goodBody:
-      "Das Führungsteam nimmt sich Zeit, teilt relevante Unterlagen und ist bereit, auch einen unangenehmen Befund zu prüfen.",
-    wrongLabel: "Passt nicht",
-    wrongTitle: "Die Antwort steht bereits fest.",
-    wrongBody:
-      "Eine vorab beschlossene Umstrukturierung, eine klinische Frage oder eine isolierte Mitarbeitendenbefragung braucht einen anderen Auftrag und möglicherweise andere Expertise.",
-    adjacent: [
-      {
-        routeId: "advisory" as const,
-        label: "Strategic People Advisory",
-        text: "Wenn die Ursache klar und nur die Entscheidung schwierig ist, passt Beratung wahrscheinlich besser.",
-      },
-      {
-        routeId: "fractionalPeopleLeadership" as const,
-        label: "Fractional People Leadership",
-        text: "Wenn die Arbeit eine erfahrene Leitung statt weiterer Analyse braucht, passt Fractional People Leadership.",
-      },
-    ],
-    closingTitle: "Beginnen Sie mit der Analyse, wenn die Ursache noch offen ist.",
-    closingText:
-      "Beschreiben Sie, was passiert und was Sie bereits versucht haben. Ich sage Ihnen, ob die Analyse passt.",
-  },
-} as const;
+const engagement = getEngagement("assessment");
 
-export function BottleneckAssessmentPageView({
-  locale,
-}: {
-  locale: SiteLocale;
-}) {
-  const pageCopy = copy[locale];
-  const contactAction = getPrimaryContactAction(locale);
-
+export function BottleneckAssessmentPageView({ locale }: { locale: SiteLocale }) {
   return (
-    <div className={styles.page} lang={locale}>
+    <div className={styles.page} lang="en">
       <ServiceStructuredData
-        description={pageCopy.lead}
         locale={locale}
-        name="Bottleneck Assessment"
-        routeId="bottleneckAssessment"
+        href={engagement.href}
+        name={engagement.title}
+        description={engagement.summary}
       />
-      <PageHero
-        breadcrumbs={[
-          { label: pageCopy.breadcrumbServices, href: getRouteHref("services", locale) },
-          { label: pageCopy.breadcrumbPage },
-        ]}
-        title={pageCopy.title}
-        lead={pageCopy.lead}
+      <ServiceHero
         locale={locale}
-        primary={contactAction}
-        ctaPrimary
-        secondary={{ label: pageCopy.secondary, href: "#assessment-check" }}
+        breadcrumb="Bottleneck Assessment"
+        eyebrow="Full Bottleneck Assessment with Review"
+        title="Find the bottleneck. Agree what comes next."
+        lead="When the team has different explanations for the same problem, evidence helps. I combine interviews, a questionnaire and a written report with a leadership review of the findings."
+        aside={{
+          label: "The full engagement",
+          value: "Typically 2–3 weeks",
+          note: "From kickoff to review workshop. The scope and fixed fee are agreed before we start.",
+        }}
+        secondary={{
+          href: "#bottleneck-check",
+          label: "Start the check",
+          helper: "Free · 10 statements · no email needed",
+        }}
       />
 
-      <section className={styles.section} aria-labelledby="assessment-problem">
-        <div className={`${styles.container} ${styles.split}`}>
-          <div className={styles.stickyTitle}>
-            <h2 className={styles.sectionTitle} id="assessment-problem">
-              {pageCopy.signalsTitle}
-            </h2>
-          </div>
-          <div>
-            <div className={styles.bodyCopy}>
-              <p>{pageCopy.signalsBody}</p>
-            </div>
-            <div className={styles.spacedTop}>
-              <h3 className={styles.featureCardTitle}>{pageCopy.signalsHeading}</h3>
-              <div className={styles.smallSpacedTop}>
-                <CheckList items={pageCopy.signals} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.sectionTint} aria-labelledby="assessment-flow">
-        <div className={styles.container}>
-          <SectionHeading
-            id="assessment-flow"
-            title={pageCopy.flowTitle}
-            intro={pageCopy.flowIntro}
+      <section className={styles.sectionTint} aria-label="Free ten-statement check">
+        <div className={styles.checkContainer}>
+          <BottleneckDiagnostic
+            id="bottleneck-check"
+            title="See whether the pattern is structural."
+            locale={locale}
           />
-          <ProcessList steps={pageCopy.flow} />
-          <div className={styles.spacedTop}>
-            <Evidence label={pageCopy.timingLabel}>{pageCopy.timing}</Evidence>
-          </div>
+          <p className={styles.checkNote}>
+            This short self-check is a starting point. The <a href="#full-assessment">full assessment</a> brings in the team&apos;s experience and a review with me.
+          </p>
         </div>
       </section>
 
-      <section className={styles.sectionDark} aria-labelledby="assessment-confidentiality">
-        <div className={`${styles.container} ${styles.split}`}>
-          <h2 className={styles.sectionTitle} id="assessment-confidentiality">
-            {pageCopy.confidentialityTitle}
-          </h2>
-          <div className={styles.bodyCopy}>
-            {pageCopy.confidentialityBody.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+      <section className={`${styles.section} ${styles.anchor}`} id="full-assessment" aria-labelledby="assessment-scope">
+        <div className={styles.container}>
+          <div className={`${styles.sectionHeading} ${styles.centered}`}>
+            <p className={styles.eyebrow}>The full assessment</p>
+            <h2 className={styles.sectionTitle} id="assessment-scope">A shared picture your team can act on.</h2>
+            <p className={styles.intro}>I compare what people experience with how decisions and work move. Together, we test the finding and decide what deserves attention.</p>
           </div>
+          <EngagementDetails engagement={engagement} />
+        </div>
+      </section>
+
+      <section className={styles.sectionTint} aria-labelledby="assessment-work">
+        <div className={styles.container}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>What happens</p>
+            <h2 className={styles.sectionTitle} id="assessment-work">Listen separately. Make sense of it together.</h2>
+          </div>
+          <ol className={styles.assessmentSteps}>
+            <li>
+              <h3>Agree the question and hear the team</h3>
+              <p>We start with a conversation about what the assessment should answer. I speak with people across the team, usually for 90 minutes each, alongside a short questionnaire.</p>
+            </li>
+            <li>
+              <h3>Compare the evidence</h3>
+              <p>I write a report covering the main finding, likely causes and operating consequences. A 20–30 minute check-in with you before the workshop helps test what is emerging.</p>
+            </li>
+            <li>
+              <h3>Review and decide</h3>
+              <p>Your leadership team works through the evidence in a review workshop. You can challenge my view and agree the priorities and first actions together.</p>
+            </li>
+          </ol>
         </div>
       </section>
 
       <section className={styles.section} aria-labelledby="assessment-report">
-        <div className={styles.container}>
-          <div className={styles.split}>
-            <h2 className={styles.sectionTitle} id="assessment-report">
-              {pageCopy.reportTitle}
-            </h2>
-            <div>
-              <div className={styles.bodyCopy}>
-                {pageCopy.reportBody.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-              <div className={styles.spacedTop}>
-                <h3 className={styles.featureCardTitle}>
-                  {pageCopy.reportQuestionsTitle}
-                </h3>
-                <ol className={`${styles.reportList} ${styles.smallSpacedTop}`}>
-                  {pageCopy.reportQuestions.map((question, index) => (
-                    <li key={question}>
-                      <strong>0{index + 1}</strong>
-                      <span>{question}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </div>
+        <div className={`${styles.container} ${styles.splitImage}`}>
+          <div className={styles.textColumn}>
+            <p className={styles.eyebrow}>What your team keeps</p>
+            <h2 className={styles.sectionTitle} id="assessment-report">A report you can question and use.</h2>
+            <p>The report makes the reasoning visible. It gives the team something concrete to examine, rather than another opinion to agree or disagree with.</p>
+            <ol className={styles.reportQuestions}>
+              <li>What organisational bottleneck best explains the business issue?</li>
+              <li>Which recurring observations and decision patterns support the finding?</li>
+              <li>Where does the bottleneck consume leadership attention or slow important work?</li>
+              <li>Which decisions and first steps will the leadership team agree after discussing it?</li>
+            </ol>
           </div>
-          <figure className={styles.reportPreview}>
-            <div className={styles.reportCoverWrap}>
+          <figure className={styles.reportFigure}>
+            <div className={styles.reportImageWrap}>
               <Image
-                alt={pageCopy.reportVisualAlt}
-                className={styles.reportCoverImage}
+                alt="Illustrative Bottleneck Assessment report page for a fictional company"
+                className={styles.reportImage}
                 fill
-                sizes="(max-width: 1184px) calc(100vw - 2rem), 1184px"
+                sizes="(max-width: 720px) calc(100vw - 2rem), (max-width: 1232px) 45vw, 540px"
                 src="/images/proof/sample-report-cover.webp"
               />
             </div>
-            <figcaption className={styles.disclaimer}>
-              {pageCopy.reportVisualCaption}
-            </figcaption>
+            <figcaption>Illustrative sample. The company, figures and findings are fictional.</figcaption>
           </figure>
         </div>
       </section>
 
-      <section className={styles.sectionTint} aria-labelledby="assessment-terms">
-        <div className={`${styles.container} ${styles.split}`}>
-          <h2 className={styles.sectionTitle} id="assessment-terms">
-            {pageCopy.termsTitle}
-          </h2>
-          <div className={styles.bodyCopy}>
-            {pageCopy.termsBody.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <div className={styles.spacedTop}>
-              <h3 className={styles.featureCardTitle}>{pageCopy.nothingTitle}</h3>
-              <div className={styles.smallSpacedTop}>
-                <p>{pageCopy.nothingBody}</p>
-              </div>
+      <section className={styles.sectionDark} aria-labelledby="assessment-terms">
+        <div className={styles.container}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>Clear terms</p>
+            <h2 className={styles.sectionTitle} id="assessment-terms">A fixed fee. A finding you can test.</h2>
+          </div>
+          <div className={styles.twoColumns}>
+            <div className={styles.feature}>
+              <h3>Agreed before we begin</h3>
+              <p>The fee is fixed and agreed before we start. The scope sets out who is involved, what the assessment will cover and the review workshop.</p>
+            </div>
+            <div className={styles.feature}>
+              <h3>A focused guarantee</h3>
+              <p>If the leadership team cannot identify one finding worth acting on, you get your money back. The guarantee is written into the scope before work begins.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        className={styles.section}
-        id="assessment-check"
-        aria-label={pageCopy.checkTitle}
-      >
-        <div className={styles.narrowContainer}>
-          <DiagnosticDisclosure
-            id="assessment-check-disclosure"
-            label={pageCopy.checkLabel}
-            title={pageCopy.checkTitle}
-            intro={pageCopy.checkIntro}
-          >
-            <BottleneckDiagnostic
-              id="bottleneck-check"
-              introOnly
-              locale={locale}
-            />
-          </DiagnosticDisclosure>
-        </div>
-      </section>
-
-      <section className={styles.sectionTint} aria-labelledby="assessment-fit">
+      <section className={styles.section} aria-labelledby="assessment-confidence">
         <div className={styles.container}>
-          <SectionHeading id="assessment-fit" title={pageCopy.fitTitle} />
-          <div className={`${styles.cardGrid} ${styles.cardGridTwo}`}>
-            <article className={styles.featureCard}>
-              <p className={styles.cardKicker}>{pageCopy.goodLabel}</p>
-              <h3 className={styles.featureCardTitle}>{pageCopy.goodTitle}</h3>
-              <p>{pageCopy.goodBody}</p>
+          <div className={`${styles.sectionHeading} ${styles.centered}`}>
+            <p className={styles.eyebrow}>Room for an honest answer</p>
+            <h2 className={styles.sectionTitle} id="assessment-confidence">The question needs to stay open.</h2>
+          </div>
+          <div className={styles.threeColumns}>
+            <article className={styles.feature}>
+              <h3>People can speak candidly</h3>
+              <p>Individual comments are aggregated or paraphrased. They are not attributed in the report. The material stays separate from employee performance files.</p>
             </article>
-            <article className={styles.featureCard}>
-              <p className={styles.cardKicker}>{pageCopy.wrongLabel}</p>
-              <h3 className={styles.featureCardTitle}>{pageCopy.wrongTitle}</h3>
-              <p>{pageCopy.wrongBody}</p>
+            <article className={styles.feature}>
+              <h3>The team is ready to act</h3>
+              <p>You can make time, share evidence and consider an uncomfortable finding. A brief that has already decided the answer needs a different approach.</p>
+            </article>
+            <article className={styles.feature}>
+              <h3>The outcome may narrow the question</h3>
+              <p>Sometimes there is no organisation-wide constraint. The issue may sit in one decision or role. Clinical and medical diagnosis sits outside the scope. The assessment does not evaluate individual performance.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <CompactProcess id="assessment-process" locale={locale} />
+      <CompactProcess locale={locale} id="assessment-process" />
       <AdjacentServiceLinks
+        locale={locale}
         id="assessment-adjacent"
-        links={pageCopy.adjacent}
-        locale={locale}
+        links={[
+          { href: "/advisory", label: "Strategic People Advisory", text: "Use a focused engagement to work out the response when the underlying problem is understood." },
+          { href: "/fractional-cpo", label: "Fractional CPO", text: "Bring ongoing strategic support or an embedded senior owner to the people agenda." },
+        ]}
       />
-
-      <ContactBand
-        href={contactAction.href}
-        title={pageCopy.closingTitle}
-        text={pageCopy.closingText}
-        label={contactAction.label}
+      <ServiceClosing
         locale={locale}
+        title="Bring the question your team cannot settle."
+        text="Tell me what is happening and what you have already tried. We can decide whether an assessment will help."
       />
     </div>
   );
