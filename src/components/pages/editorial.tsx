@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 import { Check } from "lucide-react";
 import Link from "next/link";
 
@@ -40,6 +40,9 @@ export function PageHero({
   breadcrumbs,
   locale = "en",
 }: PageHeroProps) {
+  const primaryHelperId = useId();
+  const secondaryHelperId = useId();
+
   return (
     <header className={`${styles.hero} ${compact ? styles.heroCompact : ""}`}>
       {breadcrumbs?.length ? (
@@ -64,18 +67,18 @@ export function PageHero({
             <div className={styles.buttonRow}>
               {primary && (
                 <div className={styles.actionGroup}>
-                  <ButtonLink cta={ctaPrimary ?? false} href={primary.href} variant={primary.variant ?? "primary"}>
+                  <ButtonLink aria-describedby={primary.helper ? primaryHelperId : undefined} cta={ctaPrimary ?? false} href={primary.href} variant={primary.variant ?? "primary"}>
                     {primary.label}
                   </ButtonLink>
-                  {primary.helper ? <p className={styles.actionHelper}>{primary.helper}</p> : null}
+                  {primary.helper ? <p className={styles.actionHelper} id={primaryHelperId}>{primary.helper}</p> : null}
                 </div>
               )}
               {secondary && (
                 <div className={styles.actionGroup}>
-                  <ButtonLink cta={ctaSecondary ?? false} href={secondary.href} variant={secondary.variant ?? "secondary"}>
+                  <ButtonLink aria-describedby={secondary.helper ? secondaryHelperId : undefined} cta={ctaSecondary ?? false} href={secondary.href} variant={secondary.variant ?? "secondary"}>
                     {secondary.label}
                   </ButtonLink>
-                  {secondary.helper ? <p className={styles.actionHelper}>{secondary.helper}</p> : null}
+                  {secondary.helper ? <p className={styles.actionHelper} id={secondaryHelperId}>{secondary.helper}</p> : null}
                 </div>
               )}
             </div>
@@ -183,6 +186,8 @@ export function ContactBand({
   secondary?: { href: string; label: string };
   locale?: SiteLocale;
 }) {
+  const helperId = useId();
+
   return (
     <aside
       className={styles.contactBand}
@@ -195,10 +200,10 @@ export function ContactBand({
         </div>
         <div className={styles.contactBandActions}>
           <div className={styles.actionGroup}>
-            <ButtonLink cta href={href} variant="inverse">
+            <ButtonLink aria-describedby={helper ? helperId : undefined} cta href={href} variant="inverse">
               {label}
             </ButtonLink>
-            {helper ? <p className={styles.actionHelper}>{helper}</p> : null}
+            {helper ? <p className={styles.actionHelper} id={helperId}>{helper}</p> : null}
           </div>
           {secondary ? (
             <Link className={styles.contactBandSecondary} href={secondary.href}>

@@ -126,16 +126,18 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
 
       <section className={styles.section} aria-labelledby="about-path">
         <div className={aboutStyles.proseContainer}>
-          <Reveal className={aboutStyles.pathCopy}>
-            <h2 className={styles.sectionTitle} id="about-path">
-              {pageCopy.pathTitle}
-            </h2>
+          <div className={aboutStyles.pathCopy}>
+            <Reveal>
+              <h2 className={styles.sectionTitle} id="about-path">
+                {pageCopy.pathTitle}
+              </h2>
+            </Reveal>
             <div className={`${styles.bodyCopy} ${styles.spacedTop}`}>
               {pageCopy.path.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

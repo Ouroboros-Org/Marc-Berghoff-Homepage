@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+import { Reveal } from "@/components/reveal";
 import {
   ContactBand,
   PageHero,
@@ -17,7 +18,7 @@ import styles from "./blog.module.css";
 export const metadata = createPageMetadata({
   title: "Leadership and Organisation Insights",
   description:
-    "Notes on decisions that return upstairs, unclear role boundaries and people work that has lost its owner.",
+    "Practical notes on people strategy, leadership and organisational development for growing companies.",
   path: "/blog",
 });
 
@@ -55,9 +56,9 @@ export default function BlogPage() {
 
       <PageHero
         breadcrumbs={[{ label: "Insights" }]}
-        title="Read the pattern before you name the help."
-        lead="A decision is back on your desk. Two roles are waiting for each other. A people remit has no owner. These notes start with the working week, before anyone turns the situation into a diagnosis."
-        primary={{ label: "Start with the latest article", href: "#featured-article" }}
+        title="Think through the people decisions ahead of you."
+        lead="Explore practical notes on roles, leadership and how your organisation works. Start with a question you recognise, or read about the support that could help your team."
+        primary={{ label: "Read featured article", href: "#featured-article" }}
         ctaPrimary={true}
         secondary={{ label: "See how I work", href: "/services" }}
       />
@@ -65,7 +66,7 @@ export default function BlogPage() {
       <section className={pageStyles.section} aria-labelledby="featured-article">
         <div className={pageStyles.container}>
           <article className={styles.featured}>
-            <div>
+            <Reveal>
               <p className={styles.articleCategory}>{featured.category}</p>
               <h2 className={styles.featuredTitle} id="featured-article">
                 <Link href={`/blog/${featured.slug}`}>{featured.title}</Link>
@@ -81,7 +82,7 @@ export default function BlogPage() {
                 Read article
                 <ArrowRight aria-hidden="true" size={17} strokeWidth={1.8} />
               </Link>
-            </div>
+            </Reveal>
           </article>
         </div>
       </section>
@@ -94,25 +95,27 @@ export default function BlogPage() {
           />
           <div className={styles.articleGrid}>
             {posts.map((post) => (
-              <article className={styles.articleCard} key={post.slug}>
-                <div>
-                  <p className={styles.cardCategory}>{post.category}</p>
-                  <h3 className={styles.cardTitle}>
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h3>
-                  <p className={styles.cardDescription}>{post.description}</p>
-                </div>
-                <div className={styles.meta}>
-                  <time dateTime={post.publishedAt}>
-                    {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
-                  </time>
-                  <span>{getReadingTime(post)}</span>
-                </div>
-                <Link className={styles.readLink} href={`/blog/${post.slug}`}>
-                  Read article
-                  <ArrowRight aria-hidden="true" size={17} strokeWidth={1.8} />
-                </Link>
-              </article>
+              <Reveal key={post.slug}>
+                <article className={styles.articleCard}>
+                  <div>
+                    <p className={styles.cardCategory}>{post.category}</p>
+                    <h3 className={styles.cardTitle}>
+                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h3>
+                    <p className={styles.cardDescription}>{post.description}</p>
+                  </div>
+                  <div className={styles.meta}>
+                    <time dateTime={post.publishedAt}>
+                      {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
+                    </time>
+                    <span>{getReadingTime(post)}</span>
+                  </div>
+                  <Link className={styles.readLink} href={`/blog/${post.slug}`}>
+                    Read article
+                    <ArrowRight aria-hidden="true" size={17} strokeWidth={1.8} />
+                  </Link>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -120,9 +123,10 @@ export default function BlogPage() {
 
       <ContactBand
         href={contactAction.href}
-        title="If an article sounds familiar, bring the live version."
-        text="Tell me where the pattern shows up in your company and what you have already tried. The first conversation is free and typically takes 30 minutes."
-        label={contactAction.label}
+        title="Bring the question you are working on."
+        text="Tell me how it shows up in your company. We can talk through the support that would help."
+        label="Book a call"
+        helper="Free introduction · typically 30 minutes"
       />
     </div>
   );

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { LEGAL_DETAILS } from "@/app/(en)/privacy/legal-details";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { createPageMetadata } from "@/config/metadata";
+import styles from "@/components/pages/utility-pages.module.css";
 
 export const metadata = {
   ...createPageMetadata({
@@ -23,11 +24,9 @@ function ImprintSection({
   children: React.ReactNode;
 }) {
   return (
-    <section className="space-y-4 border-t border-slate-900/15 pt-8">
-      <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-3xl">
-        {title}
-      </h2>
-      <div className="space-y-4 text-base leading-7 text-slate-700">
+    <section className={styles.section}>
+      <h2>{title}</h2>
+      <div className={styles.body}>
         {children}
       </div>
     </section>
@@ -36,25 +35,24 @@ function ImprintSection({
 
 export default function ImprintPage() {
   return (
-    <div className="page-shell">
-      <article className="container mx-auto max-w-4xl">
-        <header className="mb-14 space-y-5 sm:mb-20">
+    <div className={styles.page}>
+      <article className={styles.container}>
+        <header className={styles.header}>
           <Breadcrumbs items={[{ label: "Imprint" }]} />
-          <p className="eyebrow">Legal</p>
-          <h1 className="text-5xl font-semibold tracking-[-0.055em] text-balance sm:text-7xl">
+          <h1 className={styles.title}>
             Imprint
           </h1>
-          <p className="max-w-2xl text-lg leading-8 text-slate-700">
+          <p className={styles.lead}>
             Provider and contact information for this website.
           </p>
-          <p className="text-sm text-slate-600">
+          <p className={styles.updated}>
             Last updated: {LEGAL_DETAILS.lastUpdated}
           </p>
         </header>
 
-        <div className="space-y-12">
+        <div className={styles.sections}>
           <ImprintSection title="Service provider">
-            <address className="not-italic">
+            <address>
               <p>{LEGAL_DETAILS.legalName}</p>
               {LEGAL_DETAILS.tradingName ? (
                 <p>Trading as {LEGAL_DETAILS.tradingName}</p>
@@ -87,7 +85,8 @@ export default function ImprintPage() {
 
           <ImprintSection title="Professional scope">
             <p>
-              The website describes organisational advisory and executive coaching.
+              The website describes Fractional CPO (Chief People Officer) support
+              and strategic people advisory.
               The services exclude clinical diagnosis, therapy, legal advice, tax
               advice and financial advice. Each paid engagement has its own written
               scope and terms.
