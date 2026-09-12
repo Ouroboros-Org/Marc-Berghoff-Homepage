@@ -1,0 +1,60 @@
+.reveal[data-reveal-state="pending"] {
+  opacity: 0;
+}
+
+.reveal[data-reveal-variant="rise"][data-reveal-state="pending"] {
+  transform: translate3d(0, 18px, 0);
+}
+
+.number {
+  position: relative;
+  display: inline-grid;
+  vertical-align: baseline;
+  font-variant-numeric: tabular-nums;
+}
+
+.visual {
+  display: inline-grid;
+}
+
+.sizer,
+.value {
+  grid-area: 1 / 1;
+}
+
+.sizer {
+  visibility: hidden;
+}
+
+.value {
+  position: absolute;
+  inset: 0;
+  transition: opacity 240ms ease-out;
+}
+
+.number[data-count-state="pending"] .value {
+  opacity: 0;
+}
+
+.accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal[data-reveal-state="pending"],
+  .reveal[data-reveal-variant="rise"][data-reveal-state="pending"],
+  .number[data-count-state="pending"] .value {
+    opacity: 1;
+    transform: none;
+  }
+
+  .value {
+    transition: none;
+  }
+}
