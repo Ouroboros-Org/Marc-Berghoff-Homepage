@@ -166,7 +166,6 @@ export function ContactBand({
   href = "/contact",
   label = "Request a conversation",
   secondary,
-  locale = "en",
 }: {
   title: string;
   text: string;
@@ -178,7 +177,7 @@ export function ContactBand({
   return (
     <aside
       className={styles.contactBand}
-      aria-label={locale === "de" ? "Nächster Schritt" : "Next step"}
+      aria-label="Next step"
     >
       <div className={`${styles.container} ${styles.contactBandGrid}`}>
         <div>

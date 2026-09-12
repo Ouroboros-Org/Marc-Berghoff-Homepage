@@ -4,8 +4,8 @@ import { getEngagementProcess } from "@/content/engagement-process";
 import styles from "./engagement-process.module.css";
 
 export function EngagementProcess({
-  title,
-  intro,
+  title = "From a first conversation to work that moves.",
+  intro = "You do not need to arrive with a diagnosis or a chosen service. We work out the right level of support together.",
   wide = false,
   locale = "en",
 }: {
@@ -14,34 +14,25 @@ export function EngagementProcess({
   wide?: boolean;
   locale?: SiteLocale;
 } = {}) {
-  const steps = getEngagementProcess(locale);
-  const resolvedTitle =
-    title ??
-    (locale === "de"
-      ? "Was nach Ihrer Kontaktaufnahme passiert."
-      : "What happens after you get in touch.");
-  const resolvedIntro =
-    intro ??
-    (locale === "de"
-      ? "Die Frage kommt vor dem Format. Diese vier Schritte gelten unabhängig davon, wie die Zusammenarbeit danach aussieht."
-      : "The question comes before the format. I use the same four steps whether the work becomes coaching, advisory, assessment or a defined remit.");
-
   return (
     <section className={styles.section} aria-labelledby="engagement-process-title">
       <div className={`${styles.container} ${wide ? styles.containerWide : ""}`}>
         <div className={styles.header}>
-          <h2 id="engagement-process-title">{resolvedTitle}</h2>
-          <p>{resolvedIntro}</p>
+          <p className={styles.eyebrow}>How we begin</p>
+          <h2 id="engagement-process-title">{title}</h2>
+          <p>{intro}</p>
         </div>
         <ol className={styles.steps}>
-          {steps.map((step, index) => (
+          {getEngagementProcess(locale).map((step, index) => (
             <li className={styles.step} key={step.title}>
               <span className={styles.number} aria-hidden="true">
-                {index + 1}
+                {String(index + 1).padStart(2, "0")}
               </span>
-              <p className={styles.meta}>{step.meta}</p>
-              <h3>{step.title}</h3>
-              <p className={styles.description}>{step.description}</p>
+              <div className={styles.stepCopy}>
+                <h3>{step.title}</h3>
+                <p className={styles.description}>{step.description}</p>
+                <p className={styles.meta}>{step.meta}</p>
+              </div>
             </li>
           ))}
         </ol>

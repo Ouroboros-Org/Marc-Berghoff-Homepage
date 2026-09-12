@@ -13,12 +13,10 @@ describe("header navigation state", () => {
 
   it.each([
     ["/advisory", "work"],
-    ["/peer-advisory", "work"],
-    ["/de/advisory", "work"],
-    ["/de/peer-advisory", "work"],
+    ["/fractional-cpo", "work"],
     ["/results", "about"],
-    ["/de/about", "about"],
-    ["/de/results", "about"],
+    ["/about", "about"],
+    ["/results/klarsolar", "about"],
     ["/blog/founder-bottleneck-or-operating-model", "insights"],
     ["/contact", "about"],
   ])("maps %s to the %s group", (pathname, groupId) => {
@@ -39,17 +37,8 @@ describe("header navigation state", () => {
     expect(isCurrentHeaderItem(pathname, "about", pathname)).toBe(false);
   });
 
-  it("marks the German assessment destination in the work group", () => {
-    const pathname = "/de/bottleneck-assessment";
-
-    expect(isCurrentHeaderItem(pathname, "work", pathname)).toBe(true);
-    expect(isCurrentHeaderItem(pathname, "about", pathname)).toBe(false);
-  });
-
-  it("marks the localized German About destination in the about group", () => {
-    const pathname = "/de/about";
-
-    expect(isCurrentHeaderItem(pathname, "about", pathname)).toBe(true);
-    expect(isCurrentHeaderItem(pathname, "work", pathname)).toBe(false);
+  it("does not mark retired routes as current navigation", () => {
+    expect(getActiveHeaderGroupId("/de/about")).toBeNull();
+    expect(getActiveHeaderGroupId("/peer-advisory")).toBeNull();
   });
 });

@@ -1,6 +1,6 @@
 # Pre-launch replacements
 
-Last reviewed: 11 August 2026
+Last reviewed: 12 September 2026
 
 This is the hand-off register for assets, contact data, legal disclosures and the
 Google Forms connection. A checked item means both the source and the rendered
@@ -16,7 +16,10 @@ still need to be retained outside this public repository.
 | File | Pixels | Assessment | Replacement/action |
 | --- | ---: | --- | --- |
 | `public/images/portraits/marc-seated-original.webp` | 1202×1601 | The strongest available portrait. Good for an editorial portrait block and restrained hero crop; not wide enough for an uncropped full-bleed desktop background. | Keep for launch if image rights are confirmed. Request the camera original for sharper large/retina use. Add photographer credit if required. |
-| `public/images/portraits/marc-speaking-original.webp` | 495×724 | Genuine event context, but only 39 KB and visibly soft. Safe at roughly 240 CSS pixels for high-density displays; weak as a large feature image. | **BLOCKER if shown large:** replace with the original event photograph at least 1200 px wide. Do not use AI sharpening as proof of image authenticity. |
+| `public/images/portraits/marc-speaking-original.webp` | 495×724 | Genuine event context, 30,636 bytes and visibly soft. Preserved as the source photograph. | The owner-authorised enhanced derivative below is used for the redesigned hero. Keep the camera original as a future quality improvement if available. |
+| `public/images/portraits/marc-speaking-enhanced.webp` | 1037×1517 | Built-in ImageGen enhancement; 97,030 bytes; face, pose, clothing and composition checked against the source. | Ready for the working website. Preserve the original; reconstructed details are not evidence about the event. |
+| `public/images/generated/marc-workshop.webp` | 1536×1024 | Built-in ImageGen scene using both genuine Marc references; 109,968 bytes. | Ready for personal/editorial placement. No named client or real event attribution. |
+| `public/images/credentials/acc.webp` and `cpcc.webp` | 340×340 each | Official Credly artwork, lossless WebP; 20,598 and 38,920 bytes. | Link to the supplied ACC and CPCC pages. These replace the ICF membership badge as credential evidence. |
 | `public/images/proof/sample-report-cover.webp` | 1920×1080 | Crisp deck graphic. It contains the fictional/example company “Wayline GmbH,” an August 2026 date and sample metrics. | Label it clearly as an illustrative fictional sample. Prefer an approved anonymised real report before launch. Never imply that Wayline or the figures are a client result. |
 | `public/images/clients/klarsolar.webp` | 580×390 source canvas | Recovered unchanged from repository history. | **REVIEW:** retain client and trademark permission; replace with a current approved mark if supplied. |
 | `public/images/clients/giftagoods.webp` | 447×447 source canvas | Recovered unchanged from repository history. | **REVIEW:** retain client and trademark permission; replace with a current approved mark if supplied. |
@@ -26,14 +29,14 @@ still need to be retained outside this public repository.
 
 ## Generated-image slots
 
-Generated images must support the editorial design, not pretend to document client
-work. The two real portraits can be used as colour, wardrobe and lighting
-references. Do not create a synthetic client meeting, stage an identifiable
-company event or invent a testimonial speaker.
+Generated images support the editorial design. The owner authorised a working
+scene from both real portraits and requested a clean preview without AI labels or
+watermarks. Keep provenance internally. Do not attribute a generated scene to a
+named client, real event or testimonial speaker.
 
 | Proposed file/slot | Intended role | Generation/review constraints | Final state |
 | --- | --- | --- | --- |
-| `public/images/generated/leadership-room.webp` | Fractional people leadership transition image | Empty room prepared for a leadership conversation; explicitly captioned as illustrative. | Generated 29 July 2026 · 1586×992 · integrated on `/fractional-people-leadership` · Marc review recommended |
+| `public/images/generated/leadership-room.webp` | Fractional CPO transition image | Empty room prepared for a leadership conversation; provenance recorded internally, with no attribution to a real event. | Generated 29 July 2026 · 1586×992 · integrated on `/fractional-cpo` |
 | Decision-detail concept | Optional mobile-friendly editorial detail/callout | The final layout does not need another still life. | Not generated; no active website slot |
 
 Prompt and provenance notes are recorded in `docs/generated-images.md`. Generated
@@ -41,15 +44,17 @@ files are never used inside client-proof or testimonial panels.
 
 ## Contact and domain replacements
 
-- [ ] **BLOCKER:** Confirm the canonical domain and set `NEXT_PUBLIC_SITE_URL` in
-  Vercel Production to its HTTPS origin without a path or trailing slash.
-- [x] Public inbox defaults to `marc@marcberghoff.com` and may be changed with `NEXT_PUBLIC_CONTACT_EMAIL`.
-  It currently appears in `src/config/site.ts` because it came from deck slide 15.
+- [x] The owner selected `https://marcberghoff.com` as the canonical domain.
+- [ ] Verify `NEXT_PUBLIC_SITE_URL` in Vercel Production matches that origin.
+- [x] The confirmed working public inbox is `contact@marcberghoff.com`.
+  `src/config/site.ts`, local configuration and public links use it. A production
+  `NEXT_PUBLIC_CONTACT_EMAIL` override should use the same address.
 - [ ] Optional: set `NEXT_PUBLIC_CONTACT_PHONE` to a confirmed public number in
   international format. Leave it unset to omit telephone links.
-- [ ] **BLOCKER:** Set `NEXT_PUBLIC_CAL_LINK` to the confirmed Cal.com username and
+- [ ] To enable the calendar, set `NEXT_PUBLIC_CAL_LINK` to the confirmed Cal.com username and
   30-minute event slug without the domain, for example `marc/first-conversation`.
-  The live contact pages pass this value to the inline Cal.com embed.
+  The contact page passes this value to the inline Cal.com embed. Without it, the
+  booking section offers an email link to arrange a time directly.
 - [ ] Confirm the LinkedIn URL and whether the `/en` locale suffix should remain.
 
 ## Legal replacements
@@ -64,9 +69,7 @@ through `src/app/(en)/privacy/legal-details.ts`. Configure and verify:
 - [ ] `LEGAL_REGISTRATION_VAT` when applicable
 - [ ] `LEGAL_CONTENT_RESPONSIBLE`
 - [ ] `LEGAL_CONTACT_RETENTION_PERIOD`
-- [ ] `LEGAL_CONTACT_RETENTION_PERIOD_DE` when the German wording needs an override
 - [ ] `LEGAL_DISPUTE_RESOLUTION_STATEMENT` when applicable
-- [ ] `LEGAL_DISPUTE_RESOLUTION_STATEMENT_DE` when the German wording needs an override
 
 The legal email and telephone values reuse `NEXT_PUBLIC_CONTACT_EMAIL` and
 `NEXT_PUBLIC_CONTACT_PHONE`.
@@ -84,7 +87,8 @@ The legal email and telephone values reuse `NEXT_PUBLIC_CONTACT_EMAIL` and
 
 ## Google Forms and Sheet replacements
 
-Create the Form and configure all server-only Vercel environment variables below.
+Local Form mappings are configured. Verify the corresponding server-only Vercel
+environment variables below; local presence does not prove production delivery.
 The values in `.env.example` are deliberately non-working placeholders.
 
 - [ ] **BLOCKER:** `GOOGLE_FORM_ACTION_URL`
@@ -113,5 +117,5 @@ full smoke test.
   Confirm that the title is warranted in every jurisdiction where it is presented,
   following the publishing rule in `docs/claim-ledger.md`.
 - [ ] Remove the age “34” wherever it remains; it is a stale deck detail.
-- [ ] Keep generated imagery visibly illustrative and out of proof/testimonial
-  contexts.
+- [x] Record generated-image provenance internally and omit visible AI labels as
+  requested. Do not use generated scenes to document named client work.

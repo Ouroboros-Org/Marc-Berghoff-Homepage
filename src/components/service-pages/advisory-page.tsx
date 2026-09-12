@@ -1,160 +1,122 @@
-import {
-  ContactBand,
-  PageHero,
-  PlainList,
-  secondaryPageStyles as styles,
-} from "@/components/pages/editorial";
-import { getRouteHref, type SiteLocale } from "@/config/routes";
-import { getPrimaryContactAction } from "@/config/site";
+import type { SiteLocale } from "@/config/routes";
+import { ENGAGEMENT_SCOPE_NOTE } from "@/content/engagements";
 
 import {
   AdjacentServiceLinks,
   CompactProcess,
+  EngagementDetails,
+  getEngagement,
+  ServiceClosing,
+  ServiceHero,
   ServiceStructuredData,
 } from "./shared";
+import styles from "./service-pages.module.css";
 
-const copy = {
-  en: {
-    breadcrumbServices: "How I can help",
-    breadcrumbPage: "Strategic People Advisory",
-    title: "Bring the decision. We can think it through together.",
-    lead: "Bring a people, role or organisation question you can already see. I test your reasoning and the trade-offs. You keep the decision.",
-    situationsTitle: "Common situations.",
-    situations: [
-      "You need to decide who should stay in their role, who is ready for more responsibility and where an external hire is needed.",
-      "Your company has values on the wall, but they do not yet show up in everyday decisions.",
-      "You expect to add teams or management layers and want to test the current decision structure before the same gaps appear in more places.",
-      "Candidates hear one promise while employees experience something different, and hiring the right people has become harder.",
-    ],
-    boundaryTitle: "Advisory stops where ownership begins.",
-    boundary:
-      "If the work needs someone to coordinate execution or hold decision rights, advisory is too light.",
-    shapeTitle: "The scope follows the decision.",
-    shape:
-      "A monthly retainer, or work scoped to a single decision. Either way, the scope is written down before anything starts.",
-    adjacent: [
-      {
-        routeId: "peerAdvisory" as const,
-        label: "Peer Advisory",
-        text: "If several people would benefit from the same room instead of one-to-one input, that is Peer Advisory.",
-      },
-      {
-        routeId: "bottleneckAssessment" as const,
-        label: "Bottleneck Assessment",
-        text: "If the accounts of the problem differ across your team, start with the assessment.",
-      },
-    ],
-    closingTitle: "Talk through a current decision.",
-    closingText:
-      "The first conversation is free and typically takes 30 minutes. I will tell you whether an outside view is enough.",
-  },
-  de: {
-    breadcrumbServices: "Zusammenarbeit",
-    breadcrumbPage: "Strategic People Advisory",
-    title: "Bringen Sie die Entscheidung mit. Wir denken sie gemeinsam durch.",
-    lead: "Bringen Sie eine People-, Rollen- oder Organisationsfrage mit, die bereits greifbar ist. Ich prüfe mit Ihnen die Begründung und die Folgen der möglichen Wege. Die Entscheidung bleibt bei Ihnen.",
-    situationsTitle: "Häufige Situationen.",
-    situations: [
-      "Sie müssen entscheiden, wer die aktuelle Rolle behalten sollte, wer bereit für mehr Verantwortung ist und wo eine externe Besetzung nötig wird.",
-      "Ihr Unternehmen hat Werte formuliert. In alltäglichen Entscheidungen spielen sie bisher kaum eine Rolle.",
-      "Sie planen weitere Teams oder Führungsebenen und möchten die heutige Entscheidungsstruktur prüfen, bevor dieselben Lücken an mehr Stellen auftauchen.",
-      "Bewerberinnen und Bewerber hören ein anderes Versprechen als das, was Beschäftigte im Alltag erleben. Die passenden Menschen zu gewinnen, wird dadurch schwieriger.",
-    ],
-    boundaryTitle: "Beratung endet, sobald jemand die Umsetzung tragen muss.",
-    boundary:
-      "Wenn die Arbeit Koordination oder eigene Entscheidungsrechte verlangt, reicht Beratung nicht aus.",
-    shapeTitle: "Der Umfang folgt der Entscheidung.",
-    shape:
-      "Die Begleitung kann laufend oder auf eine einzelne Entscheidung begrenzt sein. In beiden Fällen halten wir den Umfang schriftlich fest, bevor die Arbeit beginnt.",
-    adjacent: [
-      {
-        routeId: "peerAdvisory" as const,
-        label: "Peer Advisory",
-        text: "Wenn mehrere Führungskräfte ihre eigenen Entscheidungen in einer gemeinsamen Runde bearbeiten sollen, passt Peer Advisory.",
-      },
-      {
-        routeId: "bottleneckAssessment" as const,
-        label: "Bottleneck Assessment",
-        text: "Wenn im Team verschiedene Erklärungen für das Problem nebeneinanderstehen, beginnen Sie mit der Analyse.",
-      },
-    ],
-    closingTitle: "Denken Sie eine aktuelle Entscheidung mit mir durch.",
-    closingText:
-      "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Ich sage offen, ob eine zweite Sicht von außen genügt.",
-  },
-} as const;
+const engagement = getEngagement("advisory");
 
 export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
-  const pageCopy = copy[locale];
-  const contactAction = getPrimaryContactAction(locale);
-
   return (
-    <div className={styles.page} lang={locale}>
+    <div className={styles.page} lang="en">
       <ServiceStructuredData
-        description={pageCopy.lead}
         locale={locale}
-        name="Strategic People Advisory"
-        routeId="advisory"
+        href={engagement.href}
+        name={engagement.title}
+        description={engagement.summary}
       />
-      <PageHero
-        breadcrumbs={[
-          { label: pageCopy.breadcrumbServices, href: getRouteHref("services", locale) },
-          { label: pageCopy.breadcrumbPage },
-        ]}
-        title={pageCopy.title}
-        lead={pageCopy.lead}
+      <ServiceHero
         locale={locale}
-        primary={contactAction}
-        ctaPrimary
-        secondary={{
-          label: locale === "de" ? "Alle Formate ansehen" : "See all formats",
-          href: getRouteHref("services", locale),
+        breadcrumb={engagement.title}
+        eyebrow="Strategic People Advisory"
+        title="A clear issue. A practical way forward."
+        lead="Bring a people, leadership or organisation question you can already see. I help you test the options, agree priorities and shape a response your team can carry forward."
+        aside={{
+          label: "A typical starting point",
+          value: "2–6 weeks",
+          note: "One session or a longer series may be a better fit. We agree the scope and pace in the introductory conversation.",
         }}
       />
 
-      <section className={styles.section} aria-labelledby="advisory-situations">
-        <div className={`${styles.container} ${styles.split}`}>
-          <h2 className={styles.sectionTitle} id="advisory-situations">
-            {pageCopy.situationsTitle}
-          </h2>
-          <PlainList items={pageCopy.situations} />
+      <section className={styles.section} aria-labelledby="advisory-scope">
+        <div className={styles.container}>
+          <div className={`${styles.sectionHeading} ${styles.centered}`}>
+            <p className={styles.eyebrow}>A focused engagement</p>
+            <h2 className={styles.sectionTitle} id="advisory-scope">Enough clarity to take the next step.</h2>
+            <p className={styles.intro}>We begin with a question, work through it with the people involved, and finish with a decision or plan you can use.</p>
+          </div>
+          <EngagementDetails engagement={engagement} />
+          <p className={styles.scopeNote}>{ENGAGEMENT_SCOPE_NOTE}</p>
         </div>
       </section>
 
-      <section className={styles.sectionDark} aria-labelledby="advisory-boundary">
-        <div className={`${styles.container} ${styles.split}`}>
-          <h2 className={styles.sectionTitle} id="advisory-boundary">
-            {pageCopy.boundaryTitle}
-          </h2>
-          <div className={styles.bodyCopy}>
-            <p>{pageCopy.boundary}</p>
+      <section className={styles.sectionDark} aria-labelledby="advisory-decisions">
+        <div className={styles.container}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>Questions worth working through</p>
+            <h2 className={styles.sectionTitle} id="advisory-decisions">What does the business need from its people next?</h2>
+          </div>
+          <div className={styles.threeColumns}>
+            <article className={styles.feature}>
+              <h3>Clearer roles and decisions</h3>
+              <p>Responsibilities overlap, a decision keeps returning to the founder, or a new management layer needs a clear purpose.</p>
+            </article>
+            <article className={styles.feature}>
+              <h3>Leadership that keeps pace</h3>
+              <p>You need to decide who is ready for more responsibility, where development will help, and when to bring in new experience.</p>
+            </article>
+            <article className={styles.feature}>
+              <h3>People priorities that hold together</h3>
+              <p>Hiring, culture and development compete for attention. You need a practical order that follows the business plan.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="advisory-shape">
-        <div className={`${styles.container} ${styles.split}`}>
-          <h2 className={styles.sectionTitle} id="advisory-shape">
-            {pageCopy.shapeTitle}
-          </h2>
-          <div className={styles.bodyCopy}>
-            <p>{pageCopy.shape}</p>
+      <section className={styles.sectionTint} aria-labelledby="advisory-tools">
+        <div className={styles.container}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>Inside the engagement</p>
+            <h2 className={styles.sectionTitle} id="advisory-tools">Use the methods the question needs.</h2>
+            <p className={styles.intro}>A workshop may help a team reach a decision. Coaching can help a leader act on it. A practical document can make the agreement usable. We choose these together.</p>
+          </div>
+          <ul className={styles.methods}>
+            <li><h3>Working sessions</h3><p>One-to-one advice, group workshops or facilitated discussion with the people who need to agree and act.</p></li>
+            <li><h3>Leadership development</h3><p>Focused coaching for an individual or group when the way people lead is part of the decision.</p></li>
+            <li><h3>A usable record</h3><p>Depending on the brief, this may be a prioritised plan, clearer role responsibilities, decision agreements or working guidance.</p></li>
+            <li><h3>A review and handover</h3><p>We test whether the response makes sense in practice and leave your team clear about what it owns next.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <section className={styles.section} aria-labelledby="advisory-ownership">
+        <div className={styles.container}>
+          <div className={styles.twoColumns}>
+            <div className={styles.feature}>
+              <p className={styles.eyebrow}>The right conditions</p>
+              <h2 className={styles.sectionTitle} id="advisory-ownership">You keep the decision and its follow-through.</h2>
+              <p>I bring an outside view, challenge assumptions and help shape the response. Someone in your business needs the authority and time to carry it forward.</p>
+            </div>
+            <div className={styles.feature}>
+              <h3>When the work needs more support</h3>
+              <p>If you need continuing advice, we can agree a review rhythm. If the work needs me to lead an ongoing remit and coordinate its delivery, we should discuss Fractional CPO support.</p>
+              <p>If the underlying problem is still disputed, the Bottleneck Assessment can help establish what we are working on first.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <CompactProcess id="advisory-process" locale={locale} />
+      <CompactProcess locale={locale} id="advisory-process" />
       <AdjacentServiceLinks
+        locale={locale}
         id="advisory-adjacent"
-        links={pageCopy.adjacent}
-        locale={locale}
+        links={[
+          { href: "/bottleneck-assessment", label: "Bottleneck Assessment with Review", text: "Find the cause when the team has different explanations for the same problem." },
+          { href: "/fractional-cpo", label: "Fractional CPO", text: "Bring sustained senior support into the business, with an embedded remit or ongoing advice." },
+        ]}
       />
-      <ContactBand
-        href={contactAction.href}
-        label={contactAction.label}
+      <ServiceClosing
         locale={locale}
-        text={pageCopy.closingText}
-        title={pageCopy.closingTitle}
+        title="Bring the decision you are working on."
+        text="We can talk through what is clear, what is still open and how much support would help."
       />
     </div>
   );

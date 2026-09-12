@@ -22,7 +22,7 @@ export function Breadcrumbs({
 }) {
   const trail: readonly BreadcrumbItem[] = [
     {
-      label: locale === "de" ? "Startseite" : "Home",
+      label: "Home",
       href: getRouteHref("home", locale),
     },
     ...items,
@@ -31,7 +31,7 @@ export function Breadcrumbs({
   return (
     <nav
       className={cn(styles.breadcrumbs, className)}
-      aria-label={locale === "de" ? "Brotkrümelnavigation" : "Breadcrumb"}
+      aria-label="Breadcrumb"
     >
       <ol>
         {trail.map((item, index) => {

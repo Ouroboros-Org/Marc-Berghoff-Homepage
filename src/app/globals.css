@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 :root {
+  --navy: #0b203d;
   --blue: #7cb0ff;
   --blue-hover: #6aa4fa;
   --blue-deep: #173d70;
-  --blue-ink: #14345e;
+  --blue-ink: #0b203d;
   --blue-soft: #dceaff;
   --blue-mist: #f1f6ff;
   --yellow: #fec302;
-  --ink: #11151a;
-  --ink-soft: #353b43;
-  --muted: #626b76;
-  --line: #d9dee6;
+  --yellow-soft: #fff1ba;
+  --ink: #12283f;
+  --ink-soft: #3e5062;
+  --muted: #5d6a78;
+  --line: #dce3eb;
   --line-dark: #b8c2d0;
   --paper: #ffffff;
   --canvas: #f7f9fc;
@@ -35,6 +37,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
   background: var(--canvas);
+  scrollbar-color: #8da4bf var(--paper);
 }
 
 body {
@@ -111,6 +114,7 @@ textarea,
 select {
   color: inherit;
   font: inherit;
+  caret-color: var(--blue-deep);
 }
 
 button,
@@ -199,7 +203,8 @@ img {
   z-index: 100;
   top: 0;
   border-bottom: 1px solid rgba(23, 61, 112, 0.12);
-  background: rgba(247, 249, 252, 0.96);
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
 
@@ -208,7 +213,7 @@ img {
   width: min(100%, calc(var(--container) + (var(--gutter) * 2)));
   min-height: 4.8rem;
   align-items: center;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
+  gap: clamp(0.6rem, 1.4vw, 1.4rem);
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -235,7 +240,7 @@ img {
   bottom: -0.27rem;
   width: 0.7rem;
   height: 0.7rem;
-  background: var(--yellow);
+  background: #fff1ba;
   content: "";
 }
 
@@ -276,6 +281,25 @@ img {
   position: relative;
 }
 
+.desktop-nav__assessment {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.62rem;
+  color: var(--blue-deep);
+  font-size: 0.86rem;
+  font-weight: 650;
+  white-space: nowrap;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.desktop-nav__assessment:hover,
+.desktop-nav__assessment[aria-current="page"] {
+  color: var(--blue-ink);
+  background: var(--blue-soft);
+}
+
 .desktop-nav .desktop-nav__trigger {
   min-height: 2.75rem;
   padding-inline: 0.62rem;
@@ -283,6 +307,7 @@ img {
   font-size: 0.86rem;
   font-weight: 650;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .desktop-nav__trigger:hover {
@@ -570,20 +595,16 @@ img {
 
 }
 
-@media (max-width: 54rem) {
-  :root {
-    --section: clamp(4rem, 12vw, 6rem);
-  }
-
+@media (max-width: 70rem) {
   .site-header {
     background: var(--canvas);
+    -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 
   .desktop-nav,
   .header-cta,
-  .header-social,
-  .header-locale {
+  .header-social {
     display: none !important;
   }
 
@@ -762,8 +783,11 @@ img {
     margin-top: 0.15rem;
   }
 
-  .mobile-nav__locale {
-    justify-self: center;
+}
+
+@media (max-width: 54rem) {
+  :root {
+    --section: clamp(4rem, 12vw, 6rem);
   }
 
   .site-footer__primary {

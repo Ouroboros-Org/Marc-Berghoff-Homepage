@@ -1,8 +1,9 @@
 import Image from "next/image";
 
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { CredentialBadges } from "@/components/credential-badges";
 import {
   ContactBand,
-  PageHero,
   TextLink,
   secondaryPageStyles as styles,
 } from "@/components/pages/editorial";
@@ -34,7 +35,7 @@ type AboutCopy = {
 const copy = {
   en: {
     breadcrumb: "About me",
-    heroRole: "Organisational Psychologist · Vistage Chair · Executive Coach",
+    heroRole: "Fractional CPO · Organisational Psychologist · Executive Coach",
     heroStatement:
       "I work with founders and leadership teams on the problems that sit between the people and the way the business actually works.",
     pathTitle: "The path",
@@ -53,7 +54,7 @@ const copy = {
         title: "ICF Associate Certified Coach",
         text: "350+ coaching hours",
       },
-      { title: "Co-Active trained", text: null },
+      { title: "Certified Professional Co-Active Coach", text: "CPCC, Co-Active Training Institute" },
       {
         title: "Vistage Chair",
         text: "I chair a peer advisory group of business owners in Malta",
@@ -90,103 +91,40 @@ const copy = {
     closingText:
       "The first conversation is free and typically takes 30 minutes. I use it to understand the question and tell you whether I am the right person for it.",
   },
-  de: {
-    breadcrumb: "Über mich",
-    heroRole: "Organisationspsychologe · Vistage Chair · Executive Coach",
-    heroStatement:
-      "Ich arbeite mit Gründerinnen, Gründern und Führungsteams an Problemen, die zwischen den Menschen und der tatsächlichen Arbeitsweise des Unternehmens liegen.",
-    pathTitle: "Mein Weg",
-    path: [
-      "Ich habe erst einmal das deutsche Ding gemacht und Praktika gesammelt: bei Freudenberg Sealing Technologies, Fresenius Medical Care, zwei Monate bei Nintendo und bei Mitsubishi Fuso in Japan. Danach arbeitete ich intern im People-Bereich, meist in Unternehmen, die schneller wuchsen als ihre Strukturen. Dazu gehörte ein Solar-Scale-up, das später von E.ON übernommen wurde. Unterwegs habe ich ein Unternehmen mitgegründet. Dabei habe ich mehr darüber gelernt, wie Gründer tatsächlich entscheiden, als es von außen je möglich gewesen wäre.",
-      "Nach fast einem Jahrzehnt in HR, Coaching und Organisationsentwicklung arbeite ich heute selbstständig von Malta aus. Meine Kunden sind vor allem inhabergeführte Unternehmen in Malta, Deutschland und der übrigen EU.",
-    ],
-    portraitAlt: "Marc Berghoff sitzt in einem Büro",
-    credentialsTitle: "Qualifikationen",
-    credentials: [
-      {
-        title: "Organisationspsychologe",
-        text: "MSc in Psychologie, angewandt auf Organisations- und Führungsfragen",
-      },
-      {
-        title: "ICF Associate Certified Coach",
-        text: "Mehr als 350 Coaching-Stunden",
-      },
-      { title: "Co-Active-Training", text: null },
-      {
-        title: "Vistage Chair",
-        text: "Ich leite in Malta eine Peer-Advisory-Gruppe für Unternehmensinhaber",
-      },
-      {
-        title: "Dozent für Training und Entwicklung",
-        text: null,
-      },
-    ],
-    beliefsTitle: "Was ich über diese Arbeit glaube",
-    beliefs: [
-      "Wenn ein Unternehmen hinter seinen Möglichkeiten bleibt, liegt der Grund meistens im Führungsteam.",
-      "Die Gründer, die ich treffe, sind oft die Menschen, die im Unternehmen am härtesten arbeiten. Sie wissen am meisten und entscheiden am schnellsten. Häufig liegen sie auch richtig. Genau deshalb verlässt sich das Unternehmen immer wieder auf sie.",
-      "Ich sehe Führungskräfte, die zu nah an der Arbeit sind oder zu sehr daran hängen, selbst die Lösung zu liefern. Dabei übersehen sie, was gute Führung mit der Zeit bewirkt. Andere gewinnen Eigenständigkeit und kommen ihrem Niveau näher. Die Führungskraft bekommt Zeit für die Arbeit, die nur sie übernehmen kann.",
-      "Ich glaube, dass die meisten Menschen gute Führungskräfte sein können. Manchen liegt es. Für alle anderen ist es eine Fähigkeit, die sich lernen lässt.",
-      "Der Satz ist kitschig und stimmt trotzdem: Wer schnell sein will, geht allein. Wer weit kommen will, geht gemeinsam.",
-      "Wenn es Ihnen um Geschwindigkeit geht, bauen Sie das Unternehmen auf, führen Sie es selbst, gehen Sie so nah an den Burnout, wie Sie es verantworten können, und verkaufen Sie zu einem Preis, der sich richtig anfühlt. Ich helfe Ihnen, dabei heil zu bleiben. Wenn das Unternehmen Bestand haben soll, richtet sich die Arbeit stärker auf die Menschen um Sie herum und auf die Entscheidungen, die sie übernehmen müssen.",
-    ],
-    outsideTitle: "Außerhalb der Arbeit",
-    outside: [
-      "Ich bin Deutscher, lebe auf Malta und klettere. Meistens bouldere ich. Dabei scheitert man so lange am selben Problem, bis es plötzlich klappt. Darüber habe ich mehr über Lernen verstanden als aus den meisten Texten zu diesem Thema.",
-      "Ich habe ein Jahr in Tokio und sechs Monate in Medellín gelebt. Beides hat meinen Blick auf Geschichte, Tradition, Geduld und ein gutes Leben verändert. Japan wäre bis heute der erste Ort, an den ich zurückkehren würde.",
-      "Ich koche fast so gern, wie ich esse. Zu einer guten Woche gehören für mich ein langer Tisch und zu viel Essen. An meinen Chilaquiles arbeite ich noch. Kaffee bereite ich langsam zu, und ich schreibe mit Füllfederhaltern.",
-      "Meistens lese ich Wirtschaftsbücher. Ich weiß, das ist eine langweilige Antwort. Dazu kommt die Belletristik, zu der mich jemand überredet. Acquired höre ich seit Jahren. Wie ein Unternehmen tatsächlich aufgebaut wurde, interessiert mich noch immer mehr als die geglättete Geschichte, die es später darüber erzählt.",
-      "Ich habe vollständig remote, hybrid und im Büro gearbeitet. Wenn ich wählen kann, möchte ich zumindest ab und zu mit den Menschen im selben Raum sein. Es entsteht eine besondere Energie, wenn Menschen gemeinsam vorankommen wollen. Einen großen Teil meiner heutigen Arbeit verbringe ich deshalb damit, Führungskräfte in einen Raum zu bringen und dort zu halten, bis Entscheidungen getroffen und Richtungen klar sind.",
-    ],
-    startTitle: "So beginnt die Zusammenarbeit",
-    start: [
-      "Ein kostenloses Gespräch von 30 Minuten. Ein schriftlich festgehaltener Umfang, bevor bezahlte Arbeit beginnt. Dann die Arbeit selbst, mit einem klaren Endpunkt.",
-      "Wenn ich nicht der Richtige bin, sage ich das. Und wenn ich jemanden sinnvoll empfehlen kann, tue ich das.",
-    ],
-    processLink: "Den vollständigen Ablauf ansehen",
-    closingTitle: "Bringen Sie die Entscheidung mit, die immer wieder bei Ihnen landet.",
-    closingText:
-      "Das erste Gespräch ist kostenlos und dauert normalerweise 30 Minuten. Ich nutze es, um Ihre Frage zu verstehen und offen zu sagen, ob ich der Richtige dafür bin.",
-  },
-} as const satisfies Record<SiteLocale, AboutCopy>;
+} as const satisfies { en: AboutCopy };
 
 export function AboutPageView({ locale }: { locale: SiteLocale }) {
-  const pageCopy = copy[locale];
+  const pageCopy = copy.en;
   const contactAction = getPrimaryContactAction(locale);
 
   return (
     <div className={styles.page} lang={locale}>
-      <PageHero
-        breadcrumbs={[{ label: pageCopy.breadcrumb }]}
-        lead={
-          <>
-            <p className={aboutStyles.heroRole}>
-              <strong>{pageCopy.heroRole}</strong>
-            </p>
-            <p className={aboutStyles.heroStatement}>{pageCopy.heroStatement}</p>
-          </>
-        }
-        locale={locale}
-        title="Marc Berghoff"
-      />
-
-      <section className={styles.section} aria-labelledby="about-path">
-        <div className={`${styles.container} ${styles.split}`}>
-          <figure>
-            <div className={styles.portraitImageWrap}>
+      <header className={aboutStyles.hero}>
+        <div className={styles.container}>
+          <Breadcrumbs items={[{ label: pageCopy.breadcrumb }]} />
+          <div className={aboutStyles.heroGrid}>
+            <div className={aboutStyles.heroCopy}>
+              <p className={aboutStyles.eyebrow}>The person behind the work</p>
+              <h1 className={aboutStyles.heroTitle}>Marc Berghoff</h1>
+              <p className={aboutStyles.heroRole}>{pageCopy.heroRole}</p>
+              <p className={aboutStyles.heroStatement}>{pageCopy.heroStatement}</p>
+              <p className={aboutStyles.location}>Based in Malta. Working across Europe.</p>
+            </div>
+            <div className={aboutStyles.heroPortrait}>
               <Image
                 alt={pageCopy.portraitAlt}
-                className={styles.portraitImage}
                 fill
-                sizes="(max-width: 928px) calc(100vw - 2rem), 38vw"
+                priority
+                sizes="(max-width: 768px) calc(100vw - 2rem), (max-width: 1200px) 40vw, 470px"
                 src="/images/portraits/marc-seated-original.webp"
               />
             </div>
-            <figcaption className={styles.portraitCaption}>
-              <span>Marc Berghoff</span>
-              <span>{pageCopy.heroRole}</span>
-            </figcaption>
-          </figure>
+          </div>
+        </div>
+      </header>
+
+      <section className={styles.section} aria-labelledby="about-path">
+        <div className={aboutStyles.proseContainer}>
           <div className={aboutStyles.pathCopy}>
             <h2 className={styles.sectionTitle} id="about-path">
               {pageCopy.pathTitle}
@@ -201,12 +139,15 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
       </section>
 
       <section className={styles.sectionTint} aria-labelledby="about-credentials">
-        <div className={styles.container}>
-          <h2 className={styles.sectionTitle} id="about-credentials">
-            {pageCopy.credentialsTitle}
-          </h2>
+        <div className={`${styles.container} ${aboutStyles.credentialsLayout}`}>
+          <div>
+            <h2 className={styles.sectionTitle} id="about-credentials">
+              {pageCopy.credentialsTitle}
+            </h2>
+            <CredentialBadges className={aboutStyles.badges} />
+          </div>
           <dl
-            className={`${aboutStyles.credentialList} ${styles.bodyCopy} ${styles.spacedTop}`}
+            className={`${aboutStyles.credentialList} ${styles.bodyCopy}`}
           >
             {pageCopy.credentials.map((credential) => (
               <div className={aboutStyles.credentialRow} key={credential.title}>
@@ -237,6 +178,15 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
           </div>
         </div>
       </section>
+
+      <div className={aboutStyles.workshopBreak}>
+        <Image
+          alt="Marc at a table in conversation, with an open notebook"
+          fill
+          sizes="(max-width: 1200px) calc(100vw - 2rem), 1184px"
+          src="/images/generated/marc-workshop.webp"
+        />
+      </div>
 
       <section className={styles.sectionTint} aria-labelledby="about-outside">
         <div className={aboutStyles.proseContainer}>
