@@ -18,6 +18,7 @@
 
 .feature .kicker { color: var(--page-blue); }
 .feature h2 {
+  color: white;
   max-width: 18ch;
   margin: 0 0 1.3rem;
   font-family: var(--page-font-display);

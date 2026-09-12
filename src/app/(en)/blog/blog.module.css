@@ -68,7 +68,11 @@
   gap: 1.6rem;
   padding: clamp(1.4rem, 3.5vw, 2.5rem);
   background: var(--page-white);
+  transition: background-color 180ms ease;
 }
+
+.articleCard:has(a:hover),
+.articleCard:focus-within { background: color-mix(in srgb, var(--page-yellow) 18%, white); }
 
 .cardTitle {
   margin: 0.75rem 0 1rem;
@@ -102,7 +106,7 @@
   overflow: hidden;
   padding: clamp(4.5rem, 10vw, 8.5rem) 0 clamp(3.5rem, 8vw, 6.5rem);
   border-bottom: 1px solid var(--page-line);
-  background: color-mix(in srgb, var(--page-blue) 10%, var(--page-paper));
+  background: var(--page-blue-deep);
 }
 
 .articleHeader::after {
@@ -126,7 +130,15 @@
 
 .articleBreadcrumbs {
   margin-bottom: clamp(2rem, 5vw, 4rem);
+  color: #cdddf1;
 }
+
+.articleBreadcrumbs a,
+.articleBreadcrumbs span[aria-current="page"] { color: #e1ebf8; }
+.articleBreadcrumbs a:hover { color: var(--page-yellow); }
+.articleBreadcrumbs a:focus-visible { outline-color: var(--page-yellow); }
+.articleHeader .articleCategory { color: var(--page-yellow); }
+.articleHeader .meta { color: #cdddf1; }
 
 .articleTitle {
   max-width: 18ch;
@@ -137,12 +149,13 @@
   letter-spacing: -0.04em;
   line-height: 0.96;
   text-wrap: balance;
+  color: white;
 }
 
 .articleStandfirst {
   max-width: 47rem;
   margin: 0;
-  color: color-mix(in srgb, var(--page-ink) 78%, var(--page-white));
+  color: #e1ebf8;
   font-size: clamp(1.08rem, 2vw, 1.4rem);
   line-height: 1.62;
 }
@@ -196,6 +209,8 @@
 .proseSection {
   scroll-margin-top: 7rem;
 }
+
+.prose > p + .proseSection { margin-top: clamp(3rem, 6vw, 4rem); }
 
 .proseSection + .proseSection {
   margin-top: clamp(3rem, 7vw, 5rem);
@@ -259,6 +274,15 @@
   padding-block: 1.4rem;
 }
 
+.articleCover { width: min(100% - 2rem, 66rem); margin: 3rem auto 0; }
+.articleImage { margin: 2rem 0; }
+.articleCover img,
+.articleImage img { width: 100%; height: auto; border-radius: .4rem; }
+.articleCover figcaption,
+.articleImage figcaption { margin-top: .75rem; color: var(--page-muted); font-size: .85rem; line-height: 1.6; }
+.sources { margin-top: clamp(3rem, 6vw, 5rem); }
+.sources a { color: var(--page-blue-deep); text-decoration: underline; text-underline-offset: .25em; }
+
 .authorNote strong {
   font-family: var(--page-font-display);
   font-size: 1.05rem;
@@ -293,7 +317,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .readLink svg {
+  .readLink svg,
+  .articleCard {
     transition: none;
   }
 }
