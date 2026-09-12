@@ -25,3 +25,68 @@ export const TESTIMONIALS = [
     attribution: "Chris Mercieca, Giftagoods",
   },
 ] as const;
+
+export type CaseStudy = {
+  slug: string;
+  href: string;
+  title: string;
+  kicker: string;
+  metric: string;
+  metricLabel: string;
+  summary: string;
+  client: string;
+  engagement: string;
+  sections: readonly {
+    heading: string;
+    paragraphs: readonly string[];
+  }[];
+  outcomes: readonly {
+    value: string;
+    label: string;
+    context: string;
+  }[];
+  testimonial?: {
+    quote: string;
+    attribution: string;
+  };
+  laterContext?: string;
+};
+
+export const CASE_STUDIES: readonly CaseStudy[] = [
+  {
+    ...FEATURED_CASE,
+    client: "Klarsolar",
+    engagement: "Head of HR and interim management",
+    sections: [
+      {
+        heading: "A business growing quickly",
+        paragraphs: [
+          "Following funding from Global Founders Capital, Klarsolar entered a period of rapid expansion. Its team grew from 35 to 150 people in six months.",
+        ],
+      },
+      {
+        heading: "My contribution",
+        paragraphs: [
+          "I worked as Head of HR, supporting the business through that growth. The engagement also included interim-management support when needed.",
+          "That experience of leading people work inside a growing company informs the Fractional CPO work I do today.",
+        ],
+      },
+      {
+        heading: "The company outcomes",
+        paragraphs: [
+          "Alongside the increase in team size, Klarsolar recorded more than 100% revenue growth over two years during the period of support. My contribution sat within the wider work of the company and its leadership team.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "35 → 150", label: "People", context: "Team growth over six months" },
+      { value: ">100%", label: "Revenue growth", context: "Over two years during the period of support" },
+    ],
+    testimonial: TESTIMONIALS[0],
+    laterContext: "Klarsolar was later acquired by E.ON.",
+  },
+];
+
+export function getCaseStudy(slug: string) {
+  return CASE_STUDIES.find((caseStudy) => caseStudy.slug === slug);
+}

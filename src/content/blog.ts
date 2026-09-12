@@ -1,7 +1,16 @@
+export type BlogImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+};
+
 export type BlogSection = {
   heading: string;
   paragraphs: readonly string[];
   points?: readonly string[];
+  image?: BlogImage;
 };
 
 export type BlogPost = {
@@ -12,7 +21,9 @@ export type BlogPost = {
   publishedAt: string;
   updatedAt: string;
   intro: string;
+  image?: BlogImage;
   sections: readonly BlogSection[];
+  sources?: readonly { label: string; href: string }[];
   nextStep: {
     label: string;
     href: string;
@@ -122,19 +133,19 @@ export const BLOG_POSTS: readonly BlogPost[] = [
   },
   {
     slug: "when-fractional-people-leadership-makes-sense",
-    title: "When a fractional people remit fits",
+    title: "When a Fractional CPO makes sense",
     description:
       "Choose between advice, a permanent hire and a defined part-time remit by looking at who needs to carry the work now.",
-    category: "Fractional People Leadership",
+    category: "Fractional CPO",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-08-11",
+    updatedAt: "2026-09-12",
     intro:
       "The people agenda may already fill half the founder's week, while the long-term leadership role is still hard to define. Hiring quickly can lock in the wrong brief. Waiting leaves important work without an owner. A defined part-time remit can cover that awkward middle period.",
     sections: [
       {
         heading: "Do you need advice or an owner?",
         paragraphs: [
-          "Occasional advice fits a founder who still has the time and authority to carry the work. Fractional People Leadership goes further. The external leader joins the operating rhythm, owns an agreed remit and follows decisions through with managers, HR colleagues and specialist providers.",
+          "Occasional advice fits a founder who still has the time and authority to carry the work. A Fractional CPO takes responsibility for an agreed people remit, joins the operating rhythm and follows decisions through with managers, HR colleagues and specialist providers.",
           "Write down what must be different over the next few months. If the list depends on somebody attending leadership meetings, coordinating contributors and making day-to-day calls, you are describing ownership. If you mainly want to test a choice before acting, advisory may be enough.",
         ],
       },
@@ -166,66 +177,59 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       },
     ],
     nextStep: {
-      label: "See Fractional People Leadership",
+      label: "Explore Fractional CPO support",
       href: "/fractional-people-leadership",
     },
   },
   {
     slug: "executive-coaching-advisory-or-assessment",
-    title: "Coaching, advice, assessment or defined responsibility?",
+    title: "Assessment, focused advisory or a Fractional CPO?",
     description:
-      "Choose the starting point by asking who should carry the work and how much is actually known about the cause.",
-    category: "Working formats",
+      "Choose the starting point by asking what you already know, what needs to change and who can carry the work.",
+    category: "Working together",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-08-11",
+    updatedAt: "2026-09-12",
     intro:
-      "A founder says the leadership team avoids difficult decisions. One person may need coaching. The team may need evidence. A visible decision may need a second view, or the work may need an owner. The symptom cannot choose the format on its own.",
+      "A founder says the leadership team avoids difficult decisions. The cause may still be unclear. The cause may be understood but the response uncertain. Or the company may know what needs to happen and lack the senior support to carry it through. Those situations suggest different starting points.",
     sections: [
       {
-        heading: "Start with who owns the question",
+        heading: "Start with what is known",
         paragraphs: [
-          "Ask who wants the work, who will take part and who is expected to act on what emerges. Coaching has an individual client. Advisory supports the person or group carrying a defined business decision. An organisational assessment gathers evidence across the relevant part of the company for its decision-makers.",
-          "That distinction affects confidentiality. It also sets the limit of what the work can establish. One person's account can be excellent material for coaching; it cannot tell you, by itself, what is happening across a whole team.",
+          "Ask the people involved to describe the issue before they propose a solution. If they give competing accounts, the first piece of work may need to establish evidence. If they agree on the issue, ask what still prevents them from acting.",
+          "The answer might be a difficult choice, conflicting priorities, limited time or a missing owner. It helps to name that gap before choosing the level of support.",
         ],
       },
       {
-        heading: "Coaching keeps the work with the leader",
+        heading: "Assessment when the underlying issue is unclear",
         paragraphs: [
-          "Executive Coaching fits when the central question concerns a leader's behaviour, judgement or experience of the role. They may bring a conflict, a difficult decision or a response they want to change. The sessions examine their part in the situation and what they will try next.",
-          "Coaching should not quietly become an investigation of colleagues who never agreed to take part. If the leader needs facts about the wider system, pause and define a separate piece of work with the organisation.",
+          "The Full Bottleneck Assessment with Review draws on conversations, a questionnaire and relevant operating evidence. It gives the leadership team a focused finding to examine together.",
+          "The review is part of the engagement. The team tests the evidence, considers what it means and agrees what to do next. It may have enough clarity to continue independently.",
         ],
       },
       {
-        heading: "Advisory fits a decision you can already name",
+        heading: "Focused advisory when the issue is understood",
         paragraphs: [
-          "A senior hire, a restructure or a change in responsibilities may need an experienced second view. The adviser can test the framing, examine trade-offs and help organise the next action. The leadership team still makes the decision.",
-          "Advisory becomes less reliable when each person gives a different account of the cause. At that point, a persuasive opinion can harden the wrong explanation. More evidence may be worth the extra time.",
+          "A senior hire, a restructure or a change in responsibilities may need an experienced second view. A short Strategic People Advisory engagement can test the options, clarify priorities and shape an approach the business can implement.",
+          "We agree the question, the work and its end point before starting. The leadership team keeps the decision. A workshop, coaching conversation or working document may help, depending on the question.",
         ],
       },
       {
-        heading: "Defined responsibility fits when somebody needs to carry the remit",
+        heading: "Ongoing support when the work needs sustained attention",
         paragraphs: [
-          "A founder may understand the problem and still lack a credible owner for the work. In that case, another opinion changes very little. In Fractional People Leadership, I take an agreed remit, join the operating rhythm and follow the decisions through.",
-          "The boundary matters. Write down the decisions I can make, the support available inside the company and the person who should receive the work later. If that cannot be made clear, the remit is not ready.",
+          "As a Fractional CPO, I take an agreed people remit and work within the company's operating rhythm. The agreement names my decision rights, the internal support available and how the work will be reviewed and handed over.",
+          "Ongoing Strategic People Advisory can fit when the business already has someone to carry the work and wants regular senior input. The distinction is responsibility: the client retains ownership in an advisory arrangement.",
         ],
       },
       {
-        heading: "Assessment fits a cause that is still disputed",
+        heading: "Choose the tools inside the engagement",
         paragraphs: [
-          "Use an organisational assessment when the symptoms cross roles or functions and the leadership team cannot agree on what sustains them. The work draws on qualitative and quantitative input from the people involved, alongside relevant operating evidence.",
-          "The output should be narrow enough to act on. A long catalogue of every weakness in the organisation usually sends the team back into debate. A focused assessment identifies the main constraint and gives the report workshop a place to begin.",
-        ],
-      },
-      {
-        heading: "Change formats openly",
-        paragraphs: [
-          "One format can reveal a need for another. Coaching may surface an organisational concern. An assessment may show that one leader would benefit from individual work. Expansion is not automatic.",
-          "When the format changes, define the client, question and confidentiality boundary again. You may decide the original work is enough. That is a legitimate outcome too.",
+          "Coaching, leadership development, workshops and operational documents can all contribute to the work. Their purpose follows the agreed engagement. Confidentiality and the people involved still need to be clear, especially when individual coaching sits alongside team work.",
+          "You can start with the engagement that fits what you already know. The free introductory conversation is also available if you want to talk through the situation before deciding.",
         ],
       },
     ],
     nextStep: {
-      label: "See how the formats differ",
+      label: "Explore the three engagements",
       href: "/services",
     },
   },
