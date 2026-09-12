@@ -27,7 +27,7 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
         locale={locale}
         breadcrumb={engagement.title}
         eyebrow="Strategic People Advisory"
-        title="A clear issue. A practical way forward."
+        title="Work through your decision. Agree a practical response."
         lead="Bring a people, leadership or organisation question you can already see. I help you test the options, agree priorities and shape a response your team can carry forward."
         aside={{
           label: "A typical starting point",
@@ -52,12 +52,12 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
         <div className={styles.container}>
           <div className={styles.sectionHeading}>
             <p className={styles.eyebrow}>Questions worth working through</p>
-            <h2 className={styles.sectionTitle} id="advisory-decisions">What does the business need from its people next?</h2>
+            <h2 className={styles.sectionTitle} id="advisory-decisions">What does your business need from its people next?</h2>
           </div>
           <div className={styles.threeColumns}>
             <article className={styles.feature}>
               <h3>Clearer roles and decisions</h3>
-              <p>Responsibilities overlap, a decision keeps returning to the founder, or a new management layer needs a clear purpose.</p>
+              <p>Responsibilities overlap, the same decision keeps coming back to you, or a new management layer needs a clear purpose.</p>
             </article>
             <article className={styles.feature}>
               <h3>Leadership that keeps pace</h3>
@@ -75,7 +75,7 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
         <div className={styles.container}>
           <div className={styles.sectionHeading}>
             <p className={styles.eyebrow}>Inside the engagement</p>
-            <h2 className={styles.sectionTitle} id="advisory-tools">Use the methods the question needs.</h2>
+            <h2 className={styles.sectionTitle} id="advisory-tools">Choose the methods that help your team act.</h2>
             <p className={styles.intro}>A workshop may help a team reach a decision. Coaching can help a leader act on it. A practical document can make the agreement usable. We choose these together.</p>
           </div>
           <ul className={styles.methods}>
@@ -92,12 +92,12 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
           <div className={styles.twoColumns}>
             <div className={styles.feature}>
               <p className={styles.eyebrow}>The right conditions</p>
-              <h2 className={styles.sectionTitle} id="advisory-ownership">You keep the decision and its follow-through.</h2>
+              <h2 className={styles.sectionTitle} id="advisory-ownership">You decide. Your team puts the plan into practice.</h2>
               <p>I bring an outside view, challenge assumptions and help shape the response. Someone in your business needs the authority and time to carry it forward.</p>
             </div>
             <div className={styles.feature}>
               <h3>When the work needs more support</h3>
-              <p>If you need continuing advice, we can agree a review rhythm. If the work needs me to lead an ongoing remit and coordinate its delivery, we should discuss Fractional CPO support.</p>
+              <p>If you need continuing advice, we can agree regular reviews. If you need me to take responsibility for ongoing people work and coordinate delivery, we can discuss Fractional CPO support.</p>
               <p>If the underlying problem is still disputed, the Bottleneck Assessment can help establish what we are working on first.</p>
             </div>
           </div>
@@ -109,8 +109,8 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
         locale={locale}
         id="advisory-adjacent"
         links={[
-          { href: "/bottleneck-assessment", label: "Bottleneck Assessment with Review", text: "Find the cause when the team has different explanations for the same problem." },
-          { href: "/fractional-cpo", label: "Fractional CPO", text: "Bring sustained senior support into the business, with an embedded remit or ongoing advice." },
+          { href: "/bottleneck-assessment", label: "Bottleneck Assessment with Review", text: "Understand the issue when your team has different explanations." },
+          { href: "/fractional-cpo", label: "Fractional CPO", text: "Work with me over time, in an agreed CPO role or through ongoing advice." },
         ]}
       />
       <ServiceClosing

@@ -28,12 +28,12 @@ export function BottleneckAssessmentPageView({ locale }: { locale: SiteLocale })
         locale={locale}
         breadcrumb="Bottleneck Assessment"
         eyebrow="Bottleneck Assessment with Review"
-        title="Find the bottleneck. Agree what comes next."
-        lead="When the team has different explanations for the same problem, evidence helps. I combine interviews, a questionnaire and a written report with a leadership review of the findings."
+        title="Find the bottleneck. Decide what to change."
+        lead="Understand the issue before you decide how to respond. I bring together interviews, a questionnaire and a written report, then work through the findings with your leadership team."
         aside={{
           label: "The engagement",
           value: "Typically 2–3 weeks",
-          note: "From kickoff to review workshop. The scope and fixed fee are agreed before we start.",
+          note: "From our first working session to the review workshop. Timing follows the scope, with a fixed fee agreed before we start.",
         }}
         secondary={{
           href: "#full-assessment",
@@ -66,7 +66,7 @@ export function BottleneckAssessmentPageView({ locale }: { locale: SiteLocale })
             </li>
             <li>
               <h3>Compare the evidence</h3>
-              <p>I write a report covering the main finding, likely causes and operating consequences. A 20–30 minute check-in with you before the workshop helps test what is emerging.</p>
+              <p>I write a report covering the main finding, likely causes and effects on your business. A 20–30 minute check-in with you before the workshop helps test what is emerging.</p>
             </li>
             <li>
               <h3>Review and decide</h3>
@@ -81,12 +81,12 @@ export function BottleneckAssessmentPageView({ locale }: { locale: SiteLocale })
           <div className={styles.textColumn}>
             <p className={styles.eyebrow}>What your team keeps</p>
             <h2 className={styles.sectionTitle} id="assessment-report">A report you can question and use.</h2>
-            <p>The report makes the reasoning visible. It gives the team something concrete to examine, rather than another opinion to agree or disagree with.</p>
+            <p>You can see how the findings follow from the evidence. The report gives your team a shared basis for discussion and decisions.</p>
             <ol className={styles.reportQuestions}>
-              <li>What organisational bottleneck best explains the business issue?</li>
+              <li>What organisational bottleneck best explains your business issue?</li>
               <li>Which recurring observations and decision patterns support the finding?</li>
               <li>Where does the bottleneck consume leadership attention or slow important work?</li>
-              <li>Which decisions and first steps will the leadership team agree after discussing it?</li>
+              <li>Which decisions and first steps will your leadership team agree after discussing it?</li>
             </ol>
           </div>
           <figure className={styles.reportFigure}>
@@ -152,7 +152,7 @@ export function BottleneckAssessmentPageView({ locale }: { locale: SiteLocale })
         id="assessment-adjacent"
         links={[
           { href: "/advisory", label: "Strategic People Advisory", text: "Use a focused engagement to work out the response when the underlying problem is understood." },
-          { href: "/fractional-cpo", label: "Fractional CPO", text: "Bring ongoing strategic support or an embedded senior owner to the people agenda." },
+          { href: "/fractional-cpo", label: "Fractional CPO", text: "Get ongoing strategic advice or ask me to take responsibility for agreed people work." },
         ]}
       />
       <ServiceClosing
