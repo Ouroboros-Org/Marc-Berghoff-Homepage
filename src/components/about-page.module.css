@@ -1,4 +1,36 @@
+.hero {
+  padding-block: clamp(2rem, 4vw, 3.5rem) clamp(3rem, 6vw, 5rem);
+  background: white;
+}
+
+.heroGrid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.heroCopy { min-width: 0; }
+.eyebrow {
+  margin: 0 0 1.4rem;
+  color: var(--page-blue-deep);
+  font-size: .76rem;
+  font-weight: 750;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0 0 1.6rem;
+  font-family: var(--page-font-display);
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  font-weight: 620;
+  letter-spacing: -.055em;
+  line-height: .96;
+}
+
 .heroRole {
+  max-width: 31rem;
   color: var(--page-ink);
   font-family: var(--page-font-display);
   font-weight: 650;
@@ -8,7 +40,26 @@
 
 .heroStatement {
   max-width: 39rem;
+  margin-top: 1.5rem;
+  color: var(--page-muted);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.7;
 }
+
+.location { margin: 1.5rem 0 0; color: var(--page-muted); font-size: .9rem; }
+.heroPortrait {
+  position: relative;
+  aspect-ratio: 4 / 4.6;
+  max-width: 30rem;
+  width: 100%;
+  justify-self: center;
+  border-radius: 2rem .5rem 2rem .5rem;
+  overflow: hidden;
+  box-shadow: 1rem 1rem 0 color-mix(in srgb, var(--page-blue) 24%, white);
+}
+.heroPortrait img { object-fit: cover; object-position: 50% 45%; }
+.credentialsLayout { display: grid; gap: 2.5rem; }
+.badges { margin-top: 2rem; }
 
 .pathCopy {
   align-self: center;
@@ -61,6 +112,16 @@
   align-self: start;
 }
 
+.workshopBreak {
+  position: relative;
+  width: min(100% - 2rem, 74rem);
+  aspect-ratio: 3 / 2;
+  margin: 0 auto clamp(3rem, 7vw, 6rem);
+  overflow: hidden;
+  border-radius: .6rem;
+}
+.workshopBreak img { object-fit: cover; object-position: 58% 45%; }
+
 @media (min-width: 42rem) {
   .proseContainer {
     width: min(100% - 3rem, 46rem);
@@ -71,4 +132,16 @@
     gap: clamp(2rem, 6vw, 5rem);
     align-items: baseline;
   }
+
+  .workshopBreak { width: min(100% - 3rem, 74rem); aspect-ratio: 16 / 9; }
+}
+
+@media (min-width: 48rem) {
+  .heroGrid { grid-template-columns: 1.1fr .9fr; }
+  .heroPortrait { aspect-ratio: 4 / 5; }
+}
+
+@media (min-width: 62rem) {
+  .credentialsLayout { grid-template-columns: .8fr 1.2fr; gap: 4rem; }
+  .credentialRow { grid-template-columns: 1fr; gap: .6rem; }
 }
