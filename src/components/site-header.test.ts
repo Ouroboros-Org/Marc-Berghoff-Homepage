@@ -11,6 +11,10 @@ describe("header navigation state", () => {
     expect(getActiveHeaderGroupId("/bottleneck-assessment")).toBe("work");
   });
 
+  it("keeps the independent self-check outside the engagement groups", () => {
+    expect(getActiveHeaderGroupId("/self-check")).toBeNull();
+  });
+
   it.each([
     ["/advisory", "work"],
     ["/fractional-cpo", "work"],

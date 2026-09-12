@@ -12,7 +12,7 @@ Founders, senior leaders and leadership teams in growing companies. They need he
 
 ## Product Purpose
 
-Help visitors understand Marc Berghoff’s Fractional CPO and strategic people advisory work, judge its relevance through specific evidence, and take an appropriate next step. The free 30-minute introductory conversation is open to everyone. Visitors can also explore a dedicated Bottleneck Assessment and its free self-check.
+Help visitors understand Marc Berghoff's Fractional CPO and strategic people advisory work, judge its relevance through specific evidence, and take an appropriate next step. The free 30-minute introductory conversation is open to everyone. An independent self-check gives visitors perspective on patterns in their company. The paid Bottleneck Assessment is a separate service.
 
 ## Positioning
 
@@ -32,7 +32,8 @@ These are flexible starting points, with no minimum or maximum term. Scope, pace
 
 - English only. German pages, language alternates and obsolete standalone coaching/peer-advisory routes are removed. The site is prepared for first indexing, with no legacy redirects.
 - The homepage introduces the offer, four concise quantified outcomes, three engagements, a featured case, testimonials, qualification, imagery, Insights and clear calls to action.
-- The interactive check lives on `/bottleneck-assessment`. All ten statements require explicit answers. Results are available without email; sharing is a separate choice.
+- The interactive self-check lives on `/self-check`. All ten statements require explicit answers. Results offer perspective on company patterns, without diagnosing a bottleneck or prescribing the paid service. Results are available without email; sharing is a separate choice.
+- `/bottleneck-assessment` describes the paid engagement with interviews, a report and a review. It does not contain the short self-check.
 - `/results/klarsolar` is the first full case page. Publish only supported facts, with optional details omitted until supplied.
 - `/blog` uses a reusable article template and manually maintained typed content. Every published article has its own indexable page, overview link, metadata and RSS entry. No CMS is required.
 - The contact form retains its validated Google Forms delivery path. Public email and booking fallbacks use the confirmed mailbox. External form notifications must be configured separately; a code change does not prove inbox receipt.
@@ -41,7 +42,7 @@ These are flexible starting points, with no minimum or maximum term. Scope, pace
 
 ## Brand Commitments
 
-White and dark navy establish the main contrast. Light blue and yellow provide accents; the logo remains light blue and light yellow. Use varied section composition, deliberate whitespace, clear reading order and restrained interactions. Entrances run only on first appearance and respect reduced motion. Static marketing content remains readable without animation or JavaScript; the interactive assessment and form submission require JavaScript.
+White and dark navy establish the main contrast. Light blue and yellow provide accents; the logo remains light blue and light yellow. Use varied section composition, deliberate whitespace, clear reading order and restrained interactions. Entrances and outcome-number animations run only on first appearance and respect reduced motion. Static marketing content remains readable without animation or JavaScript; the interactive self-check and form submission require JavaScript.
 
 Public prose speaks to the reader as “you” and refers to Marc as “I”, “me” or “my”. Use concrete, calm language and avoid inflated causal claims. About remains a personal narrative supported by imagery.
 

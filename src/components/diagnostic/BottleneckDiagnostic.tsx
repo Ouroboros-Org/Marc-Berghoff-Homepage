@@ -2,7 +2,6 @@
 import { AlertCircle, CheckCircle2, ChevronDown, LoaderCircle, RotateCcw, Send, } from "lucide-react";
 import { type CSSProperties, type FormEvent, useEffect, useId, useMemo, useRef, useState, } from "react";
 import { Button, ButtonLink } from "@/components/button";
-import { getRouteHref } from "@/config/routes";
 import { getPrimaryContactAction } from "@/config/site";
 import type { ContactApiResponse } from "@/lib/contact-api";
 import { DIAGNOSTIC_ITEMS, scoreDiagnostic, type DiagnosticAnswers, type DiagnosticItemId, type DiagnosticResult, } from "@/lib/contact-diagnostic";
@@ -196,11 +195,9 @@ export function BottleneckDiagnostic({ id = "bottleneck-check", title, intro, cl
           </p>
 
           <div className={styles.resultActions}>
-            {result.band === "low" ? (<ButtonLink className={styles.resultAction} href={getRouteHref("contact", "en", "#contact-form")} variant="secondary">
-                {copy.lowReferral}
-              </ButtonLink>) : (<ButtonLink className={styles.resultAction} href={primaryContactAction.href} variant="secondary">
+            <ButtonLink className={styles.resultAction} href={primaryContactAction.href} variant="secondary">
                 {primaryContactLabel}
-              </ButtonLink>)}
+              </ButtonLink>
             <Button aria-controls={`${id}-share-form`} aria-expanded={shareOpen} className={styles.resultAction} onClick={openShareForm} variant="secondary">
               <Send aria-hidden="true" size={17}/>
               {copy.shareResult}

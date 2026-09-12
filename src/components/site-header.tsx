@@ -165,7 +165,7 @@ export function SiteHeader({ locale = "en" }: {
                 </Button>
               </div>);
         })}
-          <Link className="desktop-nav__assessment" href="/bottleneck-assessment" aria-current={pathname === "/bottleneck-assessment" ? "page" : undefined}>Bottleneck Assessment</Link>
+          <Link className="desktop-nav__assessment" href={getRouteHref("selfCheck", locale)} aria-current={isCurrentNavigationPage(pathname, getRouteHref("selfCheck", locale)) ? "page" : undefined}>Self-check</Link>
         </nav>
 
         <ButtonLink aria-label={"Open Marc Berghoff's LinkedIn profile"} className="header-social" external href={siteConfig.social.linkedin} icon={false} size="icon" variant="ghost">
@@ -235,7 +235,7 @@ export function SiteHeader({ locale = "en" }: {
         })}
 
           <div className="mobile-nav__actions">
-            <ButtonLink href="/bottleneck-assessment" size="wide" tabIndex={mobileOpen ? 0 : -1} variant="secondary">Bottleneck Assessment</ButtonLink>
+            <ButtonLink href={getRouteHref("selfCheck", locale)} aria-current={isCurrentNavigationPage(pathname, getRouteHref("selfCheck", locale)) ? "page" : undefined} size="wide" tabIndex={mobileOpen ? 0 : -1} variant="accent">Self-check</ButtonLink>
             <ButtonLink cta href={contactAction.href} size="wide" tabIndex={mobileOpen ? 0 : -1}>
               {contactAction.label}
             </ButtonLink>

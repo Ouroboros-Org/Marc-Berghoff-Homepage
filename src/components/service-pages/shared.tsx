@@ -64,7 +64,7 @@ export function ServiceHero({
   title: ReactNode;
   lead: string;
   aside?: { label: string; value: string; note: string };
-  secondary?: { href: string; label: string; helper?: string };
+  secondary?: { href: string; label: string; helper?: string; variant?: "secondary" | "accent" };
 }) {
   const contactAction = getPrimaryContactAction(locale);
 
@@ -90,7 +90,7 @@ export function ServiceHero({
                 <p className={styles.helper}>Free introduction · typically 30 minutes</p>
               </div>
               <div>
-                <ButtonLink href={secondary.href} variant="secondary">{secondary.label}</ButtonLink>
+                <ButtonLink href={secondary.href} variant={secondary.variant ?? "secondary"}>{secondary.label}</ButtonLink>
                 {secondary.helper ? <p className={styles.helper}>{secondary.helper}</p> : null}
               </div>
             </div>

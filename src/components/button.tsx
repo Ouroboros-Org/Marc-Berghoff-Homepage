@@ -13,6 +13,7 @@ import styles from "./button.module.css";
 
 export type ButtonVariant =
   | "primary"
+  | "accent"
   | "secondary"
   | "inverse"
   | "ghost"
@@ -145,4 +146,3 @@ export function ButtonLink({
     </Link>
   );
 }
-

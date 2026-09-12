@@ -406,27 +406,6 @@
   line-height: 1.7;
 }
 
-.checkContainer {
-  width: min(calc(100% - 3rem), 50rem);
-  margin-inline: auto;
-}
-
-.checkContainer > div {
-  scroll-margin-top: 7rem;
-}
-
-.checkNote {
-  margin: 1.5rem 0 0;
-  color: var(--service-muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.checkNote a {
-  color: var(--service-blue);
-  text-underline-offset: 0.2em;
-}
-
 .compactProcess {
   padding-block: 3.5rem;
   background: #edf3fb;
@@ -574,8 +553,7 @@
 }
 
 @media (max-width: 30rem) {
-  .container,
-  .checkContainer {
+  .container {
     width: calc(100% - 2rem);
   }
 

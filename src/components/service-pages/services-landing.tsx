@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/button";
 import { EngagementProcess } from "@/components/engagement-process";
 import { StructuredData } from "@/components/structured-data";
-import type { SiteLocale } from "@/config/routes";
+import { getRouteHref, type SiteLocale } from "@/config/routes";
 import { getPrimaryContactAction, getSiteUrl } from "@/config/site";
 import { ENGAGEMENTS, ENGAGEMENT_SCOPE_NOTE } from "@/content/engagements";
 
@@ -48,9 +48,10 @@ export function ServicesLanding({ locale }: { locale: SiteLocale }) {
           note: "Bring a question, a clear brief, or simply a wish to get to know me.",
         }}
         secondary={{
-          href: "/bottleneck-assessment#bottleneck-check",
-          label: "Start the check",
+          href: getRouteHref("selfCheck", locale),
+          label: "Start self-check",
           helper: "10 statements · about 2 minutes",
+          variant: "accent",
         }}
       />
 

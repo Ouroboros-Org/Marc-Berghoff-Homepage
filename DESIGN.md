@@ -21,7 +21,7 @@ colors:
 typography:
   display:
     fontFamily: "Instrument Sans Variable, Arial Narrow, Arial, sans-serif"
-    fontSize: "clamp(3.2rem, 5.15vw, 5rem)"
+    fontSize: "clamp(2.8rem, 4.35vw, 4.35rem)"
     fontWeight: 570
     lineHeight: 1.07
     letterSpacing: "-0.04em"
@@ -89,21 +89,21 @@ White text belongs on navy. Yellow and light-blue surfaces use dark text. Suppor
 
 Instrument Sans is the display face; Inter is the reading and control face. Most homepage headings use weights around 550–620, while the highlighted role reaches 690. Keep tracking at or above -0.04em and headlines below 6rem. Headings wrap to the actual available space; avoid fixed line breaks that fail at nearby widths.
 
-Use generous separation before a major heading and tighter spacing between its heading and explanation. Do not apply one tall section-height pattern throughout. The outcome band and assessment invitation are compact. The engagements and personal introduction have more breathing room.
+Use generous separation before a major heading and tighter spacing between its heading and explanation. Do not apply one tall section-height pattern throughout. The outcome band and self-check invitation are compact. The engagements and personal introduction have more breathing room.
 
 The homepage container is 77.5rem with fluid gutters. Reading paragraphs usually sit between 40 and 60 characters per line. CTA helper text is outside the button, associated with that action and readable at ordinary mobile widths. Do not shrink text to force the hero into a fixed viewport height.
 
 ## Homepage composition
 
-1. A white hero with the highlighted role, a short explanation, two actions and their helper text. The text begins at a stable top position. The portrait, name and verified credentials form a separate right-hand group on desktop.
-2. A compact navy band with four outcome values, labels and time/context lines. These are static evidence, not clickable counters.
-3. A centred introduction and three comparable engagement cards. Fractional CPO is navy at rest, with a pale-yellow title. Each card exposes the starting situation, what the client receives, typical cadence and a clear link.
-4. A featured case reverses the hero's balance: a navy result block on the left and the story on the right, followed by a supporting testimonial. Link to the full case.
-5. A compact light-blue self-check invitation. The full questionnaire belongs on the Bottleneck Assessment page.
-6. A personal introduction with a workshop image, a smaller genuine portrait and first-person prose. More of Marc's story remains on About.
+1. A white hero with two reader-focused sentences, the highlighted Fractional CPO role, a two-sentence excerpt, and two distinct actions with helper text. The portrait, name and verified credentials form a separate right-hand group on desktop.
+2. A compact navy band with four outcome values, labels and time/context lines. Numbers animate once into their exact final values; these are evidence, not controls.
+3. A personal introduction with a workshop image on the left, a smaller genuine portrait and first-person prose on the right. More of Marc's story remains on About.
+4. A featured case alternates that balance: story on the left and navy result block on the right, followed by a supporting testimonial. Link to the full case. On mobile the numerical result precedes the story.
+5. A compact light-blue self-check invitation linking to the independent `/self-check` page.
+6. A centred introduction and three comparable engagement cards. Fractional CPO is navy at rest, with a pale-yellow title. Each card exposes the starting situation, what the client receives, typical cadence and a clear link.
 7. Paired, static fit criteria. Clearly distinguish strategic support from day-to-day administration or replacement of a whole HR team.
 8. One featured Insight with smaller companion article links and an overview route.
-9. A compact navy invitation to the free conversation, with a message option when booking is available.
+9. A navy invitation to the free conversation. Center the call button and helper directly beneath the copy, with the message link below. A compact white footer provides clear separation, grouped navigation, a call button and a self-check link.
 
 Do not append generic statement sections around this sequence. Evidence replaces repetitive claims. Testimonials remain readable in place without a carousel.
 
@@ -111,7 +111,7 @@ Do not append generic statement sections around this sequence. Evidence replaces
 
 ### Actions and engagement cards
 
-Buttons retain pill geometry and a minimum height of 44px. Primary actions use navy with white text, secondary actions use a quiet outline, and inverse actions use white on navy. Hover changes the surface and foreground together. The booking button has a small static shadow; it has no looping decoration.
+Buttons retain pill geometry and a minimum height of 44px. Book a call uses navy with white text; Start self-check uses the filled yellow accent with navy text. Both are prominent, with calendar and checklist icons distinguishing their purposes. Secondary actions use a quiet outline, and inverse actions use white on navy. Hover preserves the distinction between the two principal actions. The booking button has a small static shadow; it has no looping decoration.
 
 Only interactive cards respond to hover. Engagement cards turn pale yellow with navy text on hover or keyboard focus; article links use navy or a yellow tint. Titles, labels and icons change together. A visible focus outline remains independent of the color change. Static outcomes, quotes and process steps do not receive click-like affordances.
 
@@ -119,7 +119,7 @@ Each engagement card is one link, with no nested buttons. Keep the cards in the 
 
 ### Assessment and process
 
-Home links to `/bottleneck-assessment#bottleneck-check` for the free self-check. A link labelled Bottleneck Assessment opens the service explanation. Keep the two-minute self-check distinct from the paid engagement with interviews, a report and a review.
+Home and the direct menu shortcut link to `/self-check` for the independent free reflection tool. A link labelled Bottleneck Assessment opens `/bottleneck-assessment`, the paid service with interviews, a report and a review. The short self-check offers perspective on company patterns; it is not an abbreviated assessment or a prerequisite to paid work.
 
 The existing four-step engagement process belongs on Services. Use a clear ordered sequence with the step title ahead of secondary metadata. Service choice is a separate decision; do not invent active or selected process steps.
 
@@ -133,13 +133,13 @@ Keep About as a personal narrative with imagery and chronology. Images create pa
 
 ### Motion
 
-The hero and outcome values are immediately available. `Reveal` adds a brief entrance to selected later sections once per element per page visit. It disconnects after first appearance, so scrolling back does not replay it. Use a small 12px rise or a quiet fade; no count-up figures, parallax, autoplay testimonials or looping CTA effects.
+The hero and final outcome values are present in the server render. `Reveal` adds a soft rise or fade to individual headings, cards and story blocks when they first enter the viewport. Avoid wrapping a tall section whose entrance would finish before its lower content appears. Outcome numbers count smoothly to their exact final values on first appearance, with stable width and static accessible text. Scrolling back does not replay motion. Keep timing calm, without bounce, parallax, autoplay testimonials or looping CTA effects.
 
 Content is visible in the server render and without JavaScript. Reduced-motion visitors receive immediate content; changing that preference also cancels an active entrance. Hover transitions are removed under reduced motion.
 
 ### Shared shell, forms and navigation
 
-Preserve working menu semantics, focus handling, Escape behavior, scroll locking and focus return. The assessment must be directly discoverable in both header and footer. Keep a booking/contact action in the shared header. Navigation content follows the current English-only route model.
+Preserve working menu semantics, focus handling, Escape behavior, scroll locking and focus return. Self-check is directly discoverable in header and footer; Bottleneck Assessment remains in the service navigation. Keep a booking/contact action in the shared header. Navigation content follows the current English-only route model.
 
 Keep form labels, validation, errors, success feedback and explicit optional diagnostic sharing. Do not erase answers or contact text on recoverable errors. Keep calendar sizing, scrolling and contact fallbacks usable on phones.
 
