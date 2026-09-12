@@ -4,8 +4,13 @@ import {
   readdirSync,
 } from "node:fs";
 import { join, resolve } from "node:path";
+import { renderToStaticMarkup } from "react-dom/server";
 
 import { describe, expect, it } from "vitest";
+
+import { CASE_STUDIES, FEATURED_CASE, getCaseStudy, TESTIMONIALS } from "@/content/proof";
+import { CaseStudyPageView } from "./case-study-page";
+import { ResultsPageView } from "./results-page";
 
 const repositoryRoot = process.cwd();
 const resultsPath = resolve(repositoryRoot, "src/components/results-page.tsx");
@@ -16,7 +21,7 @@ const engagementIds = [
   "financial-regulator-coaching",
   "igaming-executives-workshops",
   "financial-services-sourcing",
-  "solar-scaleup-head-of-hr",
+  "security-group-hr-leadership",
   "dubai-ceo-owner-mediation",
   "web3-web2-pivot",
   "small-business-owner-chairing",
@@ -51,18 +56,17 @@ const productionSource = collectProductionSource(
 );
 
 describe("results and sample-report content contract", () => {
-  it("keeps both locales in the requested institutional order", () => {
+  it("keeps the established English engagement and speaking order", () => {
     const renderedIds = [...resultsSource.matchAll(/id: "([^"]+)"/g)].map(
       (match) => match[1],
     );
     const localeIds = [...engagementIds, ...speakingIds];
 
-    expect(renderedIds).toEqual([...localeIds, ...localeIds]);
+    expect(renderedIds).toEqual(localeIds);
     expect(resultsSource).toContain(
       "Some clients can be named. Others are described accurately",
     );
     expect(resultsSource).toContain("Named organisations.");
-    expect(resultsSource).toContain("Organisationen, die ich nennen kann.");
   });
 
   it("keeps the requested organisation marks and local files", () => {
@@ -105,12 +109,12 @@ describe("results and sample-report content contract", () => {
     expect(productionSource.replace(resultsSource, "")).not.toMatch(/Web3/i);
   });
 
-  it("keeps the established localized CTA routes", () => {
+  it("keeps the established CTA routes", () => {
     expect(resultsSource).toContain("getPrimaryContactAction(locale)");
     expect(resultsSource).toContain('getRouteHref("services", locale)');
   });
 
-  it("uses current Vistage wording in both locales", () => {
+  it("uses the established English Vistage wording", () => {
     const about = readFileSync(
       resolve(repositoryRoot, "src/components/about-page.tsx"),
       "utf8",
@@ -129,12 +133,29 @@ describe("results and sample-report content contract", () => {
     expect(peerAdvisory).toContain(
       "I chair a Vistage peer advisory group of business owners in Malta.",
     );
-    expect(about).toContain(
-      "Ich leite in Malta eine Peer-Advisory-Gruppe für Unternehmensinhaber",
-    );
-    expect(peerAdvisory).toContain(
-      "Ich leite in Malta eine Vistage Peer-Advisory-Gruppe für Unternehmensinhaber.",
-    );
+  });
+
+  it("links the featured case and preserves the shared testimonial attribution", () => {
+    const html = renderToStaticMarkup(<ResultsPageView locale="en" />);
+    expect(html).toContain('href="/results/klarsolar"');
+    expect(html).toContain("Head of HR, Klarsolar");
+    expect(html).toContain("Chris Mercieca, Giftagoods");
+    expect(html).not.toContain('href="/de/');
+  });
+
+  it("renders the selected case with units and attribution, without invented sample evidence", () => {
+    const caseStudy = getCaseStudy(FEATURED_CASE.slug);
+    expect(caseStudy).toBeDefined();
+    expect(CASE_STUDIES.map(({ slug }) => slug)).toEqual(["klarsolar"]);
+    expect(getCaseStudy("wayline")).toBeUndefined();
+    const html = renderToStaticMarkup(<CaseStudyPageView caseStudy={caseStudy!} />);
+    expect(html).toContain("35 → 150");
+    expect(html).toContain("six months");
+    expect(html).toContain("two years");
+    expect(html).toContain("wider work of the company");
+    expect(html).toContain(TESTIMONIALS[0].attribution);
+    expect(html).not.toMatch(/Wayline|fictional|coming soon/i);
+    expect(html).not.toContain("marc-workshop");
   });
 
   it("removes old first-deployment routes without redirects or stale links", () => {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   ContactBand,
@@ -8,16 +9,14 @@ import {
 } from "@/components/pages/editorial";
 import { getRouteHref, type SiteLocale } from "@/config/routes";
 import { getPrimaryContactAction } from "@/config/site";
+import { FEATURED_CASE, TESTIMONIALS } from "@/content/proof";
+
+import resultStyles from "./results-page.module.css";
 
 type WorkItem = {
   id: string;
   statement: string;
   context?: string;
-};
-
-type ProofQuote = {
-  quote: string;
-  attribution: string;
 };
 
 const clientLogos = [
@@ -86,8 +85,8 @@ const copy = {
         context: "They still run it today.",
       },
       {
-        id: "solar-scaleup-head-of-hr",
-        statement: "Head of HR at a solar scale-up later acquired by E.ON",
+        id: "security-group-hr-leadership",
+        statement: "Interim group-wide HR leadership for a security company with 400 employees across four companies",
       },
       {
         id: "dubai-ceo-owner-mediation",
@@ -106,23 +105,12 @@ const copy = {
       },
     ] satisfies readonly WorkItem[],
     testimonialsTitle: "What clients say.",
-    testimonials: [
-      {
-        quote:
-          "Marc helped us to grow our business after a funding from Global Founders Capital and supported with interim management if needed. He is a great leader, quick thinker, and highly professional. We highly recommend him and wish him all the best for his company!",
-        attribution: "Head of HR, Klarsolar",
-      },
-      {
-        quote:
-          "Marc has been with me through the struggling stage, the getting-by stage, and the doing-pretty-well stage. He’s empathetic enough to relate to your situation, clever enough to advise on a sensible way forward. He doesn’t just follow up, he follows through. I would recommend Marc to anyone that’s feeling stuck in their business or just wants to tighten up their operation.",
-        attribution: "Chris Mercieca, Giftagoods",
-      },
-    ] satisfies readonly ProofQuote[],
+    testimonials: TESTIMONIALS,
     speakingTitle: "Speaking and teaching.",
     speaking: [
       {
         id: "fhrd-keynote",
-        statement: "Keynote at FHRD, Malta’s largest HR conference",
+        statement: "Keynote at FHRD, a major HR conference in Malta",
         context: "On the impact and importance of coaching.",
       },
       {
@@ -141,97 +129,6 @@ const copy = {
     closingText:
       "Tell me what happened and what you have already tried. I will ask about the people involved, then tell you if I can help.",
     secondaryCta: "How I work",
-  },
-  de: {
-    breadcrumbs: [
-      { label: "Über mich", href: "/de/about" },
-      { label: "Ausgewählte Arbeit" },
-    ],
-    title: "Ausgewählte Arbeit",
-    lead: "Einige Auftraggeber kann ich nennen, andere nicht. Deshalb beschreibe ich sie so genau, dass Sie selbst einschätzen können, ob die Arbeit für Ihre Situation relevant ist.",
-    selectedTitle: "Ausgewählte Mandate.",
-    work: [
-      {
-        id: "scaleup-leadership-coaching",
-        statement:
-          "Leadership-Coaching für mehr als zehn Team- und Bereichsleitungen eines Scale-ups mit über 200 Mio. Euro ARR",
-        context: "Die Zusammenarbeit läuft inzwischen im zweiten Jahr.",
-      },
-      {
-        id: "financial-regulator-coaching",
-        statement:
-          "Executive Coaching für zwei Führungskräfte mit Bereichsverantwortung bei Maltas Finanzdienstleistungsaufsicht",
-      },
-      {
-        id: "igaming-executives-workshops",
-        statement:
-          "Zwei Führungskräfte gecoacht und zwei Workshops mit dem Topmanagement einer internationalen iGaming-Veranstaltungs- und Mediengruppe",
-      },
-      {
-        id: "financial-services-sourcing",
-        statement:
-          "Mit dem CFO einer deutschen Finanzdienstleistungsgruppe einen Active-Sourcing-Ansatz aufgebaut",
-        context: "Die Gruppe nutzt ihn bis heute.",
-      },
-      {
-        id: "solar-scaleup-head-of-hr",
-        statement:
-          "Head of HR bei einem Solar-Scale-up, das später von E.ON übernommen wurde",
-      },
-      {
-        id: "dubai-ceo-owner-mediation",
-        statement:
-          "Executive Coaching und Mediation zwischen dem CEO und dem Eigentümer einer Marketingagentur in Dubai",
-      },
-      {
-        id: "web3-web2-pivot",
-        statement:
-          "Die strategische Neuausrichtung eines Web3-Unternehmens auf Web2 moderiert",
-        context: "Zuvor hatte sich der Hauptinvestor zurückgezogen.",
-      },
-      {
-        id: "small-business-owner-chairing",
-        statement:
-          "Laufende Begleitung mehrerer Inhaber kleiner Unternehmen in der Peer-Advisory-Gruppe, die ich leite",
-      },
-    ] satisfies readonly WorkItem[],
-    testimonialsTitle: "Was Kunden sagen.",
-    testimonials: [
-      {
-        quote:
-          "Marc helped us to grow our business after a funding from Global Founders Capital and supported with interim management if needed. He is a great leader, quick thinker, and highly professional. We highly recommend him and wish him all the best for his company!",
-        attribution: "Head of HR, Klarsolar · Original auf Englisch",
-      },
-      {
-        quote:
-          "Marc has been with me through the struggling stage, the getting-by stage, and the doing-pretty-well stage. He’s empathetic enough to relate to your situation, clever enough to advise on a sensible way forward. He doesn’t just follow up, he follows through. I would recommend Marc to anyone that’s feeling stuck in their business or just wants to tighten up their operation.",
-        attribution: "Chris Mercieca, Giftagoods · Original auf Englisch",
-      },
-    ] satisfies readonly ProofQuote[],
-    speakingTitle: "Vorträge und Lehre.",
-    speaking: [
-      {
-        id: "fhrd-keynote",
-        statement: "Keynote bei der FHRD, Maltas größter HR-Konferenz",
-        context: "Über Wirkung und Bedeutung von Coaching.",
-      },
-      {
-        id: "undergraduate-lecturer",
-        statement: "Dozent für Training und Entwicklung",
-        context: "Im Bachelorstudiengang HR Management.",
-      },
-      {
-        id: "vistage-chair",
-        statement: "Vistage Chair",
-        context:
-          "Ich leite in Malta eine Peer-Advisory-Gruppe für Unternehmensinhaber.",
-      },
-    ] satisfies readonly WorkItem[],
-    clientsTitle: "Organisationen, die ich nennen kann.",
-    closingTitle: "Welche Frage landet immer wieder bei Ihrem Führungsteam?",
-    closingText:
-      "Beschreiben Sie, was passiert ist und was Sie bereits versucht haben. Ich frage nach den beteiligten Personen und sage Ihnen dann offen, ob ich helfen kann.",
-    secondaryCta: "So arbeite ich",
   },
 } as const;
 
@@ -254,7 +151,7 @@ function RuledProofList({ items }: { items: readonly WorkItem[] }) {
 }
 
 export function ResultsPageView({ locale }: { locale: SiteLocale }) {
-  const pageCopy = copy[locale];
+  const pageCopy = copy.en;
   const contactAction = getPrimaryContactAction(locale);
 
   return (
@@ -267,6 +164,25 @@ export function ResultsPageView({ locale }: { locale: SiteLocale }) {
         title={pageCopy.title}
       />
 
+      <section className={styles.section} aria-labelledby="featured-case">
+        <div className={styles.container}>
+          <div className={resultStyles.feature}>
+            <div>
+              <p className={resultStyles.kicker}>{FEATURED_CASE.kicker}</p>
+              <h2 id="featured-case">{FEATURED_CASE.title}</h2>
+              <p>{FEATURED_CASE.summary}</p>
+              <Link className={resultStyles.featureLink} href={FEATURED_CASE.href}>
+                Read the case <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+            <div className={resultStyles.featureMetric}>
+              <strong>{FEATURED_CASE.metric}</strong>
+              <span>{FEATURED_CASE.metricLabel}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className={styles.section} aria-labelledby="selected-engagements">
         <div className={styles.container}>
           <SectionHeading
@@ -274,13 +190,16 @@ export function ResultsPageView({ locale }: { locale: SiteLocale }) {
             title={pageCopy.selectedTitle}
           />
           <RuledProofList items={pageCopy.work} />
+        </div>
+      </section>
 
-          <div className={styles.testimonialSection}>
-            <h3 className={styles.subsectionTitle}>{pageCopy.testimonialsTitle}</h3>
-            <div className={styles.testimonialGrid}>
+      <section className={styles.sectionTint} aria-labelledby="client-perspectives">
+        <div className={styles.container}>
+          <SectionHeading id="client-perspectives" title={pageCopy.testimonialsTitle} />
+            <div className={resultStyles.quoteGrid}>
               {pageCopy.testimonials.map((testimonial) => (
                 <blockquote
-                  className={styles.testimonial}
+                  className={resultStyles.quote}
                   key={testimonial.attribution}
                 >
                   <p lang="en">“{testimonial.quote}”</p>
@@ -288,11 +207,10 @@ export function ResultsPageView({ locale }: { locale: SiteLocale }) {
                 </blockquote>
               ))}
             </div>
-          </div>
         </div>
       </section>
 
-      <section className={styles.sectionTint} aria-labelledby="speaking-teaching">
+      <section className={styles.section} aria-labelledby="speaking-teaching">
         <div className={styles.container}>
           <SectionHeading id="speaking-teaching" title={pageCopy.speakingTitle} />
           <RuledProofList items={pageCopy.speaking} />
