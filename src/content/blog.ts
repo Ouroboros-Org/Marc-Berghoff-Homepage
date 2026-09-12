@@ -178,7 +178,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     ],
     nextStep: {
       label: "Explore Fractional CPO support",
-      href: "/fractional-people-leadership",
+      href: "/fractional-cpo",
     },
   },
   {

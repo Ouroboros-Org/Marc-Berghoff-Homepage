@@ -594,6 +594,7 @@ img {
 @media (max-width: 70rem) {
   .site-header {
     background: var(--canvas);
+    -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 

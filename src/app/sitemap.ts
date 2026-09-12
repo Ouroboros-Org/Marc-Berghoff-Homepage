@@ -3,7 +3,7 @@ import { LEGAL_DETAILS } from "@/app/(en)/privacy/legal-details";
 import { ROUTES } from "@/config/routes";
 import { getSiteUrl } from "@/config/site";
 import { BLOG_POSTS } from "@/content/blog";
-import { FEATURED_CASE } from "@/content/proof";
+import { CASE_STUDIES } from "@/content/proof";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const origin = getSiteUrl();
@@ -15,7 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly" as const,
         priority: id === "home" ? 1 : id === "fractionalCpo" ? 0.9 : 0.7,
       })),
-    { url: `${origin}${FEATURED_CASE.href}`, changeFrequency: "yearly", priority: 0.75 },
+    ...CASE_STUDIES.map(({ href }) => ({
+      url: `${origin}${href}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.75,
+    })),
     { url: `${origin}/blog`, changeFrequency: "weekly", priority: 0.8 },
     ...BLOG_POSTS.map((post) => ({
       url: `${origin}/blog/${post.slug}`,

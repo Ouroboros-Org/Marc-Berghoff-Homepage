@@ -56,7 +56,7 @@ export function CaseStudyPageView({ caseStudy }: { caseStudy: CaseStudy }) {
           <span className={styles.kicker}>The engagement</span>
           <p>{caseStudy.client}</p>
           <span>{caseStudy.engagement}</span>
-          <Link href="/fractional-people-leadership">Explore Fractional CPO work <span aria-hidden="true">↗</span></Link>
+          <Link href="/fractional-cpo">Explore Fractional CPO work <span aria-hidden="true">↗</span></Link>
         </aside>
         <div className={styles.storyCopy}>
           {caseStudy.sections.map((section) => (

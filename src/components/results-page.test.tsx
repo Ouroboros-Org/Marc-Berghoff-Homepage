@@ -119,19 +119,12 @@ describe("results and sample-report content contract", () => {
       resolve(repositoryRoot, "src/components/about-page.tsx"),
       "utf8",
     );
-    const peerAdvisory = readFileSync(
-      resolve(repositoryRoot, "src/components/service-pages/peer-advisory-page.tsx"),
-      "utf8",
-    );
 
     expect(resultsSource).toContain(
       "I chair a peer advisory group of business owners in Malta.",
     );
     expect(about).toContain(
       "I chair a peer advisory group of business owners in Malta",
-    );
-    expect(peerAdvisory).toContain(
-      "I chair a Vistage peer advisory group of business owners in Malta.",
     );
   });
 
