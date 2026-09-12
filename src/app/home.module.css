@@ -236,6 +236,10 @@
   display: flex;
   min-width: 0;
 }
+.offerReveal {
+  display: flex;
+  width: 100%;
+}
 
 .offerCard {
   display: flex;
@@ -678,6 +682,13 @@
   grid-template-columns: 1.1fr 1fr;
   gap: clamp(2rem, 4vw, 4rem);
 }
+.articleReveal {
+  display: flex;
+  min-width: 0;
+}
+.articleReveal > a {
+  width: 100%;
+}
 .featuredArticle {
   display: flex;
   flex-direction: column;
@@ -714,6 +725,19 @@
 .articleBottom svg {
   flex: 0 0 auto;
 }
+.offerAction svg,
+.articleBottom svg,
+.closingMessage svg {
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.offerCard:is(:hover, :focus-visible) .offerAction svg,
+.featuredArticle:is(:hover, :focus-visible) .articleBottom svg,
+.articleList a:is(:hover, :focus-visible) .articleBottom svg {
+  transform: translate(2px, -2px);
+}
+.closingMessage:is(:hover, :focus-visible) svg {
+  transform: translateX(3px);
+}
 .featuredArticle:is(:hover, :focus-visible) {
   color: var(--paper);
   background: var(--navy);
@@ -730,7 +754,7 @@
   border-top: 1px solid var(--line-dark);
   transition: color 200ms ease, background-color 200ms ease;
 }
-.articleList a:last-child {
+.articleList > div:last-child a {
   border-bottom: 1px solid var(--line-dark);
 }
 .articleList h3 {
@@ -1205,5 +1229,9 @@
 @media (prefers-reduced-motion: reduce) {
   .offerCard, .featuredArticle, .articleList a {
     transition: none;
+  }
+  .offerAction svg, .articleBottom svg, .closingMessage svg {
+    transition: none;
+    transform: none !important;
   }
 }

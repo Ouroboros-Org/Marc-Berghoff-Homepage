@@ -235,7 +235,7 @@ export function SiteHeader({ locale = "en" }: {
         })}
 
           <div className="mobile-nav__actions">
-            <ButtonLink href={getRouteHref("selfCheck", locale)} aria-current={isCurrentNavigationPage(pathname, getRouteHref("selfCheck", locale)) ? "page" : undefined} size="wide" tabIndex={mobileOpen ? 0 : -1} variant="secondary">Self-check</ButtonLink>
+            <ButtonLink href={getRouteHref("selfCheck", locale)} aria-current={isCurrentNavigationPage(pathname, getRouteHref("selfCheck", locale)) ? "page" : undefined} size="wide" tabIndex={mobileOpen ? 0 : -1} variant="accent">Self-check</ButtonLink>
             <ButtonLink cta href={contactAction.href} size="wide" tabIndex={mobileOpen ? 0 : -1}>
               {contactAction.label}
             </ButtonLink>

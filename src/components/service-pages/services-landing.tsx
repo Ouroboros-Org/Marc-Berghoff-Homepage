@@ -51,6 +51,7 @@ export function ServicesLanding({ locale }: { locale: SiteLocale }) {
           href: getRouteHref("selfCheck", locale),
           label: "Start self-check",
           helper: "10 statements · about 2 minutes",
+          variant: "accent",
         }}
       />
 

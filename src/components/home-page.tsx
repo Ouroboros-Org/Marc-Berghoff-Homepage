@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { ButtonLink } from "@/components/button";
 import { CredentialBadges } from "@/components/credential-badges";
+import { OutcomeNumber } from "@/components/outcome-number";
 import { Reveal } from "@/components/reveal";
 import { getPrimaryContactAction } from "@/config/site";
 import { BLOG_POSTS } from "@/content/blog";
@@ -75,7 +76,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
             {OUTCOMES.map((outcome) => (
               <div className={styles.outcome} key={outcome.id}>
                 <dt>{outcome.label}</dt>
-                <dd className={styles.outcomeValue}>{outcome.value}</dd>
+                <dd className={styles.outcomeValue}><OutcomeNumber value={outcome.value} /></dd>
                 <dd className={styles.outcomeContext}>{outcome.context}</dd>
               </div>
             ))}
@@ -108,29 +109,31 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
       </section>
 
       <section aria-labelledby="featured-case-title" className={styles.caseSection}>
-        <Reveal className={styles.container} variant="fade">
+        <div className={styles.container}>
           <div className={styles.caseGrid}>
-            <div className={styles.caseResult}>
+            <Reveal className={styles.caseResult} variant="fade">
               <p className={styles.caseCompany}>Klarsolar</p>
               <p className={styles.caseMetric}>{FEATURED_CASE.metric}</p>
               <p className={styles.caseMetricLabel}>{FEATURED_CASE.metricLabel}</p>
               <span className={styles.caseContext}>A team growing into its next chapter.</span>
-            </div>
-            <div className={styles.caseStory}>
+            </Reveal>
+            <Reveal className={styles.caseStory} delay={80}>
               <h2 id="featured-case-title">{FEATURED_CASE.title}</h2>
               <p>{FEATURED_CASE.summary}</p>
               <ButtonLink href={FEATURED_CASE.href} variant="text">Read the case study</ButtonLink>
-            </div>
+            </Reveal>
           </div>
+          <Reveal variant="fade">
           <figure className={styles.caseQuote}>
             <blockquote><p>{TESTIMONIALS[0].quote}</p></blockquote>
             <figcaption>{TESTIMONIALS[0].attribution}</figcaption>
           </figure>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
 
       <section aria-labelledby="check-title" className={styles.diagnostic}>
-        <div className={`${styles.container} ${styles.diagnosticInner}`}>
+        <Reveal className={`${styles.container} ${styles.diagnosticInner}`} variant="fade">
           <div>
             <h2 id="check-title">{copy.diagnostic.title}</h2>
             <p>{copy.diagnostic.description}</p>
@@ -139,18 +142,19 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
             <ButtonLink aria-describedby="check-detail" href={checkHref} icon={<ListChecks aria-hidden="true" size={19} />} variant="accent">{copy.diagnostic.action}</ButtonLink>
             <p id="check-detail">{copy.diagnostic.detail}</p>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section aria-labelledby="engagements-title" className={styles.offers} id="ways-to-work">
-        <Reveal className={styles.container}>
-          <div className={styles.centeredHeading}>
+        <div className={styles.container}>
+          <Reveal className={styles.centeredHeading}>
             <h2 id="engagements-title">{copy.services.title}</h2>
             <p>{copy.services.intro}</p>
-          </div>
+          </Reveal>
           <ol className={styles.offerGrid}>
-            {ENGAGEMENTS.map((engagement) => (
+            {ENGAGEMENTS.map((engagement, index) => (
               <li key={engagement.id}>
+                <Reveal className={styles.offerReveal} delay={index * 60}>
                 <Link
                   className={`${styles.offerCard} ${engagement.featured ? styles.offerFeatured : ""}`}
                   href={engagement.href}
@@ -169,6 +173,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
                   <span className={styles.offerRhythm}>{engagement.rhythm}</span>
                   <span className={styles.offerAction}>Explore this engagement<ArrowUpRight aria-hidden="true" size={22} /></span>
                 </Link>
+                </Reveal>
               </li>
             ))}
           </ol>
@@ -179,57 +184,61 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
               <ButtonLink href={primaryAction.href} variant="text">{copy.services.conversationLabel}</ButtonLink>
             </div>
           </div>
-        </Reveal>
+        </div>
       </section>
 
       <section aria-labelledby="fit-title" className={styles.fit}>
-        <Reveal className={styles.container} variant="fade">
-          <div className={styles.centeredHeading}>
+        <div className={styles.container}>
+          <Reveal className={styles.centeredHeading} variant="fade">
             <h2 id="fit-title">{copy.fit.title}</h2>
             <p>{copy.fit.intro}</p>
-          </div>
+          </Reveal>
           <div className={styles.fitGrid}>
-            <div>
+            <Reveal>
               <h3>This could be a good fit</h3>
               <ul>{copy.fit.suitable.map((item) => <li key={item}><Check aria-hidden="true" size={19} /><span>{item}</span></li>)}</ul>
-            </div>
-            <div>
+            </Reveal>
+            <Reveal delay={80}>
               <h3>When you need different support</h3>
               <ul>{copy.fit.otherSupport.map((item) => <li key={item}><Minus aria-hidden="true" size={19} /><span>{item}</span></li>)}</ul>
-            </div>
+            </Reveal>
           </div>
           <p className={styles.fitNote}>You do not need to know the right route yet. <Link href={primaryAction.href}>Bring your situation to a first conversation.<ArrowRight aria-hidden="true" size={17} /></Link></p>
-        </Reveal>
+        </div>
       </section>
 
       <section aria-labelledby="insights-title" className={styles.insights}>
-        <Reveal className={styles.container}>
-          <div className={styles.insightsHeader}>
+        <div className={styles.container}>
+          <Reveal className={styles.insightsHeader}>
             <div><h2 id="insights-title">{copy.insights.title}</h2><p>{copy.insights.intro}</p></div>
             <ButtonLink href="/blog" variant="text">{copy.insights.action}</ButtonLink>
-          </div>
+          </Reveal>
           <div className={styles.insightsGrid}>
             {featuredArticle ? (
+              <Reveal className={styles.articleReveal}>
               <Link className={styles.featuredArticle} href={`/blog/${featuredArticle.slug}`}>
                 <h3>{featuredArticle.title}</h3>
                 <p>{featuredArticle.description}</p>
                 <span className={styles.articleBottom}><span>{featuredArticle.category}</span><ArrowUpRight aria-hidden="true" size={25} /></span>
               </Link>
+              </Reveal>
             ) : null}
             <div className={styles.articleList}>
               {otherArticles.map((article) => (
-                <Link href={`/blog/${article.slug}`} key={article.slug}>
+                <Reveal className={styles.articleReveal} key={article.slug} variant="fade">
+                <Link href={`/blog/${article.slug}`}>
                   <h3>{article.title}</h3>
                   <span className={styles.articleBottom}><span>{article.category}</span><ArrowUpRight aria-hidden="true" size={23} /></span>
                 </Link>
+                </Reveal>
               ))}
             </div>
           </div>
-        </Reveal>
+        </div>
       </section>
 
       <section aria-labelledby="conversation-title" className={styles.closing}>
-        <div className={`${styles.container} ${styles.closingInner}`}>
+        <Reveal className={`${styles.container} ${styles.closingInner}`} variant="fade">
           <h2 id="conversation-title">{copy.closing.title}</h2>
           <p>{copy.closing.body}</p>
           <div className={styles.closingActions}>
@@ -241,7 +250,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
               <Link className={styles.closingMessage} href="/contact#contact-form">{copy.closing.noteLabel}<ArrowRight aria-hidden="true" size={18} /></Link>
             ) : null}
           </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   );
