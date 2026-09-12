@@ -77,6 +77,11 @@ components:
 
 # Design System: Marc Berghoff
 
+> September 2026 redesign: [context.tsv](context.tsv) and the
+> [preparation brief](docs/redesign-preparation.md) govern the next implementation.
+> The flat-layout, repeated asymmetric, five-format and homepage-diagnostic rules
+> below describe the existing site and must not override that brief.
+
 ## Overview
 
 **Creative North Star: “The Candid Editorial Brief”**

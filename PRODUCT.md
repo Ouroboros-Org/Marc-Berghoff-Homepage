@@ -2,6 +2,11 @@
 
 <!-- impeccable:product-schema 1 -->
 
+> September 2026 redesign: read [context.tsv](context.tsv) and the
+> [preparation brief](docs/redesign-preparation.md) for the current owner decisions.
+> The five-format, bilingual and homepage-diagnostic descriptions below record the
+> existing implementation and are superseded as redesign requirements.
+
 ## Platform
 
 web

@@ -1,5 +1,10 @@
 # Marc Berghoff — Design System Master
 
+> September 2026 redesign: current owner decisions are in
+> [context.tsv](../../context.tsv) and the
+> [preparation brief](../../docs/redesign-preparation.md). Conflicting rules below
+> describe the existing implementation, not the redesigned target.
+
 **Updated:** 2026-08-11
 **Product:** English-language personal advisory website  
 **Direction:** Editorial people leadership, calm authority, spacious, direct
