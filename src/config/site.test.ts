@@ -10,29 +10,9 @@ import {
 } from "./site";
 
 describe("getHeaderNavigation", () => {
-  it("uses localized About and Results links in the German navigation", () => {
-    const aboutGroup = getHeaderNavigation("de").find(
-      (group) => group.id === "about",
-    );
-
-    expect(aboutGroup?.href).toBe("/de/about");
-    expect(aboutGroup?.items.map(({ href, language }) => ({ href, language })))
-      .toEqual([
-        { href: "/de/about", language: undefined },
-        { href: "/de/results", language: undefined },
-        { href: "/de/contact", language: undefined },
-      ]);
-  });
-
-  it("keeps German Insights links explicitly marked as English", () => {
-    const insightGroup = getHeaderNavigation("de").find(
-      (group) => group.id === "insights",
-    );
-
-    expect(insightGroup?.href).toBe("/blog");
-    expect(insightGroup?.items.every((item) => item.language === "en")).toBe(
-      true,
-    );
+  it("presents three engagements within the service navigation", () => {
+    const work = getHeaderNavigation("en").find(group => group.id === "work");
+    expect(work?.items.map(item => item.href)).toEqual(["/services", "/bottleneck-assessment", "/advisory", "/fractional-cpo"]);
   });
 });
 
@@ -91,7 +71,7 @@ describe("getContactEmail", () => {
   it.each([undefined, "", "not-an-email", "YOUR_EMAIL"])(
     "uses the public mailbox fallback for an absent or invalid value: %s",
     (value) => {
-      expect(getContactEmail(value)).toBe("marc@marcberghoff.com");
+      expect(getContactEmail(value)).toBe("contact@marcberghoff.com");
     },
   );
 
@@ -106,18 +86,11 @@ describe("getPrimaryContactAction", () => {
   it("always routes the English primary action to booking", () => {
     expect(getPrimaryContactAction("en")).toEqual({
       href: "/contact#booking",
-      label: "Book a free 30-minute conversation",
+      label: "Book a call",
       isBooking: true,
     });
   });
 
-  it("routes the German primary action to the German booking page", () => {
-    expect(getPrimaryContactAction("de")).toEqual({
-      href: "/de/contact#booking",
-      label: "Kostenloses 30-Minuten-Gespräch buchen",
-      isBooking: true,
-    });
-  });
 });
 
 describe("getCalLink", () => {

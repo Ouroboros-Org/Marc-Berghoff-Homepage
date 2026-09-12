@@ -1,5 +1,17 @@
 # Google Forms contact delivery
 
+The public contact address is `contact@marcberghoff.com`, confirmed by Marc for
+the September 2026 launch. Configure `NEXT_PUBLIC_CONTACT_EMAIL` to that value
+in the deployment as well as local development. Public email links use this
+mailbox; Google Forms submission storage is a separate destination.
+
+If enquiries should also arrive in that inbox, enable notifications in the
+Google Form's owner account using the intended notification recipient. The
+website does not create mailbox aliases, forwarding rules or notification
+subscriptions. No inbox receipt test has been performed as part of the code
+change; verify that external setting before describing form delivery as email
+delivery.
+
 The website uses a server-side implementation of the custom-form pattern
 described in [How to Integrate Google Forms With Your Custom Coded Contact
 Form](https://medium.com/@maheshlangote/how-to-integrate-google-forms-with-your-custom-coded-contact-form-1153cbeadb61).

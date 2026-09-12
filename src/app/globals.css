@@ -199,7 +199,8 @@ img {
   z-index: 100;
   top: 0;
   border-bottom: 1px solid rgba(23, 61, 112, 0.12);
-  background: rgba(247, 249, 252, 0.96);
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
 
@@ -208,7 +209,7 @@ img {
   width: min(100%, calc(var(--container) + (var(--gutter) * 2)));
   min-height: 4.8rem;
   align-items: center;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
+  gap: clamp(0.6rem, 1.4vw, 1.4rem);
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -274,6 +275,25 @@ img {
 
 .desktop-nav__group {
   position: relative;
+}
+
+.desktop-nav__assessment {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.62rem;
+  color: var(--blue-deep);
+  font-size: 0.86rem;
+  font-weight: 650;
+  white-space: nowrap;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.desktop-nav__assessment:hover,
+.desktop-nav__assessment[aria-current="page"] {
+  color: var(--blue-ink);
+  background: var(--blue-soft);
 }
 
 .desktop-nav .desktop-nav__trigger {

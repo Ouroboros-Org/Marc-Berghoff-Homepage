@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { createPageMetadata } from "@/config/metadata";
-import { getLanguageAlternates } from "@/config/routes";
 
 import { LEGAL_DETAILS } from "./legal-details";
 
@@ -12,8 +11,7 @@ export const metadata = {
     description:
       "How personal information is handled when you use this website, its booking calendar, ten-statement check and contact form.",
     path: "/privacy",
-    languages: getLanguageAlternates("privacy"),
-  }),
+    }),
   robots: LEGAL_DETAILS.isComplete
     ? { index: true, follow: true }
     : { index: false, follow: true },

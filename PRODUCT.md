@@ -2,69 +2,64 @@
 
 <!-- impeccable:product-schema 1 -->
 
-> September 2026 redesign: read [context.tsv](context.tsv) and the
-> [preparation brief](docs/redesign-preparation.md) for the current owner decisions.
-> The five-format, bilingual and homepage-diagnostic descriptions below record the
-> existing implementation and are superseded as redesign requirements.
-
 ## Platform
 
 web
 
 ## Users
 
-Founders, senior leaders and leadership teams in growing businesses. They arrive with a leadership, organisation or people issue that is difficult to see clearly or repeatedly fails to move. Work may be returning to senior leaders, responsibilities may be unclear, or an important change may lack credible ownership.
+Founders, senior leaders and leadership teams in growing companies. They need help with people, leadership, organisational development or scaling. Some know the problem; others need to understand what is holding the company back. They may need a short intervention, advice alongside their own team or an experienced leader carrying an agreed remit.
 
 ## Product Purpose
 
-The website helps a prospective client recognise a stuck leadership-level issue, begin with a free first conversation that typically takes 30 minutes, and understand the path from the Bottleneck Assessment entry product to the format that should carry the work next. Success is a visitor who can see the fixed sequence without having to diagnose the issue alone.
+Help visitors understand Marc Berghoff’s Fractional CPO and strategic people advisory work, judge its relevance through specific evidence, and take an appropriate next step. The free 30-minute introductory conversation is open to everyone. Visitors can also explore a dedicated Bottleneck Assessment and its free self-check.
 
 ## Positioning
 
-Marc works between coaching, candid strategic advice and embedded people leadership. He helps founders and leadership teams see what is constraining the company before anyone starts fixing it. His public professional description is “Organisational Psychologist · Vistage Chair · Executive Coach”. The Bottleneck Assessment is the public entry product when the cause is disputed. It directs the next step without becoming the identity of the practice.
+Marc Berghoff is the public brand. Fractional CPO (Chief People Officer) is the main proposition, with people, leadership, organisation and scaling explained in plain language. HX Solutions appears only where legal or operational accuracy requires it. The canonical domain is https://marcberghoff.com and the confirmed public mailbox is contact@marcberghoff.com.
 
 ## Operating Context
 
-Every engagement begins with a detailed, free fit conversation that typically takes 30 minutes. The complete four-step process is shown on `/services`; individual service pages use a compact, linked summary. The process makes the issue clearer, agrees the right level of involvement, records the remit and begins the work with an agreed review rhythm. Marc may coach, advise, assess, take a defined remit or say that another specialist is a better fit. Visitors may contact Marc through a form, email or an embedded Cal.com booking flow. A telephone number appears only when a confirmed public number is configured.
+Three engagements form a useful progression, with direct entry at any stage:
+
+1. Bottleneck Assessment with Review: understand an unclear underlying problem and agree priorities. Typically 2–3 weeks.
+2. Strategic People Advisory: clarify the response, work through decisions or support implementation the client owns. An illustrative starting point is 2–6 weeks.
+3. Fractional CPO / ongoing Strategic People Advisory: sustained leadership, organisational development and people strategy. Often 1–2 days a week, or a lighter advisory rhythm.
+
+These are flexible starting points, with no minimum or maximum term. Scope, pace, responsibilities and review points are agreed in conversation. Coaching, leadership development, workshops and operational documents are tools within these engagements. Strategic support does not replace routine HR administration or an operational HR team.
 
 ## Capabilities and Constraints
 
-- English is served at `/`. German counterparts exist for the homepage, services, all five service pages and contact under `/de`; German copy addresses the reader with formal “Sie”.
-- The fixed working-format order is: Bottleneck Assessment; Executive Coaching; Strategic People Advisory; Peer Advisory; Fractional People Leadership. The assessment is the entry product; the four follow-on formats differ by who carries the work.
-- Peer Advisory is a complete service page, covering the peer room, its formats, confidentiality, fit and availability.
-- The Bottleneck Assessment page shows the questions its report answers, its confidentiality boundaries and an illustrative report page. There is no separate sample-report route.
-- Executive Coaching can cover individual or group work, but this first deployment provides no legacy group-coaching route or redirect.
-- The ten-statement check appears near the top of the homepage. It starts with the first statement and reveals the complete list when the visitor answers it or chooses to show more. All statements require an explicit answer before a result is shown.
-- Contact details are collapsed by default. Links may intentionally open the detailed fields when their label promises a detailed enquiry.
-- Cal.com is embedded directly and must work on mobile. Final public environment values will be added after implementation.
-- Do not publish unconfirmed company-size, ARR or coaching-range claims.
-- Preserve the existing Next.js stack, contact delivery path, accessibility standard and claim controls.
+- English only. German pages, language alternates and obsolete standalone coaching/peer-advisory routes are removed. The site is prepared for first indexing, with no legacy redirects.
+- The homepage introduces the offer, four concise quantified outcomes, three engagements, a featured case, testimonials, qualification, imagery, Insights and clear calls to action.
+- The interactive check lives on `/bottleneck-assessment`. All ten statements require explicit answers. Results are available without email; sharing is a separate choice.
+- `/results/klarsolar` is the first full case page. Publish only supported facts, with optional details omitted until supplied.
+- `/blog` uses a reusable article template and manually maintained typed content. Every published article has its own indexable page, overview link, metadata and RSS entry. No CMS is required.
+- The contact form retains its validated Google Forms delivery path. Public email and booking fallbacks use the confirmed mailbox. External form notifications must be configured separately; a code change does not prove inbox receipt.
+- Cal.com is embedded when configured, with a useful email fallback. A phone number appears only when a confirmed public number is configured.
+- Preserve the Next.js stack, contact safeguards, accessibility and factual claim controls.
 
 ## Brand Commitments
 
-- Name: Marc Berghoff.
-- Voice: candid, attentive, concrete and calm. Marc says what he sees without turning people into the problem. Public prose speaks to the reader as “you” and refers to Marc as “I”, “me” or “my”. Biographical labels, legal names, metadata titles and structured data may use “Marc Berghoff” where grammar or attribution requires it.
-- Use the existing blue, yellow, ink and paper visual identity, Instrument Sans/Inter typography, editorial rules and real portrait assets.
-- Avoid generic consulting language, inflated claims and impersonal corporate phrasing.
+White and dark navy establish the main contrast. Light blue and yellow provide accents; the logo remains light blue and light yellow. Use varied section composition, deliberate whitespace, clear reading order and restrained interactions. Entrances run only on first appearance and respect reduced motion. All content remains accessible without animation or JavaScript.
+
+Public prose speaks to the reader as “you” and refers to Marc as “I”, “me” or “my”. Use concrete, calm language and avoid inflated causal claims. About remains a personal narrative supported by imagery.
 
 ## Evidence on Hand
 
-- Existing portraits, approved service descriptions, selected company context, testimonials, provisional client marks and an illustrative report asset in `public/images` and `src/content`.
-- Evidence and publishing constraints are recorded in `docs/claim-ledger.md`.
-- The 350+ coaching-hours claim exists in the ledger, but the current rewrite should focus on Marc and the confirmed feedback rather than expanding public claims.
-- The report image is illustrative and fictional. Its company, figures and findings must always be labelled as such until an approved anonymised real page replaces it.
+The owner approved the four proposed outcomes and Klarsolar as the featured case. Preserve each metric’s units, period and attribution. Testimonials retain their exact approved wording. Source and approval records live in `docs/claim-ledger.md`.
+
+Hero enhancement and workshop imagery use genuine Marc reference photos. Internal provenance lives in `docs/generated-images.md`; no visible generation labels appear in the site. Do not imply the generated workshop documents a specific real client event. The illustrative assessment report remains clearly identified as fictional.
 
 ## Product Principles
 
-1. Start with the reader's situation, not a service label.
-2. Make the Bottleneck Assessment the clear entry product when the cause is disputed, then present the four follow-on formats in their fixed order.
-3. Distinguish the follow-on formats by who carries the work: the client, the client as decision-maker, peers with the client, or Marc with a defined remit.
-4. Make the first conversation the clear, low-friction route into every engagement.
-5. Show what the client keeps: a clearer issue, an owned decision, stronger leadership practice or a handed-over remit.
-6. Say when Marc is not the right person and offer a useful introduction where possible.
-7. Explain how the work proceeds before asking for commitment.
-8. Use evidence carefully and leave unknowns visibly open.
+1. Lead with a clear Fractional CPO proposition and relatable business needs.
+2. Let visitors enter the engagement that fits their situation.
+3. Explain what the client receives, who carries the work and how scope is agreed.
+4. Keep the free conversation easy to find and book.
+5. Use specific evidence, with contribution wording proportionate to the source.
+6. Make qualification understandable and keep the homepage moving.
 
 ## Accessibility & Inclusion
 
-Target WCAG 2.2 AA. Preserve keyboard navigation, visible focus, reduced-motion support, semantic headings, labelled forms, mobile touch targets and a clear escape route from disclosures and multi-step interactions.
+Target WCAG 2.2 AA. Preserve keyboard navigation, visible focus, reduced-motion support, semantic headings, labelled forms and comfortable mobile touch targets. Check the complete homepage and key routes at short laptop, desktop, tablet and mobile sizes. Safari on MacBook Air is the owner’s reported browser; record actual engine coverage rather than claiming unavailable tests.

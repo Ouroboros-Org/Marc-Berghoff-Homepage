@@ -6,8 +6,6 @@ type PageMetadataInput = {
   title: string;
   description: string;
   path: `/${string}` | "/";
-  locale?: "en_GB" | "de_DE";
-  languages?: Record<string, string>;
   robots?: Metadata["robots"];
 };
 
@@ -15,16 +13,12 @@ export function createPageMetadata({
   title,
   description,
   path,
-  locale = "en_GB",
-  languages,
   robots,
 }: PageMetadataInput): Metadata {
   const socialTitle = title.includes(siteConfig.name)
     ? title
     : `${title} | ${siteConfig.name}`;
-  const socialImage = `${getSiteUrl()}${
-    locale === "de_DE" ? "/de/social-image" : "/social-image"
-  }`;
+  const socialImage = `${getSiteUrl()}/social-image`;
 
   return {
     metadataBase: new URL(getSiteUrl()),
@@ -33,12 +27,11 @@ export function createPageMetadata({
     ...(robots ? { robots } : {}),
     alternates: {
       canonical: path,
-      ...(languages ? { languages } : {}),
       types: { "application/rss+xml": "/blog/feed.xml" },
     },
     openGraph: {
       type: "website",
-      locale,
+      locale: "en_GB",
       url: path,
       siteName: siteConfig.name,
       title: socialTitle,

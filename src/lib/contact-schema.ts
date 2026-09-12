@@ -8,21 +8,17 @@ import {
 
 export const SERVICE_VALUES = [
   "bottleneck-assessment",
-  "executive-coaching",
   "advisory",
-  "peer-advisory",
-  "fractional-people-leadership",
+  "fractional-cpo",
   "not-sure",
 ] as const;
 
 export type ServiceValue = (typeof SERVICE_VALUES)[number];
 
 export const SERVICE_LABELS = {
-  "bottleneck-assessment": "Bottleneck Assessment",
+  "bottleneck-assessment": "Bottleneck Assessment with Review",
   advisory: "Strategic People Advisory",
-  "fractional-people-leadership": "Fractional People Leadership",
-  "executive-coaching": "Executive Coaching",
-  "peer-advisory": "Peer Advisory",
+  "fractional-cpo": "Fractional CPO / ongoing advisory",
   "not-sure": "I’m not sure yet",
 } as const satisfies Record<ServiceValue, string>;
 

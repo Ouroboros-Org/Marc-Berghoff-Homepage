@@ -12,7 +12,7 @@ const isVercelPreview = process.env.VERCEL_ENV === "preview";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Marc Berghoff | Leadership, organisation and coaching",
+    default: "Marc Berghoff | Fractional CPO & Strategic People Advisory",
     template: "%s | Marc Berghoff",
   },
   description: siteConfig.description,
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "/",
     siteName: siteConfig.name,
-    title: "Marc Berghoff | Leadership, organisation and coaching",
+    title: "Marc Berghoff | Fractional CPO & Strategic People Advisory",
     description: siteConfig.description,
     images: [{ url: `${siteUrl}/social-image`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marc Berghoff | Leadership, organisation and coaching",
+    title: "Marc Berghoff | Fractional CPO & Strategic People Advisory",
     description: siteConfig.description,
     images: [`${siteUrl}/social-image`],
   },

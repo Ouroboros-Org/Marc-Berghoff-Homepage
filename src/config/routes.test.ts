@@ -1,74 +1,18 @@
 import { describe, expect, it } from "vitest";
+import { getRouteHref, getRouteId, ROUTES, SITE_LOCALES } from "./routes";
 
-import {
-  getAlternateLocaleHref,
-  getLanguageAlternates,
-  getLocaleFromPathname,
-  getRouteHref,
-  getRouteId,
-} from "./routes";
-
-describe("localized routes", () => {
-  it("maps every service page to its German counterpart", () => {
-    expect(getRouteHref("services", "de")).toBe("/de/services");
-    expect(getRouteHref("bottleneckAssessment", "de")).toBe(
-      "/de/bottleneck-assessment",
-    );
-    expect(getRouteHref("contact", "de", "#booking")).toBe(
-      "/de/contact#booking",
-    );
+describe("English launch routes", () => {
+  it("resolves public routes and preserves contact anchors", () => {
+    for (const [id, path] of Object.entries(ROUTES)) {
+      expect(getRouteId(path)).toBe(id);
+    }
+    expect(getRouteHref("contact", "en", "#booking")).toBe("/contact#booking");
+    expect(SITE_LOCALES).toEqual(["en"]);
   });
-
-  it("maps About and Results to their German counterparts", () => {
-    expect(getRouteHref("about", "de")).toBe("/de/about");
-    expect(getRouteHref("results", "de")).toBe("/de/results");
-  });
-
-  it("round-trips route ids and locale detection", () => {
-    expect(getRouteId("/de/executive-coaching")).toBe("executiveCoaching");
-    expect(getLocaleFromPathname("/de/executive-coaching")).toBe("de");
-    expect(getRouteId("/executive-coaching")).toBe("executiveCoaching");
-    expect(getLocaleFromPathname("/executive-coaching")).toBe("en");
-  });
-
-  it("switches to the counterpart rather than the other homepage", () => {
-    expect(getAlternateLocaleHref("/advisory")).toEqual({
-      href: "/de/advisory",
-      locale: "de",
-    });
-    expect(getAlternateLocaleHref("/de/advisory")).toEqual({
-      href: "/advisory",
-      locale: "en",
-    });
-    expect(getAlternateLocaleHref("/privacy")).toEqual({
-      href: "/de/datenschutz",
-      locale: "de",
-    });
-    expect(getAlternateLocaleHref("/de/impressum")).toEqual({
-      href: "/imprint",
-      locale: "en",
-    });
-    expect(getAlternateLocaleHref("/results")).toEqual({
-      href: "/de/results",
-      locale: "de",
-    });
-    expect(getAlternateLocaleHref("/de/about")).toEqual({
-      href: "/about",
-      locale: "en",
-    });
-  });
-
-  it("only advertises alternates that exist", () => {
-    expect(getAlternateLocaleHref("/blog")).toBeNull();
-    expect(getLanguageAlternates("peerAdvisory")).toEqual({
-      "en-GB": "/peer-advisory",
-      de: "/de/peer-advisory",
-      "x-default": "/peer-advisory",
-    });
-    expect(getLanguageAlternates("about")).toEqual({
-      "en-GB": "/about",
-      de: "/de/about",
-      "x-default": "/about",
-    });
+  it("does not expose retired language or service routes", () => {
+    for (const path of ["/de", "/de/about", "/executive-coaching", "/peer-advisory", "/fractional-people-leadership"]) {
+      expect(getRouteId(path)).toBeNull();
+    }
+    expect(getRouteId("/fractional-cpo")).toBe("fractionalCpo");
   });
 });

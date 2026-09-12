@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Marc Berghoff, organisational psychologist, Vistage Chair and executive coach";
+export const alt = "Marc Berghoff, Fractional CPO and strategic people advisor";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -9,8 +9,8 @@ export default function OpenGraphImage() {
     <div
       style={{
         alignItems: "stretch",
-        background: "#f7f9fc",
-        color: "#11151a",
+        background: "#102c45",
+        color: "#ffffff",
         display: "flex",
         fontFamily: "Arial, sans-serif",
         height: "100%",
@@ -66,18 +66,18 @@ export default function OpenGraphImage() {
               maxWidth: 930,
             }}
           >
-            You&apos;ve already tried everything that should have worked.
+            Your Fractional CPO.
           </div>
           <div
             style={{
-              color: "#353b43",
+              color: "#dceaff",
               display: "flex",
               fontSize: 28,
               lineHeight: 1.35,
               maxWidth: 790,
             }}
           >
-            I find what is constraining the company, before anyone starts fixing it.
+            People, leadership and organisation. Ready for your next stage of growth.
           </div>
         </div>
 
@@ -85,7 +85,7 @@ export default function OpenGraphImage() {
           style={{
             alignItems: "center",
             borderTop: "2px solid #d9dee6",
-            color: "#626b76",
+            color: "#dceaff",
             display: "flex",
             fontSize: 22,
             justifyContent: "space-between",
@@ -93,8 +93,8 @@ export default function OpenGraphImage() {
           }}
         >
           <span>Malta · working internationally</span>
-          <span style={{ color: "#173d70", fontWeight: 700 }}>
-            Organisational psychologist · executive coach
+          <span style={{ color: "#fec302", fontWeight: 700 }}>
+            marcberghoff.com
           </span>
         </div>
       </div>
