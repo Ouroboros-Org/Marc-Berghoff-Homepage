@@ -49,7 +49,7 @@ export function SiteHeader({ locale = "en" }: {
     const navigation = getHeaderNavigation(locale);
     const contactAction = getPrimaryContactAction(locale);
     useEffect(() => {
-        const desktopQuery = window.matchMedia("(min-width: 54.001rem)");
+        const desktopQuery = window.matchMedia("(min-width: 70.001rem)");
         const closeAtDesktop = (event: MediaQueryListEvent) => {
             if (event.matches)
                 setMobileState(null);

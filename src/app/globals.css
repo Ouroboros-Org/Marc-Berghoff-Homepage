@@ -303,6 +303,7 @@ img {
   font-size: 0.86rem;
   font-weight: 650;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .desktop-nav__trigger:hover {
@@ -590,11 +591,7 @@ img {
 
 }
 
-@media (max-width: 54rem) {
-  :root {
-    --section: clamp(4rem, 12vw, 6rem);
-  }
-
+@media (max-width: 70rem) {
   .site-header {
     background: var(--canvas);
     backdrop-filter: none;
@@ -602,8 +599,7 @@ img {
 
   .desktop-nav,
   .header-cta,
-  .header-social,
-  .header-locale {
+  .header-social {
     display: none !important;
   }
 
@@ -782,8 +778,11 @@ img {
     margin-top: 0.15rem;
   }
 
-  .mobile-nav__locale {
-    justify-self: center;
+}
+
+@media (max-width: 54rem) {
+  :root {
+    --section: clamp(4rem, 12vw, 6rem);
   }
 
   .site-footer__primary {
