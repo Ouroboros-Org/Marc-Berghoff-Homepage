@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { BottleneckDiagnostic } from "@/components/diagnostic";
 import type { SiteLocale } from "@/config/routes";
 
 import {
@@ -28,38 +27,25 @@ export function BottleneckAssessmentPageView({ locale }: { locale: SiteLocale })
       <ServiceHero
         locale={locale}
         breadcrumb="Bottleneck Assessment"
-        eyebrow="Full Bottleneck Assessment with Review"
+        eyebrow="Bottleneck Assessment with Review"
         title="Find the bottleneck. Agree what comes next."
         lead="When the team has different explanations for the same problem, evidence helps. I combine interviews, a questionnaire and a written report with a leadership review of the findings."
         aside={{
-          label: "The full engagement",
+          label: "The engagement",
           value: "Typically 2–3 weeks",
           note: "From kickoff to review workshop. The scope and fixed fee are agreed before we start.",
         }}
         secondary={{
-          href: "#bottleneck-check",
-          label: "Start the check",
-          helper: "Free · 10 statements · no email needed",
+          href: "#full-assessment",
+          label: "What is included",
+          helper: "Interviews, report and leadership review",
         }}
       />
-
-      <section className={styles.sectionTint} aria-label="Free ten-statement check">
-        <div className={styles.checkContainer}>
-          <BottleneckDiagnostic
-            id="bottleneck-check"
-            title="See whether the pattern is structural."
-            locale={locale}
-          />
-          <p className={styles.checkNote}>
-            This short self-check is a starting point. The <a href="#full-assessment">full assessment</a> brings in the team&apos;s experience and a review with me.
-          </p>
-        </div>
-      </section>
 
       <section className={`${styles.section} ${styles.anchor}`} id="full-assessment" aria-labelledby="assessment-scope">
         <div className={styles.container}>
           <div className={`${styles.sectionHeading} ${styles.centered}`}>
-            <p className={styles.eyebrow}>The full assessment</p>
+            <p className={styles.eyebrow}>The assessment</p>
             <h2 className={styles.sectionTitle} id="assessment-scope">A shared picture your team can act on.</h2>
             <p className={styles.intro}>I compare what people experience with how decisions and work move. Together, we test the finding and decide what deserves attention.</p>
           </div>

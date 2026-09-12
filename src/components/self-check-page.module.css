@@ -1,0 +1,79 @@
+.page {
+  color: var(--navy);
+  background: var(--paper);
+}
+
+.container {
+  width: min(calc(100% - 2 * var(--gutter)), 63rem);
+  margin-inline: auto;
+}
+
+.hero {
+  padding-block: clamp(1.5rem, 3vw, 2.5rem) 2rem;
+}
+
+.eyebrow {
+  margin: 1.5rem 0 0.75rem;
+  color: var(--blue-deep);
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.hero h1 {
+  max-width: 26ch;
+  margin: 0 0 1.5rem;
+  color: var(--navy);
+  font-size: clamp(2.5rem, 4vw, 3.75rem);
+  font-weight: 580;
+  line-height: 1.08;
+}
+
+.intro {
+  max-width: 64ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.check {
+  padding-block: 2rem clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+
+.checkForm {
+  scroll-margin-top: 1rem;
+}
+
+.reflection {
+  padding-block: clamp(3rem, 6vw, 5rem);
+  background: var(--blue-mist);
+}
+
+.reflection h2 {
+  max-width: 25ch;
+  margin-bottom: 1.25rem;
+  color: var(--navy);
+  font-size: clamp(1.8rem, 3vw, 2.65rem);
+  line-height: 1.15;
+}
+
+.reflection p {
+  max-width: 68ch;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.reflection a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: var(--blue-deep);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.reflection a:hover {
+  color: var(--navy);
+}
