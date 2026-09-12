@@ -1,158 +1,142 @@
 .section {
-  padding: var(--section) 0;
-  border-block: 1px solid var(--line);
-  background: var(--paper);
+  padding-block: clamp(4.5rem, 8vw, 8rem);
+  color: #0b203d;
+  background: #fff;
 }
 
 .container {
-  width: min(100% - 2rem, 74rem);
+  width: min(calc(100% - 3rem), 74rem);
   margin-inline: auto;
 }
 
 .containerWide {
-  width: min(calc(100% - (2 * var(--gutter))), var(--container));
+  width: min(calc(100% - (2 * var(--gutter, 1.5rem))), var(--container, 80rem));
 }
 
 .header {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 0.7fr);
-  gap: clamp(2rem, 8vw, 8rem);
-  align-items: end;
-  margin-bottom: clamp(3rem, 7vw, 5.5rem);
+  max-width: 48rem;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  text-align: center;
 }
 
 .header h2 {
-  max-width: 13ch;
   margin: 0;
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  line-height: 1.07;
+  text-wrap: balance;
 }
 
-.header p {
-  max-width: 55ch;
-  margin: 0;
-  font-size: clamp(1rem, 1.4vw, 1.13rem);
+.header > p:last-child {
+  max-width: 57ch;
+  margin: 1.5rem auto 0;
+  color: #526176;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: #173d70;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
 .steps {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1.25rem, 3vw, 2.5rem);
+  gap: clamp(1.5rem, 3vw, 3rem);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.steps::before {
-  position: absolute;
-  top: 1.35rem;
-  right: 0;
-  left: 0;
-  height: 1px;
-  background: var(--line-dark);
-  content: "";
-}
-
 .step {
-  position: relative;
-  display: grid;
-  align-content: start;
-  gap: 0.85rem;
-  padding-top: 4.25rem;
+  min-width: 0;
+  padding-top: 1.5rem;
+  border-top: 2px solid #cbd9ec;
 }
 
 .number {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: grid;
-  width: 2.7rem;
-  height: 2.7rem;
+  display: inline-grid;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.5rem;
   place-items: center;
-  border: 1px solid var(--blue-deep);
   border-radius: 50%;
-  color: var(--paper);
-  background: var(--blue-deep);
-  font-family: var(--display);
-  font-size: 0.9rem;
+  background: #e4efff;
+  font-family: var(--display, "Instrument Sans Variable", sans-serif);
+  font-size: 0.95rem;
   font-weight: 700;
+}
+
+.step:first-child .number {
+  background: #fec302;
 }
 
 .step h3 {
   margin: 0;
-  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-size: clamp(1.4rem, 1.9vw, 1.7rem);
+  line-height: 1.18;
+  text-wrap: balance;
 }
 
-.meta {
-  margin: 0;
-  color: var(--blue-deep);
-  font-size: 0.78rem;
-  font-weight: 730;
-  letter-spacing: 0.04em;
+.stepCopy {
+  min-width: 0;
 }
 
 .description {
-  max-width: 36ch;
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.65;
+  margin: 1rem 0 0;
+  color: #526176;
+  font-size: 0.98rem;
+  line-height: 1.7;
 }
 
-@media (min-width: 42rem) {
-  .container {
-    width: min(100% - 3rem, 74rem);
-  }
-
-  .containerWide {
-    width: min(calc(100% - (2 * var(--gutter))), var(--container));
-  }
+.meta {
+  margin: 1.25rem 0 0;
+  color: #173d70;
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.5;
 }
 
-@media (max-width: 58rem) {
-  .header {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
+@media (max-width: 67rem) {
   .steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 3.5rem;
-  }
-
-  .steps::before {
-    display: none;
-  }
-}
-
-@media (max-width: 37rem) {
-  .steps {
+    max-width: 44rem;
+    margin-inline: auto;
     grid-template-columns: 1fr;
     gap: 0;
-    padding-left: 3.8rem;
-  }
-
-  .steps::before {
-    top: 0;
-    bottom: 0;
-    left: 1.34rem;
-    display: block;
-    width: 1px;
-    height: auto;
   }
 
   .step {
-    min-height: 12rem;
-    padding: 0 0 2.5rem;
-  }
-
-  .step:last-child {
-    min-height: 0;
-    padding-bottom: 0;
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-block: 1.75rem;
+    border-top-width: 1px;
   }
 
   .number {
-    top: 0;
-    left: -3.8rem;
+    margin-bottom: 0;
+  }
+
+  .description {
+    margin-top: 0.75rem;
+  }
+
+  .meta {
+    margin-top: 0.8rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .container,
+  .containerWide {
+    width: calc(100% - 2rem);
+  }
+
+  .step {
+    gap: 1rem;
   }
 }
