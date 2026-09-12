@@ -30,7 +30,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
           <div className={styles.heroCopy}>
             <h1 id="home-title">
               <span className={styles.heroTitleRest}>{copy.hero.title}</span>
-              <span className={styles.heroInvitation}>{copy.hero.invitation}{" "}<span className={styles.heroRole}>{copy.hero.role}</span>.</span>
+              <span className={styles.heroInvitation}>{copy.hero.invitation}{" "}<span className={styles.heroRole}>{copy.hero.role}<span className={styles.heroPeriod}>.</span></span></span>
             </h1>
             <p className={styles.heroDescription}>{copy.hero.description}</p>
             <div className={styles.heroActions}>

@@ -54,7 +54,7 @@ The site presents a Fractional CPO who can work through the people side of growt
 
 The homepage helps visitors choose and act. Article and case pages prioritize reading. The redesign replaces the former flat, repeated heading-left/copy-right pattern. Keep the personal voice and the logo; vary composition, scale and density to fit each section's purpose.
 
-The main visual gesture is the complete pale-yellow highlight behind “Fractional CPO,” finished with a small light-blue corner. It emphasizes the actual offer and echoes the logo geometry. Avoid heavy underlines that resemble a writing warning.
+The main visual gesture is the complete pale-yellow highlight behind “Fractional CPO.” The period sits inside the highlight in brand blue, replacing the former corner square. Match the visible left, right and bottom insets optically, compensating for the font's descent rather than using equal numeric padding. It emphasizes the actual offer and echoes the logo colors. Avoid heavy underlines that resemble a writing warning.
 
 ## Identity and content
 
