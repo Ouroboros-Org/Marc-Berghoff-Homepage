@@ -33,23 +33,19 @@
 }
 
 .heroRole {
-  position: relative;
   display: inline-block;
   margin: 0 0 0.05em;
-  padding: 0.015em 0.1em 0.045em;
+  /* Trim the font's descent so the visible bottom inset matches the sides. */
+  padding: 0.1em 0.1em 0.05em;
   background: var(--yellow-soft);
   font-weight: 690;
+  line-height: 0.9;
   white-space: nowrap;
 }
 
-.heroRole::after {
-  position: absolute;
-  right: -0.025em;
-  bottom: -0.02em;
-  width: 0.15em;
-  height: 0.15em;
-  background: var(--blue);
-  content: "";
+.heroPeriod {
+  color: var(--blue);
+  letter-spacing: 0;
 }
 
 .heroTitleRest {
