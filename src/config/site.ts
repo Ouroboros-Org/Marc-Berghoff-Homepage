@@ -141,7 +141,7 @@ const insightNavigation = [
     },
     {
         href: "/blog/executive-coaching-advisory-or-assessment",
-        label: "When the format should change",
+        label: "Choosing the right engagement",
         description: "See how ownership and uncertainty point to a proportionate response.",
     },
 ] as const satisfies readonly NavigationLink[];
