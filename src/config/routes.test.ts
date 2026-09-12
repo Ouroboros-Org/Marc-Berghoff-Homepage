@@ -7,6 +7,7 @@ describe("English launch routes", () => {
       expect(getRouteId(path)).toBe(id);
     }
     expect(getRouteHref("contact", "en", "#booking")).toBe("/contact#booking");
+    expect(getRouteHref("selfCheck", "en", "#self-check")).toBe("/self-check#self-check");
     expect(SITE_LOCALES).toEqual(["en"]);
   });
   it("does not expose retired language or service routes", () => {

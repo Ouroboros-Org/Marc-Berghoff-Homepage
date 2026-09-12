@@ -41,17 +41,15 @@ describe("service journeys", () => {
     expect(html).toContain('href="/contact#booking"');
   });
 
-  it("links directly to a single self-check and a separate full assessment", () => {
+  it("keeps the self-check separate from the paid assessment", () => {
     const services = renderToStaticMarkup(<ServicesLanding locale="en" />);
     const assessment = renderToStaticMarkup(<BottleneckAssessmentPageView locale="en" />);
 
-    expect(services).toContain('href="/bottleneck-assessment#bottleneck-check"');
-    expect(assessment.match(/id="bottleneck-check"/g)).toHaveLength(1);
-    expect(assessment).toContain('href="#bottleneck-check"');
+    expect(services).toContain('href="/self-check"');
+    expect(services).not.toContain('href="/bottleneck-assessment#bottleneck-check"');
+    expect(assessment).not.toContain('type="radio"');
+    expect(assessment).not.toContain('id="bottleneck-check"');
     expect(assessment).toContain('href="#full-assessment"');
     expect(assessment).toContain('id="full-assessment"');
-    expect(assessment.indexOf('id="bottleneck-check"')).toBeLessThan(
-      assessment.indexOf('id="full-assessment"'),
-    );
   });
 });

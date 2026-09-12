@@ -4,6 +4,7 @@ export type SiteLocale = (typeof SITE_LOCALES)[number];
 export const ROUTES = {
   home: "/",
   services: "/services",
+  selfCheck: "/self-check",
   bottleneckAssessment: "/bottleneck-assessment",
   advisory: "/advisory",
   fractionalCpo: "/fractional-cpo",

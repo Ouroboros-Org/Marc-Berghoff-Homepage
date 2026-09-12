@@ -80,7 +80,7 @@ export default function PrivacyPage() {
               <li>the service, timing and company-size options you select;</li>
               <li>the situation and desired outcome you describe;</li>
               <li>
-                your bottleneck-check score and answers, only when you choose to
+                your self-check score and answers, only when you choose to
                 send the result;
               </li>
               <li>your consent confirmation.</li>
