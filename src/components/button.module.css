@@ -63,6 +63,18 @@
   --button-fg: var(--paper);
   --button-bg: var(--navy);
   --button-border: var(--navy);
+  --button-hover-fg: var(--paper);
+  --button-hover-bg: var(--blue-deep);
+  --button-hover-border: var(--blue-deep);
+}
+
+.accent {
+  --button-fg: var(--navy);
+  --button-bg: var(--yellow);
+  --button-border: var(--yellow);
+  --button-hover-fg: var(--navy);
+  --button-hover-bg: var(--yellow-soft);
+  --button-hover-border: var(--yellow);
 }
 
 .secondary {

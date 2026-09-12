@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { ButtonLink } from "./button";
 import { getRouteHref, type SiteLocale } from "@/config/routes";
 import { getPrimaryContactAction, getServiceNavigation, siteConfig, } from "@/config/site";
 import { SiteLogo } from "./site-logo";
@@ -20,7 +21,7 @@ export function SiteFooter({ locale = "en" }: {
     return (<footer className="site-footer">
       <div className="site-footer__primary">
         <div className="site-footer__intro">
-          <SiteLogo inverse locale={locale}/>
+          <SiteLogo locale={locale}/>
           <p>
             {"Start with what is happening. We can decide my level of involvement after the first conversation."}
           </p>
@@ -45,7 +46,8 @@ export function SiteFooter({ locale = "en" }: {
 
         <div className="site-footer__contact">
           <p className="footer-label">{"Start here"}</p>
-          <Link href={contactAction.href}>{contactAction.label}</Link>
+          <ButtonLink className="site-footer__booking" href={contactAction.href} size="compact">{contactAction.label}</ButtonLink>
+          <Link href="/self-check">Self-check</Link>
           <a href={`mailto:${siteConfig.contact.email}`}>
             {siteConfig.contact.email}
           </a>

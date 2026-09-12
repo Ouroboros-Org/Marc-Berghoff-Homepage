@@ -141,10 +141,6 @@ img {
   outline-offset: 4px;
 }
 
-.site-footer :focus-visible {
-  outline-color: var(--yellow);
-}
-
 .skip-link {
   position: fixed;
   z-index: 200;
@@ -480,9 +476,9 @@ img {
 }
 /* Footer */
 .site-footer {
-  padding: clamp(4rem, 7vw, 6.5rem) var(--gutter) 1.5rem;
-  color: white;
-  background: #0b203d;
+  padding: clamp(3rem, 5vw, 4.5rem) var(--gutter) 1.5rem;
+  color: var(--navy);
+  background: var(--paper);
 }
 
 .site-footer__primary,
@@ -493,14 +489,14 @@ img {
 
 .site-footer__primary {
   display: grid;
-  grid-template-columns: 1.05fr 1fr 0.7fr;
-  gap: clamp(2.5rem, 7vw, 6rem);
+  grid-template-columns: 1fr 1.45fr 0.85fr;
+  gap: clamp(2rem, 4vw, 4rem);
 }
 
 .site-footer__intro p {
   max-width: 23rem;
-  margin-top: 1.75rem;
-  color: #b9cbe2;
+  margin-top: 1.25rem;
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
@@ -520,7 +516,7 @@ img {
 
 .footer-label {
   margin-bottom: 0.55rem;
-  color: #829ab8;
+  color: var(--muted);
   font-size: 0.68rem;
   font-weight: 750;
   letter-spacing: 0.1em;
@@ -528,20 +524,27 @@ img {
 }
 
 .site-footer__nav a,
-.site-footer__contact a,
+.site-footer__contact > a:not(.site-footer__booking),
 .site-footer__bottom a {
   display: inline-flex;
   min-height: 2.75rem;
   align-items: center;
-  color: #f4f7fb;
+  color: var(--navy);
   font-size: 0.84rem;
   transition: color 160ms ease;
 }
 
 .site-footer__nav a:hover,
-.site-footer__contact a:hover,
+.site-footer__contact > a:not(.site-footer__booking):hover,
 .site-footer__bottom a:hover {
-  color: var(--blue);
+  color: var(--blue-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.site-footer__booking {
+  min-width: 9.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-footer__contact a:last-child {
@@ -555,10 +558,10 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: clamp(3rem, 7vw, 6rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--line);
   padding-top: 1.25rem;
-  color: #829ab8;
+  color: var(--muted);
   font-size: 0.75rem;
 }
 
@@ -816,9 +819,13 @@ img {
     display: none;
   }
 
-  .site-footer__primary,
-  .site-footer__nav {
+  .site-footer__primary {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer__nav {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 1.25rem;
   }
 
   .site-footer__intro {

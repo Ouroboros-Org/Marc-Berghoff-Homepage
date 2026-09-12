@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Check, Minus } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CalendarDays, Check, ListChecks, Minus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,7 +13,7 @@ import { FEATURED_CASE, OUTCOMES, TESTIMONIALS } from "@/content/proof";
 
 import styles from "@/app/home.module.css";
 
-const checkHref = "/bottleneck-assessment#bottleneck-check";
+const checkHref = "/self-check";
 const [featuredArticle, ...otherArticles] = BLOG_POSTS.slice(0, 3);
 
 export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
@@ -28,19 +28,19 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
         <div className={`${styles.container} ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
             <h1 id="home-title">
-              <span className={styles.heroRole}>{copy.hero.role}</span>
               <span className={styles.heroTitleRest}>{copy.hero.title}</span>
+              <span className={styles.heroInvitation}>{copy.hero.invitation}{" "}<span className={styles.heroRole}>{copy.hero.role}</span>.</span>
             </h1>
             <p className={styles.heroDescription}>{copy.hero.description}</p>
             <div className={styles.heroActions}>
               <div className={styles.actionGroup}>
-                <ButtonLink aria-describedby="hero-call-detail" cta href={primaryAction.href}>
+                <ButtonLink aria-describedby="hero-call-detail" cta href={primaryAction.href} icon={<CalendarDays aria-hidden="true" size={18} />}>
                   {primaryLabel}
                 </ButtonLink>
                 <p id="hero-call-detail">{primaryDetail}</p>
               </div>
               <div className={styles.actionGroup}>
-                <ButtonLink aria-describedby="hero-check-detail" href={checkHref} variant="secondary">
+                <ButtonLink aria-describedby="hero-check-detail" href={checkHref} icon={<ListChecks aria-hidden="true" size={19} />} variant="accent">
                   {copy.hero.checkLabel}
                 </ButtonLink>
                 <p id="hero-check-detail">{copy.hero.checkDetail}</p>
@@ -83,6 +83,65 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
         </div>
       </section>
 
+      <section aria-labelledby="about-marc-title" className={styles.about}>
+        <div className={`${styles.container} ${styles.aboutGrid}`}>
+          <Reveal className={styles.aboutImages} variant="fade">
+            <div className={styles.workshopImageWrap}>
+              <Image alt="Marc in conversation around a workshop table" className={styles.workshopImage} fill sizes="(max-width: 760px) calc(100vw - 2.5rem), 48vw" src="/images/generated/marc-workshop.webp" />
+            </div>
+            <div className={styles.seatedImageWrap}>
+              <Image alt="Marc Berghoff seated in a chair" className={styles.seatedImage} fill sizes="(max-width: 760px) 125px, 170px" src="/images/portraits/marc-seated-original.webp" />
+            </div>
+          </Reveal>
+          <Reveal className={styles.aboutCopy}>
+            <h2 id="about-marc-title">{copy.about.title}</h2>
+            {copy.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <ButtonLink href="/about" variant="text">{copy.about.action}</ButtonLink>
+          </Reveal>
+        </div>
+        <Reveal className={`${styles.container} ${styles.personalQuoteWrap}`} variant="fade">
+          <figure className={styles.personalQuote}>
+            <blockquote><p>{TESTIMONIALS[1].quote}</p></blockquote>
+            <figcaption>{TESTIMONIALS[1].attribution}</figcaption>
+          </figure>
+        </Reveal>
+      </section>
+
+      <section aria-labelledby="featured-case-title" className={styles.caseSection}>
+        <Reveal className={styles.container} variant="fade">
+          <div className={styles.caseGrid}>
+            <div className={styles.caseResult}>
+              <p className={styles.caseCompany}>Klarsolar</p>
+              <p className={styles.caseMetric}>{FEATURED_CASE.metric}</p>
+              <p className={styles.caseMetricLabel}>{FEATURED_CASE.metricLabel}</p>
+              <span className={styles.caseContext}>A team growing into its next chapter.</span>
+            </div>
+            <div className={styles.caseStory}>
+              <h2 id="featured-case-title">{FEATURED_CASE.title}</h2>
+              <p>{FEATURED_CASE.summary}</p>
+              <ButtonLink href={FEATURED_CASE.href} variant="text">Read the case study</ButtonLink>
+            </div>
+          </div>
+          <figure className={styles.caseQuote}>
+            <blockquote><p>{TESTIMONIALS[0].quote}</p></blockquote>
+            <figcaption>{TESTIMONIALS[0].attribution}</figcaption>
+          </figure>
+        </Reveal>
+      </section>
+
+      <section aria-labelledby="check-title" className={styles.diagnostic}>
+        <div className={`${styles.container} ${styles.diagnosticInner}`}>
+          <div>
+            <h2 id="check-title">{copy.diagnostic.title}</h2>
+            <p>{copy.diagnostic.description}</p>
+          </div>
+          <div className={styles.diagnosticAction}>
+            <ButtonLink aria-describedby="check-detail" href={checkHref} icon={<ListChecks aria-hidden="true" size={19} />} variant="accent">{copy.diagnostic.action}</ButtonLink>
+            <p id="check-detail">{copy.diagnostic.detail}</p>
+          </div>
+        </div>
+      </section>
+
       <section aria-labelledby="engagements-title" className={styles.offers} id="ways-to-work">
         <Reveal className={styles.container}>
           <div className={styles.centeredHeading}>
@@ -120,65 +179,6 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
               <ButtonLink href={primaryAction.href} variant="text">{copy.services.conversationLabel}</ButtonLink>
             </div>
           </div>
-        </Reveal>
-      </section>
-
-      <section aria-labelledby="featured-case-title" className={styles.caseSection}>
-        <Reveal className={styles.container} variant="fade">
-          <div className={styles.caseGrid}>
-            <div className={styles.caseResult}>
-              <p className={styles.caseCompany}>Klarsolar</p>
-              <p className={styles.caseMetric}>{FEATURED_CASE.metric}</p>
-              <p className={styles.caseMetricLabel}>{FEATURED_CASE.metricLabel}</p>
-              <span className={styles.caseContext}>A team growing into its next chapter.</span>
-            </div>
-            <div className={styles.caseStory}>
-              <h2 id="featured-case-title">{FEATURED_CASE.title}</h2>
-              <p>{FEATURED_CASE.summary}</p>
-              <ButtonLink href={FEATURED_CASE.href} variant="text">Read the case study</ButtonLink>
-            </div>
-          </div>
-          <figure className={styles.caseQuote}>
-            <blockquote><p>{TESTIMONIALS[0].quote}</p></blockquote>
-            <figcaption>{TESTIMONIALS[0].attribution}</figcaption>
-          </figure>
-        </Reveal>
-      </section>
-
-      <section aria-labelledby="check-title" className={styles.diagnostic}>
-        <div className={`${styles.container} ${styles.diagnosticInner}`}>
-          <div>
-            <h2 id="check-title">{copy.diagnostic.title}</h2>
-            <p>{copy.diagnostic.description}</p>
-          </div>
-          <div className={styles.diagnosticAction}>
-            <ButtonLink aria-describedby="check-detail" href={checkHref}>{copy.diagnostic.action}</ButtonLink>
-            <p id="check-detail">{copy.diagnostic.detail}</p>
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="about-marc-title" className={styles.about}>
-        <div className={`${styles.container} ${styles.aboutGrid}`}>
-          <Reveal className={styles.aboutImages} variant="fade">
-            <div className={styles.workshopImageWrap}>
-              <Image alt="Marc in conversation around a workshop table" className={styles.workshopImage} fill sizes="(max-width: 760px) calc(100vw - 2.5rem), 48vw" src="/images/generated/marc-workshop.webp" />
-            </div>
-            <div className={styles.seatedImageWrap}>
-              <Image alt="Marc Berghoff seated in a chair" className={styles.seatedImage} fill sizes="(max-width: 760px) 125px, 170px" src="/images/portraits/marc-seated-original.webp" />
-            </div>
-          </Reveal>
-          <Reveal className={styles.aboutCopy}>
-            <h2 id="about-marc-title">{copy.about.title}</h2>
-            {copy.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            <ButtonLink href="/about" variant="text">{copy.about.action}</ButtonLink>
-          </Reveal>
-        </div>
-        <Reveal className={`${styles.container} ${styles.personalQuoteWrap}`} variant="fade">
-          <figure className={styles.personalQuote}>
-            <blockquote><p>{TESTIMONIALS[1].quote}</p></blockquote>
-            <figcaption>{TESTIMONIALS[1].attribution}</figcaption>
-          </figure>
         </Reveal>
       </section>
 
@@ -234,7 +234,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
           <p>{copy.closing.body}</p>
           <div className={styles.closingActions}>
             <div className={styles.actionGroup}>
-              <ButtonLink aria-describedby="closing-call-detail" cta href={primaryAction.href} variant="inverse">{primaryLabel}</ButtonLink>
+              <ButtonLink aria-describedby="closing-call-detail" cta href={primaryAction.href} icon={<CalendarDays aria-hidden="true" size={19} />} size="wide" variant="inverse">{primaryLabel}</ButtonLink>
               <p id="closing-call-detail">{primaryDetail}</p>
             </div>
             {primaryAction.isBooking ? (

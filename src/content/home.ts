@@ -6,14 +6,15 @@ export const HOME_COPY = {
   },
   hero: {
     role: "Fractional CPO",
-    title: "for your next stage of growth.",
+    title: "Build the organisation you want to lead.",
+    invitation: "Work with a",
     description:
-      "Chief People Officer support for your people, leadership and organisation as you scale.",
+      "As your Chief People Officer, I can advise your team or take responsibility for an agreed remit as you scale. I help you connect people strategy, leadership development and organisational structure to the needs of your business.",
     bookingLabel: "Book a call",
     noteLabel: "Let's talk",
     bookingDetail: "Free introductory conversation · typically 30 minutes",
     noteDetail: "Tell me what is happening. We can take it from there.",
-    checkLabel: "Start the check",
+    checkLabel: "Start self-check",
     checkDetail: "10 statements · about 2 minutes · no email needed",
     imageAlt: "Marc Berghoff speaking to an audience",
     caption: "Organisational psychologist · Vistage Chair · Executive coach",
@@ -28,8 +29,8 @@ export const HOME_COPY = {
   diagnostic: {
     title: "Something keeps getting stuck?",
     description:
-      "Start with a short self-check on the patterns that may be slowing your company down.",
-    action: "Start the check",
+      "Take a short self-check for a fresh perspective on how decisions, information and work move through your company.",
+    action: "Start self-check",
     detail: "Free · about 2 minutes · results without an email",
   },
   about: {
