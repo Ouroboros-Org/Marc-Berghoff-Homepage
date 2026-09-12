@@ -1,36 +1,29 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
-import {
-  SectionHeading,
-  TextLink,
-  secondaryPageStyles as styles,
-} from "@/components/pages/editorial";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ButtonLink } from "@/components/button";
 import { StructuredData } from "@/components/structured-data";
-import {
-  getRouteHref,
-  type LocalizedRouteId,
-  type SiteLocale,
-} from "@/config/routes";
-import { getSiteUrl } from "@/config/site";
+import type { SiteLocale } from "@/config/routes";
+import { getPrimaryContactAction, getSiteUrl } from "@/config/site";
+import { ENGAGEMENTS, type Engagement, type EngagementId } from "@/content/engagements";
 
-type RelatedLink = {
-  routeId: Exclude<
-    LocalizedRouteId,
-    "home" | "services" | "contact" | "privacy" | "imprint"
-  >;
-  label: string;
-  text: string;
-};
+import styles from "./service-pages.module.css";
+
+export function getEngagement(id: EngagementId): Engagement {
+  const engagement = ENGAGEMENTS.find((item) => item.id === id);
+  if (!engagement) throw new Error(`Missing engagement: ${id}`);
+  return engagement;
+}
 
 export function ServiceStructuredData({
-  locale,
-  routeId,
+  href,
   name,
   description,
 }: {
   locale: SiteLocale;
-  routeId: RelatedLink["routeId"];
+  href: string;
   name: string;
   description: string;
 }) {
@@ -43,90 +36,136 @@ export function ServiceStructuredData({
         "@type": "Service",
         name,
         description,
-        inLanguage: locale === "de" ? "de" : "en-GB",
-        url: `${siteUrl}${getRouteHref(routeId, locale)}`,
+        inLanguage: "en-GB",
+        url: `${siteUrl}${href}`,
         provider: { "@id": `${siteUrl}/#marc-berghoff` },
         areaServed: "Europe",
         audience: {
           "@type": "BusinessAudience",
-          audienceType:
-            locale === "de"
-              ? "Gründer und Führungsteams in wachsenden Unternehmen"
-              : "Founders and leadership teams in growing companies",
+          audienceType: "Founders and leadership teams in growing companies",
         },
       }}
     />
   );
 }
 
-export function CompactProcess({
+export function ServiceHero({
   locale,
+  breadcrumb,
+  eyebrow,
+  title,
+  lead,
+  aside,
+  secondary = { href: "/services", label: "Explore the engagements" },
+}: {
+  locale: SiteLocale;
+  breadcrumb: string;
+  eyebrow: string;
+  title: ReactNode;
+  lead: string;
+  aside?: { label: string; value: string; note: string };
+  secondary?: { href: string; label: string; helper?: string };
+}) {
+  const contactAction = getPrimaryContactAction(locale);
+
+  return (
+    <header className={styles.hero}>
+      <div className={styles.container}>
+        <Breadcrumbs
+          className={styles.breadcrumbs}
+          items={[
+            ...(breadcrumb === "Services" ? [] : [{ label: "Services", href: "/services" }]),
+            { label: breadcrumb },
+          ]}
+          locale={locale}
+        />
+        <div className={styles.heroGrid}>
+          <div>
+            <p className={styles.eyebrow}>{eyebrow}</p>
+            <h1 className={styles.heroTitle}>{title}</h1>
+            <p className={styles.heroLead}>{lead}</p>
+            <div className={styles.actions}>
+              <div>
+                <ButtonLink href={contactAction.href}>Book a call</ButtonLink>
+                <p className={styles.helper}>Free introduction · typically 30 minutes</p>
+              </div>
+              <div>
+                <ButtonLink href={secondary.href} variant="secondary">{secondary.label}</ButtonLink>
+                {secondary.helper ? <p className={styles.helper}>{secondary.helper}</p> : null}
+              </div>
+            </div>
+          </div>
+          {aside ? (
+            <aside className={styles.heroAside}>
+              <p className={styles.eyebrow}>{aside.label}</p>
+              <p className={styles.asideValue}>{aside.value}</p>
+              <p className={styles.asideNote}>{aside.note}</p>
+            </aside>
+          ) : null}
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export function EngagementDetails({ engagement }: { engagement: Engagement }) {
+  return (
+    <dl className={styles.scopeDetails}>
+      <div>
+        <dt>What you receive</dt>
+        <dd>
+          <ul className={styles.receiveList}>
+            {engagement.receives.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </dd>
+      </div>
+      <div>
+        <dt>Before we start</dt>
+        <dd>{engagement.readiness}</dd>
+      </div>
+      <div>
+        <dt>Where the work leads</dt>
+        <dd>{engagement.boundary}</dd>
+      </div>
+    </dl>
+  );
+}
+
+export function CompactProcess({
   id,
 }: {
   locale: SiteLocale;
   id: string;
 }) {
-  const copy =
-    locale === "de"
-      ? {
-          title: "So beginnt die Zusammenarbeit.",
-          summary:
-            "Am Anfang steht ein kostenloses Gespräch, normalerweise 30 Minuten. Vor jeder bezahlten Arbeit halte ich Umfang und Endpunkt schriftlich fest. Wenn ein anderes Format oder eine andere Person besser passt, sage ich das.",
-          link: "Den vollständigen Ablauf ansehen",
-        }
-      : {
-          title: "How the work starts.",
-          summary:
-            "A free first conversation, typically 30 minutes. A written scope before any paid work. Then the work itself, with a defined end point. If I am not the right person, I will say so.",
-          link: "See the full process",
-        };
-
   return (
-    <section className={styles.sectionTint} aria-labelledby={id}>
-      <div className={`${styles.container} ${styles.split}`}>
-        <div>
-          <h2 className={styles.sectionTitle} id={id}>
-            {copy.title}
-          </h2>
-        </div>
-        <div className={styles.bodyCopy}>
-          <p>{copy.summary}</p>
-          <div className={styles.smallSpacedTop}>
-            <TextLink href={getRouteHref("services", locale, "#process")}>
-              {copy.link}
-            </TextLink>
-          </div>
-        </div>
+    <section className={styles.compactProcess} aria-labelledby={id}>
+      <div className={styles.container}>
+        <h2 id={id}>A conversation first. An agreed scope before we start.</h2>
+        <p>We agree the work, the fee and when to review it. If I am not the right person, I will say so.</p>
+        <ButtonLink href="/services#process" variant="text">How the work begins</ButtonLink>
       </div>
     </section>
   );
 }
 
 export function AdjacentServiceLinks({
-  locale,
   id,
   links,
 }: {
   locale: SiteLocale;
   id: string;
-  links: readonly RelatedLink[];
+  links: readonly { href: string; label: string; text: string }[];
 }) {
-  const heading =
-    locale === "de"
-      ? "Wenn die Situation in eine andere Richtung zeigt."
-      : "If the situation points elsewhere.";
-
   return (
     <section className={styles.section} aria-labelledby={id}>
       <div className={styles.container}>
-        <SectionHeading id={id} title={heading} />
-        <div className={styles.relatedList}>
+        <div className={styles.sectionHeading}>
+          <p className={styles.eyebrow}>Another starting point</p>
+          <h2 className={styles.sectionTitle} id={id}>Match the support to the question.</h2>
+        </div>
+        <div className={styles.relatedGrid}>
           {links.map((item) => (
-            <Link
-              className={styles.relatedLink}
-              href={getRouteHref(item.routeId, locale)}
-              key={item.routeId}
-            >
+            <Link className={styles.relatedLink} href={item.href} key={item.href}>
               <div>
                 <h3>{item.label}</h3>
                 <p>{item.text}</p>
@@ -137,5 +176,27 @@ export function AdjacentServiceLinks({
         </div>
       </div>
     </section>
+  );
+}
+
+export function ServiceClosing({
+  locale,
+  title,
+  text,
+}: {
+  locale: SiteLocale;
+  title: string;
+  text: string;
+}) {
+  return (
+    <aside className={styles.closing} aria-label="Next step">
+      <div className={styles.container}>
+        <p className={styles.eyebrow}>Start wherever you are</p>
+        <h2>{title}</h2>
+        <p className={styles.closingText}>{text}</p>
+        <ButtonLink href={getPrimaryContactAction(locale).href} variant="inverse">Book a call</ButtonLink>
+        <p className={styles.helper}>Free introduction · typically 30 minutes</p>
+      </div>
+    </aside>
   );
 }

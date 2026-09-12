@@ -2,27 +2,21 @@ import { describe, expect, it } from "vitest";
 
 import { getWorkingFormats } from "./working-formats";
 
-const expectedIds = [
-  "bottleneck-assessment",
-  "executive-coaching",
-  "advisory",
-  "peer-advisory",
-  "fractional-people-leadership",
-];
+describe("public engagement navigation", () => {
+  it("offers the assessment, short advisory and ongoing CPO support in order", () => {
+    expect(getWorkingFormats("en").map((format) => format.href)).toEqual([
+      "/bottleneck-assessment",
+      "/advisory",
+      "/fractional-cpo",
+    ]);
+  });
 
-describe("working formats", () => {
-  it.each(["en", "de"] as const)(
-    "keeps the assessment-first order in %s",
-    (locale) => {
-      expect(getWorkingFormats(locale).map((format) => format.id)).toEqual(
-        expectedIds,
-      );
-    },
-  );
+  it("does not present methods or the free introduction as separate engagements", () => {
+    const links = getWorkingFormats("en").map((format) => format.href);
 
-  it("keeps German service links inside the German locale", () => {
-    expect(
-      getWorkingFormats("de").every((format) => format.href.startsWith("/de/")),
-    ).toBe(true);
+    expect(links).not.toContain("/executive-coaching");
+    expect(links).not.toContain("/peer-advisory");
+    expect(links).not.toContain("/contact");
+    expect(new Set(links).size).toBe(links.length);
   });
 });
