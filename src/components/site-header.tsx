@@ -217,8 +217,8 @@ export function SiteHeader({ locale = "en" }: {
                 <Button aria-controls={`mobile-submenu-${group.id}`} aria-expanded={sectionOpen} className="mobile-nav__section-trigger" data-active={active || undefined} onClick={() => setMobileSectionState((current) => current?.pathname === pathname && current.value === group.id
                     ? null
                     : { value: group.id, pathname })} ref={index === 0 ? firstMobileControlRef : undefined} tabIndex={mobileOpen ? 0 : -1} variant="text">
-                  <span className="mobile-nav__index">0{index + 1}</span>
-                  <span>{group.label}</span>
+                  <span aria-hidden="true" className="mobile-nav__index">0{index + 1}</span>
+                  <span className="mobile-nav__section-label">{group.label}</span>
                   <ChevronDown aria-hidden="true" className="mobile-nav__chevron" size={19}/>
                 </Button>
                 <div aria-hidden={!sectionOpen} className="mobile-nav__submenu" data-open={sectionOpen || undefined} id={`mobile-submenu-${group.id}`}>
