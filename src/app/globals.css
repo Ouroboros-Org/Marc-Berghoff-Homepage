@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 :root {
+  --navy: #0b203d;
   --blue: #7cb0ff;
   --blue-hover: #6aa4fa;
   --blue-deep: #173d70;
-  --blue-ink: #14345e;
+  --blue-ink: #0b203d;
   --blue-soft: #dceaff;
   --blue-mist: #f1f6ff;
   --yellow: #fec302;
-  --ink: #11151a;
-  --ink-soft: #353b43;
-  --muted: #626b76;
-  --line: #d9dee6;
+  --yellow-soft: #fff1ba;
+  --ink: #12283f;
+  --ink-soft: #3e5062;
+  --muted: #5d6a78;
+  --line: #dce3eb;
   --line-dark: #b8c2d0;
   --paper: #ffffff;
   --canvas: #f7f9fc;
@@ -35,6 +37,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
   background: var(--canvas);
+  scrollbar-color: #8da4bf var(--paper);
 }
 
 body {
@@ -111,6 +114,7 @@ textarea,
 select {
   color: inherit;
   font: inherit;
+  caret-color: var(--blue-deep);
 }
 
 button,
