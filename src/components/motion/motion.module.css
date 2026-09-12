@@ -58,3 +58,18 @@
     transition: none;
   }
 }
+
+@media print {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .sizer {
+    visibility: visible;
+  }
+
+  .value {
+    display: none;
+  }
+}
