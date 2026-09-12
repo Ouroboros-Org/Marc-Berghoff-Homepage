@@ -29,8 +29,6 @@ export default async function ContactPage({
   return (
     <div className={pageStyles.page}>
       <PageHero
-        asideLabel="First conversation"
-        asideValue="Typically 30 minutes · free"
         breadcrumbs={[{ label: "Contact" }]}
         lead={
           contactAction.isBooking

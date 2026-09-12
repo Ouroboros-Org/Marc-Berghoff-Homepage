@@ -45,11 +45,13 @@
 }
 
 .highlight {
+  display: inline-block;
   padding-inline: 0.1em;
   border-radius: 0.08em;
   background: var(--yellow-soft);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+  white-space: nowrap;
 }
 
 .heroLead {
