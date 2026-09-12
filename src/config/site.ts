@@ -86,7 +86,7 @@ const primaryContactAction = getPrimaryContactAction();
 export const siteConfig = {
     name: "Marc Berghoff",
     descriptor: "Fractional CPO · People & organisation",
-    description: "Fractional CPO and strategic people advisory for growing companies. People, leadership and organisational development, shaped around what the business needs.",
+    description: "Work with me as your Fractional CPO (Chief People Officer) or strategic people adviser. Support for your people, leadership and organisation as you grow.",
     contact: {
         email: getContactEmail(),
         phoneDisplay: contactPhone?.display ?? null,
@@ -122,39 +122,39 @@ const insightNavigation = [
     {
         href: "/blog",
         label: "All insights",
-        description: "Start with the leadership pattern closest to what is happening now.",
+        description: "Explore questions about your people, leadership and organisation.",
     },
     {
         href: "/blog/founder-bottleneck-or-operating-model",
         label: "When work returns to the founder",
-        description: "Trace whether the issue sits in behaviour, decision rights or the operating model.",
+        description: "Look at why decisions return to you and what would help your team carry them.",
     },
     {
         href: "/blog/role-clarity-is-not-a-job-description",
         label: "Role clarity beyond job descriptions",
-        description: "Look at decisions, hand-offs and working agreements that the documents miss.",
+        description: "Clarify who decides and how people work together.",
     },
     {
         href: "/blog/when-fractional-people-leadership-makes-sense",
         label: "When a Fractional CPO fits",
-        description: "Recognise when the agenda needs an owner before it needs a permanent hire.",
+        description: "Compare ongoing advice, an agreed CPO remit and a permanent hire.",
     },
     {
         href: "/blog/executive-coaching-advisory-or-assessment",
         label: "Choosing the right engagement",
-        description: "See how ownership and uncertainty point to a proportionate response.",
+        description: "Understand the difference between assessment, focused advice and ongoing support.",
     },
 ] as const satisfies readonly NavigationLink[];
 const aboutNavigation = [
     {
         href: "/about",
         label: "About me",
-        description: "See how I work between coaching, advice and defined responsibility.",
+        description: "Get to know me, my experience and how I work.",
     },
     {
         href: "/results",
         label: "Selected work",
-        description: "Review selected engagements, client evidence and public work.",
+        description: "See examples of my work and hear from clients.",
     },
     {
         href: "/contact",
@@ -168,14 +168,14 @@ export function getHeaderNavigation(locale: SiteLocale = "en"): readonly HeaderN
             id: "work",
             label: "How I can help",
             href: getRouteHref("services", "en"),
-            description: "See how the situation determines my level of involvement.",
+            description: "Choose the support your people, leadership and organisation need.",
             items: getServiceNavigation(locale),
         },
         {
             id: "insights",
             label: "Insights",
             href: "/blog",
-            description: "Read practical notes on leadership issues that are hard to see or move.",
+            description: "Read practical ideas for the people and leadership decisions ahead of you.",
             items: insightNavigation,
         },
         {

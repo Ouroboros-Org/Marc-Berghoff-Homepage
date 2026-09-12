@@ -17,13 +17,13 @@ export const ENGAGEMENT_PROCESS = [
     title: "Agree the work",
     meta: "Written scope before paid work",
     description:
-      "We agree my responsibility, your team's role, the outputs, working rhythm and fee. Pace and duration follow the need, with a clear point to review them.",
+      "We agree my responsibility, your team's role, what you receive, how often we work together and the fee. Pace and duration follow the need, with a clear point to review them.",
   },
   {
     title: "Work, review and hand over",
     meta: "Keep the support useful",
     description:
-      "We work on the live issue and review what is changing. We adjust my involvement or finish with a handover your team can carry forward.",
+      "We work on the agreed priorities and review what is changing. We adjust my involvement or finish with a handover your team can carry forward.",
   },
 ] as const;
 
