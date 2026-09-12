@@ -35,10 +35,10 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     slug: "founder-bottleneck-or-operating-model",
     title: "When work keeps returning to the founder",
     description:
-      "Before you call the founder a bottleneck, trace the decisions that came back and the reason each hand-off made sense.",
+      "Before you call the founder a bottleneck, trace the decisions that came back and why people passed them on.",
     category: "Leadership systems",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-08-11",
+    updatedAt: "2026-09-12",
     intro:
       "A product launch is waiting for approval. A manager asks the founder to settle a disagreement between two teams. Last week's hiring decision is open again. Calling the founder a bottleneck is tempting. The label says little about why the work came back.",
     sections: [
@@ -52,7 +52,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       {
         heading: "Why did escalation feel sensible?",
         paragraphs: [
-          "People usually escalate for a reason that makes sense from where they sit. Look for the condition that rewarded the hand-off. You may find one of these patterns:",
+          "People usually escalate for a reason that makes sense from where they sit. Look at what made asking for a decision seem sensible. You may find one of these patterns:",
         ],
         points: [
           "The owner lacked information that was available only to senior leadership.",
@@ -65,7 +65,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
         heading: "The founder can still be the constraint",
         paragraphs: [
           "Formal authority means little when leadership behaviour contradicts it. A founder who reopens settled decisions in private teaches the team to wait. Being copied into every discussion can have the same effect. Nobody needs to issue an instruction; the safest move becomes escalation.",
-          "Sometimes the answer really does sit with the founder's behaviour. Sometimes the operating model has left managers exposed. In many companies, both are true to some degree. Treating either explanation as a character verdict makes it harder to see the mechanics of the problem.",
+          "Sometimes the answer really does sit with the founder's behaviour. Sometimes managers lack the authority or support to decide. Both may be involved. Treating either explanation as a character verdict makes it harder to understand why the work returns.",
         ],
       },
       {
@@ -85,10 +85,10 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     slug: "role-clarity-is-not-a-job-description",
     title: "Role clarity starts where job descriptions end",
     description:
-      "A job description lists responsibilities. Growing companies also need explicit outcomes, decision rights and working agreements between roles.",
+      "A job description lists responsibilities. Your team also needs to know who decides, what each role is responsible for and how people work together.",
     category: "Decision rights",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-08-11",
+    updatedAt: "2026-09-12",
     intro:
       "The sales director owns revenue. The operations director owns delivery quality. A large prospect wants terms that put delivery at risk. Both job descriptions can be accurate while the decision between them remains completely unowned.",
     sections: [
@@ -96,7 +96,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
         heading: "Most ambiguity sits between roles",
         paragraphs: [
           "Job descriptions help with hiring and broad expectations. They struggle at the boundary where two sensible mandates collide. That is where growing companies lose time: people collect more opinions, meetings end without a decision, and the founder eventually steps in.",
-          "Adding ‘collaborate with other departments’ to both documents changes very little. The team needs a working agreement for the specific interface. Who prepares the proposal? Whose evidence must be heard? Who makes the call? Which level of risk sends it to the wider leadership team?",
+          "Adding ‘collaborate with other departments’ to both documents changes very little. Your team needs to agree how the two roles work together. Who prepares the proposal? Whose evidence must be heard? Who makes the call? Which level of risk sends it to the wider leadership team?",
         ],
       },
       {
@@ -114,20 +114,20 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       {
         heading: "Write down the decision boundary",
         paragraphs: [
-          "A short role agreement often works better than another page of tasks. Name the role's purpose, the outcomes it owns and the decisions it can make without further approval. Then record the two or three interfaces that repeatedly create friction.",
+          "A short role agreement often works better than another page of tasks. Name the role's purpose, the outcomes it owns and the decisions it can make without further approval. Then record where it depends on other roles and which disagreements keep coming up.",
           "Keep some room for judgement. A company in motion cannot pre-assign every future choice. Concentrate on the ambiguity that already has a cost: a recurring delay, duplicated work, an unowned risk or conflict between the same functions.",
         ],
       },
       {
         heading: "Take the agreement into the next meeting",
         paragraphs: [
-          "The document earns its value in the operating rhythm. If a person owns the decision, the relevant meeting should give them the information and space to make it. Minutes should record the decision and any condition attached to it. Senior leaders have to resist quietly reopening it elsewhere.",
+          "Put the agreement to work in your next meeting. If a person owns the decision, give them the information and space to make it. Minutes should record the decision and any condition attached to it. Senior leaders have to resist quietly reopening it elsewhere.",
           "Review the agreement after a few real cases. Some boundaries will hold. Others will reveal that the role lacks information, capability or backing. That is a better discussion than debating whether the wording of a job description is sufficiently comprehensive.",
         ],
       },
     ],
     nextStep: {
-      label: "Explore strategic people advisory",
+      label: "Explore advisory",
       href: "/advisory",
     },
   },
@@ -135,44 +135,44 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     slug: "when-fractional-people-leadership-makes-sense",
     title: "When a Fractional CPO makes sense",
     description:
-      "Choose between advice, a permanent hire and a defined part-time remit by looking at who needs to carry the work now.",
+      "Decide whether you need ongoing advice, a Fractional CPO or a permanent hire by looking at the responsibility and time the work needs.",
     category: "Fractional CPO",
     publishedAt: "2026-07-29",
     updatedAt: "2026-09-12",
     intro:
-      "The people agenda may already fill half the founder's week, while the long-term leadership role is still hard to define. Hiring quickly can lock in the wrong brief. Waiting leaves important work without an owner. A defined part-time remit can cover that awkward middle period.",
+      "You may need senior people leadership without a full-time Chief People Officer role. Your HR team may already run day-to-day work well, while people strategy, leadership development and organisational decisions need more attention. A Fractional CPO can take responsibility for that agreed work, with a schedule that fits your business.",
     sections: [
       {
-        heading: "Do you need advice or an owner?",
+        heading: "Do you need advice or someone to lead the work?",
         paragraphs: [
-          "Occasional advice fits a founder who still has the time and authority to carry the work. A Fractional CPO takes responsibility for an agreed people remit, joins the operating rhythm and follows decisions through with managers, HR colleagues and specialist providers.",
+          "Advisory fits when you or someone in your team has the time and authority to lead the work. As your Fractional CPO, I take responsibility for agreed people work and follow decisions through with your managers, HR colleagues and specialist providers.",
           "Write down what must be different over the next few months. If the list depends on somebody attending leadership meetings, coordinating contributors and making day-to-day calls, you are describing ownership. If you mainly want to test a choice before acting, advisory may be enough.",
         ],
       },
       {
-        heading: "A defined remit fits a particular kind of gap",
+        heading: "Where a Fractional CPO can help",
         paragraphs: [
-          "The strongest case combines urgency with uncertainty. The work matters now, but the company does not yet know the durable shape of a permanent role.",
+          "The right arrangement depends on what needs sustained attention and who can lead it. These are situations we can discuss:",
         ],
         points: [
-          "People priorities keep returning to the founder because nobody else has the mandate.",
-          "An internal HR lead can run delivery but needs senior cover for organisation-wide decisions.",
-          "A restructure or growth phase has created a temporary concentration of difficult work.",
-          "The company needs better routines before it can write an honest brief for a permanent hire.",
+          "You need a people strategy that connects hiring, leadership development and organisational structure to your business plan.",
+          "Your HR lead manages everyday delivery and wants senior support for wider organisational decisions.",
+          "Growth or a restructure calls for more leadership attention than your team can currently give.",
+          "You want continuing CPO support, or help defining a future permanent role.",
         ],
       },
       {
         heading: "A permanent hire may already be the better answer",
         paragraphs: [
-          "If the scope is stable, the workload is genuinely full time and the leadership team can describe success in the role, begin the permanent search. Constant presence may also matter in a large workforce or a business spread across several sites.",
+          "If the scope is stable, the work needs full-time attention and your leadership team can describe success in the role, a permanent search may make sense. Constant presence may also matter in a large workforce or a business spread across several sites.",
           "A short interim period can still help define the role or keep the work moving during recruitment. Be explicit about that purpose. Otherwise an interim arrangement can drift because everyone is busy and the immediate pressure has eased.",
         ],
       },
       {
-        heading: "Put the handover into the first agreement",
+        heading: "Agree responsibility and review points",
         paragraphs: [
-          "Name the routines to establish, the decisions that will move inside and the person or future role expected to receive them. Review those handover conditions alongside the business priorities. The final month is too late to start.",
-          "There is no single ideal length for this kind of engagement. The right question is more concrete: what should the company be able to own by the time the remit changes? If nobody can answer that at the outset, defining it is part of the first week's work.",
+          "At the start, we agree which decisions I will make, who else is involved and how we will review the work. If responsibility will move to your team or a permanent hire, we plan that handover together.",
+          "Duration follows the work, with no minimum or maximum term. We can adjust my involvement, continue with advice or finish when the agreed work is complete. The review points help you decide what support remains useful.",
         ],
       },
     ],
@@ -190,7 +190,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     publishedAt: "2026-07-29",
     updatedAt: "2026-09-12",
     intro:
-      "A founder says the leadership team avoids difficult decisions. The cause may still be unclear. The cause may be understood but the response uncertain. Or the company may know what needs to happen and lack the senior support to carry it through. Those situations suggest different starting points.",
+      "You may already know the people or leadership question you want to work on. You may need to understand it first, decide how to respond, or bring in support to carry the work. Start by separating those needs.",
     sections: [
       {
         heading: "Start with what is known",
@@ -202,34 +202,34 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       {
         heading: "Assessment when the underlying issue is unclear",
         paragraphs: [
-          "The Full Bottleneck Assessment with Review draws on conversations, a questionnaire and relevant operating evidence. It gives the leadership team a focused finding to examine together.",
-          "The review is part of the engagement. The team tests the evidence, considers what it means and agrees what to do next. It may have enough clarity to continue independently.",
+          "In the Bottleneck Assessment with Review, I bring together interviews, a questionnaire and relevant evidence about how your business works. You receive a written report and review the findings with your leadership team.",
+          "The review is part of the engagement. Your team tests the evidence, considers what it means and agrees what to do next. You may have enough clarity to continue independently.",
         ],
       },
       {
         heading: "Focused advisory when the issue is understood",
         paragraphs: [
-          "A senior hire, a restructure or a change in responsibilities may need an experienced second view. A short Strategic People Advisory engagement can test the options, clarify priorities and shape an approach the business can implement.",
-          "We agree the question, the work and its end point before starting. The leadership team keeps the decision. A workshop, coaching conversation or working document may help, depending on the question.",
+          "A senior hire, a restructure or a change in responsibilities may need an experienced second view. A short Strategic People Advisory engagement can test the options, clarify priorities and shape an approach your team can implement.",
+          "We agree the question, the work and a review point before starting. Your leadership team keeps the decision. A workshop, coaching conversation or working document may help, depending on the question.",
         ],
       },
       {
         heading: "Ongoing support when the work needs sustained attention",
         paragraphs: [
-          "As a Fractional CPO, I take an agreed people remit and work within the company's operating rhythm. The agreement names my decision rights, the internal support available and how the work will be reviewed and handed over.",
-          "Ongoing Strategic People Advisory can fit when the business already has someone to carry the work and wants regular senior input. The distinction is responsibility: the client retains ownership in an advisory arrangement.",
+          "As your Fractional CPO, I take responsibility for agreed people work. We set out which decisions I can make, how I work with your team and when we review progress or hand responsibility over.",
+          "Ongoing Strategic People Advisory can fit when your team already leads the work and wants regular advice. You keep the decisions and manage implementation, with my support.",
         ],
       },
       {
         heading: "Choose the tools inside the engagement",
         paragraphs: [
-          "Coaching, leadership development, workshops and operational documents can all contribute to the work. Their purpose follows the agreed engagement. Confidentiality and the people involved still need to be clear, especially when individual coaching sits alongside team work.",
+          "Coaching, leadership development, workshops and practical working documents can all contribute to the work. Their purpose follows the agreed engagement. Confidentiality and the people involved still need to be clear, especially when individual coaching sits alongside team work.",
           "You can start with the engagement that fits what you already know. The free introductory conversation is also available if you want to talk through the situation before deciding.",
         ],
       },
     ],
     nextStep: {
-      label: "Explore the three engagements",
+      label: "Explore engagements",
       href: "/services",
     },
   },
