@@ -210,9 +210,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className={styles.authorNote}>
             <strong>About me</strong>
             <p>
-              I work with founders and leadership teams on people, leadership and
-              organisational development. That can mean a focused assessment,
-              strategic advice or an ongoing Fractional CPO remit.
+              I work with you on people strategy, leadership and organisational
+              development. That can mean a Bottleneck Assessment with Review,
+              Strategic People Advisory or ongoing Fractional CPO support.
             </p>
           </div>
         </div>
@@ -223,6 +223,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         text="Explore the support that fits your situation, or start with a free introductory conversation."
         href={post.nextStep.href}
         label={post.nextStep.label}
+        helper={post.nextStep.href.startsWith("/contact") ? "Free introduction · typically 30 minutes" : undefined}
       />
     </article>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { createPageMetadata } from "@/config/metadata";
+import styles from "@/components/pages/utility-pages.module.css";
 
 import { LEGAL_DETAILS } from "./legal-details";
 
@@ -9,7 +10,7 @@ export const metadata = {
   ...createPageMetadata({
     title: "Privacy notice",
     description:
-      "How personal information is handled when you use this website, its booking calendar, ten-statement check and contact form.",
+      "How personal information is handled when you use this website, its booking calendar, Self-check and contact form.",
     path: "/privacy",
     }),
   robots: LEGAL_DETAILS.isComplete
@@ -25,11 +26,9 @@ function LegalSection({
   children: React.ReactNode;
 }) {
   return (
-    <section className="space-y-4 border-t border-slate-900/15 pt-8">
-      <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-3xl">
-        {title}
-      </h2>
-      <div className="space-y-4 text-base leading-7 text-slate-700">
+    <section className={styles.section}>
+      <h2>{title}</h2>
+      <div className={styles.body}>
         {children}
       </div>
     </section>
@@ -38,24 +37,23 @@ function LegalSection({
 
 export default function PrivacyPage() {
   return (
-    <div className="page-shell">
-      <article className="container mx-auto max-w-4xl">
-        <header className="mb-14 space-y-5 sm:mb-20">
+    <div className={styles.page}>
+      <article className={styles.container}>
+        <header className={styles.header}>
           <Breadcrumbs items={[{ label: "Privacy notice" }]} />
-          <p className="eyebrow">Legal</p>
-          <h1 className="text-5xl font-semibold tracking-[-0.055em] text-balance sm:text-7xl">
+          <h1 className={styles.title}>
             Privacy notice
           </h1>
-          <p className="max-w-2xl text-lg leading-8 text-slate-700">
+          <p className={styles.lead}>
             This notice covers the website, the Cal.com booking calendar, the
-            ten-statement bottleneck check and the contact form.
+            Self-check and the contact form.
           </p>
-          <p className="text-sm text-slate-600">
+          <p className={styles.updated}>
             Last updated: {LEGAL_DETAILS.lastUpdated}
           </p>
         </header>
 
-        <div className="space-y-12">
+        <div className={styles.sections}>
           <LegalSection title="1. Controller and contact">
             <p>
               {LEGAL_DETAILS.legalName}, based in {LEGAL_DETAILS.country}, is
@@ -75,7 +73,7 @@ export default function PrivacyPage() {
 
           <LegalSection title="2. Information you submit">
             <p>The form can collect:</p>
-            <ul className="list-disc space-y-2 pl-6 marker:text-blue-700">
+            <ul>
               <li>your name, contact details, company and role;</li>
               <li>the service, timing and company-size options you select;</li>
               <li>the situation and desired outcome you describe;</li>
@@ -159,15 +157,15 @@ export default function PrivacyPage() {
             </p>
           </LegalSection>
 
-          <LegalSection title="8. The bottleneck check">
+          <LegalSection title="8. The Self-check">
             <p>
-              The ten-statement check runs in the browser. Your answers are held in
+              The Self-check runs in the browser. Your answers are held in
               component state only. They are not stored, sent to analytics or transmitted
               while you answer. You can see the complete result without giving an email
               address.
             </p>
             <p>
-              If you choose <em>Send this result to Marc</em>, the email address you enter,
+              If you choose <em>Send result</em>, the email address you enter,
               the score band and all ten answers are sent through the contact route
               described above. The result remains visible whether or not you send it. The
               check is a directional business reflection; it does not make an employment,

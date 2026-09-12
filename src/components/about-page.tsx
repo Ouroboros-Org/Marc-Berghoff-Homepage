@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CredentialBadges } from "@/components/credential-badges";
+import { Reveal } from "@/components/reveal";
 import {
   ContactBand,
   TextLink,
@@ -37,7 +38,7 @@ const copy = {
     breadcrumb: "About me",
     heroRole: "Fractional CPO · Organisational Psychologist · Executive Coach",
     heroStatement:
-      "I work with founders and leadership teams on the problems that sit between the people and the way the business actually works.",
+      "I help you work through people and leadership decisions, develop your organisation and agree who carries the work as your business grows.",
     pathTitle: "The path",
     path: [
       "I did the German thing of collecting internships: Freudenberg Sealing Technologies, Fresenius Medical Care, two months at Nintendo, and Mitsubishi Fuso in Japan. Then in-house people work, mostly in companies growing faster than their structures could handle, including a solar scale-up later acquired by E.ON. I co-founded a business along the way, which taught me more about how founders actually decide things than watching from the outside ever did.",
@@ -66,7 +67,7 @@ const copy = {
     ],
     beliefsTitle: "What I believe about this work",
     beliefs: [
-      "Most of the time, the reason a company underperforms is sitting in the leadership team.",
+      "When a company is underperforming, I start by looking at the leadership team.",
       "The founders I meet tend to be the hardest-working person in the company. They know the most and decide fastest. They are also right a lot of the time. That is exactly why the company keeps leaning on them.",
       "What I see over and over is a leader too close to the work, or too attached to being the one who solves it, to notice what good leadership compounds into. People around them gain autonomy and get closer to their level. The leader gets time for the work only they can do.",
       "I think most people can be good leaders. For some it is instinct. For everyone else it is a skill, and skills are learnable.",
@@ -83,13 +84,13 @@ const copy = {
     ],
     startTitle: "How working together starts",
     start: [
-      "A free 30-minute conversation. A written scope before any paid work. Then the work itself, with a defined end point.",
+      "A free conversation, typically 30 minutes. A written scope before any paid work. Then we work to agreed responsibilities and review points.",
       "If I'm not the right person, I'll say so — and where I can make a useful introduction, I will.",
     ],
     processLink: "See the full process",
-    closingTitle: "Bring me the decision that keeps returning.",
+    closingTitle: "What would help you lead your organisation?",
     closingText:
-      "The first conversation is free and typically takes 30 minutes. I use it to understand the question and tell you whether I am the right person for it.",
+      "We can talk about your people, leadership and organisation, the support you already have and where I could help.",
   },
 } as const satisfies { en: AboutCopy };
 
@@ -126,9 +127,11 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
       <section className={styles.section} aria-labelledby="about-path">
         <div className={aboutStyles.proseContainer}>
           <div className={aboutStyles.pathCopy}>
-            <h2 className={styles.sectionTitle} id="about-path">
-              {pageCopy.pathTitle}
-            </h2>
+            <Reveal>
+              <h2 className={styles.sectionTitle} id="about-path">
+                {pageCopy.pathTitle}
+              </h2>
+            </Reveal>
             <div className={`${styles.bodyCopy} ${styles.spacedTop}`}>
               {pageCopy.path.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -140,24 +143,24 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
 
       <section className={styles.sectionTint} aria-labelledby="about-credentials">
         <div className={`${styles.container} ${aboutStyles.credentialsLayout}`}>
-          <div>
+          <Reveal>
             <h2 className={styles.sectionTitle} id="about-credentials">
               {pageCopy.credentialsTitle}
             </h2>
             <CredentialBadges className={aboutStyles.badges} />
-          </div>
+          </Reveal>
           <dl
             className={`${aboutStyles.credentialList} ${styles.bodyCopy}`}
           >
             {pageCopy.credentials.map((credential) => (
-              <div className={aboutStyles.credentialRow} key={credential.title}>
+              <Reveal className={aboutStyles.credentialRow} key={credential.title}>
                 <dt className={aboutStyles.credentialTerm}>{credential.title}</dt>
                 {credential.text ? (
                   <dd className={aboutStyles.credentialDescription}>
                     {credential.text}
                   </dd>
                 ) : null}
-              </div>
+              </Reveal>
             ))}
           </dl>
         </div>
@@ -165,12 +168,14 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
 
       <section className={styles.section} aria-labelledby="about-beliefs">
         <div className={aboutStyles.proseContainer}>
-          <h2
-            className={`${styles.sectionTitle} ${aboutStyles.proseTitle}`}
-            id="about-beliefs"
-          >
-            {pageCopy.beliefsTitle}
-          </h2>
+          <Reveal>
+            <h2
+              className={`${styles.sectionTitle} ${aboutStyles.proseTitle}`}
+              id="about-beliefs"
+            >
+              {pageCopy.beliefsTitle}
+            </h2>
+          </Reveal>
           <div className={`${styles.bodyCopy} ${aboutStyles.proseBody}`}>
             {pageCopy.beliefs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -179,23 +184,25 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
         </div>
       </section>
 
-      <div className={aboutStyles.workshopBreak}>
+      <Reveal className={aboutStyles.workshopBreak} variant="fade">
         <Image
           alt="Marc at a table in conversation, with an open notebook"
           fill
           sizes="(max-width: 1200px) calc(100vw - 2rem), 1184px"
           src="/images/generated/marc-workshop.webp"
         />
-      </div>
+      </Reveal>
 
       <section className={styles.sectionTint} aria-labelledby="about-outside">
         <div className={aboutStyles.proseContainer}>
-          <h2
-            className={`${styles.sectionTitle} ${aboutStyles.proseTitle}`}
-            id="about-outside"
-          >
-            {pageCopy.outsideTitle}
-          </h2>
+          <Reveal>
+            <h2
+              className={`${styles.sectionTitle} ${aboutStyles.proseTitle}`}
+              id="about-outside"
+            >
+              {pageCopy.outsideTitle}
+            </h2>
+          </Reveal>
           <div className={`${styles.bodyCopy} ${aboutStyles.proseBody}`}>
             {pageCopy.outside.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -206,10 +213,12 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
 
       <section className={styles.section} aria-labelledby="about-start">
         <div className={`${styles.container} ${styles.split}`}>
-          <h2 className={styles.sectionTitle} id="about-start">
-            {pageCopy.startTitle}
-          </h2>
-          <div className={`${styles.bodyCopy} ${aboutStyles.startCopy}`}>
+          <Reveal>
+            <h2 className={styles.sectionTitle} id="about-start">
+              {pageCopy.startTitle}
+            </h2>
+          </Reveal>
+          <Reveal className={`${styles.bodyCopy} ${aboutStyles.startCopy}`}>
             {pageCopy.start.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -218,13 +227,14 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
                 {pageCopy.processLink}
               </TextLink>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <ContactBand
         href={contactAction.href}
-        label={contactAction.label}
+        label="Book a call"
+        helper="Free introduction · typically 30 minutes"
         locale={locale}
         text={pageCopy.closingText}
         title={pageCopy.closingTitle}

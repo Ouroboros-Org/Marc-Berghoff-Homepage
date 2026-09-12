@@ -9,11 +9,11 @@
 }
 
 .hero {
-  padding-block: clamp(1.5rem, 3vw, 2.5rem) 2rem;
+  padding-block: 2rem clamp(2rem, 4vw, 3rem);
 }
 
 .eyebrow {
-  margin: 1.5rem 0 0.75rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0.85rem;
   color: var(--blue-deep);
   font-size: 0.82rem;
   font-weight: 650;
@@ -26,6 +26,7 @@
   font-size: clamp(2.5rem, 4vw, 3.75rem);
   font-weight: 580;
   line-height: 1.08;
+  letter-spacing: -.04em;
 }
 
 .intro {
@@ -55,6 +56,7 @@
   margin-bottom: 1.25rem;
   color: var(--navy);
   font-size: clamp(1.8rem, 3vw, 2.65rem);
+  font-weight: 580;
   line-height: 1.15;
 }
 
@@ -71,6 +73,7 @@
   color: var(--blue-deep);
   font-size: 0.9rem;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.25em;
 }
 

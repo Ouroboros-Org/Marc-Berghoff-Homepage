@@ -34,17 +34,17 @@ export default async function ContactPage({
         breadcrumbs={[{ label: "Contact" }]}
         lead={
           contactAction.isBooking
-            ? "You do not need to choose a format first. Book a time below, or send a few lines if writing is easier."
-            : "You do not need to choose a format first. Send a few lines and I will reply to arrange a time."
+            ? "You do not need to choose an engagement first. Book a time below, or send a few lines if writing is easier."
+            : "You do not need to choose an engagement first. Send a few lines and I will reply to arrange a time."
         }
-        primary={contactAction}
+        primary={{ ...contactAction, label: "Book a call", helper: "Free introduction · typically 30 minutes" }}
         ctaPrimary
         secondary={
           contactAction.isBooking
-            ? { label: "Send me a note", href: "#contact-form" }
+            ? { label: "Send a note", href: "#contact-form" }
             : undefined
         }
-        title="Bring the issue as it is."
+        title="Tell me what you want to work on."
       />
 
       <section className={styles.startSection} aria-label="Contact and booking">

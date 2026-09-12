@@ -12,8 +12,8 @@
 }
 
 .offer {
-  --offer-muted: #526176;
-  --offer-line: #d3deeb;
+  --offer-muted: var(--ink-soft);
+  --offer-line: var(--line);
   display: flex;
   min-width: 0;
   height: 100%;
@@ -21,18 +21,18 @@
   padding: clamp(1.4rem, 2.5vw, 2rem);
   border: 1px solid var(--offer-line);
   border-radius: 0.65rem;
-  color: #0b203d;
-  background: #fff;
+  color: var(--navy);
+  background: var(--paper);
   text-decoration: none;
-  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 .featured {
-  --offer-muted: #d3e0f0;
+  --offer-muted: var(--on-navy-secondary);
   --offer-line: #3e5472;
-  border-color: #0b203d;
+  border-color: var(--navy);
   color: #fff;
-  background: #0b203d;
+  background: var(--navy);
 }
 
 .offerTop {
@@ -49,14 +49,14 @@
   height: 2.35rem;
   place-items: center;
   border-radius: 50%;
-  color: #0b203d;
-  background: #e4efff;
+  color: var(--navy);
+  background: var(--blue-mist);
   font-size: 0.85rem;
   font-weight: 700;
 }
 
 .featured .number {
-  background: #fec302;
+  background: var(--yellow-soft);
 }
 
 .stage {
@@ -70,9 +70,12 @@
   margin: 0;
   color: inherit;
   font-size: clamp(1.6rem, 2.3vw, 2rem);
+  font-weight: 580;
   line-height: 1.13;
   letter-spacing: -0.03em;
 }
+
+.featured h3 { color: var(--yellow-soft); }
 
 .situation {
   margin: 1.2rem 0 0;
@@ -142,29 +145,28 @@
   flex-shrink: 0;
 }
 
-.offer:hover {
-  --offer-muted: #d3e0f0;
-  --offer-line: #3e5472;
-  color: #fff;
-  background: #173d70;
-  transform: translateY(-3px);
+.offer:hover,
+.offer:focus-visible {
+  --offer-muted: var(--ink-soft);
+  --offer-line: #dec880;
+  border-color: var(--yellow);
+  color: var(--navy);
+  background: var(--yellow-soft);
 }
 
-.featured:hover {
-  --offer-muted: #263e5b;
-  --offer-line: #ac8500;
-  color: #0b203d;
-  background: #fec302;
+.offer:hover h3,
+.offer:focus-visible h3 {
+  color: var(--navy);
 }
 
 .offer:focus-visible {
-  outline: 3px solid #173d70;
+  outline: 3px solid var(--blue-deep);
   outline-offset: 5px;
 }
 
 .decision {
   padding-block: clamp(3.5rem, 6vw, 5rem);
-  background: #fff0b0;
+  background: var(--yellow-soft);
 }
 
 .decisionGrid {
@@ -217,9 +219,5 @@
 @media (prefers-reduced-motion: reduce) {
   .offer {
     transition: none;
-  }
-
-  .offer:hover {
-    transform: none;
   }
 }

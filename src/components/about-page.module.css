@@ -1,39 +1,41 @@
 .hero {
-  padding-block: clamp(2rem, 4vw, 3.5rem) clamp(3rem, 6vw, 5rem);
-  background: white;
+  padding-block: 2rem clamp(3.5rem, 6vw, 5.5rem);
+  background: var(--paper);
 }
 
 .heroGrid {
   display: grid;
-  gap: clamp(2.5rem, 6vw, 5rem);
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
   margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 
 .heroCopy { min-width: 0; }
 .eyebrow {
-  margin: 0 0 1.4rem;
+  margin: 0 0 1rem;
   color: var(--page-blue-deep);
   font-size: .76rem;
-  font-weight: 750;
-  letter-spacing: .1em;
+  font-weight: 650;
+  letter-spacing: .08em;
   text-transform: uppercase;
 }
 
 .heroTitle {
   margin: 0 0 1.6rem;
   font-family: var(--page-font-display);
-  font-size: clamp(3.8rem, 8vw, 7rem);
-  font-weight: 620;
-  letter-spacing: -.055em;
-  line-height: .96;
+  max-width: 10ch;
+  font-size: clamp(3.2rem, 5.4vw, 5.25rem);
+  font-weight: 580;
+  letter-spacing: -.04em;
+  line-height: 1.04;
 }
 
 .heroRole {
   max-width: 31rem;
   color: var(--page-ink);
   font-family: var(--page-font-display);
-  font-weight: 650;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-weight: 580;
   letter-spacing: -0.015em;
   line-height: 1.35;
 }
@@ -41,8 +43,8 @@
 .heroStatement {
   max-width: 39rem;
   margin-top: 1.5rem;
-  color: var(--page-muted);
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
   line-height: 1.7;
 }
 
@@ -53,9 +55,9 @@
   max-width: 30rem;
   width: 100%;
   justify-self: center;
-  border-radius: 2rem .5rem 2rem .5rem;
+  border-radius: .75rem;
   overflow: hidden;
-  box-shadow: 1rem 1rem 0 color-mix(in srgb, var(--page-blue) 24%, white);
+  background: var(--blue-mist);
 }
 .heroPortrait img { object-fit: cover; object-position: 50% 45%; }
 .credentialsLayout { display: grid; gap: 2.5rem; }
@@ -80,7 +82,8 @@
 .credentialTerm {
   margin: 0;
   font-family: var(--page-font-display);
-  font-weight: 620;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 580;
   letter-spacing: -0.025em;
   line-height: 1.2;
 }
@@ -92,7 +95,7 @@
 }
 
 .proseContainer {
-  width: min(100% - 2rem, 46rem);
+  width: min(calc(100% - 2 * var(--gutter)), 46rem);
   margin-inline: auto;
 }
 
@@ -114,7 +117,7 @@
 
 .workshopBreak {
   position: relative;
-  width: min(100% - 2rem, 74rem);
+  width: min(calc(100% - 2 * var(--gutter)), var(--container));
   aspect-ratio: 3 / 2;
   margin: 0 auto clamp(3rem, 7vw, 6rem);
   overflow: hidden;
@@ -123,17 +126,13 @@
 .workshopBreak img { object-fit: cover; object-position: 58% 45%; }
 
 @media (min-width: 42rem) {
-  .proseContainer {
-    width: min(100% - 3rem, 46rem);
-  }
-
   .credentialRow {
     grid-template-columns: minmax(13rem, 0.72fr) minmax(0, 1.28fr);
     gap: clamp(2rem, 6vw, 5rem);
     align-items: baseline;
   }
 
-  .workshopBreak { width: min(100% - 3rem, 74rem); aspect-ratio: 16 / 9; }
+  .workshopBreak { aspect-ratio: 16 / 9; }
 }
 
 @media (min-width: 48rem) {
@@ -144,4 +143,9 @@
 @media (min-width: 62rem) {
   .credentialsLayout { grid-template-columns: .8fr 1.2fr; gap: 4rem; }
   .credentialRow { grid-template-columns: 1fr; gap: .6rem; }
+}
+
+@media (max-width: 30rem) {
+  .heroTitle { font-size: clamp(2.8rem, 12vw, 3.6rem); }
+  .heroPortrait { max-width: 25rem; }
 }
