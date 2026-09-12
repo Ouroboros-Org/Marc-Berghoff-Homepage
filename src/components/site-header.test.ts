@@ -1,10 +1,19 @@
-import { describe, expect, it } from "vitest";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { describe, expect, it, vi } from "vitest";
 
 import {
   getActiveHeaderGroupId,
   isCurrentHeaderItem,
   isCurrentNavigationPage,
+  SiteHeader,
 } from "./site-header";
+
+const routeState = vi.hoisted(() => ({ pathname: "/" }));
+
+vi.mock("next/navigation", () => ({
+  usePathname: () => routeState.pathname,
+}));
 
 describe("header navigation state", () => {
   it("places the assessment inside the work group", () => {
@@ -44,5 +53,33 @@ describe("header navigation state", () => {
   it("does not mark retired routes as current navigation", () => {
     expect(getActiveHeaderGroupId("/de/about")).toBeNull();
     expect(getActiveHeaderGroupId("/peer-advisory")).toBeNull();
+  });
+});
+
+describe("selected mobile navigation pages", () => {
+  it.each([
+    ["/contact", "About", "/contact"],
+    ["/advisory", "How I can help", "/advisory"],
+    ["/blog/founder-bottleneck-or-operating-model", "Insights", "/blog/founder-bottleneck-or-operating-model"],
+    ["/self-check", null, "/self-check"],
+    ["/results/klarsolar", "About", null],
+  ] as const)("marks the current destination and group on %s", (pathname, groupLabel, currentHref) => {
+    routeState.pathname = pathname;
+    const html = renderToStaticMarkup(createElement(SiteHeader));
+    const mobile = html.slice(html.indexOf('id="mobile-navigation"'));
+    const selectedLinks = Array.from(mobile.matchAll(/<a\b([^>]*)>/g))
+      .filter((match) => match[1].includes('aria-current="page"'))
+      .map((match) => match[1].match(/href="([^"]+)"/)?.[1]);
+    const activeGroups = Array.from(
+      mobile.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/g),
+    ).filter((match) => match[1].includes('data-active="true"'));
+
+    expect(selectedLinks).toEqual(currentHref ? [currentHref] : []);
+    expect(activeGroups).toHaveLength(groupLabel ? 1 : 0);
+    if (groupLabel) {
+      const group = activeGroups[0][2];
+      expect(group).toContain(`class="mobile-nav__section-label">${groupLabel}</span>`);
+      expect(group).toMatch(/<span aria-hidden="true" class="mobile-nav__index">0\d<\/span>/);
+    }
   });
 });
