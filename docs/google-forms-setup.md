@@ -120,3 +120,52 @@ HTTPS `docs.google.com/forms/d/e/.../formResponse` action URL.
   `/api/contact` contract and UI unchanged.
 - Update `/privacy` whenever recipients, retention, analytics or form fields
   change.
+
+## 6. Separate European peer-advisory register
+
+The October edit uses a separate Google Form, as requested by the owner. The
+website posts to `/api/european-peer-advisory`; it never falls back to the enquiry
+form. Configure the new form at deployment. General enquiries remain independent,
+including the optional editable coaching or Malta topic, which is saved at the
+start of the enquiry message.
+
+Create a Google Form with these questions and copy the public `formResponse`
+action and each question's `entry` ID into the server-only variables below.
+
+| Google Form question | Type | Environment variable |
+| --- | --- | --- |
+| Full name | Short answer | `GOOGLE_PEER_FORM_ENTRY_FULL_NAME` |
+| Email | Short answer | `GOOGLE_PEER_FORM_ENTRY_EMAIL` |
+| Company | Short answer | `GOOGLE_PEER_FORM_ENTRY_COMPANY` |
+| Country | Short answer | `GOOGLE_PEER_FORM_ENTRY_COUNTRY` |
+| What would you value from a peer group? | Paragraph, optional | `GOOGLE_PEER_FORM_ENTRY_EXPECTATIONS` |
+| Consent recorded | Short answer | `GOOGLE_PEER_FORM_ENTRY_CONSENT` |
+
+Set `GOOGLE_PEER_FORM_ACTION_URL` to the new form's HTTPS
+`https://docs.google.com/forms/d/e/FORM_PUBLIC_ID/formResponse` URL. Use distinct
+numeric `entry` IDs. Do not use the contact form's action URL. The complete list
+of placeholders is in [`.env.example`](../.env.example).
+
+The form must accept public responses without Google sign-in, restricted-domain
+access, verified-email collection or a one-response limit. Keep the six questions
+on one page, with no additional required questions. In Google Forms Settings,
+set the confirmation message to this exact sentence:
+
+> Your interest in European peer advisory has been registered.
+
+The adapter requires this confirmation and rejects a returned form, validation
+page, network failure or non-success HTTP response. A 200 response by itself does
+not produce success in the website. Missing configuration returns an honest error
+and preserves the visitor's entries; no registration is stored locally.
+
+The consent field records the displayed opt-in sentence. The server rejects an
+unchecked opt-in and does not forward honeypot or timing fields. Link the new form
+to its own response Sheet and configure owner notifications if wanted. Marc can
+follow up from that register; no automated email or membership is created.
+
+Before enabling this on the deployed site, submit an identified test registration,
+confirm all six values in the new Form and Sheet, and verify the owner's follow-up
+access. Test an invalid entry mapping and restore it, checking that the website
+does not show success. The implementation tests use a simulated provider; they do
+not establish live persistence or inbox delivery. Review the privacy notice and
+current claim permissions as part of deployment.

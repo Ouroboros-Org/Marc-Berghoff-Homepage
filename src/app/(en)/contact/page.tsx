@@ -1,12 +1,14 @@
 import { CalInlineEmbed } from "@/components/cal-inline-embed";
 import { EngagementProcess } from "@/components/engagement-process";
 import { ProgressiveContactForm } from "@/components/forms";
+import { PeerAdvisoryForm } from "@/components/forms/PeerAdvisoryForm";
 import {
   PageHero,
   secondaryPageStyles as pageStyles,
 } from "@/components/pages/editorial";
 import { createPageMetadata } from "@/config/metadata";
 import { siteConfig } from "@/config/site";
+import { getEnquiryTopic } from "@/lib/contact-schema";
 
 import styles from "@/components/contact-page.module.css";
 
@@ -20,9 +22,9 @@ export const metadata = createPageMetadata({
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams: Promise<{ details?: string }>;
+  searchParams: Promise<{ details?: string; interest?: string | string[] }>;
 }) {
-  const { details } = await searchParams;
+  const { details, interest } = await searchParams;
   const initialDetailsOpen = details === "open";
   const contactAction = siteConfig.contact.primaryAction;
 
@@ -35,11 +37,11 @@ export default async function ContactPage({
             ? "You do not need to choose an engagement first. Book a time below, or send a few lines if writing is easier."
             : "You do not need to choose an engagement first. Send a few lines and I will reply to arrange a time."
         }
-        primary={{ ...contactAction, label: "Book a call", helper: "Free introduction · typically 30 minutes" }}
+        primary={{ ...contactAction, href: "#booking", label: "Book a call", helper: "Free introduction · typically 30 minutes" }}
         ctaPrimary
         secondary={
           contactAction.isBooking
-            ? { label: "Send a note", href: "#contact-form" }
+            ? { label: "Send a note", href: "#enquiry" }
             : undefined
         }
         title="Tell me what you want to work on."
@@ -50,9 +52,9 @@ export default async function ContactPage({
           className={`${styles.startGrid} ${contactAction.isBooking ? "" : styles.startGridSingle
             }`}
         >
-          <div className={styles.formColumn}>
+          <div className={styles.formColumn} id="enquiry">
             <div className={styles.formShell}>
-              <ProgressiveContactForm initialDetailsOpen={initialDetailsOpen} />
+              <ProgressiveContactForm initialDetailsOpen={initialDetailsOpen} initialTopic={getEnquiryTopic(interest)} />
             </div>
           </div>
           {contactAction.isBooking ? (
@@ -111,7 +113,19 @@ export default async function ContactPage({
         </div>
       </section>
 
-      <EngagementProcess title="What happens next?" />
+      <section className={styles.waitlistSection} id="european-peer-advisory" aria-labelledby="peer-advisory-title">
+        <div className={styles.waitlistContainer}>
+          <div className={styles.startHeader}>
+            <h2 id="peer-advisory-title">European peer advisory for small-business owners</h2>
+            <p>I’m curating a new peer-advisory group for European small-business owners. Register your interest to hear more as it takes shape. Registering interest does not commit you to joining.</p>
+          </div>
+          <div className={styles.formShell}><PeerAdvisoryForm /></div>
+        </div>
+      </section>
+
+      <div className={styles.processAnchor} id="how-we-begin">
+        <EngagementProcess title="How working together begins" intro="For enquiries about working together, we start with a conversation. You do not need to arrive with a diagnosis or a chosen service; we work out the right level of support together." note="The European peer-group waitlist is a separate expression of interest." />
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   contactPayloadSchema,
+  getEnquiryTopic,
   quickContactDefaults,
 } from "./contact-schema";
 import {
@@ -11,6 +12,14 @@ import {
 } from "./contact-diagnostic";
 
 describe("contactPayloadSchema", () => {
+  it("accepts known editable enquiry topics without registering general enquirers for Europe", () => {
+    expect(getEnquiryTopic("coaching")).toBe("coaching");
+    expect(getEnquiryTopic("malta-peer-advisory")).toBe("malta-peer-advisory");
+    expect(getEnquiryTopic("european-peer-advisory")).toBe("not-sure");
+    expect(getEnquiryTopic(["coaching", "malta-peer-advisory"])).toBe("not-sure");
+    expect(getEnquiryTopic(undefined)).toBe("not-sure");
+  });
+
   it("accepts a valid quick message without organisational fields", () => {
     const payload = {
       ...quickContactDefaults(),

@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import type { SiteLocale } from "@/config/routes";
+import { ENQUIRY_TOPIC_OPTIONS, type EnquiryTopic } from "@/lib/contact-schema";
 import { COMPANY_SIZE_LABELS, COMPANY_SIZE_OPTIONS, COMPANY_SIZE_VALUES, quickContactDefaults, type QuickContactPayload, quickContactSchema, SERVICE_LABELS, SERVICE_OPTIONS, SERVICE_VALUES, URGENCY_LABELS, URGENCY_OPTIONS, URGENCY_VALUES, } from "@/lib/contact-schema";
 import { useDiagnosticSummary } from "@/lib/use-diagnostic-summary";
 import { DiagnosticSummaryField, INITIAL_SUBMIT_STATE, postContact, SubmitButton, SubmitNotice, type SubmitState, } from "./contact-form-shared";
@@ -80,9 +81,10 @@ const progressiveContactSchemas = {
     en: createProgressiveContactSchema("en")
 } as const;
 type ProgressiveContactValues = z.infer<(typeof progressiveContactSchemas)["en"]>;
-function defaults(diagnosticSummary = ""): ProgressiveContactValues {
+function defaults(diagnosticSummary = "", topic: EnquiryTopic = "not-sure"): ProgressiveContactValues {
     return {
         ...quickContactDefaults(diagnosticSummary),
+        topic,
         phone: "",
         company: "",
         role: "",
@@ -117,6 +119,7 @@ function toPayload(values: ProgressiveContactValues): QuickContactPayload {
         formType: "quick",
         fullName: values.fullName,
         email: values.email,
+        topic: values.topic,
         message: context.length
             ? `${values.message}\n\n${"Optional context"}:\n${context.join("\n")}`
             : values.message,
@@ -126,8 +129,9 @@ function toPayload(values: ProgressiveContactValues): QuickContactPayload {
         startedAt: values.startedAt,
     });
 }
-export function ProgressiveContactForm({ initialDetailsOpen = false, locale = "en", }: {
+export function ProgressiveContactForm({ initialDetailsOpen = false, initialTopic = "not-sure", locale = "en", }: {
     initialDetailsOpen?: boolean;
+    initialTopic?: EnquiryTopic;
     locale?: SiteLocale;
 }) {
     const copy = FORM_COPY[locale];
@@ -143,7 +147,7 @@ export function ProgressiveContactForm({ initialDetailsOpen = false, locale = "e
     const [submitState, setSubmitState] = useState<SubmitState>(INITIAL_SUBMIT_STATE);
     const { register, handleSubmit, reset, setError, setValue, formState: { errors }, } = useForm<ProgressiveContactValues>({
         resolver: zodResolver(schema),
-        defaultValues: defaults(summary),
+        defaultValues: defaults(summary, initialTopic),
         mode: "onBlur",
         reValidateMode: "onChange",
         shouldFocusError: true,
@@ -151,6 +155,9 @@ export function ProgressiveContactForm({ initialDetailsOpen = false, locale = "e
     useEffect(() => {
         setValue("diagnosticSummary", summary, { shouldValidate: true });
     }, [setValue, summary]);
+    useEffect(() => {
+        setValue("topic", initialTopic);
+    }, [initialTopic, setValue]);
     useEffect(() => {
         if ((submitState.phase === "success" || submitState.phase === "error") &&
             submitState.focusNotice) {
@@ -196,6 +203,7 @@ export function ProgressiveContactForm({ initialDetailsOpen = false, locale = "e
           <FormInput autoComplete="name" error={errors.fullName} id={`${prefix}-name`} label={copy.nameLabel} registration={register("fullName")} type="text"/>
           <FormInput autoComplete="email" error={errors.email} id={`${prefix}-email`} inputMode="email" label={copy.emailLabel} registration={register("email")} type="email"/>
         </div>
+        <FormSelect error={errors.topic} id={`${prefix}-topic`} label="What would you like to talk about?" optional options={ENQUIRY_TOPIC_OPTIONS} registration={register("topic")}/>
         <FormTextarea error={errors.message} helper={copy.messageHelper} id={`${prefix}-message`} label={copy.messageLabel} placeholder={copy.messagePlaceholder} registration={register("message")} rows={6}/>
         <input type="hidden" {...register("diagnosticSummary")}/>
       </fieldset>

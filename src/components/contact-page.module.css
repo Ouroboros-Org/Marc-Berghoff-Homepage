@@ -147,3 +147,30 @@
     border-radius: 0.9rem;
   }
 }
+.formColumn,
+.waitlistSection,
+.processAnchor {
+  scroll-margin-top: 7rem;
+}
+
+.waitlistSection {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  background: var(--blue-mist);
+}
+
+.waitlistContainer {
+  width: min(calc(100% - 2 * var(--gutter)), 48rem);
+  margin-inline: auto;
+}
+
+.waitlistContainer .startHeader {
+  margin-bottom: 2rem;
+}
+
+.waitlistContainer .startHeader h2 {
+  max-width: 24ch;
+}
+
+.waitlistContainer .startHeader > p {
+  max-width: 60ch;
+}

@@ -68,6 +68,14 @@ describe("Google Forms configuration", () => {
 });
 
 describe("Google Forms payload mapping", () => {
+  it("saves an explicit enquiry topic with the message, without changing the contact destination", () => {
+    const config = readGoogleFormsConfig(validEnv);
+    const body = buildGoogleFormsBody({ ...quickPayload, topic: "coaching" }, config);
+    expect(body.get("entry.110")).toBe(`Enquiry topic: Executive coaching\n\n${quickPayload.message}`);
+    expect(body.get("entry.101")).toBe("Quick message");
+    expect(body.get("entry.115")).toBe("Yes");
+  });
+
   it("maps the quick form and omits anti-spam fields", () => {
     const config = readGoogleFormsConfig(validEnv);
     const body = buildGoogleFormsBody(quickPayload, config);

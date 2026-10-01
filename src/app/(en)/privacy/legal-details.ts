@@ -21,6 +21,6 @@ export const LEGAL_DETAILS = {
   disputeResolutionStatement: optionalEnvironmentValue(
     process.env.LEGAL_DISPUTE_RESOLUTION_STATEMENT,
   ),
-  lastUpdated: "11 August 2026",
+  lastUpdated: "1 October 2026",
   isComplete: Boolean(optionalEnvironmentValue(process.env.LEGAL_ADDRESS)),
 } as const;

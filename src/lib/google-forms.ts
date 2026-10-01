@@ -1,4 +1,4 @@
-import type { ContactPayload } from "./contact-schema";
+import { ENQUIRY_TOPIC_LABELS, type ContactPayload } from "./contact-schema";
 import { formatDiagnosticSubmission } from "./contact-diagnostic";
 
 const GOOGLE_FORM_ENV_KEYS = {
@@ -106,7 +106,11 @@ export function buildGoogleFormsBody(
         : "Diagnostic result",
     fullName: isDiagnosticResult ? "" : payload.fullName,
     email: payload.email,
-    message: payload.formType === "quick" ? payload.message : "",
+    message: payload.formType === "quick"
+      ? payload.topic && payload.topic !== "not-sure"
+        ? `Enquiry topic: ${ENQUIRY_TOPIC_LABELS[payload.topic]}\n\n${payload.message}`
+        : payload.message
+      : "",
     diagnosticSummary: isDiagnosticResult
       ? formatDiagnosticSubmission(payload.answers)
       : payload.diagnosticSummary,

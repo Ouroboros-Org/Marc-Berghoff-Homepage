@@ -6,6 +6,20 @@ import {
   type DiagnosticBand,
 } from "./contact-diagnostic";
 
+export const ENQUIRY_TOPICS = ["not-sure", "people-organisation", "coaching", "malta-peer-advisory"] as const;
+export type EnquiryTopic = (typeof ENQUIRY_TOPICS)[number];
+export const ENQUIRY_TOPIC_LABELS = {
+  "not-sure": "Not sure yet",
+  "people-organisation": "People and organisation support",
+  coaching: "Executive coaching",
+  "malta-peer-advisory": "Malta Vistage group",
+} as const satisfies Record<EnquiryTopic, string>;
+export const ENQUIRY_TOPIC_OPTIONS = ENQUIRY_TOPICS.map((value) => ({ value, label: ENQUIRY_TOPIC_LABELS[value] }));
+
+export function getEnquiryTopic(interest: string | string[] | undefined): EnquiryTopic {
+  return ENQUIRY_TOPICS.find((topic) => topic === interest) ?? "not-sure";
+}
+
 export const SERVICE_VALUES = [
   "bottleneck-assessment",
   "advisory",
@@ -101,6 +115,7 @@ const baseFields = {
 export const quickContactSchema = z.object({
   formType: z.literal("quick"),
   ...baseFields,
+  topic: z.enum(ENQUIRY_TOPICS).optional(),
   message: z
     .string()
     .trim()
@@ -155,6 +170,7 @@ export const quickContactDefaults = (
   fullName: "",
   email: "",
   message: "",
+  topic: "not-sure",
   diagnosticSummary,
   consent: false,
   website: "",

@@ -46,7 +46,7 @@ export default function PrivacyPage() {
           </h1>
           <p className={styles.lead}>
             This notice covers the website, the Cal.com booking calendar, the
-            Self-check and the contact form.
+            Self-check, the contact form and European peer-advisory interest registration.
           </p>
           <p className={styles.updated}>
             Last updated: {LEGAL_DETAILS.lastUpdated}
@@ -75,13 +75,14 @@ export default function PrivacyPage() {
             <p>The form can collect:</p>
             <ul>
               <li>your name, contact details, company and role;</li>
-              <li>the service, timing and company-size options you select;</li>
+              <li>the enquiry topic, service, timing and company-size options you select;</li>
               <li>the situation and desired outcome you describe;</li>
               <li>
                 your self-check score and answers, only when you choose to
                 send the result;
               </li>
               <li>your consent confirmation.</li>
+              <li>for European peer-advisory interest, your name, email, company, country and any optional description of what you would value from the group.</li>
             </ul>
             <p>
               Please leave employee records, health information and other sensitive
@@ -98,6 +99,12 @@ export default function PrivacyPage() {
               contact database.
             </p>
             <p>
+              European peer-advisory registrations use a separate server route and
+              Google Form, with its own response sheet when enabled. General enquiries
+              and Self-check results are not added to that register. Registration is
+              confirmed only after Google Forms returns its saved-response confirmation.
+            </p>
+            <p>
               The server also checks a hidden anti-spam field and the time taken to
               complete the form. Those values are not forwarded to Google. The
               application does not add the visitor&apos;s IP address or browser identifier
@@ -107,9 +114,15 @@ export default function PrivacyPage() {
 
           <LegalSection title="4. Why the information is used">
             <p>
-              Form information is used to read and answer the enquiry, assess whether
+              General enquiry information is used to read and answer the enquiry, assess whether
               the requested work fits, prepare for a conversation and protect the form
               from automated misuse. It is not added to a marketing list.
+            </p>
+            <p>
+              If you opt in to the European peer-advisory group, Marc uses those
+              registration details to follow up about that group as it takes shape.
+              This is separate from a general enquiry and does not commit you to membership.
+              You can withdraw this opt-in by emailing {LEGAL_DETAILS.email}.
             </p>
             <p>
               Where EU or UK data-protection law applies, these uses may rely on steps
@@ -154,6 +167,11 @@ export default function PrivacyPage() {
               be removed earlier when there is no continuing business or legal reason to
               retain it. Provider security logs and analytics data follow the settings and
               retention rules of the live Vercel and Google accounts.
+            </p>
+            <p>
+              European peer-advisory registration details are kept while needed to
+              follow up about the group. You can ask to leave the register or have
+              your details deleted by emailing {LEGAL_DETAILS.email}.
             </p>
           </LegalSection>
 
