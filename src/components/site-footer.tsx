@@ -14,6 +14,7 @@ export function SiteFooter({ locale = "en" }: {
         label: string;
         language?: SiteLocale;
     }> = [
+        { href: "/services", label: "How I can help" },
         { href: "/results", label: "Selected work" },
         { href: "/blog", label: "Insights" },
         { href: "/about", label: "About me" },
@@ -36,11 +37,13 @@ export function SiteFooter({ locale = "en" }: {
           </div>
           <div>
             <p className="footer-label">
-              {"How I can help"}
+              {"For your organisation"}
             </p>
-            {serviceNavigation.map((item) => (<Link key={item.href} href={item.href}>
+            {serviceNavigation.filter((item) => item.audience === "organisation").map((item) => (<Link key={item.href} href={item.href}>
                 {item.label}
               </Link>))}
+            <p className="footer-label">For you as a leader</p>
+            {serviceNavigation.filter((item) => item.audience === "leader").map((item) => (<Link key={item.href} href={item.href}>{item.label}</Link>))}
           </div>
         </div>
 

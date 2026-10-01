@@ -30,7 +30,6 @@ const engagementIds = [
 const speakingIds = [
   "fhrd-keynote",
   "undergraduate-lecturer",
-  "vistage-chair",
 ] as const;
 
 function collectProductionSource(directory: string): string {
@@ -121,7 +120,7 @@ describe("results and sample-report content contract", () => {
     );
 
     expect(resultsSource).toContain(
-      "I chair a peer advisory group of business owners in Malta.",
+      "As a Vistage Chair, I support small-business owners through a peer-advisory group in Malta.",
     );
     expect(about).toContain(
       "I chair a peer advisory group of business owners in Malta",
@@ -133,6 +132,7 @@ describe("results and sample-report content contract", () => {
     expect(html).toContain('href="/results/klarsolar"');
     expect(html).toContain("Head of HR, Klarsolar");
     expect(html).toContain("Chris Mercieca, Giftagoods");
+    expect(html).toContain("<footer>Alberta</footer>");
     expect(html).not.toContain('href="/de/');
   });
 

@@ -114,7 +114,7 @@ export function BottleneckAssessmentPageView({ locale }: { locale: SiteLocale })
             <div className={styles.feature}>
               <h3>Agreed before we begin</h3>
               <p>The fee is fixed and agreed before we start. The scope sets out who is involved, what the assessment will cover and the review workshop.</p>
-              <ButtonLink href="/contact#how-we-begin" variant="text">How the work begins</ButtonLink>
+              <ButtonLink className={styles.termsLink} href="/contact#how-we-begin" variant="text">How the work begins</ButtonLink>
             </div>
             <div className={styles.feature}>
               <h3>A focused guarantee</h3>

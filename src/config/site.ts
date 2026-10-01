@@ -85,7 +85,7 @@ const contactPhone = getContactPhone();
 const primaryContactAction = getPrimaryContactAction();
 export const siteConfig = {
     name: "Marc Berghoff",
-    descriptor: "Fractional CPO · People & organisation",
+    descriptor: "People & organisation · Executive coaching",
     description: "Work with me as your Fractional CPO (Chief People Officer) or strategic people adviser. Support for your people, leadership and organisation as you grow.",
     contact: {
         email: getContactEmail(),
@@ -103,6 +103,7 @@ export type NavigationLink = {
     label: string;
     description: string;
     language?: SiteLocale;
+    audience?: "organisation" | "leader";
 };
 export type HeaderNavigationGroup = {
     id: "work" | "insights" | "about";
@@ -111,10 +112,12 @@ export type HeaderNavigationGroup = {
     description: string;
     items: readonly NavigationLink[];
 };
-export function getServiceNavigation(locale: SiteLocale = "en") {
+export function getServiceNavigation(locale: SiteLocale = "en"): readonly NavigationLink[] {
     return [
-        { href: getRouteHref("services", locale), label: "How I can help", description: "Three ways to work together. Start wherever you need support." },
-        ...ENGAGEMENTS.map(({ href, title, situation }) => ({ href, label: title, description: situation })),
+        { href: getRouteHref("services", locale), label: "How I can help", description: "Support for your organisation and for you as a leader." },
+        ...ENGAGEMENTS.map(({ href, title, situation }) => ({ href, label: title, description: situation, audience: "organisation" as const })),
+        { href: "/services#coaching", label: "Executive coaching", description: "One-to-one work on your leadership, decisions and recurring patterns.", audience: "leader" },
+        { href: "/services#peer-advisory", label: "Peer advisory", description: "Think through decisions with other business owners in Malta or Europe.", audience: "leader" },
     ] satisfies readonly NavigationLink[];
 }
 export const serviceNavigation = getServiceNavigation("en");

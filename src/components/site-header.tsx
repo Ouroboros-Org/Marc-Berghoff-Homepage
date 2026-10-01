@@ -239,7 +239,7 @@ export function SiteHeader({ locale = "en" }: {
             <ButtonLink cta href={contactAction.href} size="wide" tabIndex={mobileOpen ? 0 : -1}>
               {contactAction.label}
             </ButtonLink>
-            {contactAction.isBooking ? (<ButtonLink href={getRouteHref("contact", "en", "#contact-form")} size="wide" tabIndex={mobileOpen ? 0 : -1} variant="secondary">
+            {contactAction.isBooking ? (<ButtonLink href={getRouteHref("contact", "en", "#enquiry")} size="wide" tabIndex={mobileOpen ? 0 : -1} variant="secondary">
                 {"Send me a note"}
               </ButtonLink>) : null}
             <ButtonLink aria-label={"Open Marc Berghoff's LinkedIn profile"} className="mobile-nav__social" external href={siteConfig.social.linkedin} icon={false} size="icon" tabIndex={mobileOpen ? 0 : -1} variant="ghost">

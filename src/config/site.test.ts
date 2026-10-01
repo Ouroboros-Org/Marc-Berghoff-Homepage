@@ -10,9 +10,9 @@ import {
 } from "./site";
 
 describe("getHeaderNavigation", () => {
-  it("presents three engagements within the service navigation", () => {
+  it("presents organisational and leadership offers within the service navigation", () => {
     const work = getHeaderNavigation("en").find(group => group.id === "work");
-    expect(work?.items.map(item => item.href)).toEqual(["/services", "/bottleneck-assessment", "/advisory", "/fractional-cpo"]);
+    expect(work?.items.map(item => item.href)).toEqual(["/services", "/bottleneck-assessment", "/advisory", "/fractional-cpo", "/services#coaching", "/services#peer-advisory"]);
   });
 });
 

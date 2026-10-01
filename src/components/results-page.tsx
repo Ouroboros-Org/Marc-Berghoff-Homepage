@@ -4,10 +4,12 @@ import { ArrowUpRight } from "lucide-react";
 
 import { OutcomeNumber } from "@/components/outcome-number";
 import { Reveal } from "@/components/reveal";
+import { TestimonialQuote } from "@/components/testimonial-quote";
 import {
   ContactBand,
   PageHero,
   SectionHeading,
+  TextLink,
   secondaryPageStyles as styles,
 } from "@/components/pages/editorial";
 import { getRouteHref, type SiteLocale } from "@/config/routes";
@@ -20,6 +22,7 @@ type WorkItem = {
   id: string;
   statement: string;
   context?: string;
+  category?: "organisation" | "coaching" | "peer";
 };
 
 const clientLogos = [
@@ -63,48 +66,55 @@ const copy = {
     ],
     title: "Selected work",
     lead: "See how I have supported people, leadership and organisational change in different companies. Some clients are named; others are described anonymously.",
-    selectedTitle: "Selected engagements.",
     work: [
       {
         id: "scaleup-leadership-coaching",
+        category: "coaching",
         statement:
           "Leadership coaching with over 10 team and department leads at a scale-up past €200m ARR",
         context: "Now in the second year of the engagement.",
       },
       {
         id: "financial-regulator-coaching",
+        category: "coaching",
         statement:
           "Executive coaching with two department leaders at Malta’s financial services regulator",
       },
       {
         id: "igaming-executives-workshops",
+        category: "coaching",
         statement:
           "Two executives coached and two top-management workshops at an international iGaming events and media group",
       },
       {
         id: "financial-services-sourcing",
+        category: "organisation",
         statement:
           "Built an active sourcing approach with the CFO of a German financial services group",
         context: "They still run it today.",
       },
       {
         id: "security-group-hr-leadership",
+        category: "organisation",
         statement: "Interim group-wide HR leadership for a security company with 400 employees across four companies",
       },
       {
         id: "dubai-ceo-owner-mediation",
+        category: "coaching",
         statement:
           "Executive coaching and mediation between the CEO and the owner of a marketing agency in Dubai",
       },
       {
         id: "web3-web2-pivot",
+        category: "organisation",
         statement: "Facilitated the strategic pivot of a Web3 business into Web2",
         context: "Its lead investor had withdrawn.",
       },
       {
         id: "small-business-owner-chairing",
+        category: "peer",
         statement:
-          "Ongoing support for several small-business owners as their Vistage Chair",
+          "As a Vistage Chair, I support small-business owners through a peer-advisory group in Malta.",
       },
     ] satisfies readonly WorkItem[],
     testimonialsTitle: "What clients say.",
@@ -121,16 +131,11 @@ const copy = {
         statement: "Lecturer in training and development",
         context: "Undergraduate HR management.",
       },
-      {
-        id: "vistage-chair",
-        statement: "Vistage Chair",
-        context: "I chair a peer advisory group of business owners in Malta.",
-      },
     ] satisfies readonly WorkItem[],
     clientsTitle: "Named organisations.",
-    closingTitle: "What support would make a difference to your team?",
+    closingTitle: "What support would make a difference to you or your team?",
     closingText:
-      "Tell me what you want to work on and who is involved. We can discuss where advice would help and where you need me to carry responsibility.",
+      "Tell me what you want to work on. We can discuss whether organisational support, one-to-one coaching or peer advisory would fit.",
     secondaryCta: "How I work",
   },
 } as const;
@@ -188,30 +193,32 @@ export function ResultsPageView({ locale }: { locale: SiteLocale }) {
         </div>
       </section>
 
-      <section className={`${styles.section} ${resultStyles.workSection}`} aria-labelledby="selected-engagements">
-        <div className={styles.container}>
-          <SectionHeading
-            id="selected-engagements"
-            title={pageCopy.selectedTitle}
-          />
-          <RuledProofList items={pageCopy.work} />
-        </div>
-      </section>
+      {([
+        { category: "organisation", title: "Organisation and people leadership" },
+        { category: "coaching", title: "Executive coaching and leadership development", href: "/services#coaching", link: "Explore executive coaching" },
+        { category: "peer", title: "Peer advisory", href: "/services#peer-advisory", link: "Explore peer advisory" },
+      ] as const).map((group) => (
+        <section className={`${styles.section} ${resultStyles.workSection}`} aria-labelledby={`selected-${group.category}`} key={group.category}>
+          <div className={styles.container}>
+            <SectionHeading id={`selected-${group.category}`} title={group.title} />
+            <RuledProofList items={pageCopy.work.filter((item) => item.category === group.category)} />
+            {"href" in group ? <div className={styles.smallSpacedTop}><TextLink href={group.href}>{group.link}</TextLink></div> : null}
+          </div>
+        </section>
+      ))}
 
       <section className={styles.sectionTint} aria-labelledby="client-perspectives">
         <div className={styles.container}>
           <SectionHeading id="client-perspectives" title={pageCopy.testimonialsTitle} />
-            <div className={resultStyles.quoteGrid}>
-              {pageCopy.testimonials.map((testimonial) => (
-                <blockquote
-                  className={resultStyles.quote}
-                  key={testimonial.attribution}
-                >
-                  <p lang="en">“{testimonial.quote}”</p>
-                  <footer>{testimonial.attribution}</footer>
-                </blockquote>
-              ))}
-            </div>
+          <div className={resultStyles.quoteGrid}>
+            {pageCopy.testimonials.map((testimonial) => (
+              <TestimonialQuote
+                {...testimonial}
+                className={`${resultStyles.quote} ${testimonial.quote.includes("\n\n") ? resultStyles.quoteLong : ""}`}
+                key={testimonial.attribution}
+              />
+            ))}
+          </div>
         </div>
       </section>
 

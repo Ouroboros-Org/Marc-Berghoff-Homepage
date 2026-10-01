@@ -25,7 +25,7 @@ describe("AboutPageView", () => {
 
     expect(html).toContain("two months at Nintendo");
     expect(html).toContain("Certified Professional Co-Active Coach");
-    expect(html).toContain('href="/services#process"');
+    expect(html).toContain('href="/contact#how-we-begin"');
     expect(html).toContain('href="/contact#booking"');
     expect(html).not.toContain("What I pay attention to");
     expect(html).not.toContain("What happens after you get in touch");

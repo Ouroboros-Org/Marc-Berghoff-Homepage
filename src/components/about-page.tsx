@@ -38,7 +38,7 @@ const copy = {
     breadcrumb: "About me",
     heroRole: "Fractional CPO · Organisational Psychologist · Executive Coach",
     heroStatement:
-      "I help you work through people and leadership decisions, develop your organisation and agree who carries the work as your business grows.",
+      "I help founders and leaders work through difficult decisions, develop their organisations and change how they lead. Depending on what you need, that can mean people advisory, fractional leadership, one-to-one coaching or peer advisory.",
     pathTitle: "The path",
     path: [
       "I did the German thing of collecting internships: Freudenberg Sealing Technologies, Fresenius Medical Care, two months at Nintendo, and Mitsubishi Fuso in Japan. Then in-house people work, mostly in companies growing faster than their structures could handle, including a solar scale-up later acquired by E.ON. I co-founded a business along the way, which taught me more about how founders actually decide things than watching from the outside ever did.",
@@ -67,12 +67,11 @@ const copy = {
     ],
     beliefsTitle: "What I believe about this work",
     beliefs: [
-      "When a company is underperforming, I start by looking at the leadership team.",
-      "The founders I meet tend to be the hardest-working person in the company. They know the most and decide fastest. They are also right a lot of the time. That is exactly why the company keeps leaning on them.",
-      "What I see over and over is a leader too close to the work, or too attached to being the one who solves it, to notice what good leadership compounds into. People around them gain autonomy and get closer to their level. The leader gets time for the work only they can do.",
+      "When a company is underperforming, I look at how leadership decisions and the organisation shape the work.",
+      "The founders I meet are often the hardest-working people in the company. They know the most and decide fastest. They are also right a lot of the time. That is exactly why the company keeps leaning on them.",
+      "The question is what happens next. Which decisions genuinely need you? Where do people need clearer responsibility, more support or room to learn? And what do you need to change so they can take that responsibility?",
       "I think most people can be good leaders. For some it is instinct. For everyone else it is a skill, and skills are learnable.",
-      "The line is tacky and it is still true: if you want to go fast, go alone. If you want to go far, go together.",
-      "If speed is what you want, build it, run it yourself, get as close to burnout as you dare and sell at a price that feels right. I will help you stay in one piece while you do it. If you want to build something that lasts, the work shifts to the people around you and the decisions they need to own.",
+      "I want the work to help you build a business that depends less on you being everywhere — and leaves you more room for the work and life you choose.",
     ],
     outsideTitle: "Outside the work",
     outside: [
@@ -90,7 +89,7 @@ const copy = {
     processLink: "See the full process",
     closingTitle: "What would help you lead your organisation?",
     closingText:
-      "We can talk about your people, leadership and organisation, the support you already have and where I could help.",
+      "We can talk about your organisation, a leadership question or the kind of support you would value — one-to-one or alongside other owners.",
   },
 } as const satisfies { en: AboutCopy };
 
@@ -158,6 +157,8 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
                 {credential.text ? (
                   <dd className={aboutStyles.credentialDescription}>
                     {credential.text}
+                    {credential.title === "ICF Associate Certified Coach" ? <p><TextLink href="/services#coaching">Explore executive coaching</TextLink></p> : null}
+                    {credential.title === "Vistage Chair" ? <p><TextLink href="/services#peer-advisory">Explore peer advisory</TextLink></p> : null}
                   </dd>
                 ) : null}
               </Reveal>
@@ -223,7 +224,7 @@ export function AboutPageView({ locale }: { locale: SiteLocale }) {
               <p key={paragraph}>{paragraph}</p>
             ))}
             <div className={styles.smallSpacedTop}>
-              <TextLink href={getRouteHref("services", locale, "#process")}>
+              <TextLink href={getRouteHref("contact", locale, "#how-we-begin")}>
                 {pageCopy.processLink}
               </TextLink>
             </div>

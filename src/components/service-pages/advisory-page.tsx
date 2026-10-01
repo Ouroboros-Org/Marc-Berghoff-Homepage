@@ -87,7 +87,7 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
           </div>
           <ul className={styles.methods}>
             <li><h3>Working sessions</h3><p>One-to-one advice, group workshops or facilitated discussion with the people who need to agree and act.</p></li>
-            <li><h3>Leadership development</h3><p>Focused coaching for an individual or group when the way people lead is part of the decision.</p><p>If you want to work on your own leadership without a wider organisation project, <Link href="/services#coaching">explore standalone executive coaching.</Link></p></li>
+            <li><h3>Leadership development</h3><p>Focused coaching for an individual or group when the way people lead is part of the decision.</p><p>If you want to work on your own leadership without a wider organisation project, <Link className={styles.inlineLink} href="/services#coaching">explore standalone executive coaching.</Link></p></li>
             <li><h3>A usable record</h3><p>Depending on the brief, this may be a prioritised plan, clearer role responsibilities, decision agreements or working guidance.</p></li>
             <li><h3>A review and handover</h3><p>We test whether the response makes sense in practice and leave your team clear about what it owns next.</p></li>
           </ul>
@@ -104,8 +104,8 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
             </div>
             <div className={styles.feature}>
               <h3>When the work needs more support</h3>
-              <p>Need support over time? With <Link href="/fractional-cpo#ongoing-advisory">ongoing advisory</Link>, your team leads implementation and I help you work through decisions. As <Link href="/fractional-cpo">Fractional CPO</Link>, I take responsibility for an agreed part of the people work.</p>
-              <p>If the underlying problem is still disputed, the <Link href="/bottleneck-assessment">Bottleneck Assessment</Link> can help establish what we are working on first.</p>
+              <p>Need support over time? With <Link className={styles.inlineLink} href="/fractional-cpo#ongoing-advisory">ongoing advisory</Link>, your team leads implementation and I help you work through decisions. As <Link className={styles.inlineLink} href="/fractional-cpo">Fractional CPO</Link>, I take responsibility for an agreed part of the people work.</p>
+              <p>If the underlying problem is still disputed, the <Link className={styles.inlineLink} href="/bottleneck-assessment">Bottleneck Assessment</Link> can help establish what we are working on first.</p>
             </div>
           </div>
         </div>

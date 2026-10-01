@@ -5,11 +5,9 @@ export const HOME_COPY = {
       "Fractional Chief People Officer support for founders and leadership teams. People strategy, leadership and organisational development for growing companies.",
   },
   hero: {
-    role: "Fractional CPO",
     title: "Build the organisation you want to lead.",
-    invitation: "Work with a",
     description:
-      "As your Chief People Officer, I can advise your team or take responsibility for an agreed remit as you scale. I help you connect people strategy, leadership development and organisational structure to the needs of your business.",
+      "I work with founders and leadership teams when decisions keep coming back to them, managers need support, or growth has outpaced the organisation. Through people advisory, fractional leadership and executive coaching, I help you decide what needs to change — and follow through.",
     bookingLabel: "Book a call",
     noteLabel: "Let's talk",
     bookingDetail: "Free introductory conversation · typically 30 minutes",
@@ -20,9 +18,9 @@ export const HOME_COPY = {
     caption: "Organisational psychologist · Vistage Chair · Executive coach",
   },
   services: {
-    title: "The right support for where you are.",
+    title: "Support for your organisation",
     intro:
-      "Find the underlying issue, work through a decision, or bring senior people leadership into the business. Start where you need me.",
+      "Understand what is getting in the way, work through a people decision, or bring in someone to lead an agreed part of the people work. You can start with any engagement.",
     unsure: "Not sure where to begin?",
     conversationLabel: "Let's talk it through",
   },
@@ -42,8 +40,8 @@ export const HOME_COPY = {
     action: "More about me",
   },
   fit: {
-    title: "A good fit matters.",
-    intro: "The work needs the right kind of support on both sides.",
+    title: "A good fit for organisational work",
+    intro: "For assessment, people advisory and fractional leadership, these conditions help the work succeed.",
     suitable: [
       "You need strategic direction for people, leadership or organisational change.",
       "Your leadership team is ready to examine the issue and make decisions.",

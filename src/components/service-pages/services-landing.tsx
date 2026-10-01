@@ -154,7 +154,7 @@ export function ServicesLanding({ locale }: { locale: SiteLocale }) {
             <p className={pageStyles.intro}>Within an assessment, advisory or fractional engagement, we choose the methods that help the people involved decide and act.</p>
           </div>
           <ul className={pageStyles.methods}>
-            <li><h3>Coaching and leadership development</h3><p>Individual or group work on the expectations, decisions and conversations that leadership now requires. One-to-one <Link href="/services#coaching">executive coaching is also available as a standalone engagement.</Link></p></li>
+            <li><h3>Coaching and leadership development</h3><p>Individual or group work on the expectations, decisions and conversations that leadership now requires. One-to-one <Link className={pageStyles.inlineLink} href="/services#coaching">executive coaching is also available as a standalone engagement.</Link></p></li>
             <li><h3>Team workshops</h3><p>Focused sessions where the people involved test a question, work through differences and agree a way forward.</p></li>
             <li><h3>Practical working documents</h3><p>Role clarity, decision responsibilities, people priorities and other documents your team can use after the engagement.</p></li>
             <li><h3>Advice close to the work</h3><p>Work through decisions with me, with more direct involvement when you want me to take responsibility as your Fractional CPO.</p></li>

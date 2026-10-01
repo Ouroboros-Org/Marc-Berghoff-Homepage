@@ -30,7 +30,6 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
           <div className={styles.heroCopy}>
             <h1 id="home-title">
               <span className={styles.heroTitleRest}>{copy.hero.title}</span>
-              <span className={styles.heroInvitation}>{copy.hero.invitation}{" "}<span className={styles.heroRole}>{copy.hero.role}<span className={styles.heroPeriod}>.</span></span></span>
             </h1>
             <p className={styles.heroDescription}>{copy.hero.description}</p>
             <div className={styles.heroActions}>
@@ -70,7 +69,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
         </div>
       </section>
 
-      <section aria-label="Selected outcomes from my work" className={styles.outcomes}>
+      <section aria-label="Selected experience from my work" className={styles.outcomes}>
         <div className={styles.container}>
           <dl className={styles.outcomeGrid}>
             {OUTCOMES.map((outcome) => (
@@ -145,7 +144,8 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
         </Reveal>
       </section>
 
-      <section aria-labelledby="engagements-title" className={styles.offers} id="ways-to-work">
+      <section aria-labelledby="engagements-title" id="ways-to-work">
+      <div className={styles.offers}>
         <div className={styles.container}>
           <Reveal className={styles.centeredHeading}>
             <h2 id="engagements-title">{copy.services.title}</h2>
@@ -185,7 +185,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <section aria-labelledby="fit-title" className={styles.fit}>
         <div className={styles.container}>
@@ -204,6 +204,31 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
             </Reveal>
           </div>
           <p className={styles.fitNote}>You do not need to know the right route yet. <Link href={primaryAction.href}>Bring your situation to a first conversation.<ArrowRight aria-hidden="true" size={17} /></Link></p>
+        </div>
+      </section>
+      </section>
+
+      <section aria-labelledby="leadership-title" className={styles.offers}>
+        <div className={styles.container}>
+          <Reveal className={styles.centeredHeading}>
+            <h2 id="leadership-title">Support for you as a leader</h2>
+            <p>Work one-to-one on how you lead, or think through decisions with other business owners.</p>
+          </Reveal>
+          <div className={styles.leadershipGrid}>
+            <Reveal className={styles.leadershipCard}>
+              <h3>Executive coaching</h3>
+              <p>Work through difficult decisions, conversations and recurring patterns in how you lead. One-to-one coaching is available on its own, as well as alongside organisational work.</p>
+              <ButtonLink href="/services#coaching" variant="text">Explore executive coaching</ButtonLink>
+            </Reveal>
+            <Reveal className={styles.leadershipCard} delay={60}>
+              <h3>Peer advisory</h3>
+              <p>Bring the decisions you are wrestling with to a group of business owners who can challenge your thinking.</p>
+              <p>Based in Malta? Explore the Vistage group I chair.</p>
+              <ButtonLink href="/contact?interest=malta-peer-advisory#enquiry" variant="text">Explore the Malta group</ButtonLink>
+              <p>Elsewhere in Europe? Register your interest in the small-business-owner group I’m curating.</p>
+              <ButtonLink href="/contact#european-peer-advisory" variant="text">Join the European waitlist</ButtonLink>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -247,7 +272,7 @@ export function HomePageView({ locale = "en" }: { locale?: string } = {}) {
               <p id="closing-call-detail">{primaryDetail}</p>
             </div>
             {primaryAction.isBooking ? (
-              <Link className={styles.closingMessage} href="/contact#contact-form">{copy.closing.noteLabel}<ArrowRight aria-hidden="true" size={18} /></Link>
+              <Link className={styles.closingMessage} href="/contact#enquiry">{copy.closing.noteLabel}<ArrowRight aria-hidden="true" size={18} /></Link>
             ) : null}
           </div>
         </Reveal>

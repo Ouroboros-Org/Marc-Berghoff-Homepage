@@ -1,4 +1,5 @@
 import { getRouteHref, type SiteLocale } from "@/config/routes";
+import { siteConfig } from "@/config/site";
 type SiteLogoProps = {
     inverse?: boolean;
     locale?: SiteLocale;
@@ -11,7 +12,7 @@ export function SiteLogo({ inverse = false, locale = "en" }: SiteLogoProps) {
       <span className="site-logo__copy">
         <span className="site-logo__name">Marc Berghoff</span>
         <span className="site-logo__descriptor">
-          {"Fractional CPO · People & organisation"}
+          {siteConfig.descriptor}
         </span>
       </span>
     </a>);

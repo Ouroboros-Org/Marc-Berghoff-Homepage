@@ -16,6 +16,43 @@
   scroll-margin-top: 7rem;
 }
 
+.testimonial {
+  max-width: 48rem;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+  padding-top: 1.75rem;
+  border-top: 3px solid var(--yellow);
+}
+
+.testimonial p {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.testimonial p + p {
+  margin-top: 1em;
+}
+
+.testimonial footer {
+  margin-top: 1.5rem;
+  color: var(--service-muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.inlineLink {
+  color: var(--service-blue);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.sectionDark .termsLink {
+  --button-fg: var(--yellow-soft);
+  --button-hover-fg: var(--paper);
+  --button-focus: var(--yellow);
+  margin-top: 1rem;
+}
+
 .hero {
   padding-block: 2rem clamp(3.5rem, 6vw, 5.5rem);
   border-bottom: 1px solid var(--service-line);

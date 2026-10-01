@@ -1,7 +1,9 @@
 import Image from "next/image";
 
 import { ButtonLink } from "@/components/button";
+import { TestimonialQuote } from "@/components/testimonial-quote";
 import type { SiteLocale } from "@/config/routes";
+import { ALBERTA_TESTIMONIAL } from "@/content/proof";
 
 import {
   AdjacentServiceLinks,
@@ -88,6 +90,9 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
             <p>I bring experience from Head of HR work at a solar scale-up later acquired by E.ON, and fractional people leadership for a Malta fire-safety and security group.</p>
             <ButtonLink href="/results" variant="text">See selected work</ButtonLink>
           </div>
+        </div>
+        <div className={styles.container}>
+          <TestimonialQuote {...ALBERTA_TESTIMONIAL} className={styles.testimonial} />
         </div>
       </section>
 

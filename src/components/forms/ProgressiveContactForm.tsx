@@ -203,7 +203,7 @@ export function ProgressiveContactForm({ initialDetailsOpen = false, initialTopi
           <FormInput autoComplete="name" error={errors.fullName} id={`${prefix}-name`} label={copy.nameLabel} registration={register("fullName")} type="text"/>
           <FormInput autoComplete="email" error={errors.email} id={`${prefix}-email`} inputMode="email" label={copy.emailLabel} registration={register("email")} type="email"/>
         </div>
-        <FormSelect error={errors.topic} id={`${prefix}-topic`} label="What would you like to talk about?" optional options={ENQUIRY_TOPIC_OPTIONS} registration={register("topic")}/>
+        <FormSelect defaultValue={initialTopic} error={errors.topic} id={`${prefix}-topic`} label="What would you like to talk about?" optional options={ENQUIRY_TOPIC_OPTIONS} registration={register("topic")}/>
         <FormTextarea error={errors.message} helper={copy.messageHelper} id={`${prefix}-message`} label={copy.messageLabel} placeholder={copy.messagePlaceholder} registration={register("message")} rows={6}/>
         <input type="hidden" {...register("diagnosticSummary")}/>
       </fieldset>

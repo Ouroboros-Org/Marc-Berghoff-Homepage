@@ -49,6 +49,8 @@ describe("independent company self-check", () => {
       "/bottleneck-assessment",
       "/advisory",
       "/fractional-cpo",
+      "/services#coaching",
+      "/services#peer-advisory",
     ]);
   });
 });
