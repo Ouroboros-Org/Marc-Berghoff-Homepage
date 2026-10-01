@@ -46,25 +46,25 @@ spacing:
 
 # Design system: Marc Berghoff
 
-Updated for the September 2026 redesign. [context.tsv](context.tsv) holds current owner decisions and unresolved delivery work. The [preparation brief](docs/redesign-preparation.md) records the investigation; later owner answers take precedence over its provisional recommendations.
+Updated for the September 2026 visual system and the October page-by-page content edit. [context.tsv](context.tsv) holds current owner decisions and unresolved delivery work. The [preparation brief](docs/redesign-preparation.md) records the investigation; later owner answers take precedence over its provisional recommendations.
 
 ## Direction
 
-The site presents a Fractional CPO who can work through the people side of growth with a leadership team. Its visual character is direct, spacious and personal: white reading surfaces, navy contrast, genuine portraits and restrained yellow/light-blue details drawn from the existing logo.
+The site presents organisational support alongside one-to-one executive coaching and peer advisory. Organisational fit requirements apply only to the three organisational engagements. Its visual character is direct, spacious and personal: white reading surfaces, navy contrast, genuine portraits and restrained yellow/light-blue details drawn from the existing logo.
 
 The homepage helps visitors choose and act. Article and case pages prioritize reading. The redesign replaces the former flat, repeated heading-left/copy-right pattern. Keep the personal voice and the logo; vary composition, scale and density to fit each section's purpose.
 
-The main visual gesture is the complete pale-yellow highlight behind “Fractional CPO.” The period sits inside the highlight in brand blue, replacing the former corner square. Match the visible left, right and bottom insets optically, compensating for the font's descent rather than using equal numeric padding. It emphasizes the actual offer and echoes the logo colors. Avoid heavy underlines that resemble a writing warning.
+The October content brief retains the typography, colours, imagery, card styles and spacing. Home uses the single headline “Build the organisation you want to lead.” The Fractional CPO role remains prominent in its card and service-page highlight.
 
 ## Identity and content
 
 - Marc Berghoff is the public brand. HX Solutions appears only where the actual legal or operational identity requires it.
 - English is the only active publishing language for now.
-- Spell out Chief People Officer beside the main proposition. Explain people, leadership, organisational development and scaling in plain language.
+- Use People & organisation · Executive coaching in the shared identity line. Explain Chief People Officer within the Fractional CPO offer. Explain people, leadership, organisational development and scaling in plain language.
 - Marc speaks as “I,” “me” and “my.” Address the visitor as “you.” Use specific responsibilities and outcomes instead of consulting slogans.
-- Present three engagements: Bottleneck Assessment with Review, Strategic People Advisory and Fractional CPO / ongoing Strategic People Advisory. Visitors can start with any of them.
+- Present three organisational engagements: Bottleneck Assessment with Review, Strategic People Advisory and Fractional CPO / ongoing Strategic People Advisory. Visitors can start with any of them.
 - A free introductory conversation, typically 30 minutes, remains available to everyone. Scope and cadence are flexible starting points, with no minimum or maximum term.
-- Coaching, leadership development, workshops and operational documents belong inside agreed engagements. They are not additional equally ranked offers.
+- Keep organisational methods within agreed engagements. Also present standalone executive coaching and peer advisory in a separate leadership-support group; do not turn the three organisational cards into five equal cards. Use anchors on Services instead of new standalone pages.
 - Use the shared [engagement model](src/content/engagements.ts) and [proof model](src/content/proof.ts). Keep quote wording, attribution, metric units and periods intact.
 
 ## Palette
@@ -87,7 +87,7 @@ White text belongs on navy. Yellow and light-blue surfaces use dark text. Suppor
 
 ## Typography and spacing
 
-Instrument Sans is the display face; Inter is the reading and control face. Most homepage headings use weights around 550–620, while the highlighted role reaches 690. Keep tracking at or above -0.04em and headlines below 6rem. Headings wrap to the actual available space; avoid fixed line breaks that fail at nearby widths.
+Instrument Sans is the display face; Inter is the reading and control face. Most homepage headings use weights around 550–620. Keep tracking at or above -0.04em and headlines below 6rem. Headings wrap to the actual available space; avoid fixed line breaks that fail at nearby widths.
 
 Use generous separation before a major heading and tighter spacing between its heading and explanation. Do not apply one tall section-height pattern throughout. The outcome band and self-check invitation are compact. The engagements and personal introduction have more breathing room.
 
@@ -95,15 +95,16 @@ The homepage container is 77.5rem with fluid gutters. Reading paragraphs usually
 
 ## Homepage composition
 
-1. A white hero with two reader-focused sentences, the highlighted Fractional CPO role, a two-sentence excerpt, and two distinct actions with helper text. The portrait, name and verified credentials form a separate right-hand group on desktop.
-2. A compact navy band with four outcome values, labels and time/context lines. Numbers animate once into their exact final values; these are evidence, not controls.
+1. A white hero with one reader-focused headline, the supplied supporting paragraph, and two distinct actions with helper text. The portrait, name and verified credentials form a separate right-hand group on desktop.
+2. A compact navy band with four experience values: Klarsolar headcount, coaching hours, leaders coached and sourcing longevity, with labels and context. Numbers animate once into their exact final values; these are evidence, not controls.
 3. A personal introduction with a workshop image on the left, a smaller genuine portrait and first-person prose on the right. More of Marc's story remains on About.
 4. A featured case alternates that balance: story on the left and navy result block on the right, followed by a supporting testimonial. Link to the full case. On mobile the numerical result precedes the story.
 5. A compact light-blue self-check invitation linking to the independent `/self-check` page.
 6. A centred introduction and three comparable engagement cards. Fractional CPO is navy at rest, with a pale-yellow title. Each card exposes the starting situation, what the client receives, typical cadence and a clear link.
-7. Paired, static fit criteria. Clearly distinguish strategic support from day-to-day administration or replacement of a whole HR team.
-8. One featured Insight with smaller companion article links and an overview route.
-9. A navy invitation to the free conversation. Center the call button and helper directly beneath the copy, with the message link below. A compact white footer provides clear separation, grouped navigation, a call button and a self-check link.
+7. Paired, static fit criteria nested under organisational support. Clearly distinguish strategic support from day-to-day administration or replacement of a whole HR team.
+8. Two leadership-support cards for executive coaching and peer advisory, with separate Malta and European contact routes.
+9. One featured Insight with smaller companion article links and an overview route.
+10. A navy invitation to the free conversation. Center the call button and helper directly beneath the copy, with the message link below. A compact white footer provides clear separation, grouped navigation, a call button and a self-check link.
 
 Do not append generic statement sections around this sequence. Evidence replaces repetitive claims. Testimonials remain readable in place without a carousel.
 
@@ -129,7 +130,7 @@ Each engagement card is one link, with no nested buttons. Keep the cards in the 
 
 Home and the direct menu shortcut link to `/self-check` for the independent free reflection tool. A link labelled Bottleneck Assessment opens `/bottleneck-assessment`, the paid service with interviews, a report and a review. The short self-check offers perspective on company patterns; it is not an abbreviated assessment or a prerequisite to paid work.
 
-The existing four-step engagement process belongs on Services. Use a clear ordered sequence with the step title ahead of secondary metadata. Service choice is a separate decision; do not invent active or selected process steps.
+The existing four-step engagement process appears after offers and methods on Services and at `/contact#how-we-begin`. European waitlist registration is a separate expression of interest. Use a clear ordered sequence with the step title ahead of secondary metadata. Service choice is a separate decision; do not invent active or selected process steps.
 
 ### Credentials and imagery
 

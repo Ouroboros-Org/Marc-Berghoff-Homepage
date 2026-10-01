@@ -1,6 +1,6 @@
 # Marc Berghoff design system implementation map
 
-Updated 12 September 2026 for the Fractional CPO redesign.
+Updated 1 October 2026 for the page-by-page content edit; the September visual system remains in use.
 
 [DESIGN.md](../../DESIGN.md) is the design source of truth. [context.tsv](../../context.tsv) records owner decisions and verification dependencies. This file maps that direction to reusable implementation rather than maintaining a second set of visual rules.
 
@@ -8,10 +8,10 @@ Updated 12 September 2026 for the Fractional CPO redesign.
 | --- | --- | --- |
 | Color, type and shared browser surfaces | `src/app/globals.css` | White and navy foundation, preserved logo accents, Instrument Sans/Inter, visible focus and themed text selection/caret |
 | Buttons | `src/components/button.tsx`, `button.module.css` | Coherent pill actions, 44px minimum targets, coordinated foreground/background states and no continuous animation |
-| Homepage content | `src/content/home.ts` | One English copy source with concise Fractional CPO proposition and helpers outside actions |
+| Homepage content | `src/content/home.ts` | One English copy source with organisation and leadership proposition and helpers outside actions |
 | Engagements | `src/content/engagements.ts` | Three directly accessible engagements, flexible scope, methods inside the remit |
 | Outcomes and testimonials | `src/content/proof.ts` | Shared evidence, intact units, periods, quote wording and attribution |
-| Homepage composition | `src/components/home-page.tsx`, `src/app/home.module.css` | Hero, compact proof, personal introduction, case, self-check invitation, three engagements, fit, Insights and closing |
+| Homepage composition | `src/components/home-page.tsx`, `src/app/home.module.css` | Hero, compact proof, personal introduction, case, self-check invitation, three organisational engagements with fit, two leadership-support cards, Insights and closing |
 | Entrances | `src/components/reveal.tsx` | Visible server content; one rise/fade after first intersection; no replay on scrolling back; reduced-motion support |
 | Outcome numbers | `src/components/outcome-number.tsx`, `src/components/motion` | Once-only counts into exact claims; stable width and accessible final values; immediate final content for reduced motion and print |
 | Credential links | `src/components/credential-badges.tsx` | Authoritative ACC and CPCC artwork and Credly destinations, reusable on Home and About |
@@ -23,10 +23,10 @@ Updated 12 September 2026 for the Fractional CPO redesign.
 ## Fixed commitments
 
 - Marc Berghoff is the public brand. Keep the light-blue/light-yellow logo.
-- Fractional CPO is the main proposition. Explain Chief People Officer in plain language.
+- The identity line is People & organisation · Executive coaching. Keep Fractional CPO prominent within organisational support and explain Chief People Officer in plain language.
 - Use white for reading, `--navy` for the strongest contrast, blue for supporting surfaces and yellow for precise emphasis.
 - Change alignment, composition and density according to content. Do not repeat a large left heading and small right explanation through the page.
-- The Full Bottleneck Assessment with Review, Strategic People Advisory and Fractional CPO / ongoing Strategic People Advisory are the three primary engagements. The introductory call is available regardless of starting point.
+- The Full Bottleneck Assessment with Review, Strategic People Advisory and Fractional CPO / ongoing Strategic People Advisory are the three organisational engagements. Standalone coaching and peer advisory use a separate leadership-support group on Services. The introductory call is available regardless of starting point.
 - The independent reflection questionnaire lives on `/self-check`. The paid Bottleneck Assessment remains on `/bottleneck-assessment`. Home carries distinct invitations and links.
 - Interactive cards have useful hover and keyboard-focus states. Static proof and process elements do not pretend to be interactive.
 - Entrances and outcome-number animations run once per element per page visit. Static content remains readable without JavaScript; reduced-motion visitors receive immediate final values.

@@ -1,6 +1,6 @@
 # Claim ledger
 
-Last reviewed: 12 September 2026
+Last reviewed: 1 October 2026 (owner-supplied content and placement; no new independent claim verification)
 
 This file records where substantive website claims came from and what may be
 published. It is an editorial control document, not a substitute for keeping
@@ -25,6 +25,8 @@ contracts, client approvals, certificates or underlying performance records.
 | U3 | Owner review and confirmation during the repository consistency implementation, 11 August 2026 | Approval of the revised Home biography, credentials and anonymised proof statements, and authorisation to carry those statements into supporting pages |
 | U4 | Owner About-page feedback and implementation confirmation, 17 August 2026 | Corrected internship history; About credentials and chronology; Malta, Germany and EU working range; Tokyo and Medellín residence; remote-work experience; approved personal copy; permission to keep the co-founded business unnamed |
 | U5 | Owner redesign follow-up, 12 September 2026 | Selection of the four existing outcome candidates and Klarsolar as the featured case; permission to implement with the existing facts, generate the requested Marc imagery, and show the clean website without AI labels |
+| U6 | Owner request to implement `Marc_Homepage_Page_by_Page_Edit_Map.md`, dated 18 September 2026; implementation instruction and European-form clarification, 1 October 2026 | Broader positioning, reuse of existing coaching and peer evidence, revised Home tiles, and a separate Google Form for European interest, configured at deployment |
+| U7 | Alberta testimonial supplied by the owner, 1 October 2026 | The complete four-paragraph account of three months of Group HR leadership, manager support, documentation, stability and handover, attributed only to Alberta |
 | P1 | [Mdina Partners — Advisory](https://mdinapartners.com/cluster/advisory/) | HR Advisor & Coach; ICF ACC; Vistage peer-advisory facilitator; 50+ leaders; 35-to-150 scale-up result |
 | P2 | [Marc Berghoff — LinkedIn](https://mt.linkedin.com/in/marcberghoff/en) | Malta location; listed services; current experience; ACC credential dates; Vistage affiliation |
 | P3 | [MaltaCEOs — Marc Berghoff named Chair at Vistage Malta](https://maltaceos.mt/marc-berghoff-named-chair-at-vistage-malta/) | Vistage Malta Chair appointment; MSc Psychology; certified coach; HX Solutions founder; six-plus years of HR experience at publication |
@@ -74,7 +76,7 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | Assessment guarantee: refund if the leadership team cannot identify one finding worth acting on | U2 | **Owner-authorised, contractual** | Keep the guarantee narrow. State that its terms are written into the scope before work begins; do not broaden it into an outcome or implementation guarantee. |
 | Assessment runs two to three weeks from kickoff to workshop | U2, refining D1 slide 8 | **Owner-authorised** | Present as typical timing, not a guaranteed calendar. Scope still depends on access, team size and scheduling. |
 | First conversation is free and typically 30 minutes | D1 slide 15; U2 | **Owner-authorised** | Use “typically” or “normally” in prose. The booking-button label may state “30-minute conversation.” |
-| The Bottleneck Assessment is the entry product; Executive Coaching, Strategic People Advisory, Peer Advisory and Fractional People Leadership are follow-on formats | U2, superseding D1 slide 7 positioning | **Owner-authorised** | Put the assessment first in every service list. Do not make the reader diagnose the format; recommend it after the first conversation. |
+| Visitors can start with any organisational engagement; coaching and peer advisory are separate leadership-support routes | U6, superseding the earlier assessment-first positioning | **Owner-authorised** | Keep the three organisational cards in their existing order. Assessment and self-check are not prerequisites to coaching or peer advisory. The European group is being curated; do not imply launch, admission or a commitment to join. |
 | The diagnostic identifies decision, ownership and execution friction | D1 slides 5, 7–9 | **Deck-authorised** | Describe it as an organisational diagnostic. It is not a clinical or psychometric diagnosis. |
 | “A single stalled quarter costs much more” than the assessment | D1 slide 8 | **Do not use as written** | It is an unquantified financial comparison. Use the approved fixed-fee sentence without a comparative claim. |
 | “Tried and tested tools eliminate bias” | D1 slide 8 | **Do not use as written** | No method eliminates bias. Use “combines quantitative and qualitative evidence to reduce blind spots” if accurate. |
@@ -108,6 +110,7 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 | --- | --- | --- | --- |
 | Bastian A. / Klarsolar testimonial | D1 slide 14; owner results-page feedback, August 2026 | **Owner-authorised; speaker sign-off recommended** | Preserve the supplied wording. Results attributes it by role rather than naming the speaker. Retain written client approval before launch. |
 | Chris M. / Giftagoods testimonial | D1 slide 14 | **Deck-authorised; speaker sign-off recommended** | Preserve wording and attribution exactly once approved; do not polish a direct quote. |
+| Alberta testimonial | U7 | **Owner-authorised** | Preserve all four paragraphs verbatim on Selected work and Fractional CPO. Attribute to Alberta; do not invent a speaker name or job title. The quote describes a three-month interim engagement, not a promised outcome for future clients. |
 | Laszlo S. / Leipziger Apotheke Berlin testimonial | D1 slide 14 | **Deck-authorised; speaker sign-off recommended** | Preserve wording and attribution exactly once approved. |
 | Klarsolar, Giftagoods and Leipziger Apotheke marks | D1 embedded media | **Deck-authorised; trademark permission recommended** | A factual client list is different from implying endorsement. Retain permission and do not alter marks. |
 | CyberKongz mark | Official CyberKongz press kit | **Temporary review asset; permission needed** | Replace with a human-supplied approved file or retain only after confirming permitted website use. |
@@ -117,10 +120,12 @@ revision; LinkedIn roles, credentials and organisation profiles can change.
 
 ## Editorial rules
 
-The September redesign reuses the four selected existing outcomes: Klarsolar
-headcount and revenue growth, Giftagoods ARR growth, and five years of sourcing
-adoption. U5 confirms the selection; the underlying evidence status and
-attribution boundaries above remain. The Klarsolar case uses only the documented
+The October edit (U6) uses Klarsolar headcount, 350+ coaching hours, 10+ leaders
+coached and five years of sourcing adoption on Home. The second-year coaching
+claim and present-tense client references still need a currency check before
+publication. The two revenue figures remain in this evidence bank; the existing
+Klarsolar case retains its approved revenue context. The underlying evidence
+status and attribution boundaries above remain. The Klarsolar case uses only the documented
 Head of HR remit, growth support, interim-management support from the existing
 testimonial, measured company outcomes and later E.ON acquisition. No additional
 intervention, client problem or causal result has been invented.

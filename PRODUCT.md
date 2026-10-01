@@ -12,31 +12,32 @@ Founders, senior leaders and leadership teams in growing companies. They need he
 
 ## Product Purpose
 
-Help visitors understand Marc Berghoff's Fractional CPO and strategic people advisory work, judge its relevance through specific evidence, and take an appropriate next step. The free 30-minute introductory conversation is open to everyone. An independent self-check gives visitors perspective on patterns in their company. The paid Bottleneck Assessment is a separate service.
+Help visitors understand Marc Berghoff's organisational support, executive coaching and peer advisory, judge its relevance through specific evidence, and take an appropriate next step. The free 30-minute introductory conversation is open to everyone. An independent self-check gives visitors perspective on patterns in their company. The paid Bottleneck Assessment is a separate service.
 
 ## Positioning
 
-Marc Berghoff is the public brand. Fractional CPO (Chief People Officer) is the main proposition, with people, leadership, organisation and scaling explained in plain language. HX Solutions appears only where legal or operational accuracy requires it. The canonical domain is https://marcberghoff.com and the confirmed public mailbox is contact@marcberghoff.com.
+Marc Berghoff is the public brand. The shared descriptor is People & organisation · Executive coaching. Fractional CPO (Chief People Officer) remains prominent in its own engagement and page. HX Solutions appears only where legal or operational accuracy requires it. The canonical domain is https://marcberghoff.com and the confirmed public mailbox is contact@marcberghoff.com.
 
 ## Operating Context
 
-Three engagements form a useful progression, with direct entry at any stage:
+Three organisational engagements allow direct entry at any stage:
 
 1. Bottleneck Assessment with Review: understand an unclear underlying problem and agree priorities. Typically 2–3 weeks.
 2. Strategic People Advisory: clarify the response, work through decisions or support implementation the client owns. An illustrative starting point is 2–6 weeks.
-3. Fractional CPO / ongoing Strategic People Advisory: sustained leadership, organisational development and people strategy. Often 1–2 days a week, or a lighter advisory rhythm.
+3. Fractional CPO: ownership of an agreed people remit, often 1–2 days a week. Ongoing Strategic People Advisory is a separate option on the same page; the client retains delivery responsibility and agrees an advisory schedule.
 
-These are flexible starting points, with no minimum or maximum term. Scope, pace, responsibilities and review points are agreed in conversation. Coaching, leadership development, workshops and operational documents are tools within these engagements. Strategic support does not replace routine HR administration or an operational HR team.
+These are flexible starting points, with no minimum or maximum term. Scope, pace, responsibilities and review points are agreed in conversation. Coaching, leadership development, workshops and operational documents can be tools within these engagements. Standalone one-to-one executive coaching and peer advisory have a separate leadership-support group on `/services#coaching` and `/services#peer-advisory`. Malta Vistage enquiries and the European group being curated have distinct contact routes. Strategic support does not replace routine HR administration or an operational HR team.
 
 ## Capabilities and Constraints
 
 - English only. German pages, language alternates and obsolete standalone coaching/peer-advisory routes are removed. The site is prepared for first indexing, with no legacy redirects.
-- The homepage introduces the offer, four concise quantified outcomes, three engagements, a featured case, testimonials, qualification, imagery, Insights and clear calls to action.
+- The homepage introduces the offer, four concise experience tiles, three organisational engagements, two leadership-support cards, a featured case, testimonials, qualification, imagery, Insights and clear calls to action.
 - The interactive self-check lives on `/self-check`. All ten statements require explicit answers. Results offer perspective on company patterns, without diagnosing a bottleneck or prescribing the paid service. Results are available without email; sharing is a separate choice.
 - `/bottleneck-assessment` describes the paid engagement with interviews, a report and a review. It does not contain the short self-check.
 - `/results/klarsolar` is the first full case page. Publish only supported facts, with optional details omitted until supplied.
 - `/blog` uses a reusable article template and manually maintained typed content. Every published article has its own indexable page, overview link, metadata and RSS entry. No CMS is required.
 - The contact form retains its validated Google Forms delivery path. Public email and booking fallbacks use the confirmed mailbox. External form notifications must be configured separately; a code change does not prove inbox receipt.
+- European peer-advisory interest uses its own opt-in form and Google Form, configured with `GOOGLE_PEER_FORM_*` variables at deployment. Success requires a saved-response confirmation. General enquiries never join that register. See [setup](docs/google-forms-setup.md).
 - Cal.com is embedded when configured, with a useful email fallback. A phone number appears only when a confirmed public number is configured.
 - Preserve the Next.js stack, contact safeguards, accessibility and factual claim controls.
 
@@ -48,13 +49,13 @@ Public prose speaks to the reader as “you” and refers to Marc as “I”, �
 
 ## Evidence on Hand
 
-The owner approved the four proposed outcomes and Klarsolar as the featured case. Preserve each metric’s units, period and attribution. Testimonials retain their exact approved wording. Source and approval records live in `docs/claim-ledger.md`.
+The October edit map selects Klarsolar headcount, coaching hours, leaders coached and sourcing longevity for the four Home tiles. Revenue figures remain in the evidence ledger and the existing case. Recheck current-duration claims and reuse permissions before publication. Preserve each metric’s units, period and attribution. Testimonials retain their exact approved wording. Source and approval records live in `docs/claim-ledger.md`.
 
 Hero enhancement and workshop imagery use genuine Marc reference photos. Internal provenance lives in `docs/generated-images.md`; no visible generation labels appear in the site. Do not imply the generated workshop documents a specific real client event. The illustrative assessment report remains clearly identified as fictional.
 
 ## Product Principles
 
-1. Lead with a clear Fractional CPO proposition and relatable business needs.
+1. Make organisational support and support for an individual leader discoverable without conflating their fit requirements.
 2. Let visitors enter the engagement that fits their situation.
 3. Explain what the client receives, who carries the work and how scope is agreed.
 4. Keep the free conversation easy to find and book.
