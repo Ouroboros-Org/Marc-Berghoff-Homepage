@@ -1,5 +1,6 @@
+import Link from "next/link";
+
 import type { SiteLocale } from "@/config/routes";
-import { ENGAGEMENT_SCOPE_NOTE } from "@/content/engagements";
 
 import {
   AdjacentServiceLinks,
@@ -32,42 +33,48 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
         aside={{
           label: "A typical starting point",
           value: "2–6 weeks",
-          note: "One session or a longer series may be a better fit. We agree the scope and pace in the introductory conversation.",
+          note: "One session or a longer series may be a better fit. We agree the scope before we start.",
         }}
       />
-
-      <section className={styles.section} aria-labelledby="advisory-scope">
-        <div className={styles.container}>
-          <div className={`${styles.sectionHeading} ${styles.centered}`}>
-            <p className={styles.eyebrow}>A focused engagement</p>
-            <h2 className={styles.sectionTitle} id="advisory-scope">Enough clarity to take the next step.</h2>
-            <p className={styles.intro}>We begin with a question, work through it with the people involved, and finish with a decision or plan you can use.</p>
-          </div>
-          <EngagementDetails engagement={engagement} />
-          <p className={styles.scopeNote}>{ENGAGEMENT_SCOPE_NOTE}</p>
-        </div>
-      </section>
 
       <section className={styles.sectionDark} aria-labelledby="advisory-decisions">
         <div className={styles.container}>
           <div className={styles.sectionHeading}>
-            <p className={styles.eyebrow}>Questions worth working through</p>
-            <h2 className={styles.sectionTitle} id="advisory-decisions">What does your business need from its people next?</h2>
+            <h2 className={styles.sectionTitle} id="advisory-decisions">Questions worth working through</h2>
           </div>
           <div className={styles.threeColumns}>
             <article className={styles.feature}>
-              <h3>Clearer roles and decisions</h3>
-              <p>Responsibilities overlap, the same decision keeps coming back to you, or a new management layer needs a clear purpose.</p>
+              <h3>Which decisions should stop coming back to you?</h3>
+              <p>Clarify who decides, where responsibilities overlap, and what a new management layer should actually own.</p>
             </article>
             <article className={styles.feature}>
-              <h3>Leadership that keeps pace</h3>
-              <p>You need to decide who is ready for more responsibility, where development will help, and when to bring in new experience.</p>
+              <h3>Who can lead the next stage — and what do they need?</h3>
+              <p>Work out where to develop existing leaders, redefine a role or bring in experience the team does not yet have.</p>
             </article>
             <article className={styles.feature}>
-              <h3>People priorities that hold together</h3>
-              <p>Hiring, culture and development compete for attention. You need a practical order that follows the business plan.</p>
+              <h3>Which people priorities will make the biggest difference now?</h3>
+              <p>Put hiring, leadership development and organisational changes in an order that follows the business priorities — rather than treating everything as equally urgent.</p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.section} aria-labelledby="advisory-scope">
+        <div className={styles.container}>
+          <div className={`${styles.sectionHeading} ${styles.centered}`}>
+            <h2 className={styles.sectionTitle} id="advisory-scope">What you leave with</h2>
+            <p className={styles.intro}>A decision your team can put into practice.</p>
+            <p>Depending on the question, our work may produce:</p>
+          </div>
+          <EngagementDetails engagement={{
+            ...engagement,
+            receives: [
+              "Clearer roles and decision responsibilities.",
+              "Priorities for hiring, leadership development or organisational change.",
+              "A practical plan with an owner for each next step.",
+            ],
+            boundary: "Your team makes the decisions and leads implementation. We agree what needs to be decided, who will carry the response forward and when to review progress.",
+          }} />
         </div>
       </section>
 
@@ -80,7 +87,7 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
           </div>
           <ul className={styles.methods}>
             <li><h3>Working sessions</h3><p>One-to-one advice, group workshops or facilitated discussion with the people who need to agree and act.</p></li>
-            <li><h3>Leadership development</h3><p>Focused coaching for an individual or group when the way people lead is part of the decision.</p></li>
+            <li><h3>Leadership development</h3><p>Focused coaching for an individual or group when the way people lead is part of the decision.</p><p>If you want to work on your own leadership without a wider organisation project, <Link href="/services#coaching">explore standalone executive coaching.</Link></p></li>
             <li><h3>A usable record</h3><p>Depending on the brief, this may be a prioritised plan, clearer role responsibilities, decision agreements or working guidance.</p></li>
             <li><h3>A review and handover</h3><p>We test whether the response makes sense in practice and leave your team clear about what it owns next.</p></li>
           </ul>
@@ -97,14 +104,14 @@ export function AdvisoryPageView({ locale }: { locale: SiteLocale }) {
             </div>
             <div className={styles.feature}>
               <h3>When the work needs more support</h3>
-              <p>If you need continuing advice, we can agree regular reviews. If you need me to take responsibility for ongoing people work and coordinate delivery, we can discuss Fractional CPO support.</p>
-              <p>If the underlying problem is still disputed, the Bottleneck Assessment can help establish what we are working on first.</p>
+              <p>Need support over time? With <Link href="/fractional-cpo#ongoing-advisory">ongoing advisory</Link>, your team leads implementation and I help you work through decisions. As <Link href="/fractional-cpo">Fractional CPO</Link>, I take responsibility for an agreed part of the people work.</p>
+              <p>If the underlying problem is still disputed, the <Link href="/bottleneck-assessment">Bottleneck Assessment</Link> can help establish what we are working on first.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <CompactProcess locale={locale} id="advisory-process" />
+      <CompactProcess locale={locale} id="advisory-process" title="An agreed scope before we start." scope="We agree the question, the decisions we need to reach, who will carry the work forward, the fee and when to review progress. The scope determines whether that takes one session or a longer engagement." />
       <AdjacentServiceLinks
         locale={locale}
         id="advisory-adjacent"

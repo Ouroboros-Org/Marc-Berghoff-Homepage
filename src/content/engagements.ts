@@ -53,16 +53,16 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "Fractional CPO",
     shortTitle: "Lead the people work",
     href: "/fractional-cpo",
-    situation: "You need sustained strategic people leadership as the company grows.",
+    situation: "You need someone to lead an agreed part of your people and organisation work over time.",
     summary: "Work with me on people strategy, leadership and organisational development, through an agreed CPO remit or ongoing advice.",
     rhythm: "Often 1–2 days a week",
     receives: ["A people strategy connected to your business", "Leadership and organisational development", "Clear responsibilities, regular reviews and a handover"],
     readiness: "You can involve your leadership team and agree who decides, with someone to handle day-to-day HR work.",
-    boundary: "I can take responsibility as your Chief People Officer or advise your team over time. We agree what I lead, what your team owns and when to review progress.",
+    boundary: "I take responsibility for an agreed part of your people work. We define what I lead, what your team owns and when to review progress.",
     nextStep: "Explore ongoing support",
     featured: true,
   },
 ];
 
 export const ENGAGEMENT_SCOPE_NOTE =
-  "These are typical starting points, not fixed packages. There is no minimum or maximum term. We agree the scope, pace and level of involvement in a free introductory conversation.";
+  "These are typical starting points. We agree the scope, pace and fee before we start.";

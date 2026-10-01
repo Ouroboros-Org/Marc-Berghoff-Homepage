@@ -8,11 +8,13 @@ export function EngagementProcess({
   intro = "You do not need to arrive with a diagnosis or a chosen service. We work out the right level of support together.",
   wide = false,
   locale = "en",
+  note,
 }: {
   title?: string;
   intro?: string;
   wide?: boolean;
   locale?: SiteLocale;
+  note?: string;
 } = {}) {
   return (
     <section className={styles.section} aria-labelledby="engagement-process-title">
@@ -21,6 +23,7 @@ export function EngagementProcess({
           <p className={styles.eyebrow}>How we begin</p>
           <h2 id="engagement-process-title">{title}</h2>
           <p>{intro}</p>
+          {note ? <p>{note}</p> : null}
         </div>
         <ol className={styles.steps}>
           {getEngagementProcess(locale).map((step, index) => (

@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { ButtonLink } from "@/components/button";
 import type { SiteLocale } from "@/config/routes";
-import { ENGAGEMENT_SCOPE_NOTE } from "@/content/engagements";
 
 import {
   AdjacentServiceLinks,
@@ -31,11 +30,11 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
         breadcrumb="Fractional CPO"
         eyebrow="Senior people leadership"
         title={<>Work with a <span className={styles.highlight}>Fractional CPO.</span> Choose the support your team needs.</>}
-        lead="As your Chief People Officer, I connect people strategy, leadership development and organisational structure to your business plans. We agree what I lead, where I advise and how I work with your team."
+        lead="As Fractional CPO, I connect people strategy, leadership development and organisational structure to your business plans, taking responsibility for an agreed remit. If your team already leads the work, I can provide ongoing strategic people advisory instead."
         aside={{
-          label: "A typical rhythm",
-          value: "Often 1–2 days a week",
-          note: "We agree the work, responsibility, availability and duration together. There is no minimum or maximum term.",
+          label: "Typical rhythm",
+          value: "Fractional CPO: often 1–2 days a week.",
+          note: "For ongoing advisory, we agree a schedule around the decisions and support you need.",
         }}
       />
 
@@ -57,7 +56,7 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
                 <li>Clear responsibilities, regular reviews and a planned handover</li>
               </ul>
             </article>
-            <article className={styles.choice}>
+            <article className={`${styles.choice} ${styles.anchor}`} id="ongoing-advisory">
               <p className={styles.eyebrow}>Ongoing Strategic People Advisory</p>
               <h3>Your team leads the work, with my support.</h3>
               <p>I give continuing advice and work through decisions with you. Your leadership team keeps authority and manages implementation.</p>
@@ -99,8 +98,7 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
             <h2 className={styles.sectionTitle} id="fractional-scope">Clear responsibility from the beginning.</h2>
             <p className={styles.intro}>We agree which decisions I make, what your team handles and how we review progress. If responsibility moves to your team or a permanent hire, we plan the handover. Coaching, workshops and practical documents support that work.</p>
           </div>
-          <EngagementDetails engagement={engagement} />
-          <p className={styles.scopeNote}>{ENGAGEMENT_SCOPE_NOTE}</p>
+          <EngagementDetails engagement={{ ...engagement, boundary: "In a Fractional CPO engagement, I take responsibility for the people work we agree. In ongoing advisory, your team retains responsibility for delivery. In both cases, we define what each of us owns and when to review progress." }} />
         </div>
       </section>
 
@@ -121,7 +119,7 @@ export function FractionalPeopleLeadershipPageView({ locale }: { locale: SiteLoc
         </div>
       </section>
 
-      <CompactProcess locale={locale} id="fractional-process" />
+      <CompactProcess locale={locale} id="fractional-process" scope="We agree my responsibility, your team’s role, availability, fee and review points. There is no fixed minimum or maximum term; duration follows the work." />
       <AdjacentServiceLinks
         locale={locale}
         id="fractional-adjacent"

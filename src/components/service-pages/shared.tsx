@@ -56,7 +56,7 @@ export function ServiceHero({
   title,
   lead,
   aside,
-  secondary = { href: "/services", label: "Explore the engagements" },
+  secondary = { href: "/services#organisation", label: "Explore the engagements" },
 }: {
   locale: SiteLocale;
   breadcrumb: string;
@@ -133,16 +133,21 @@ export function EngagementDetails({ engagement }: { engagement: Engagement }) {
 
 export function CompactProcess({
   id,
+  title = "A conversation first. An agreed scope before we start.",
+  scope,
 }: {
   locale: SiteLocale;
   id: string;
+  title?: string;
+  scope: string;
 }) {
   return (
     <section className={styles.compactProcess} aria-labelledby={id}>
       <div className={styles.container}>
-        <h2 id={id}>A conversation first. An agreed scope before we start.</h2>
-        <p>We agree the work, the fee and when to review it. If I am not the right person, I will say so.</p>
-        <ButtonLink href="/services#process" variant="text">How the work begins</ButtonLink>
+        <h2 id={id}>{title}</h2>
+        <p>{scope}</p>
+        <p>If I am not the right person, I will say so.</p>
+        <ButtonLink href="/contact#how-we-begin" variant="text">How the work begins</ButtonLink>
       </div>
     </section>
   );
