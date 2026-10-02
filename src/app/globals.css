@@ -462,6 +462,55 @@ img {
   line-height: 1.45;
 }
 
+.desktop-submenu__inner--featured {
+  grid-template-columns: minmax(0, 2.2fr) minmax(16rem, 0.9fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.desktop-submenu__featured {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.desktop-submenu__link--featured {
+  gap: 0.9rem;
+  border-color: var(--line);
+  padding: 1.5rem;
+  background: var(--paper);
+}
+
+.desktop-submenu__link--featured span {
+  max-width: 18ch;
+  font-size: clamp(1.2rem, 1.65vw, 1.5rem);
+  line-height: 1.2;
+}
+
+.desktop-submenu__link--featured small {
+  max-width: 32ch;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.desktop-submenu__quick-links {
+  border-inline-start: 1px solid var(--line);
+  padding-inline-start: 1.25rem;
+}
+
+.desktop-submenu__quick-links > p {
+  margin: 0 0 0.55rem 0.65rem;
+}
+
+.desktop-submenu__link--compact {
+  min-height: 2.25rem;
+  padding: 0.4rem 0.65rem;
+}
+
+.desktop-submenu__link--compact span {
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
 .mobile-menu-button,
 .mobile-nav {
   display: none !important;
@@ -610,6 +659,7 @@ img {
   }
 
   .desktop-nav,
+  .desktop-submenu,
   .header-cta,
   .header-social {
     display: none !important;
@@ -780,6 +830,53 @@ img {
 
   .mobile-nav__link[aria-current="page"] span {
     color: var(--blue-deep);
+  }
+
+  .mobile-nav__submenu-inner--featured {
+    padding-inline-start: 0;
+  }
+
+  .mobile-nav__featured {
+    display: grid;
+    gap: 0.65rem;
+    margin-block: 0.5rem 1rem;
+  }
+
+  .mobile-nav__link--featured {
+    gap: 0.45rem;
+    border: 1px solid var(--line);
+    border-radius: 0.72rem;
+    padding: 1rem;
+    background: var(--paper);
+  }
+
+  .mobile-nav__link--featured span {
+    font-size: 1.1rem;
+    line-height: 1.25;
+  }
+
+  .mobile-nav__quick-label {
+    margin: 0 0.75rem 0.4rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 760;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .mobile-nav__link--compact {
+    min-height: 2.75rem;
+    align-content: center;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .mobile-nav__link--compact span {
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .mobile-nav__submenu-inner--featured .mobile-nav__link:focus-visible {
+    outline-offset: -4px;
   }
 
   .mobile-nav__actions {

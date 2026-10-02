@@ -111,6 +111,7 @@ export type HeaderNavigationGroup = {
     href: string;
     description: string;
     items: readonly NavigationLink[];
+    featuredItems?: readonly NavigationLink[];
 };
 export function getServiceNavigation(locale: SiteLocale = "en"): readonly NavigationLink[] {
     return [
@@ -172,7 +173,13 @@ export function getHeaderNavigation(locale: SiteLocale = "en"): readonly HeaderN
             label: "How I can help",
             href: getRouteHref("services", "en"),
             description: "Choose the support your people, leadership and organisation need.",
-            items: getServiceNavigation(locale),
+            featuredItems: [
+                { href: "/services#leader-support", label: "Support for you as a leader", description: "Executive coaching and peer advisory for your leadership decisions." },
+                { href: "/services#organisation", label: "Support for you as a company", description: "Assessment, people advisory and fractional leadership for your organisation." },
+            ],
+            items: getServiceNavigation(locale).map((item) => item.href === getRouteHref("services", locale)
+                ? { ...item, label: "All services" }
+                : item),
         },
         {
             id: "insights",

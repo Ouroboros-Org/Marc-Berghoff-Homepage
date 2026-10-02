@@ -150,6 +150,8 @@ Content is visible in the server render and without JavaScript. Reduced-motion v
 
 Preserve working menu semantics, focus handling, Escape behavior, scroll locking and focus return. Self-check is directly discoverable in header and footer; Bottleneck Assessment remains in the service navigation. Keep a booking/contact action in the shared header. Navigation content follows the current English-only route model.
 
+The How I can help submenu leads with two cards: Support for you as a leader and Support for you as a company. They link to the existing Services sections. Keep the overview and five specific offers in a compact Explore services list without descriptions, beside the cards on desktop and below them on mobile. Preserve the direct service links and footer audience groups.
+
 Mobile menu links keep the same text alignment in normal and selected states, with space between the current-page marker and the text. Reserve scrollbar space before an accordion expands. Active group decoration belongs on the title, not its decorative numeric prefix.
 
 Keep form labels, validation, errors, success feedback and explicit optional diagnostic sharing. Do not erase answers or contact text on recoverable errors. Keep calendar sizing, scrolling and contact fallbacks usable on phones.

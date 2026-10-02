@@ -50,12 +50,14 @@ export function SiteHeader({ locale = "en" }: {
     const contactAction = getPrimaryContactAction(locale);
     useEffect(() => {
         const desktopQuery = window.matchMedia("(min-width: 70.001rem)");
-        const closeAtDesktop = (event: MediaQueryListEvent) => {
+        const closeAtBreakpoint = (event: MediaQueryListEvent) => {
             if (event.matches)
                 setMobileState(null);
+            else
+                setDesktopMenuState(null);
         };
-        desktopQuery.addEventListener("change", closeAtDesktop);
-        return () => desktopQuery.removeEventListener("change", closeAtDesktop);
+        desktopQuery.addEventListener("change", closeAtBreakpoint);
+        return () => desktopQuery.removeEventListener("change", closeAtBreakpoint);
     }, []);
     useEffect(() => {
         if (!openDesktopMenu)
@@ -188,17 +190,27 @@ export function SiteHeader({ locale = "en" }: {
       {navigation.map((group) => {
             const open = openDesktopMenu === group.id;
             return (<div aria-hidden={!open} className="desktop-submenu" hidden={!open} id={`desktop-submenu-${group.id}`} key={group.id}>
-            <div className="desktop-submenu__inner">
-              <div className="desktop-submenu__intro">
+            <div className={`desktop-submenu__inner${group.featuredItems ? " desktop-submenu__inner--featured" : ""}`}>
+              {group.featuredItems ? (
+                <nav aria-label={`${group.label} support options`} className="desktop-submenu__featured">
+                  {group.featuredItems.map((item) => (
+                    <Link className="desktop-submenu__link desktop-submenu__link--featured" href={item.href} key={item.href}>
+                      <span>{item.label}</span>
+                      <small>{item.description}</small>
+                    </Link>
+                  ))}
+                </nav>
+              ) : <div className="desktop-submenu__intro">
                 <p className="desktop-submenu__eyebrow">{group.label}</p>
                 <p className="desktop-submenu__title">{group.description}</p>
-              </div>
-              <nav aria-label={`${group.label} pages`} className="desktop-submenu__links">
+              </div>}
+              <nav aria-label={`${group.label} pages`} className={group.featuredItems ? "desktop-submenu__quick-links" : "desktop-submenu__links"}>
+                {group.featuredItems ? <p className="desktop-submenu__eyebrow">Explore services</p> : null}
                 {group.items.map((item) => (<Link aria-current={isCurrentHeaderItem(pathname, group.id, item.href)
                         ? "page"
-                        : undefined} className="desktop-submenu__link" href={item.href} hrefLang={item.language} key={item.href}>
+                        : undefined} className={`desktop-submenu__link${group.featuredItems ? " desktop-submenu__link--compact" : ""}`} href={item.href} hrefLang={item.language} key={item.href}>
                     <span>{item.label}</span>
-                    <small>{item.description}</small>
+                    {group.featuredItems ? null : <small>{item.description}</small>}
                   </Link>))}
               </nav>
             </div>
@@ -222,12 +234,25 @@ export function SiteHeader({ locale = "en" }: {
                   <ChevronDown aria-hidden="true" className="mobile-nav__chevron" size={19}/>
                 </Button>
                 <div aria-hidden={!sectionOpen} className="mobile-nav__submenu" data-open={sectionOpen || undefined} id={`mobile-submenu-${group.id}`}>
-                  <div className="mobile-nav__submenu-inner">
+                  <div className={`mobile-nav__submenu-inner${group.featuredItems ? " mobile-nav__submenu-inner--featured" : ""}`}>
+                    {group.featuredItems ? (
+                      <>
+                        <div className="mobile-nav__featured">
+                          {group.featuredItems.map((item) => (
+                            <Link className="mobile-nav__link mobile-nav__link--featured" href={item.href} key={item.href} tabIndex={mobileOpen && sectionOpen ? 0 : -1}>
+                              <span>{item.label}</span>
+                              <small>{item.description}</small>
+                            </Link>
+                          ))}
+                        </div>
+                        <p className="mobile-nav__quick-label">Explore services</p>
+                      </>
+                    ) : null}
                     {group.items.map((item) => (<Link aria-current={isCurrentHeaderItem(pathname, group.id, item.href)
                         ? "page"
-                        : undefined} className="mobile-nav__link" href={item.href} hrefLang={item.language} key={item.href} tabIndex={mobileOpen && sectionOpen ? 0 : -1}>
+                        : undefined} className={`mobile-nav__link${group.featuredItems ? " mobile-nav__link--compact" : ""}`} href={item.href} hrefLang={item.language} key={item.href} tabIndex={mobileOpen && sectionOpen ? 0 : -1}>
                         <span>{item.label}</span>
-                        <small>{item.description}</small>
+                        {group.featuredItems ? null : <small>{item.description}</small>}
                       </Link>))}
                   </div>
                 </div>

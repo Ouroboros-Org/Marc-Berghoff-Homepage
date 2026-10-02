@@ -107,7 +107,7 @@ export function ServicesLanding({ locale }: { locale: SiteLocale }) {
       <section className={pageStyles.sectionTint} aria-labelledby="leader-support">
         <div className={pageStyles.container}>
           <div className={pageStyles.sectionHeading}>
-            <h2 className={pageStyles.sectionTitle} id="leader-support">Support for you as a leader</h2>
+            <h2 className={`${pageStyles.sectionTitle} ${pageStyles.anchor}`} id="leader-support">Support for you as a leader</h2>
           </div>
           <section className={`${styles.coaching} ${pageStyles.anchor}`} id="coaching" aria-labelledby="coaching-title">
             <div className={pageStyles.textColumn}>
