@@ -112,6 +112,8 @@ export type HeaderNavigationGroup = {
     description: string;
     items: readonly NavigationLink[];
     featuredItems?: readonly NavigationLink[];
+    itemsHeading?: string;
+    itemStyle?: "compact" | "summary";
 };
 export function getServiceNavigation(locale: SiteLocale = "en"): readonly NavigationLink[] {
     return [
@@ -122,12 +124,12 @@ export function getServiceNavigation(locale: SiteLocale = "en"): readonly Naviga
     ] satisfies readonly NavigationLink[];
 }
 export const serviceNavigation = getServiceNavigation("en");
-const insightNavigation = [
-    {
-        href: "/blog",
-        label: "All insights",
-        description: "Explore questions about your people, leadership and organisation.",
-    },
+const insightOverview = {
+    href: "/blog",
+    label: "All insights",
+    description: "Explore questions about your people, leadership and organisation.",
+} as const satisfies NavigationLink;
+const latestInsightNavigation = [
     {
         href: "/blog/founder-bottleneck-or-operating-model",
         label: "When work returns to the founder",
@@ -142,11 +144,6 @@ const insightNavigation = [
         href: "/blog/when-fractional-people-leadership-makes-sense",
         label: "When a Fractional CPO fits",
         description: "Compare ongoing advice, an agreed CPO remit and a permanent hire.",
-    },
-    {
-        href: "/blog/executive-coaching-advisory-or-assessment",
-        label: "Choosing the right engagement",
-        description: "Understand the difference between assessment, focused advice and ongoing support.",
     },
 ] as const satisfies readonly NavigationLink[];
 const aboutNavigation = [
@@ -177,6 +174,8 @@ export function getHeaderNavigation(locale: SiteLocale = "en"): readonly HeaderN
                 { href: "/services#leader-support", label: "Support for you as a leader", description: "Executive coaching and peer advisory for your leadership decisions." },
                 { href: "/services#organisation", label: "Support for you as a company", description: "Assessment, people advisory and fractional leadership for your organisation." },
             ],
+            itemsHeading: "Explore services",
+            itemStyle: "compact",
             items: getServiceNavigation(locale).map((item) => item.href === getRouteHref("services", locale)
                 ? { ...item, label: "All services" }
                 : item),
@@ -186,7 +185,10 @@ export function getHeaderNavigation(locale: SiteLocale = "en"): readonly HeaderN
             label: "Insights",
             href: "/blog",
             description: "Read practical ideas for the people and leadership decisions ahead of you.",
-            items: insightNavigation,
+            featuredItems: [insightOverview],
+            itemsHeading: "Latest",
+            itemStyle: "summary",
+            items: latestInsightNavigation,
         },
         {
             id: "about",

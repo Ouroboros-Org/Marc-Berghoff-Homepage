@@ -511,6 +511,28 @@ img {
   line-height: 1.35;
 }
 
+.desktop-submenu__inner--single-featured {
+  grid-template-columns: minmax(16rem, 1fr) minmax(0, 2fr);
+}
+
+.desktop-submenu__inner--single-featured .desktop-submenu__featured {
+  grid-template-columns: 1fr;
+}
+
+.desktop-submenu__link--summary {
+  min-height: 4.5rem;
+  border-radius: 0.3rem;
+  padding: 0.75rem 0.65rem;
+}
+
+.desktop-submenu__link--summary + .desktop-submenu__link--summary {
+  border-top-color: var(--line);
+}
+
+.desktop-submenu__link--summary small {
+  font-size: 0.8rem;
+}
+
 .mobile-menu-button,
 .mobile-nav {
   display: none !important;
@@ -872,6 +894,11 @@ img {
 
   .mobile-nav__link--compact span {
     font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .mobile-nav__link--summary span {
+    font-size: 0.95rem;
     line-height: 1.35;
   }
 
