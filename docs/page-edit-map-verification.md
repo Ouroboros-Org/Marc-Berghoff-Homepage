@@ -65,6 +65,31 @@ the selected enquiry topic is included in the existing message field.
   and desktop widths. The final production CPO preview has no browser warnings
   or errors.
 
+## 2 October navigation refinement
+
+Implemented from fetched `origin/main` commit `fdc2ad0`; application commit
+`e2f46c6` changes four production files. The owner chose existing Services
+sections for the two prominent audience cards. The overview and five specific
+offers remain in a compact list without descriptions, beside the cards on
+desktop and below them on mobile. Shared footer definitions are unchanged.
+
+The leader heading now uses the existing sticky-header anchor offset. Crossing
+the mobile breakpoint closes the desktop submenu; crossing back closes mobile
+navigation and restores page interaction. Mobile focus outlines sit inside the
+links so the accordion cannot clip them.
+
+- All 158 tests in 18 files, ESLint, TypeScript and the production build pass.
+- Production Chromium checks passed at 320×740, 390×844, 1130×800 and 1280×720,
+  with no horizontal overflow or clipped menu text.
+- Both audience cards and all six compact destinations were followed. Coaching
+  and Malta links preserve their enquiry topics; the European link reaches its
+  separate interest form. No form was submitted.
+- ArrowDown, Tab order, visible focus, Escape, outside-click dismissal,
+  same-page hash navigation and breakpoint changes were checked. Mobile links
+  have a minimum 44px touch height; closing restores scrolling and page access.
+- Insights and About retain their descriptions. Footer links and current-page
+  indicators remain correct. The final preview has no console warnings or errors.
+
 ## Deployment checks
 
 Configure the seven `GOOGLE_PEER_FORM_*` variables from [`.env.example`](../.env.example)
