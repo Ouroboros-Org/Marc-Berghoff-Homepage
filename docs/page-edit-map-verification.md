@@ -90,6 +90,23 @@ links so the accordion cannot clip them.
 - Insights and About retain their descriptions. Footer links and current-page
   indicators remain correct. The final preview has no console warnings or errors.
 
+### Insights follow-up
+
+Application commit `05b2012`, based on fetched `origin/main` `d809d98`, keeps
+All insights as the featured card and places three smaller article links with
+descriptions under Latest. All four articles share the same publication date;
+the three links follow the existing editorial order. The navigation remains
+maintained in `src/config/site.ts`. The fourth article is reachable through
+All insights. Article content and routes are unchanged.
+
+All 158 tests, ESLint, TypeScript and the production build pass. Production
+Chromium checks covered 320×740, 390×844, 1130×800 and 1280×720 without clipped
+menu text or horizontal overflow. All article destinations, overview access,
+current-page indicators, keyboard order, focus, Escape and mobile same-page
+closing were verified. The support menu retains two cards and six links without
+descriptions; About retains its three descriptions. No console warnings or
+errors were reported.
+
 ## Deployment checks
 
 Configure the seven `GOOGLE_PEER_FORM_*` variables from [`.env.example`](../.env.example)
